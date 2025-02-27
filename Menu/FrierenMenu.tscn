@@ -372,7 +372,6 @@ libraries = {
 }
 
 [node name="SoundEffect" type="AudioStreamPlayer" parent="FrierenMenu"]
-volume_db = -5.0
 max_polyphony = 4
 
 [node name="FloatingSprite" type="Sprite2D" parent="."]
@@ -409,5 +408,4 @@ scale = Vector2(0.255, 0.255)
 texture = ExtResource("7_1yhon")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -30.656
 max_polyphony = 4

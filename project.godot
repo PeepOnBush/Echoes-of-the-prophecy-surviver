@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+AudioManager="*res://00_GlobalScripts/GlobalAudioManager.gd"
 LevelManager="*res://00_GlobalScripts/GlobalLevelManager.gd"
 PlayerHud="*res://GUI/player_hud/player_hud.tscn"
 PlayerManager="*res://00_GlobalScripts/GlobalPlayerManager.gd"
