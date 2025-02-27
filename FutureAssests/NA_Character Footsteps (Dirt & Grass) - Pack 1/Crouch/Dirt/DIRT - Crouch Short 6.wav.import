@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cosibtwird5m6"
+path="res://.godot/imported/DIRT - Crouch Short 6.wav-9701f29df42ad258b96727320b1e85c7.sample"
+
+[deps]
+
+source_file="res://FutureAssests/NA_Character Footsteps (Dirt & Grass) - Pack 1/Crouch/Dirt/DIRT - Crouch Short 6.wav"
+dest_files=["res://.godot/imported/DIRT - Crouch Short 6.wav-9701f29df42ad258b96727320b1e85c7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

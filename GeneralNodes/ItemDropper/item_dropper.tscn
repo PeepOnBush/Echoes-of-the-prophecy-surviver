@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqa7te3m6hyno"]
+
+[ext_resource type="Script" path="res://GeneralNodes/ItemDropper/item_dropper.gd" id="1_lpslh"]
+[ext_resource type="FontFile" uid="uid://bmekyy1bb6sqn" path="res://FutureAssests/PixelGameFont.ttf" id="2_xdcsm"]
+[ext_resource type="AudioStream" uid="uid://cvwoy1g2gdmw0" path="res://GeneralNodes/ItemDropper/dungeon_discovery.wav" id="3_8cccx"]
+[ext_resource type="PackedScene" uid="uid://eqn70yocq61" path="res://GeneralNodes/PersistentDataHandler/persistent_data_handler.tscn" id="3_nkhaj"]
+
+[node name="ItemDropper" type="Node2D"]
+script = ExtResource("1_lpslh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(1.339, 1.351)
+
+[node name="Label" type="Label" parent="Sprite2D"]
+texture_filter = 1
+offset_left = -14.1897
+offset_top = -16.2842
+offset_right = 72.8103
+offset_bottom = 0.715765
+scale = Vector2(0.350082, 0.639622)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_xdcsm")
+text = "ITEM DROP"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8cccx")
+
+[node name="PersistentDataHandler" parent="." instance=ExtResource("3_nkhaj")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqqd665jgwdhl"
+path="res://.godot/imported/Frieren the Slayer.mp3-e580ebb7f961e91f1be79d33fc3866a7.mp3str"
+
+[deps]
+
+source_file="res://Player/Audio/Frieren the Slayer.mp3"
+dest_files=["res://.godot/imported/Frieren the Slayer.mp3-e580ebb7f961e91f1be79d33fc3866a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://q8vjnfb2jtu2"
+path="res://.godot/imported/DIRT - Run 7.wav-8dcf5fea066e5600141b36ead6db4520.sample"
+
+[deps]
+
+source_file="res://FutureAssests/NA_Character Footsteps (Dirt & Grass) - Pack 1/Run/Dirt/DIRT - Run 7.wav"
+dest_files=["res://.godot/imported/DIRT - Run 7.wav-8dcf5fea066e5600141b36ead6db4520.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

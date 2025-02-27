@@ -1,0 +1,413 @@
+[gd_scene load_steps=22 format=3 uid="uid://ccugjtnkgn3or"]
+
+[ext_resource type="Texture2D" uid="uid://c72dv5kjet0ra" path="res://Player/Sprites/Frieren.png" id="1_6ja42"]
+[ext_resource type="Script" path="res://Menu/PlayMenu.gd" id="1_edks3"]
+[ext_resource type="AudioStream" uid="uid://bqqd665jgwdhl" path="res://Player/Audio/Frieren the Slayer.mp3" id="2_w5bm5"]
+[ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_wlpcn"]
+[ext_resource type="AudioStream" uid="uid://cpdusx7n45atv" path="res://Menu/blow.wav" id="4_ysa06"]
+[ext_resource type="AudioStream" uid="uid://f6f4qpkssedd" path="res://Menu/Magic.wav" id="5_mk7qq"]
+[ext_resource type="Texture2D" uid="uid://r7mpvnor8ufy" path="res://FutureAssests/Free Smoke Fx  Pixel 01.png" id="6_q0dye"]
+[ext_resource type="Texture2D" uid="uid://2jblb28mrmy6" path="res://Menu/Summer7.png" id="6_y4d2p"]
+[ext_resource type="Texture2D" uid="uid://b8icgj3imrudt" path="res://Menu/Frieren_-_Beyond_Journey 27s_End_English_Title.png" id="7_1yhon"]
+
+[sub_resource type="Animation" id="Animation_6uydb"]
+resource_name = "Menu"
+length = 150.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 22.375),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 330]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 3.75509,
+"start_offset": 0.398513,
+"stream": ExtResource("2_w5bm5")
+}],
+"times": PackedFloat32Array(0.95)
+}
+tracks/1/use_blend = true
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Aura/Layer1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("Aura_01_Layer1"),
+"times": PackedFloat32Array(18.2)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FloatingSprite/Floating")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("Loop"),
+"times": PackedFloat32Array(22.2)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 22.575),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../FloatingSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.15, 22.425),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Aura:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 18.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "animation"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Aura2/Layer2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": PackedStringArray("Aura_01_Layer2"),
+"times": PackedFloat32Array(18.2)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Aura2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 18.375, 19.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SoundEffect")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [{
+"end_offset": 0.235039,
+"start_offset": 0.0,
+"stream": ExtResource("4_ysa06")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_mk7qq")
+}],
+"times": PackedFloat32Array(18.2, 19.4)
+}
+tracks/9/use_blend = true
+
+[sub_resource type="Animation" id="Animation_mnde3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FloatingSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Aura:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Aura2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_se0qq"]
+_data = {
+"Menu": SubResource("Animation_6uydb"),
+"RESET": SubResource("Animation_mnde3")
+}
+
+[sub_resource type="Animation" id="Animation_fp75m"]
+resource_name = "Aura_01_Layer1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 17]
+}
+
+[sub_resource type="Animation" id="Animation_r2axh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmgky"]
+_data = {
+"Aura_01_Layer1": SubResource("Animation_fp75m"),
+"RESET": SubResource("Animation_r2axh")
+}
+
+[sub_resource type="Animation" id="Animation_850kx"]
+resource_name = "Aura_01_Layer2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [17, 0]
+}
+
+[sub_resource type="Animation" id="Animation_bdl3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_530bm"]
+_data = {
+"Aura_01_Layer2": SubResource("Animation_850kx"),
+"RESET": SubResource("Animation_bdl3e")
+}
+
+[sub_resource type="Animation" id="Animation_60n7q"]
+resource_name = "Loop"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FloatingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [292, 330]
+}
+
+[sub_resource type="Animation" id="Animation_aqhab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FloatingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fyd25"]
+_data = {
+"Loop": SubResource("Animation_60n7q"),
+"RESET": SubResource("Animation_aqhab")
+}
+
+[node name="Menu" type="Node2D"]
+position = Vector2(274, 14)
+script = ExtResource("1_edks3")
+
+[node name="FrierenMenu" type="Sprite2D" parent="."]
+position = Vector2(37, 224)
+scale = Vector2(1.42, 1.42)
+texture = ExtResource("1_6ja42")
+hframes = 19
+vframes = 18
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FrierenMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_se0qq")
+}
+
+[node name="ShadowSprite" type="Sprite2D" parent="FrierenMenu"]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.803922)
+show_behind_parent = true
+position = Vector2(0, 29)
+scale = Vector2(0.991719, 1.01879)
+texture = ExtResource("3_wlpcn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FrierenMenu"]
+volume_db = -44.489
+max_polyphony = 4
+
+[node name="Camera2D" type="Camera2D" parent="FrierenMenu"]
+position = Vector2(6.33803, -38.7324)
+
+[node name="Aura" type="Sprite2D" parent="FrierenMenu"]
+z_index = -1
+position = Vector2(0, 19)
+scale = Vector2(1.345, 1.345)
+texture = ExtResource("6_q0dye")
+offset = Vector2(0.405, 0)
+hframes = 18
+vframes = 11
+
+[node name="Layer1" type="AnimationPlayer" parent="FrierenMenu/Aura"]
+libraries = {
+"": SubResource("AnimationLibrary_fmgky")
+}
+
+[node name="Aura2" type="Sprite2D" parent="FrierenMenu"]
+z_index = -1
+position = Vector2(1.40848, 24.6479)
+scale = Vector2(1.55, 1.55)
+texture = ExtResource("6_q0dye")
+hframes = 18
+vframes = 11
+
+[node name="Layer2" type="AnimationPlayer" parent="FrierenMenu/Aura2"]
+libraries = {
+"": SubResource("AnimationLibrary_530bm")
+}
+
+[node name="SoundEffect" type="AudioStreamPlayer" parent="FrierenMenu"]
+volume_db = -32.0
+max_polyphony = 4
+
+[node name="FloatingSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(37, 224)
+scale = Vector2(1.42, 1.42)
+texture = ExtResource("1_6ja42")
+hframes = 19
+vframes = 18
+
+[node name="Floating" type="AnimationPlayer" parent="FloatingSprite"]
+root_node = NodePath("../../FrierenMenu")
+libraries = {
+"": SubResource("AnimationLibrary_fyd25")
+}
+
+[node name="ShadowSprite" type="Sprite2D" parent="FloatingSprite"]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.803922)
+show_behind_parent = true
+position = Vector2(0, 29)
+scale = Vector2(0.991719, 1.01879)
+texture = ExtResource("3_wlpcn")
+
+[node name="Summer7" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(46, 168)
+scale = Vector2(0.277487, 0.279011)
+texture = ExtResource("6_y4d2p")
+
+[node name="Frieren-BeyondJourney27sEndEnglishTitle" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(40, 77)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("7_1yhon")

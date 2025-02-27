@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://3fxy3trfqnpf"]
+
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_4s076"]
+[ext_resource type="Texture2D" uid="uid://360ohy4gau35" path="res://Items/Sprites/Small health potion.png" id="2_onk7v"]
+
+[resource]
+script = ExtResource("1_4s076")
+name = "Small health potion"
+description = "A small size health potion that restore a small amount of health
+ "
+texture = ExtResource("2_onk7v")

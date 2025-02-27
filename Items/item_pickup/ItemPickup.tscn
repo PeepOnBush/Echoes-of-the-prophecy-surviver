@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://kwoyh5nnvi78"]
+
+[ext_resource type="Script" path="res://Items/item_pickup/item_pickup.gd" id="1_v6k10"]
+[ext_resource type="AudioStream" uid="uid://co52yjs7wj781" path="res://Items/item_pickup/item_pickup.wav" id="2_3qo6x"]
+[ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="2_jqlpl"]
+[ext_resource type="Texture2D" uid="uid://j5bqmcu4jifv" path="res://Items/Sprites/Normal health potion.png" id="3_lq42s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6x74"]
+
+[sub_resource type="Animation" id="Animation_2e54i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0rfa5"]
+resource_name = "bounce"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.55, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -6), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8ejd"]
+_data = {
+"RESET": SubResource("Animation_2e54i"),
+"bounce": SubResource("Animation_0rfa5")
+}
+
+[node name="ItemPickup" type="CharacterBody2D"]
+position = Vector2(-6.44211, 8.74657)
+collision_layer = 0
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_v6k10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t6x74")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t6x74")
+
+[node name="ItemShadow" type="Sprite2D" parent="."]
+self_modulate = Color(0.137255, 0.137255, 0.137255, 0.745098)
+position = Vector2(0, 6)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("2_jqlpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lq42s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3qo6x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u8ejd")
+}
+autoplay = "bounce"

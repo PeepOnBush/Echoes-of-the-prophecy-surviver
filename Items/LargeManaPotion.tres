@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bgagmcd3t6hc1"]
+
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_n0i0a"]
+[ext_resource type="Texture2D" uid="uid://ywb6bmjv48pv" path="res://Items/Sprites/Normal mana potion.png" id="2_milgg"]
+
+[resource]
+script = ExtResource("1_n0i0a")
+name = "Large mana potion"
+description = "A large size mana potion that restore greatly amount of mana
+ "
+texture = ExtResource("2_milgg")
+effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([])

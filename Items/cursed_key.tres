@@ -1,0 +1,93 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=30 format=3 uid="uid://c81k8r85oikd0"]
+
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_a6hih"]
+[ext_resource type="Texture2D" uid="uid://ji5kjulj73ku" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0000.png" id="2_kexyg"]
+[ext_resource type="Texture2D" uid="uid://u6ydwdoqcmfc" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0001.png" id="3_1j01t"]
+[ext_resource type="Texture2D" uid="uid://cnocx0ea3pna0" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0010.png" id="4_yvwcd"]
+[ext_resource type="Texture2D" uid="uid://dax4dq8hpsgwx" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0011.png" id="5_rbnkj"]
+[ext_resource type="Texture2D" uid="uid://cyvrfmoacdh8g" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0012.png" id="6_rvjyx"]
+[ext_resource type="Texture2D" uid="uid://cg7hcqcoedyoe" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0013.png" id="7_wbaxj"]
+[ext_resource type="Texture2D" uid="uid://dmthjsbbdxayw" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0014.png" id="8_bavum"]
+[ext_resource type="Texture2D" uid="uid://o8ko2lgyhnvw" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0015.png" id="9_2gfwm"]
+[ext_resource type="Texture2D" uid="uid://8x5er41hvdt3" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0016.png" id="10_0e6fu"]
+[ext_resource type="Texture2D" uid="uid://d3uhc3cklhqm2" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0017.png" id="11_exvjw"]
+[ext_resource type="Texture2D" uid="uid://d32hfpcxphmh3" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0018.png" id="12_so8xe"]
+[ext_resource type="Texture2D" uid="uid://d20j72yprnqr0" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0019.png" id="13_7bpfm"]
+[ext_resource type="Texture2D" uid="uid://bgf40yaoyvg3r" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0002.png" id="14_7nofj"]
+[ext_resource type="Texture2D" uid="uid://d075hy7b3fp5s" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0020.png" id="15_51i7u"]
+[ext_resource type="Texture2D" uid="uid://cm0xbe43lwjjd" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0021.png" id="16_8c25g"]
+[ext_resource type="Texture2D" uid="uid://ceqn2hknvphwg" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0022.png" id="17_wbtwt"]
+[ext_resource type="Texture2D" uid="uid://0otrxs5vdki" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0023.png" id="18_86ljk"]
+[ext_resource type="Texture2D" uid="uid://cxvmvegm4m6aa" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0024.png" id="19_art5q"]
+[ext_resource type="Texture2D" uid="uid://ckcvtyqhwq1ov" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0025.png" id="20_cb8b6"]
+[ext_resource type="Texture2D" uid="uid://cqk7giy75fo0s" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0026.png" id="21_qq1xj"]
+[ext_resource type="Texture2D" uid="uid://58u3ogrb5vve" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0003.png" id="22_uf5uh"]
+[ext_resource type="Texture2D" uid="uid://boiq6etyrj5s7" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0004.png" id="23_6ki2n"]
+[ext_resource type="Texture2D" uid="uid://drnjtulxy0jsq" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0005.png" id="24_8eski"]
+[ext_resource type="Texture2D" uid="uid://8bn7qa4162p0" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0006.png" id="25_djpph"]
+[ext_resource type="Texture2D" uid="uid://cen4q7aq7pogp" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0007.png" id="26_5sgpp"]
+[ext_resource type="Texture2D" uid="uid://2f25j4cmntnc" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0008.png" id="27_ndrir"]
+[ext_resource type="Texture2D" uid="uid://cdc0qakuidhtv" path="res://Items/Sprites/CURSE/Key 8 - CURSE - frame0009.png" id="28_cmrgf"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ws7cs"]
+frames = 27
+frame_0/texture = ExtResource("2_kexyg")
+frame_1/texture = ExtResource("3_1j01t")
+frame_1/duration = 0.25
+frame_2/texture = ExtResource("14_7nofj")
+frame_2/duration = 0.25
+frame_3/texture = ExtResource("22_uf5uh")
+frame_3/duration = 0.25
+frame_4/texture = ExtResource("23_6ki2n")
+frame_4/duration = 0.25
+frame_5/texture = ExtResource("24_8eski")
+frame_5/duration = 0.25
+frame_6/texture = ExtResource("25_djpph")
+frame_6/duration = 0.25
+frame_7/texture = ExtResource("26_5sgpp")
+frame_7/duration = 0.25
+frame_8/texture = ExtResource("27_ndrir")
+frame_8/duration = 0.25
+frame_9/texture = ExtResource("28_cmrgf")
+frame_9/duration = 0.25
+frame_10/texture = ExtResource("4_yvwcd")
+frame_10/duration = 0.25
+frame_11/texture = ExtResource("5_rbnkj")
+frame_11/duration = 0.25
+frame_12/texture = ExtResource("6_rvjyx")
+frame_12/duration = 0.25
+frame_13/texture = ExtResource("7_wbaxj")
+frame_13/duration = 0.25
+frame_14/texture = ExtResource("8_bavum")
+frame_14/duration = 0.25
+frame_15/texture = ExtResource("9_2gfwm")
+frame_15/duration = 0.25
+frame_16/texture = ExtResource("10_0e6fu")
+frame_16/duration = 0.25
+frame_17/texture = ExtResource("11_exvjw")
+frame_17/duration = 0.25
+frame_18/texture = ExtResource("12_so8xe")
+frame_18/duration = 0.25
+frame_19/texture = ExtResource("13_7bpfm")
+frame_19/duration = 0.25
+frame_20/texture = ExtResource("15_51i7u")
+frame_20/duration = 0.25
+frame_21/texture = ExtResource("16_8c25g")
+frame_21/duration = 0.25
+frame_22/texture = ExtResource("17_wbtwt")
+frame_22/duration = 0.25
+frame_23/texture = ExtResource("18_86ljk")
+frame_23/duration = 0.25
+frame_24/texture = ExtResource("19_art5q")
+frame_24/duration = 0.25
+frame_25/texture = ExtResource("20_cb8b6")
+frame_25/duration = 0.25
+frame_26/texture = ExtResource("21_qq1xj")
+frame_26/duration = 0.25
+
+[resource]
+script = ExtResource("1_a6hih")
+name = "cursed_key"
+description = "cursed, rusty looking key."
+texture = SubResource("AnimatedTexture_ws7cs")
+effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([])

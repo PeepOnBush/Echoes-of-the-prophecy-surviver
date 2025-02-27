@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://07s0lilgdu6d"
+path="res://.godot/imported/GRASS - Post Jump 7.wav-e9e26b5941724a1880f181386a2c124e.sample"
+
+[deps]
+
+source_file="res://FutureAssests/NA_Character Footsteps (Dirt & Grass) - Pack 1/Jump/Grass/GRASS - Post Jump 7.wav"
+dest_files=["res://.godot/imported/GRASS - Post Jump 7.wav-e9e26b5941724a1880f181386a2c124e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

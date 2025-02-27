@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b043kne85h5ic"]
+
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_moahx"]
+[ext_resource type="Texture2D" uid="uid://bo8dpxgp4o6o5" path="res://Items/Sprites/Small mana potion.png" id="2_m5o2l"]
+
+[resource]
+script = ExtResource("1_moahx")
+name = "Small mana potion"
+description = "A small size mana potion that restore a small amount of mana
+ "
+texture = ExtResource("2_m5o2l")
