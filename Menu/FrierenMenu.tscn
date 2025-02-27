@@ -29,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/path = NodePath("../AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -341,10 +341,6 @@ position = Vector2(0, 29)
 scale = Vector2(0.991719, 1.01879)
 texture = ExtResource("3_wlpcn")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FrierenMenu"]
-volume_db = -44.489
-max_polyphony = 4
-
 [node name="Camera2D" type="Camera2D" parent="FrierenMenu"]
 position = Vector2(6.33803, -38.7324)
 
@@ -376,7 +372,7 @@ libraries = {
 }
 
 [node name="SoundEffect" type="AudioStreamPlayer" parent="FrierenMenu"]
-volume_db = -32.0
+volume_db = -5.0
 max_polyphony = 4
 
 [node name="FloatingSprite" type="Sprite2D" parent="."]
@@ -411,3 +407,7 @@ texture_filter = 2
 position = Vector2(40, 77)
 scale = Vector2(0.255, 0.255)
 texture = ExtResource("7_1yhon")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -30.656
+max_polyphony = 4

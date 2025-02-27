@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pm8hmceeo3q5"]
+[gd_scene load_steps=13 format=3 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_747no"]
 [ext_resource type="PackedScene" uid="uid://ckpmgvd6j5mjo" path="res://Tile Maps/Grass-01.tscn" id="1_jgpwo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="9_d27h5"]
 [ext_resource type="Resource" uid="uid://cuchbwbwxesyu" path="res://Items/NormalPotion.tres" id="10_c4jrt"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="11_kowrg"]
+[ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
 
 [node name="01" type="Node2D"]
 position = Vector2(1, 2)
@@ -79,3 +80,8 @@ position = Vector2(239, -15)
 level = "res://Levels/Dungeon01/01.tscn"
 center_player = true
 side = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_36ld3")
+autoplay = true
+bus = &"Music"
