@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=11 format=3 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="PackedScene" uid="uid://ckpmgvd6j5mjo" path="res://Tile Maps/Grass-01.tscn" id="1_4tf5h"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6l1vp"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="2_x862d"]
-[ext_resource type="PackedScene" uid="uid://ckl8plhl1alqu" path="res://Enemies/Slime/Slime.tscn" id="3_0k6yg"]
 [ext_resource type="PackedScene" uid="uid://bhhxuhkv5t5ab" path="res://Props/Plants/plant.tscn" id="4_nyek5"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="6_olpx4"]
+[ext_resource type="PackedScene" uid="uid://pdb02vlsxpnk" path="res://Npc/npc.tscn" id="7_hvt1o"]
+[ext_resource type="Resource" uid="uid://clwp1f5yw74dx" path="res://Npc/00_Npcs/npc_01.tres" id="8_ccwxv"]
+[ext_resource type="PackedScene" uid="uid://bbj5i8si4a24t" path="res://Npc/npc_behavior_wander.tscn" id="8_seruy"]
+[ext_resource type="Resource" uid="uid://bj4wankd7m213" path="res://Npc/00_Npcs/npc_02.tres" id="8_w0os1"]
 
 [node name="02" type="Node2D"]
 position = Vector2(1, 1)
@@ -34,17 +37,25 @@ position = Vector2(17, 238)
 [node name="Plant5" parent="." instance=ExtResource("4_nyek5")]
 position = Vector2(319, 181)
 
-[node name="Slime" parent="." instance=ExtResource("3_0k6yg")]
-position = Vector2(418, 41)
-
-[node name="Slime2" parent="." instance=ExtResource("3_0k6yg")]
-position = Vector2(48, 66)
-
-[node name="Slime3" parent="." instance=ExtResource("3_0k6yg")]
-position = Vector2(435, 241)
-
 [node name="LevelTransition" parent="." instance=ExtResource("6_olpx4")]
 position = Vector2(224, -64)
 level = "res://Levels/Area01/01.tscn"
 size = 6
 side = 2
+
+[node name="Npc" parent="." instance=ExtResource("7_hvt1o")]
+position = Vector2(332, 73)
+npc_resource = ExtResource("8_w0os1")
+
+[node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("8_seruy")]
+scale = Vector2(1.1, 1.1)
+
+[node name="Npc2" parent="." instance=ExtResource("7_hvt1o")]
+position = Vector2(160, 193)
+npc_resource = ExtResource("8_ccwxv")
+
+[node name="NpcBehaviorWander" parent="Npc2" instance=ExtResource("8_seruy")]
+scale = Vector2(1.16, 1.16)
+wander_range = 1
+wander_speed = 60.0
+wander_duration = 4.0
