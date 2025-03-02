@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dpb2kcjpegsdg"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dpb2kcjpegsdg"]
 
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_e2lkv"]
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_m7fpc"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_p3pdu"]
 
@@ -12,4 +13,4 @@ script = ExtResource("1_m7fpc")
 name = "Gem"
 description = "A rare mineral"
 texture = SubResource("AtlasTexture_ayh0e")
-effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([])
+effects = Array[ExtResource("1_e2lkv")]([])

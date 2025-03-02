@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cuchbwbwxesyu"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cuchbwbwxesyu"]
 
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_1m5x7"]
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_ogmbs"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_6awcy"]
 
@@ -13,4 +14,4 @@ name = "Normal potion"
 description = "A normal size potion
 "
 texture = SubResource("AtlasTexture_ptdax")
-effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([])
+effects = Array[ExtResource("1_1m5x7")]([])

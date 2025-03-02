@@ -37,4 +37,3 @@ func updateLabel( _s : String) -> void:
 func updateLine( nextLocation : Vector2) -> void:
 	var line : Line2D = $Sprite2D/Line2D
 	line.points[1] = nextLocation - position
-

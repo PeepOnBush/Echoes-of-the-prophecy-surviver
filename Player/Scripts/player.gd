@@ -94,4 +94,3 @@ func make_invulnerable( _duration : float = 1.0) -> void:
 	invulnerable = false
 	hit_box.monitoring = true
 	pass
-
