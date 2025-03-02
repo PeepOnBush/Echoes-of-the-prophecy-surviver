@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Interactables/TreasureChest/treasure_chest.gd" id="1_o2t5a"]
 [ext_resource type="Texture2D" uid="uid://ckd4mngmnk4e5" path="res://Interactables/TreasureChest/Fantasy RPG (Toony) 32x32.png" id="1_wqf7g"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_7udl2"]
-[ext_resource type="FontFile" uid="uid://bmekyy1bb6sqn" path="res://FutureAssests/PixelGameFont.ttf" id="2_hcjou"]
+[ext_resource type="FontFile" uid="uid://qnkpjj5qtby0" path="res://GUI/Fonts/Abaddon Bold.ttf" id="4_ubse1"]
 [ext_resource type="AudioStream" uid="uid://ddqijwrr5m1u6" path="res://Interactables/TreasureChest/treasure-open.wav" id="4_xhk80"]
 [ext_resource type="PackedScene" uid="uid://eqn70yocq61" path="res://GeneralNodes/PersistentDataHandler/persistent_data_handler.tscn" id="6_d837t"]
 
@@ -210,14 +210,14 @@ texture = SubResource("AtlasTexture_1i4dl")
 anchors_preset = -1
 anchor_top = -0.00247884
 anchor_bottom = -0.00247884
-offset_left = 3.81392
-offset_top = -4.51181
-offset_right = 43.8139
-offset_bottom = 12.4882
-scale = Vector2(0.788588, 0.848004)
+offset_left = 1.15473
+offset_top = -7.91155
+offset_right = 41.1547
+offset_bottom = 10.0885
+scale = Vector2(0.922724, 1.07364)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_hcjou")
+theme_override_fonts/font = ExtResource("4_ubse1")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GUI/pause_menu/inventory/Scripts/inventory_slot_ui.gd" id="1_lpxwy"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="1_th5xj"]
-[ext_resource type="FontFile" uid="uid://bmekyy1bb6sqn" path="res://FutureAssests/PixelGameFont.ttf" id="3_p5roc"]
+[ext_resource type="FontFile" uid="uid://qnkpjj5qtby0" path="res://GUI/Fonts/Abaddon Bold.ttf" id="3_u1gtu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqbdv"]
 atlas = ExtResource("1_th5xj")
@@ -24,14 +24,14 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 16.0
-offset_top = 2.0
-offset_right = 47.0
-offset_bottom = 29.0
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 52.0
 scale = Vector2(0.585778, 0.714653)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_p5roc")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("3_u1gtu")
+theme_override_font_sizes/font_size = 22
 text = "55
 
 "

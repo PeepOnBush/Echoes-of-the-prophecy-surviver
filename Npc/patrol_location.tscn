@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3xfdyi0hmf5i"]
+[gd_scene load_steps=6 format=3 uid="uid://c3xfdyi0hmf5i"]
+
+[ext_resource type="FontFile" uid="uid://bmekyy1bb6sqn" path="res://FutureAssests/PixelGameFont.ttf" id="1_5473u"]
+[ext_resource type="Script" path="res://Npc/Scripts/patrol_location.gd" id="1_ovgt6"]
+[ext_resource type="FontFile" uid="uid://cftmg0ask2vmo" path="res://FutureAssests/QuinqueFive.ttf" id="2_juof6"]
 
 [sub_resource type="Gradient" id="Gradient_1i36e"]
-offsets = PackedFloat32Array(0, 0.615385, 0.831361, 1)
-colors = PackedColorArray(1, 1, 1, 0.479452, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.434911, 0.742604, 0.831361, 1)
+colors = PackedColorArray(1, 1, 1, 0.479452, 1, 1, 1, 0.183376, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fldd8"]
 gradient = SubResource("Gradient_1i36e")
@@ -13,17 +17,35 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="PatrolLocation" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_ovgt6")
+wait_time = 0.005
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.564706)
+self_modulate = Color(1, 1, 1, 0.647059)
 texture = SubResource("GradientTexture2D_fldd8")
 
+[node name="Line2D" type="Line2D" parent="Sprite2D"]
+points = PackedVector2Array(0, 0, 10, 0)
+width = 1.0
+default_color = Color(1, 1, 1, 0.584314)
+
 [node name="Label" type="Label" parent="Sprite2D"]
-offset_right = 40.0
-offset_bottom = 17.0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 37.0
+offset_bottom = 12.0
+scale = Vector2(0.784832, 0.721442)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5473u")
+text = "0"
 
 [node name="Label2" type="Label" parent="Sprite2D"]
-offset_right = 40.0
-offset_bottom = 17.0
-
-[node name="Line2D" type="Line2D" parent="Sprite2D"]
+offset_left = -27.0
+offset_top = 7.0
+offset_right = 127.0
+offset_bottom = 26.0
+scale = Vector2(0.411954, 0.488898)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_juof6")
+text = "wait:0.01 secs"
