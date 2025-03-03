@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://scocpb56vekl"]
+
+[ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_vkrc1"]
+[ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="2_30t54"]
+
+[sub_resource type="Gradient" id="Gradient_ev456"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ctiv5"]
+gradient = SubResource("Gradient_ev456")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_auup4"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_30t54")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="DialogSystem" type="CanvasLayer"]
+process_mode = 3
+layer = 0
+script = ExtResource("1_vkrc1")
+
+[node name="DialogUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogUi"]
+modulate = Color(0, 0, 0, 0.505882)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -182.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_ctiv5")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogUi"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -470.0
+offset_top = -157.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_auup4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUi/PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Example Text"

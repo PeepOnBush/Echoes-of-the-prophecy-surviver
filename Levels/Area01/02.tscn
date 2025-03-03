@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c3xfdyi0hmf5i" path="res://Npc/patrol_location.tscn" id="12_ghqqj"]
 
 [node name="02" type="Node2D"]
-position = Vector2(1, 1)
+position = Vector2(-28, 17)
 script = ExtResource("1_jhm8w")
 music = ExtResource("2_x862d")
 
