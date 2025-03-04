@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c306w0wfwehyc"]
 
-[ext_resource type="Script" path="res://Interactables/dungeon/Scripts/pushable_statue.gd" id="1_jvh5o"]
-[ext_resource type="Texture2D" uid="uid://k5s6s4cxpsuv" path="res://Interactables/dungeon/dungeon_props.png" id="2_voj1o"]
-[ext_resource type="AudioStream" uid="uid://50ljnytdu6hx" path="res://Interactables/dungeon/push_stone.wav" id="3_okq4v"]
+[ext_resource type="Script" path="res://Interactables/Dungeon/Scripts/pushable_statue.gd" id="1_jvh5o"]
+[ext_resource type="Texture2D" uid="uid://k5s6s4cxpsuv" path="res://Interactables/Dungeon/dungeon_props.png" id="2_voj1o"]
+[ext_resource type="AudioStream" uid="uid://50ljnytdu6hx" path="res://Interactables/Dungeon/push_stone.wav" id="3_okq4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hkup"]
 size = Vector2(30, 10)

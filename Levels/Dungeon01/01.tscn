@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_0lqvu"]
 [ext_resource type="AudioStream" uid="uid://1r67g4ua83ap" path="res://Levels/music/example_music_03.ogg" id="2_uirmi"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="4_mygej"]
-[ext_resource type="PackedScene" uid="uid://hatum46ecrmx" path="res://Interactables/dungeon/pressure_plate.tscn" id="5_w120r"]
-[ext_resource type="PackedScene" uid="uid://b6ryrbmtlmx25" path="res://Interactables/dungeon/barred_door.tscn" id="6_xdjt0"]
-[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/dungeon/pushable_statue.tscn" id="7_ywjye"]
+[ext_resource type="PackedScene" uid="uid://hatum46ecrmx" path="res://Interactables/Dungeon/pressure_plate.tscn" id="5_w120r"]
+[ext_resource type="PackedScene" uid="uid://b6ryrbmtlmx25" path="res://Interactables/Dungeon/barred_door.tscn" id="6_xdjt0"]
+[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/Dungeon/pushable_statue.tscn" id="7_ywjye"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="8_j1i0r"]
 [ext_resource type="PackedScene" uid="uid://b2vctrqlv3edw" path="res://GeneralNodes/EnemyCounter/enemy_counter.tscn" id="8_t7g2d"]
 

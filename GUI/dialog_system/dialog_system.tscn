@@ -1,31 +1,79 @@
-[gd_scene load_steps=6 format=3 uid="uid://scocpb56vekl"]
+[gd_scene load_steps=11 format=3 uid="uid://byrky0o0s3e3d"]
 
-[ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_vkrc1"]
-[ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="2_30t54"]
+[ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_jfjvd"]
+[ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="1_shpx4"]
+[ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="3_jsyly"]
 
-[sub_resource type="Gradient" id="Gradient_ev456"]
+[sub_resource type="Gradient" id="Gradient_7atso"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ctiv5"]
-gradient = SubResource("Gradient_ev456")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nh1bm"]
+gradient = SubResource("Gradient_7atso")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_auup4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p44wm"]
 content_margin_left = 14.0
 content_margin_top = 10.0
 content_margin_right = 14.0
 content_margin_bottom = 10.0
-texture = ExtResource("2_30t54")
+texture = ExtResource("1_shpx4")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dm3q"]
+content_margin_left = 4.0
+content_margin_top = 1.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_27a6j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_83an2"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.2, 1.4, 1.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3if7w"]
+_data = {
+"RESET": SubResource("Animation_27a6j"),
+"default": SubResource("Animation_83an2")
+}
+
 [node name="DialogSystem" type="CanvasLayer"]
-process_mode = 3
-layer = 0
-script = ExtResource("1_vkrc1")
+script = ExtResource("1_jfjvd")
 
 [node name="DialogUi" type="Control" parent="."]
 layout_mode = 3
@@ -36,16 +84,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="DialogUi"]
-modulate = Color(0, 0, 0, 0.505882)
+modulate = Color(0, 0, 0, 0.494118)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -182.0
+offset_top = -202.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("GradientTexture2D_ctiv5")
+texture = SubResource("GradientTexture2D_nh1bm")
 
 [node name="PanelContainer" type="PanelContainer" parent="DialogUi"]
 layout_mode = 1
@@ -54,13 +102,67 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -470.0
-offset_top = -157.0
+offset_left = -538.0
+offset_top = -90.0
+offset_right = -7.0
+offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_auup4")
+theme_override_styles/panel = SubResource("StyleBoxTexture_p44wm")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogUi/PanelContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
 bbcode_enabled = true
-text = "Example Text"
+text = "Hello 
+[wave]hello everyone [/wave]
+[shake] [color=red]shiver my timper[/color] [/shake]"
+scroll_active = false
+
+[node name="NameLabel" type="Label" parent="DialogUi"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 103.0
+offset_top = 255.0
+offset_right = 159.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 21
+text = "Gerome"
+
+[node name="PotraitSprite" type="Sprite2D" parent="DialogUi"]
+position = Vector2(62, 286)
+texture = ExtResource("3_jsyly")
+hframes = 4
+
+[node name="Timer" type="Timer" parent="DialogUi"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUi"]
+
+[node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUi"]
+self_modulate = Color(0.304899, 0.609487, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 595.0
+offset_top = 336.0
+offset_right = 635.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2dm3q")
+
+[node name="Label" type="Label" parent="DialogUi/DialogProgressIndicator"]
+texture_filter = 1
+layout_mode = 2
+text = "Next
+"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUi/DialogProgressIndicator"]
+libraries = {
+"": SubResource("AnimationLibrary_3if7w")
+}
+autoplay = "default"

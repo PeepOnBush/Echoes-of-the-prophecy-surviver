@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=16 format=3 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="PackedScene" uid="uid://ckpmgvd6j5mjo" path="res://Tile Maps/Grass-01.tscn" id="1_4tf5h"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
@@ -10,7 +10,10 @@
 [ext_resource type="Resource" uid="uid://clwp1f5yw74dx" path="res://Npc/00_Npcs/npc_01.tres" id="8_ccwxv"]
 [ext_resource type="PackedScene" uid="uid://bbj5i8si4a24t" path="res://Npc/npc_behavior_wander.tscn" id="8_seruy"]
 [ext_resource type="Resource" uid="uid://bj4wankd7m213" path="res://Npc/00_Npcs/npc_02.tres" id="8_w0os1"]
+[ext_resource type="PackedScene" uid="uid://b3iobd78lcjly" path="res://Interactables/Dialog/dialog_interaction.tscn" id="10_yaxbn"]
 [ext_resource type="PackedScene" uid="uid://dwix1fa7n0rgj" path="res://Npc/npc_behavior_patrol.tscn" id="11_vxtty"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="11_xlg0g"]
+[ext_resource type="Resource" uid="uid://b3tprasevnjy" path="res://Npc/00_Npcs/00_hero.tres" id="12_3o1n0"]
 [ext_resource type="PackedScene" uid="uid://c3xfdyi0hmf5i" path="res://Npc/patrol_location.tscn" id="12_ghqqj"]
 
 [node name="02" type="Node2D"]
@@ -51,6 +54,24 @@ npc_resource = ExtResource("8_w0os1")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("8_seruy")]
 scale = Vector2(1.1, 1.1)
+
+[node name="DialogInteraction" parent="Npc" instance=ExtResource("10_yaxbn")]
+
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "
+Hi, [b]Hero [/b] is that you ? "
+
+[node name="DialogText2" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "
+[wave] Heck yeah it's me!!! [/wave]"
+npc_info = ExtResource("12_3o1n0")
+
+[node name="DialogText3" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "Nice bro
+Happy to have a hero!!"
 
 [node name="Npc2" parent="." instance=ExtResource("7_hvt1o")]
 position = Vector2(211, 180)

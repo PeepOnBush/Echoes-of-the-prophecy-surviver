@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k5s6s4cxpsuv"
-path="res://.godot/imported/dungeon_props.png-beaa3b6c75ea898d16245df389b1f44d.ctex"
+uid="uid://b2ekv8kofnkbr"
+path="res://.godot/imported/dialog_interactable.png-3935a6ffc1d1f7882f8e31847d86e03d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Interactables/Dungeon/dungeon_props.png"
-dest_files=["res://.godot/imported/dungeon_props.png-beaa3b6c75ea898d16245df389b1f44d.ctex"]
+source_file="res://Interactables/Dialog/Sprites/dialog_interactable.png"
+dest_files=["res://.godot/imported/dialog_interactable.png-3935a6ffc1d1f7882f8e31847d86e03d.ctex"]
 
 [params]
 

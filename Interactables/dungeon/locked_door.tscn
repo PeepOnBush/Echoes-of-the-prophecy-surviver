@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b8fjmebu0l7sj"]
 
-[ext_resource type="Script" path="res://Interactables/dungeon/Scripts/locked_door.gd" id="1_7xm4f"]
-[ext_resource type="Texture2D" uid="uid://k5s6s4cxpsuv" path="res://Interactables/dungeon/dungeon_props.png" id="1_qg4uv"]
+[ext_resource type="Script" path="res://Interactables/Dungeon/Scripts/locked_door.gd" id="1_7xm4f"]
+[ext_resource type="Texture2D" uid="uid://k5s6s4cxpsuv" path="res://Interactables/Dungeon/dungeon_props.png" id="1_qg4uv"]
 [ext_resource type="Resource" uid="uid://c81k8r85oikd0" path="res://Items/cursed_key.tres" id="2_s0lx4"]
 [ext_resource type="PackedScene" uid="uid://eqn70yocq61" path="res://GeneralNodes/PersistentDataHandler/persistent_data_handler.tscn" id="2_ywiry"]
 
