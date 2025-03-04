@@ -29,7 +29,6 @@ func showDialog() -> void:
 	isActive = true
 	dialog_ui.visible = true
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
-	print("Node Changed")
 	get_tree().paused = true
 	pass
 

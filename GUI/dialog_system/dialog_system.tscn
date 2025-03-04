@@ -73,6 +73,7 @@ _data = {
 }
 
 [node name="DialogSystem" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_jfjvd")
 
 [node name="DialogUi" type="Control" parent="."]

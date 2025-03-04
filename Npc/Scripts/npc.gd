@@ -18,11 +18,33 @@ func _ready() -> void:
 	setupNpc()
 	if Engine.is_editor_hint():
 		return 
+	gatherInteractables()
 	do_behavior_enabled.emit()
 	pass
 
 func _physics_process(_delta : float) -> void:
 	move_and_slide()
+
+func gatherInteractables() -> void:
+	for c in get_children():
+		if c is DialogInteraction:
+			c.player_interated.connect( onPlayerInteract)
+			c.finished.connect( onInteractFinished)
+
+func onPlayerInteract() -> void:
+	updateDirection(PlayerManager.player.global_position)
+	state = "idle"
+	velocity = Vector2.ZERO
+	updateAnimation()
+	doBehavior = false
+	pass
+
+func onInteractFinished() -> void:
+	state = "idle"
+	updateAnimation()
+	doBehavior = true
+	do_behavior_enabled.emit()
+	pass
 
 func updateAnimation() -> void:
 	animation.play( state + "_" + directionName)
