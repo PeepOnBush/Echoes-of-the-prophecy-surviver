@@ -2,7 +2,7 @@
 @icon("res://GUI/dialog_system/Icons/chat_bubbles.svg")
 class_name DialogInteraction extends Area2D
 
-signal player_interated
+signal player_interacted
 signal finished
 
 @export var enabled : bool = true
@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -42,8 +42,11 @@ func checkForDialogItems() -> bool:
 	return false
 
 func playerInteract() -> void:
-	player_interated.emit()
-	DialogSystem.showDialog()
+	player_interacted.emit()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	DialogSystem.showDialog(dialog_items)
+	DialogSystem.finished.connect( _on_dialog_finished )
 	pass
 
 func onAreaEnter(_a : Area2D) -> void:
@@ -57,3 +60,7 @@ func onAreaExit(_a : Area2D) -> void:
 	animation_player.play("hide")
 	PlayerManager.interact_pressed.disconnect(playerInteract)
 	pass
+
+func  _on_dialog_finished () -> void:
+	DialogSystem.finished.disconnect(_on_dialog_finished)
+	finished.emit()

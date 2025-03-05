@@ -28,7 +28,7 @@ func _physics_process(_delta : float) -> void:
 func gatherInteractables() -> void:
 	for c in get_children():
 		if c is DialogInteraction:
-			c.player_interated.connect( onPlayerInteract)
+			c.player_interacted.connect( onPlayerInteract)
 			c.finished.connect( onInteractFinished)
 
 func onPlayerInteract() -> void:
@@ -48,7 +48,6 @@ func onInteractFinished() -> void:
 
 func updateAnimation() -> void:
 	animation.play( state + "_" + directionName)
-	pass
 
 func updateDirection(targetPosition : Vector2) -> void:
 	direction = global_position.direction_to(targetPosition)
@@ -66,7 +65,6 @@ func updateDirectionName() -> void:
 		directionName = "down"
 	elif direction.x > threshold || direction.x < -threshold:
 		directionName = "side"
-	pass
 
 func setupNpc() -> void:
 	if npc_resource:
@@ -77,4 +75,3 @@ func setupNpc() -> void:
 func setNpcResource( _npc : NPCResource) -> void:
 	npc_resource = _npc
 	setupNpc()
-	pass

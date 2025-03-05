@@ -19,6 +19,7 @@ func clearInventory() -> void:
 		c.queue_free()
 
 func updateInventory() -> void:
+	clearInventory()
 	for s in data.slots:
 		var newSlot = INVENTORY_SLOT.instantiate()
 		add_child(newSlot)
@@ -39,4 +40,3 @@ func onInventoryChanged() -> void:
 	clearInventory()
 	updateInventory()
 	
-

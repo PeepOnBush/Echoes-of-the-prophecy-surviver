@@ -21,12 +21,12 @@ func _ready() -> void:
 	offRect = sprite.region_rect
 	pass
 
-func onBodyEntered( b : Node2D) -> void:
+func onBodyEntered( _b : Node2D) -> void:
 	bodies += 1 
 	checkIsActivated()
 	pass
 
-func onBodyExited( b : Node2D) -> void:
+func onBodyExited( _b : Node2D) -> void:
 	bodies -= 1
 	checkIsActivated()
 	pass
