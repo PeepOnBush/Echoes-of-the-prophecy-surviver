@@ -60,19 +60,18 @@ scale = Vector2(1.1, 1.1)
 [node name="DialogText" type="Node" parent="Npc/DialogInteraction"]
 script = ExtResource("11_xlg0g")
 text = "
-[shake]Hi, Hero is that you ?[/shake] "
+[wave] dang bro, nice cock?[/wave] "
 npc_info = ExtResource("8_w0os1")
 
 [node name="DialogText2" type="Node" parent="Npc/DialogInteraction"]
 script = ExtResource("11_xlg0g")
 text = "
-[wave] Heck yeah it's me!!! [/wave]"
+[shake] WHATT!!! [/shake]"
 npc_info = ExtResource("12_3o1n0")
 
 [node name="DialogText3" type="Node" parent="Npc/DialogInteraction"]
 script = ExtResource("11_xlg0g")
-text = "Nice bro
-Happy to have a hero!!"
+text = "SHHHHH no one will trust you"
 npc_info = ExtResource("8_w0os1")
 
 [node name="Npc2" parent="." instance=ExtResource("7_hvt1o")]

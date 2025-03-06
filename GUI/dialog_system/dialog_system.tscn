@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://byrky0o0s3e3d"]
+[gd_scene load_steps=13 format=3 uid="uid://byrky0o0s3e3d"]
 
 [ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_jfjvd"]
 [ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="1_shpx4"]
 [ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="3_jsyly"]
+[ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_potrait.gd" id="4_g1le2"]
+[ext_resource type="AudioStream" uid="uid://cckqokiix1gi3" path="res://GUI/dialog_system/Audio/voice_blip.wav" id="4_ow4rp"]
 
 [sub_resource type="Gradient" id="Gradient_7atso"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -140,10 +142,15 @@ text = "Gerome"
 position = Vector2(51, 286)
 texture = ExtResource("3_jsyly")
 hframes = 4
+script = ExtResource("4_g1le2")
 
 [node name="Timer" type="Timer" parent="DialogUi"]
+one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUi"]
+stream = ExtResource("4_ow4rp")
+max_polyphony = 6
+bus = &"SFX"
 
 [node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUi"]
 self_modulate = Color(0.304899, 0.609487, 0, 1)

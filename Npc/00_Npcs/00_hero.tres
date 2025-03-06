@@ -7,4 +7,4 @@
 script = ExtResource("1_xudpl")
 npc_name = "Hero"
 portrait = ExtResource("1_pihmd")
-dialog_audio_pitch = ""
+dialog_audio_pitch = 1.0
