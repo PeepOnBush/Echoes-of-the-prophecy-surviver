@@ -34,6 +34,8 @@ func start() -> void:
 	npc.velocity = Vector2.ZERO
 	npc.updateAnimation()
 	await get_tree().create_timer(randf() * idle_duration + idle_duration * 0.5).timeout
+	if npc.doBehavior == false:
+		return
 	#WALK PHASE
 	npc.state = "walk"
 	var _dir : Vector2 = DIRECTION[randi_range(0,3)]

@@ -66,7 +66,7 @@ npc_info = ExtResource("8_w0os1")
 [node name="DialogText2" type="Node" parent="Npc/DialogInteraction"]
 script = ExtResource("11_xlg0g")
 text = "
-[shake] WHATT!!! [/shake]"
+[shake] Hi i'm the hero ehe!!! [/shake]"
 npc_info = ExtResource("12_3o1n0")
 
 [node name="DialogText3" type="Node" parent="Npc/DialogInteraction"]
@@ -108,3 +108,22 @@ wait_time = 0.0
 modulate = Color(0, 0, 1, 1)
 position = Vector2(-61, 82)
 wait_time = 0.0
+
+[node name="DialogInteraction" parent="Npc2" instance=ExtResource("10_yaxbn")]
+
+[node name="DialogText" type="Node" parent="Npc2/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "
+[wave] dang bro, nice cock?[/wave] "
+npc_info = ExtResource("8_w0os1")
+
+[node name="DialogText2" type="Node" parent="Npc2/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "
+[shake] WHATTT!!! [/shake]"
+npc_info = ExtResource("12_3o1n0")
+
+[node name="DialogText3" type="Node" parent="Npc2/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "SHHHHH no one will trust you"
+npc_info = ExtResource("8_w0os1")
