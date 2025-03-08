@@ -7,6 +7,15 @@ var dialog_branches : Array[DialogBranch]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
+	for c in get_children():
+		if c is DialogBranch:
+			dialog_branches.append(c)
+		
+
+	pass
 	pass # Replace with function body.
 func _get_configuration_warnings() -> PackedStringArray:
 	if checkForDialogBranches() == false:
