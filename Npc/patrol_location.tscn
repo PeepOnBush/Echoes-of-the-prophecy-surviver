@@ -48,4 +48,4 @@ offset_bottom = 26.0
 scale = Vector2(0.411954, 0.488898)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_juof6")
-text = "wait:0.01 secs"
+text = "wait:0 secs"

@@ -87,7 +87,6 @@ func gatherPatrolLocation( _n : Node = null) -> void:
 		if patrol_location.size() > 0:
 			for i in patrol_location.size():
 				var _p = patrol_location[i] as PatrolLocation
-				
 				if not _p.transform_changed.is_connected(gatherPatrolLocation):
 					_p.transform_changed.connect(gatherPatrolLocation)
 				

@@ -38,7 +38,7 @@ func _ready() -> void:
 			return
 		return
 	timer.timeout.connect( onTimerTimeout)
-	hideDialog()
+	#hideDialog()
 	pass
 
 
