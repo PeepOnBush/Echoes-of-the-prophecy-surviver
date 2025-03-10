@@ -19,7 +19,6 @@ fill_to = Vector2(0.5, 0)
 [node name="PatrolLocation" type="Node2D"]
 show_behind_parent = true
 script = ExtResource("1_ovgt6")
-wait_time = 0.005
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.647059)
