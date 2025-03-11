@@ -7,16 +7,26 @@ var dialog_branches : Array[DialogBranch]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
-	
+	super()
 	for c in get_children():
 		if c is DialogBranch:
 			dialog_branches.append(c)
-		
 
+
+func _setEditorDisplay() -> void:
+	setRelatedText()
+	if dialog_branches.size() < 2:
+		return
+	example_dialog.setDialogChoice(self)
 	pass
-	pass # Replace with function body.
+
+func setRelatedText() -> void:
+	var _p = get_parent()
+	var _t = _p.get_child(self.get_index() - 1)
+	if _t is DialogText:
+		example_dialog.setDialogText(_t)
+		example_dialog.content.visible_characters = -1
+
 func _get_configuration_warnings() -> PackedStringArray:
 	if checkForDialogBranches() == false:
 		return ["Requires atleast 2 DialogBranches nodes."]

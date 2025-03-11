@@ -121,10 +121,12 @@ npc_info = ExtResource("8_w0os1")
 
 [node name="DialogChoice" type="Node" parent="Npc2/DialogInteraction"]
 script = ExtResource("16_7duxu")
+npc_info = ExtResource("8_ccwxv")
 
 [node name="DialogBranch" type="Node" parent="Npc2/DialogInteraction/DialogChoice"]
 script = ExtResource("17_bqn0v")
-text = "YOU CAN COUNT ON ME"
+text = "You can count on me"
+npc_info = ExtResource("8_ccwxv")
 
 [node name="DialogText" type="Node" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_xlg0g")
@@ -133,7 +135,8 @@ npc_info = ExtResource("8_w0os1")
 
 [node name="DialogBranch2" type="Node" parent="Npc2/DialogInteraction/DialogChoice"]
 script = ExtResource("17_bqn0v")
-text = "HELLL NAH !!!"
+text = "Oh hell nah!!!"
+npc_info = ExtResource("8_ccwxv")
 
 [node name="DialogText" type="Node" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch2"]
 script = ExtResource("11_xlg0g")

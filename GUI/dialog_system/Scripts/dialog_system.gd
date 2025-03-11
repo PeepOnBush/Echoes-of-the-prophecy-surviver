@@ -100,6 +100,7 @@ func startDialog() -> void:
 ## once set start text timer
 func setDialogText( _d : DialogItem) -> void:
 	content.text = _d.text
+	choice_options.visible = false
 	name_label.text = _d.npc_info.npc_name
 	potrait_sprite.texture = _d.npc_info.portrait
 	potrait_sprite.audio_pitch_base = _d.npc_info.dialog_audio_pitch
@@ -121,6 +122,9 @@ func setDialogChoice(_d : DialogChoice) -> void:
 		_new_choice.text = _d.dialog_branches[i].text
 		_new_choice.pressed.connect( dialogChoiceSelected.bind(_d.dialog_branches[i]))
 		choice_options.add_child(_new_choice)
+	
+	if Engine.is_editor_hint():
+		return
 	await get_tree().process_frame
 	choice_options.get_child(0).grab_focus()
 	pass
