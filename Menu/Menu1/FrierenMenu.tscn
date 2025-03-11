@@ -1,14 +1,14 @@
 [gd_scene load_steps=22 format=3 uid="uid://ccugjtnkgn3or"]
 
 [ext_resource type="Texture2D" uid="uid://c72dv5kjet0ra" path="res://Player/Sprites/Frieren.png" id="1_6ja42"]
-[ext_resource type="Script" path="res://Menu/PlayMenu.gd" id="1_edks3"]
+[ext_resource type="Script" path="res://Menu/Menu1/PlayMenu.gd" id="1_edks3"]
 [ext_resource type="AudioStream" uid="uid://bqqd665jgwdhl" path="res://Player/Audio/Frieren the Slayer.mp3" id="2_w5bm5"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_wlpcn"]
-[ext_resource type="AudioStream" uid="uid://cpdusx7n45atv" path="res://Menu/blow.wav" id="4_ysa06"]
-[ext_resource type="AudioStream" uid="uid://f6f4qpkssedd" path="res://Menu/Magic.wav" id="5_mk7qq"]
+[ext_resource type="AudioStream" uid="uid://cpdusx7n45atv" path="res://Menu/Menu1/blow.wav" id="4_ysa06"]
+[ext_resource type="AudioStream" uid="uid://f6f4qpkssedd" path="res://Menu/Menu1/Magic.wav" id="5_mk7qq"]
 [ext_resource type="Texture2D" uid="uid://r7mpvnor8ufy" path="res://FutureAssests/Free Smoke Fx  Pixel 01.png" id="6_q0dye"]
-[ext_resource type="Texture2D" uid="uid://2jblb28mrmy6" path="res://Menu/Summer7.png" id="6_y4d2p"]
-[ext_resource type="Texture2D" uid="uid://b8icgj3imrudt" path="res://Menu/Frieren_-_Beyond_Journey 27s_End_English_Title.png" id="7_1yhon"]
+[ext_resource type="Texture2D" uid="uid://2jblb28mrmy6" path="res://Menu/Menu1/Summer7.png" id="6_y4d2p"]
+[ext_resource type="Texture2D" uid="uid://b8icgj3imrudt" path="res://Menu/Menu1/Frieren_-_Beyond_Journey 27s_End_English_Title.png" id="7_1yhon"]
 
 [sub_resource type="Animation" id="Animation_6uydb"]
 resource_name = "Menu"

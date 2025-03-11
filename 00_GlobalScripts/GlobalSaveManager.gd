@@ -31,8 +31,13 @@ func saveGame() -> void:
 
 	pass
 
+func getSaveFile() -> FileAccess:
+	return FileAccess.open( SAVE_PATH + "save.sav",FileAccess.READ )
+
+
+
 func loadGame() -> void:
-	var file := FileAccess.open( SAVE_PATH + "save.sav",FileAccess.READ )
+	var file := getSaveFile()
 	var load_json = JSON.new()
 	load_json.parse(file.get_line())
 	var save_dict : Dictionary = load_json.get_data() as Dictionary

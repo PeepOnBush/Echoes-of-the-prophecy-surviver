@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://f6f4qpkssedd"
-path="res://.godot/imported/Magic.wav-d2c054c7958ee2c7468a9e0a61381371.sample"
+uid="uid://dx3vr6dacxmh6"
+path="res://.godot/imported/menu_focus.wav-1911edf087907244eb21c8f5fe50d5c9.sample"
 
 [deps]
 
-source_file="res://Menu/Magic.wav"
-dest_files=["res://.godot/imported/Magic.wav-d2c054c7958ee2c7468a9e0a61381371.sample"]
+source_file="res://Menu/menu_focus.wav"
+dest_files=["res://.godot/imported/menu_focus.wav-1911edf087907244eb21c8f5fe50d5c9.sample"]
 
 [params]
 

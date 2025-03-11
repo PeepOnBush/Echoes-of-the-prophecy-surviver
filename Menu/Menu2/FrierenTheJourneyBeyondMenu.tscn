@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxpnsixa42cqb"]
+
+[ext_resource type="Script" path="res://Menu/Menu2/frieren_the_journey_beyond_menu.gd" id="1_4vkhu"]
+[ext_resource type="Texture2D" uid="uid://cqvtxv400x88e" path="res://Menu/Menu2/MenuAnimated.png" id="1_ebp7t"]
+[ext_resource type="Texture2D" uid="uid://cni0e42gxmijv" path="res://Menu/Menu2/MenuLogo.png" id="2_mnj30"]
+[ext_resource type="AudioStream" uid="uid://dx3vr6dacxmh6" path="res://Menu/menu_focus.wav" id="2_nqry0"]
+[ext_resource type="AudioStream" uid="uid://dq2ggomr5nphp" path="res://Menu/menu_select.wav" id="3_s0ef5"]
+[ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="4_clnpg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aldl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa0g1"]
+
+[sub_resource type="Animation" id="Animation_xw8xv"]
+resource_name = "Menu"
+length = 1.5
+loop_mode = 1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_knfa3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gk45"]
+_data = {
+"Menu": SubResource("Animation_xw8xv"),
+"RESET": SubResource("Animation_knfa3")
+}
+
+[node name="FrierenTheJourneyBeyondMenu" type="Node2D"]
+script = ExtResource("1_4vkhu")
+button_focus_audio = ExtResource("2_nqry0")
+button_press_audio = ExtResource("3_s0ef5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuLogo" type="Sprite2D" parent="CanvasLayer/Control"]
+z_index = 2
+position = Vector2(363.4, 110.54)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_mnj30")
+
+[node name="ButtonNew" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 255.0
+offset_top = 148.0
+offset_right = 327.0
+offset_bottom = 173.0
+scale = Vector2(1.67653, 1.50818)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_aldl8")
+text = "New Game
+"
+
+[node name="ButtonContinue" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 19.0
+offset_right = 7.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.67653, 1.50818)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wa0g1")
+text = "Continue
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(310.5, 181.445)
+scale = Vector2(1.02656, 1.03025)
+texture = ExtResource("1_ebp7t")
+hframes = 17
+frame = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_0gk45")
+}
+autoplay = "Menu"
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_clnpg")]
+position = Vector2(314, 176)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4

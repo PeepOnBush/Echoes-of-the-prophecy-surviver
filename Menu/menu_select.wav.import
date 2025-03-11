@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cpdusx7n45atv"
-path="res://.godot/imported/blow.wav-5509ef9bb8da9ac77788e3758758b14f.sample"
+uid="uid://dq2ggomr5nphp"
+path="res://.godot/imported/menu_select.wav-197aad84804a0e32449d340c744b6412.sample"
 
 [deps]
 
-source_file="res://Menu/blow.wav"
-dest_files=["res://.godot/imported/blow.wav-5509ef9bb8da9ac77788e3758758b14f.sample"]
+source_file="res://Menu/menu_select.wav"
+dest_files=["res://.godot/imported/menu_select.wav-197aad84804a0e32449d340c744b6412.sample"]
 
 [params]
 
