@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8aa2i8gsuktl"
+path="res://.godot/imported/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3-00cbb3902965df1d6af60f6057c61264.mp3str"
+
+[deps]
+
+source_file="res://Menu/Menu2/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3"
+dest_files=["res://.godot/imported/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3-00cbb3902965df1d6af60f6057c61264.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=10
