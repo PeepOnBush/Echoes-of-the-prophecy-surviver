@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=19 format=3 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="PackedScene" uid="uid://ckpmgvd6j5mjo" path="res://Tile Maps/Grass-01.tscn" id="1_4tf5h"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c3xfdyi0hmf5i" path="res://Npc/patrol_location.tscn" id="12_ghqqj"]
 [ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="16_7duxu"]
 [ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="17_bqn0v"]
+[ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="18_6xr28"]
 
 [node name="02" type="Node2D"]
 position = Vector2(-28, 17)
@@ -142,3 +143,6 @@ npc_info = ExtResource("8_ccwxv")
 script = ExtResource("11_xlg0g")
 text = "you motherfu....."
 npc_info = ExtResource("8_w0os1")
+
+[node name="Pot" parent="." instance=ExtResource("18_6xr28")]
+position = Vector2(79, 50)

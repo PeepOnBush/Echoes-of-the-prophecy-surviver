@@ -43,3 +43,6 @@ func play_audio( _audio : AudioStream) -> void:
 	player.audio.stream = _audio
 	player.audio.play()
 	pass
+
+func emitInteractPressed() -> void:
+	interact_pressed.emit()
