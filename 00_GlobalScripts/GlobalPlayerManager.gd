@@ -7,7 +7,7 @@ signal interact_pressed
 
 var player : Player
 var playerSpawned : bool = false
-
+var interact_handled : bool = true
 
 
 func _ready() -> void:
@@ -44,5 +44,6 @@ func play_audio( _audio : AudioStream) -> void:
 	player.audio.play()
 	pass
 
-func emitInteractPressed() -> void:
+func Interact() -> void:
+	interact_handled = false
 	interact_pressed.emit()

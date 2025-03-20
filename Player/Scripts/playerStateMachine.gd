@@ -4,6 +4,7 @@ class_name playerStateMachine extends Node
 var states : Array [ State ]
 var prevState : State
 var currentState : State
+var nextState : State
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -47,6 +48,8 @@ func Initialize( _player : Player) -> void:
 func changeState(newState : State) -> void:
 	if newState == null || newState == currentState:
 		return
+	
+	nextState = newState
 	
 	if currentState:
 		currentState.Exit()

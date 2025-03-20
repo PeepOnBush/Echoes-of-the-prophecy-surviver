@@ -48,7 +48,8 @@ position = Vector2(319, 181)
 [node name="LevelTransition" parent="." instance=ExtResource("6_olpx4")]
 position = Vector2(224, -64)
 level = "res://Levels/Area01/01.tscn"
-size = 6
+center_player = true
+size = 5
 side = 2
 
 [node name="Npc" parent="." instance=ExtResource("7_hvt1o")]
@@ -146,3 +147,6 @@ npc_info = ExtResource("8_w0os1")
 
 [node name="Pot" parent="." instance=ExtResource("18_6xr28")]
 position = Vector2(79, 50)
+
+[node name="Pot2" parent="." instance=ExtResource("18_6xr28")]
+position = Vector2(116, 51)

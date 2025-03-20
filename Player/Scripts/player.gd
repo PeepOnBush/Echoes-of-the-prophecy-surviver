@@ -18,6 +18,10 @@ var max_hp : int = 6
 @onready var state_Machine : playerStateMachine = $StateMachine
 @onready var hit_box : HitBox = $HitBox
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
+@onready var lift: StateLift = $StateMachine/Lift
+@onready var held_item: Node2D = $Sprite2D/HeldItem
+@onready var carry: StateCarry = $StateMachine/Carry
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.player = self
@@ -93,4 +97,9 @@ func make_invulnerable( _duration : float = 1.0) -> void:
 	await get_tree().create_timer(_duration)
 	invulnerable = false
 	hit_box.monitoring = true
+	pass
+
+func pickupItem(_t : Throwable) -> void:
+	state_Machine.changeState(lift)
+	carry.throwable = _t
 	pass

@@ -1,12 +1,17 @@
 class_name Throwable extends Area2D
 
-@export var gravity_string : float = 980.0
+@export var gravity_strength : float = 980.0
 @export var throw_speed : float = 400.0
 @export var throw_height_strength : float = 100
 @export var throw_starting_height : float = 49
 
 var picked_up : bool = false
 var throwable : Node2D
+var throw_direction : Vector2
+var object_sprite : Sprite2D
+var vertical_velocity : float = 0
+var ground_height : float = 0
+var animation_player : AnimationPlayer
 
 @onready var hurt_box : HurtBox = $HurtBox
 
@@ -16,15 +21,68 @@ func _ready() -> void:
 	area_exited.connect(onAreaExit)
 	throwable = get_parent()
 	setupHurtBox()
+	
+	object_sprite = throwable.get_node("Sprite2D")
+	ground_height = object_sprite.position.y
+	animation_player = throwable.find_child("AnimationPlayer")
+	
+	set_physics_process(false)
 	pass # Replace with function body.
 
+func _physics_process(delta: float) -> void:
+	object_sprite.position.y += vertical_velocity * delta
+	if object_sprite.position.y >= ground_height:
+		destroy()
+	vertical_velocity += gravity_strength * delta
+	throwable.position += throw_direction * throw_speed * delta 
+	pass
+
+func destroy() -> void:
+	set_physics_process(false)
+	if animation_player:
+		animation_player.play("destroy")
+		await animation_player.animation_finished
+	throwable.queue_free()
+
 func playerInteract() -> void:
-	# pick 1 object only
+	if PlayerManager.interact_handled == true:
+		return
 	if picked_up == false:
-		#pick up throwable object
-		print("picked up pot")
+		PlayerManager.interact_handled = true
+		disableCollision(throwable)
+		if throwable.get_parent():
+			throwable.get_parent().remove_child(throwable)
+		PlayerManager.player.held_item.add_child(throwable)
+		throwable.position = Vector2.ZERO
+		PlayerManager.player.pickupItem(self)
+		area_entered.disconnect(onAreaEnter)
+		area_exited.disconnect(onAreaExit)
 		pass
 	pass
+
+func throw() -> void:
+	throwable.get_parent().remove_child(throwable)
+	PlayerManager.player.get_parent().call_deferred("add_child",throwable)
+	throwable.position = PlayerManager.player.position
+	object_sprite.position.y = -throw_starting_height
+	vertical_velocity = -throw_height_strength
+	set_physics_process(true)
+	hurt_box.set_deferred("monitoring", true)
+	hurt_box.did_damage.connect(destroy)
+	pass
+
+func drop() -> void:
+	throwable.get_parent().remove_child(throwable)
+	PlayerManager.player.get_parent().call_deferred("add_child",throwable)
+	throwable.position = PlayerManager.player.position
+	object_sprite.position.y = -50
+	vertical_velocity = -200
+	throw_speed = 100
+	set_physics_process(true)
+	hurt_box.set_deferred("monitoring", true)
+	hurt_box.did_damage.connect(destroy)
+	pass
+
 
 func onAreaEnter(_a : Area2D) -> void:
 	PlayerManager.interact_pressed.connect(playerInteract)
@@ -41,3 +99,13 @@ func setupHurtBox() -> void:
 			var _col : CollisionShape2D = c.duplicate()
 			hurt_box.add_child(_col)
 			_col.debug_color = Color(1,0,0,0.5)
+
+func disableCollision(_node : Node) -> void :
+	for c in _node.get_children():
+		if c == self:
+			continue
+		if c is CollisionShape2D:
+			c.disabled = true
+		else:
+			disableCollision(c)
+	pass
