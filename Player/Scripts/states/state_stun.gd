@@ -8,7 +8,10 @@ class_name stateStun extends State
 var hurt_box : HurtBox 
 var direction : Vector2
 var nextState : State = null
+
+
 @onready var idle: State = $"../idle"
+@onready var death: StateDeath = $"../Death"
 
 
 func init() -> void:
@@ -43,8 +46,11 @@ func HandleInput( _event: InputEvent) -> State:
 
 func _player_damaged(_hurt_box : HurtBox) -> void:
 	hurt_box = _hurt_box
-	state_machine.changeState(self)
+	if state_machine.currentState != death:
+		state_machine.changeState(self)
 	pass
 	
 func _animation_finished (_a : String) -> void:
 	nextState = idle
+	if player.hp <= 0:
+		nextState = death

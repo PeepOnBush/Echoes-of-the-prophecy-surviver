@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=85 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://bdgo4231rwes8" path="res://Player/Sprites/player_sprite.png" id="2_fhb45"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ci25tovbpqlrr" path="res://GeneralNodes/ItemMagnet/item_magnet.tscn" id="18_165ax"]
 [ext_resource type="AudioStream" uid="uid://bdysox4ofgcpu" path="res://Player/Audio/huwh.wav" id="18_532ee"]
 [ext_resource type="AudioStream" uid="uid://bgwmsug4t0h60" path="res://Player/Audio/throw.wav" id="20_2x77b"]
+[ext_resource type="Script" path="res://Player/Scripts/states/state_death.gd" id="21_fex6f"]
+[ext_resource type="AudioStream" uid="uid://b4l4ngjvjd1ck" path="res://Player/Audio/exhausted.wav" id="22_5nomk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsark"]
 
@@ -1305,6 +1307,23 @@ tracks/0/keys = {
 "values": [13, 16]
 }
 
+[sub_resource type="Animation" id="Animation_6mcxr"]
+resource_name = "death"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [74, 75, 76]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8n5a"]
 _data = {
 "RESET": SubResource("Animation_pkufx"),
@@ -1324,6 +1343,7 @@ _data = {
 "charge_walk_down": SubResource("Animation_sgekh"),
 "charge_walk_side": SubResource("Animation_gvw4n"),
 "charge_walk_up": SubResource("Animation_l2w3i"),
+"death": SubResource("Animation_6mcxr"),
 "idle_down": SubResource("Animation_ulpq3"),
 "idle_side": SubResource("Animation_r25xv"),
 "idle_up": SubResource("Animation_23n0r"),
@@ -1548,6 +1568,10 @@ lift_audio = ExtResource("18_532ee")
 [node name="Carry" type="Node" parent="StateMachine"]
 script = ExtResource("18_4pbxf")
 throw_audio = ExtResource("20_2x77b")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("21_fex6f")
+exhaust_audio = ExtResource("22_5nomk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false

@@ -47,6 +47,13 @@ func _process( _delta ):
 func _physics_process(_delta):
 	move_and_slide()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("test"):
+		update_hp(-99)
+		PlayerDamaged.emit(%AttackHurtBox)
+	pass
+
+
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO:
 		return false
@@ -77,12 +84,9 @@ func AnimDirection() -> String:
 func _take_damage(_hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
-	update_hp(-_hurt_box.damage)
 	if hp > 0:
+		update_hp(-_hurt_box.damage)
 		PlayerDamaged.emit(_hurt_box)
-	else :
-		PlayerDamaged.emit(_hurt_box)
-		update_hp(99)
 	pass
 
 func update_hp( _delta : int ) -> void:

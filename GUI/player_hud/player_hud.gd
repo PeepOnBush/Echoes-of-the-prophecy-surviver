@@ -1,12 +1,23 @@
 extends CanvasLayer
 
+@export var button_focus_audio : AudioStream = preload("res://Menu/menu_focus.wav")
+@export var button_select_audio : AudioStream = preload("res://Menu/menu_select.wav")
+
 var hearts : Array[HeartGui] = []
+@onready var game_over: Control = $Control/GameOver
+@onready var title_button: Button = $Control/GameOver/VBoxContainer/TitleButton
+@onready var continue_button: Button = $Control/GameOver/VBoxContainer/ContinueButton
+@onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
+@onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready():
 	for child in $Control/HFlowContainer.get_children():
 		if child is HeartGui:
 			hearts.append(child)
 			child.visible = false
+	
+	#hide game over screen
+	
 	pass
 
 func updateHp(_hp : int, _maxHP : int) -> void:
