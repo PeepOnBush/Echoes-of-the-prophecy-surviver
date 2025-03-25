@@ -107,3 +107,7 @@ func pickupItem(_t : Throwable) -> void:
 	state_Machine.changeState(lift)
 	carry.throwable = _t
 	pass
+
+func revivePlayer() -> void:
+	update_hp(99)
+	state_Machine.changeState($StateMachine/idle)

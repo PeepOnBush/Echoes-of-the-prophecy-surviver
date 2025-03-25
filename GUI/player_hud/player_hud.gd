@@ -16,8 +16,12 @@ func _ready():
 			hearts.append(child)
 			child.visible = false
 	
-	#hide game over screen
-	
+	hideGameOverScreen()
+	continue_button.focus_entered.connect(playAudio.bind(button_focus_audio))
+	continue_button.pressed.connect(loadGame)
+	title_button.focus_entered.connect(playAudio.bind(button_focus_audio))
+	title_button.pressed.connect(titleScreen)
+	LevelManager.level_load_started.connect(hideGameOverScreen)
 	pass
 
 func updateHp(_hp : int, _maxHP : int) -> void:
@@ -39,3 +43,51 @@ func updateMaxHp(_maxHP : int) -> void:
 		else :
 			hearts[i].visible = false
 	pass
+
+func showGameOverScreen() -> void:
+	game_over.visible = true
+	game_over.mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	var can_continue : bool = SaveManager.getSaveFile() != null
+	continue_button.visible = can_continue
+	
+	animation_player.play("show_game_over")
+	await animation_player.animation_finished
+	#focus a button
+	
+	if can_continue == true:
+		continue_button.grab_focus()
+	else:
+		title_button.grab_focus()
+	
+	pass
+
+
+func hideGameOverScreen() -> void:
+	game_over.visible = false
+	game_over.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	game_over.modulate = Color(1,1,1,0)
+	pass
+
+func playAudio(_a : AudioStream) -> void:
+	audio.stream = _a
+	audio.play()
+
+func loadGame() -> void:
+	playAudio(button_select_audio)
+	await fadeToBlack()
+	SaveManager.loadGame()
+	pass
+
+func titleScreen() -> void:
+	playAudio(button_select_audio)
+	await fadeToBlack()
+	LevelManager.load_new_level("res://Menu/Menu2/FrierenTheJourneyBeyondMenu.tscn","",Vector2.ZERO)
+	pass
+
+
+func fadeToBlack() -> bool:
+	animation_player.play("fade_to_black")
+	await animation_player.animation_finished
+	PlayerManager.player.revivePlayer()
+	return true

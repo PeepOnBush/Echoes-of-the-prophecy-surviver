@@ -9,5 +9,5 @@ func fade_out() -> bool:
 
 func fade_in() -> bool:
 	animationPlayer.play("faded_in")
-	await animationPlayer.animation_finished
+	#await animationPlayer.animation_finished
 	return true

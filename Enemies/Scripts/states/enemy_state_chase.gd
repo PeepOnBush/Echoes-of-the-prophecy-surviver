@@ -35,6 +35,8 @@ func Exit() -> void:
 	pass 
 ## What happen when the _process update in this state ?
 func Process(_delta : float) -> EnemyState:
+	if PlayerManager.player.hp <= 0:
+		return nextState
 	var new_direction : Vector2 = enemy.global_position.direction_to(PlayerManager.player.global_position)
 	_direction = lerp( _direction, new_direction, turn_rate)
 	enemy.velocity = _direction * chase_speed
