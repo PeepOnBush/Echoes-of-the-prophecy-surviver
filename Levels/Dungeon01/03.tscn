@@ -47,6 +47,13 @@ center_player = true
 size = 3
 side = 1
 
+[node name="LevelTransition4" parent="." instance=ExtResource("4_1dvjk")]
+z_index = 1
+position = Vector2(224, -567)
+level = "res://Levels/Dungeon01/06.tscn"
+center_player = true
+side = 2
+
 [node name="PushableStatue" parent="." instance=ExtResource("7_gj1ag")]
 texture_filter = 1
 position = Vector2(329, 64)

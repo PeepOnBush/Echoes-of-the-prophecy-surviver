@@ -4,7 +4,7 @@ const PLAYER = preload("res://Player/player.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://GUI/pause_menu/inventory/player_inventory.tres")
 
 signal interact_pressed
-
+signal camera_shook(trauma : float)
 var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true
@@ -47,3 +47,6 @@ func play_audio( _audio : AudioStream) -> void:
 func Interact() -> void:
 	interact_handled = false
 	interact_pressed.emit()
+
+func shakeCamera(trauma : float = 1) -> void:
+	camera_shook.emit(trauma)

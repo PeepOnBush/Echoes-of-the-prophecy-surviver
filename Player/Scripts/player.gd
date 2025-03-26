@@ -49,8 +49,7 @@ func _physics_process(_delta):
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("test"):
-		update_hp(-99)
-		PlayerDamaged.emit(%AttackHurtBox)
+		PlayerManager.shakeCamera()
 	pass
 
 
