@@ -126,6 +126,7 @@ func setDialogChoice(_d : DialogChoice) -> void:
 	if Engine.is_editor_hint():
 		return
 	await get_tree().process_frame
+	await get_tree().process_frame
 	choice_options.get_child(0).grab_focus()
 	pass
 
