@@ -23,6 +23,7 @@ radius = 11.0
 
 [node name="EnergyOrb" type="Node2D"]
 script = ExtResource("1_b87k7")
+speed = 150.0
 shoot_audio = ExtResource("2_54xsx")
 hit_audio = ExtResource("3_y61ad")
 

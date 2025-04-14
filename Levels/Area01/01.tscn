@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://do355fxws35sb" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="7_f7672"]
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="8_mee5a"]
 [ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="9_d27h5"]
-[ext_resource type="Resource" uid="uid://cuchbwbwxesyu" path="res://Items/NormalPotion.tres" id="10_c4jrt"]
+[ext_resource type="Resource" uid="uid://c1nmyo13084qi" path="res://Items/PurPetalouda.tres" id="11_gy4gl"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="11_kowrg"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
 [ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="13_68kwa"]
@@ -72,7 +72,7 @@ quantity = 12
 
 [node name="TreasureChest3" parent="." instance=ExtResource("7_f7672")]
 position = Vector2(153, 51)
-item_data = ExtResource("10_c4jrt")
+item_data = ExtResource("11_gy4gl")
 
 [node name="goblin" parent="." instance=ExtResource("11_kowrg")]
 position = Vector2(251, 141)
