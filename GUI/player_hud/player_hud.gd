@@ -10,6 +10,12 @@ var hearts : Array[HeartGui] = []
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 
+@onready var boss_ui: Control = $Control/BossUI
+@onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
+@onready var boss_label: Label = $Control/BossUI/Label
+
+
+
 func _ready():
 	for child in $Control/HFlowContainer.get_children():
 		if child is HeartGui:
@@ -22,6 +28,7 @@ func _ready():
 	title_button.focus_entered.connect(playAudio.bind(button_focus_audio))
 	title_button.pressed.connect(titleScreen)
 	LevelManager.level_load_started.connect(hideGameOverScreen)
+	hideBossHealth()
 	pass
 
 func updateHp(_hp : int, _maxHP : int) -> void:
@@ -91,3 +98,17 @@ func fadeToBlack() -> bool:
 	await animation_player.animation_finished
 	PlayerManager.player.revivePlayer()
 	return true
+
+func showBossHealth( boss_name : String ) -> void:
+	boss_ui.visible = true
+	boss_label.text = boss_name
+	updateBossHealth(1,1)
+	pass
+
+func hideBossHealth() -> void:
+	boss_ui.visible = false
+	pass
+
+func updateBossHealth( hp : int, max_hp : int ) -> void:
+	boss_hp_bar.value = clampf( float(hp) / float(max_hp) * 100, 0, 100)
+	pass

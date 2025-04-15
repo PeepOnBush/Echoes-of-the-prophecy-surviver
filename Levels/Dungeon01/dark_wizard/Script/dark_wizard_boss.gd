@@ -47,7 +47,7 @@ func _ready() -> void:
 	
 	
 	hp = max_hp
-	
+	PlayerHud.showBossHealth( "Dark Wizard" )
 	hit_box.Damaged.connect(damageTaken)
 	
 	for c in $PositionTarget.get_children():
@@ -179,7 +179,7 @@ func damageTaken(_hurt_box : HurtBox ) -> void:
 	playAudio(audio_hurt)
 	hp = clampi(hp - _hurt_box.damage, 0, max_hp )
 	damage_count += 1
-	#update_boss_healthbar
+	PlayerHud.updateBossHealth(hp, max_hp)
 	animation_player_damage.play("damaged")
 	animation_player_damage.seek(0)
 	animation_player_damage.queue("default")
@@ -196,6 +196,7 @@ func playAudio(_a : AudioStream) -> void:
 func defeat() -> void:
 	animation_player.play("destroy")
 	enableHitBoxes(false)
+	PlayerHud.hideBossHealth()
 	boss_defeated.setValue()
 	await animation_player.animation_finished
 	door_block.enabled = false

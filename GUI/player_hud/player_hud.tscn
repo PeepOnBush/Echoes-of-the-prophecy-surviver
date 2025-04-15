@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3u0chmjjfa7s"]
+[gd_scene load_steps=13 format=3 uid="uid://d3u0chmjjfa7s"]
 
 [ext_resource type="Script" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
 [ext_resource type="Texture2D" uid="uid://b8tfeeopjphxi" path="res://GUI/player_hud/gui-health.png" id="2_ecbuc"]
 [ext_resource type="PackedScene" uid="uid://b43yya5yg2c6m" path="res://GUI/player_hud/heart_gui.tscn" id="3_dtpa4"]
 [ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="4_mqu0o"]
+[ext_resource type="Texture2D" uid="uid://dw2yayeip8q12" path="res://GUI/player_hud/boss-hp.png" id="5_1jeqg"]
 
 [sub_resource type="FontVariation" id="FontVariation_6k8ot"]
 base_font = ExtResource("4_mqu0o")
@@ -246,6 +247,14 @@ _data = {
 "show_game_over": SubResource("Animation_xt4a7")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0hju"]
+atlas = ExtResource("5_1jeqg")
+region = Rect2(9, 40, 14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81j23"]
+atlas = ExtResource("5_1jeqg")
+region = Rect2(40, 40, 15, 15)
+
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_loiu6")
@@ -401,10 +410,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -7.0
-offset_right = -1.0
-offset_bottom = -7.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -415,6 +422,73 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_xfivr")
 }
+
+[node name="BossUI" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -51.0
+offset_right = -7.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 4.0
+offset_right = 130.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 80.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_w0hju")
+texture_progress = SubResource("AtlasTexture_81j23")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -7.0
+offset_right = 138.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1jeqg")
+region_rect = Rect2(0, 0, 64, 30)
+patch_margin_left = 21
+patch_margin_right = 24
+axis_stretch_horizontal = 1
+
+[node name="Label" type="Label" parent="Control/BossUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_top = 7.0
+offset_right = 33.5
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.939233, 0.756932, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.203922)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Boss Name"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
