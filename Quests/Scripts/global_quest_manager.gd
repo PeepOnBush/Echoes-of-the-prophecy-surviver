@@ -1,0 +1,108 @@
+#QUEST MANAGER - GLOBAL SCRIPT
+extends Node
+
+signal quest_updated(q)
+
+const QUEST_DATA_LOCATION : String = "res://Quests/"
+
+var quests : Array[Quest]
+var curret_quests : Array = [
+	#{ title = "Return lost magical flute", is_complete = false, completed_steps = [''] },
+	#{ title = "Basic task", is_complete = false, completed_steps = [''] }
+]
+func _ready() -> void:
+	#gather all quests
+	gatherQuestData()
+	pass
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("test"):
+		#print(findQuest(load("res://Quests/Return_lost_flute.tres") as Quest))
+		#print(findQuestByTitle("Tutorial"))
+		#print("getQuestIndexByTitle:" , getQuestIndexByTitle("Return lost magical flute"))
+		#print("getQuestIndexByTitle:" , getQuestIndexByTitle("Tutorial"))
+		#print("before : " ,curret_quests)
+		#updateQuest("Tutorial")
+		#print("\n")
+		#updateQuest("Return lost magical flute", "Find the magical flute")
+		#updateQuest("Return lost magical flute","",true)
+		print("quests : " , curret_quests)
+		#print("=========================================")
+		pass
+	pass
+
+func gatherQuestData() -> void:
+	var quest_files : PackedStringArray = DirAccess.get_files_at(QUEST_DATA_LOCATION)
+	quests.clear()
+	for q in quest_files: #add if statement to check if quests item is quest resource or not if folder contain different components
+		quests.append(load(QUEST_DATA_LOCATION + "/" + q) as Quest)
+		pass
+	print("quests count: ",quests.size())
+	pass
+
+func updateQuest(_title : String, _completed_step : String = "", _is_complete : bool = false) -> void:
+	#Update the status of a quest
+	var quest_index : int = getQuestIndexByTitle(_title)
+	if quest_index == -1:
+		#quest was not found - add it to the current quests array
+		var new_quest : Dictionary = {
+			 title = _title,
+			 is_complete = _completed_step,
+			 completed_steps = []
+		}
+		
+		if _completed_step != "":
+			new_quest.completed_steps.append(_completed_step)
+		
+		curret_quests.append(new_quest)
+		quest_updated.emit(new_quest)
+		#display a notif that quests was added
+		pass
+	else:
+		#Quest was found, update it
+		var q = curret_quests[quest_index]
+		if _completed_step != "" and q.completed_steps.has(_completed_step) == false:
+			q.completed_steps.append(_completed_step)
+			pass
+		q.is_complete = _is_complete
+		quest_updated.emit(q)
+		#Display a notif that quests was updated or completed
+		if q.is_complete == true:
+			distributeQuestRewards(findQuestByTitle(_title)) 
+	pass
+
+func distributeQuestRewards(_q : Quest) -> void:
+	#Give XP and items rewards to player
+	PlayerManager.rewardXP(_q.reward_xp)
+	for i in _q.reward_items:
+		PlayerManager.INVENTORY_DATA.add_item(i.item, i.quantity)
+	pass
+
+#Provide a quest and return the current quest associated with it
+func findQuest(_quest : Quest) -> Dictionary:
+	for q in curret_quests:
+		if q.title.to_lower() == _quest.title.to_lower():
+			return q 
+	return { title = "not found", is_complete = false, completed_steps = [''] }
+
+func findQuestByTitle(_title : String) -> Quest:
+	#take title and find associated quest resource
+	for q in quests:
+		if q.title.to_lower() == _title.to_lower():
+			return q 
+	return null
+
+func getQuestIndexByTitle( _title : String) -> int:
+	for i in curret_quests.size():
+		if curret_quests[i].title.to_lower() == _title.to_lower():
+			return i
+	#return -1 if nothing was found
+	return -1
+
+
+func sortQuest() -> void:
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

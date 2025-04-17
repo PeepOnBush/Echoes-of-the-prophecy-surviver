@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dbb7vdu1beiav"]
+
+[ext_resource type="Script" path="res://Quests/Scripts/quest_reward_item.gd" id="1_iinpr"]
+[ext_resource type="Script" path="res://Quests/Scripts/quest_resource.gd" id="1_qiolf"]
+
+[resource]
+script = ExtResource("1_qiolf")
+title = "Tutorial"
+steps = Array[String](["Complete the quest"])
+reward_xp = 100
+reward_items = Array[ExtResource("1_iinpr")]([])
+description = "A tutorial  for quest, just need one step to complete."

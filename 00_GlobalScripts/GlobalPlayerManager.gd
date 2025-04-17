@@ -9,6 +9,7 @@ var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true
 
+var xp : int = 0
 
 func _ready() -> void:
 	add_player_instance()
@@ -26,7 +27,11 @@ func set_health( hp : int, max_hp : int) -> void:
 	player.update_hp(0)
 	pass
 
-
+func rewardXP(_xp : int ) -> void:
+	xp += _xp
+	print("XP : ",str(xp))
+	pass
+ 
 func set_player_position( _new_pos : Vector2 ) -> void:
 	player.global_position = _new_pos
 	pass

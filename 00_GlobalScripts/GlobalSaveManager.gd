@@ -16,7 +16,9 @@ var currentSave : Dictionary = {
 	},
 	items = [],
 	persistence = [],
-	quests = [],
+	quests = [
+		#return { title = "not found", is_complete = false, completed_steps = [''] }
+	],
 	
 }
 
@@ -24,6 +26,7 @@ func saveGame() -> void:
 	updatePlayerData()
 	updateScenePath()
 	updateItemData()
+	updateQuestData()
 	var file := FileAccess.open( SAVE_PATH + "save.sav",FileAccess.WRITE)
 	var save_json = JSON.stringify(currentSave)
 	file.store_line( save_json )
@@ -50,6 +53,7 @@ func loadGame() -> void:
 	PlayerManager.set_player_position( Vector2(currentSave.player.pos_x, currentSave.player.pos_y))
 	PlayerManager.set_health( currentSave.player.hp, currentSave.player.max_hp)
 	PlayerManager.INVENTORY_DATA.parseSaveData(currentSave.items)
+	QuestManager.curret_quests = currentSave.quests
 	await LevelManager.level_loaded
 	game_loaded.emit()
 	pass
@@ -60,6 +64,7 @@ func updatePlayerData() -> void:
 	currentSave.player.max_hp = p.max_hp
 	currentSave.player.pos_x = p.global_position.x
 	currentSave.player.pos_y = p.global_position.y
+	pass
 
 func updateScenePath() -> void:
 	var p : String = ""
@@ -67,9 +72,16 @@ func updateScenePath() -> void:
 		if c is Level:
 			p = c.scene_file_path
 	currentSave.scene_path = p
-	
+	pass
+
+
 func updateItemData() -> void:
 	currentSave.items = PlayerManager.INVENTORY_DATA.getSaveData()
+	pass
+
+func updateQuestData() -> void:
+	currentSave.quests = QuestManager.curret_quests 
+	pass
 
 func addPersistentValue( value : String) -> void:
 	if checkPersistentValue(value) == false:
