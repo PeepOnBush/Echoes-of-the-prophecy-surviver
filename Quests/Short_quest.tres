@@ -1,12 +1,18 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dbb7vdu1beiav"]
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://dbb7vdu1beiav"]
 
 [ext_resource type="Script" path="res://Quests/Scripts/quest_reward_item.gd" id="1_iinpr"]
 [ext_resource type="Script" path="res://Quests/Scripts/quest_resource.gd" id="1_qiolf"]
+[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="2_bwv2v"]
+
+[sub_resource type="Resource" id="Resource_05rni"]
+script = ExtResource("1_iinpr")
+item = ExtResource("2_bwv2v")
+quantity = 1
 
 [resource]
 script = ExtResource("1_qiolf")
 title = "Tutorial"
 steps = Array[String](["Complete the quest"])
 reward_xp = 100
-reward_items = Array[ExtResource("1_iinpr")]([])
+reward_items = Array[ExtResource("1_iinpr")]([SubResource("Resource_05rni")])
 description = "A tutorial  for quest, just need one step to complete."

@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bms5b35hj2ian"]
+[gd_scene load_steps=12 format=3 uid="uid://bms5b35hj2ian"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_g1nml"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_1j814"]
 [ext_resource type="Script" path="res://GUI/pause_menu/inventory/Scripts/inventory_ui.gd" id="3_0xuew"]
 [ext_resource type="PackedScene" uid="uid://cji24g13bm6i4" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_vr4sr"]
 [ext_resource type="Resource" uid="uid://b8wucdmxpy1fp" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_k2s4e"]
+[ext_resource type="PackedScene" uid="uid://kwny8egbbql7" path="res://GUI/pause_menu/quests/QuestItem.tscn" id="6_6s3vj"]
+[ext_resource type="Script" path="res://GUI/pause_menu/quest_ui.gd" id="6_7er1a"]
+[ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="6_vo45j"]
+[ext_resource type="PackedScene" uid="uid://cpnewyspe8twp" path="res://GUI/pause_menu/quests/QuestStepItem.tscn" id="9_ostkv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o440m"]
 atlas = ExtResource("2_1j814")
@@ -32,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -43,6 +48,7 @@ grow_vertical = 2
 color = Color(0.141176, 0.141176, 0.141176, 0.596078)
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -63,7 +69,62 @@ theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 35
 text = "~ Paused ~"
 
-[node name="ItemDescription" type="Label" parent="Control"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 27.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Inventory" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 211.0
+offset_top = 35.0
+offset_right = 407.0
+offset_bottom = 123.0
+scale = Vector2(1.12253, 1.1957)
+theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_0xuew")
+data = ExtResource("4_k2s4e")
+
+[node name="InventorySlot" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+layout_mode = 2
+
+[node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -71,10 +132,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = 17.0
-offset_right = 200.0
-offset_bottom = 101.0
+offset_left = -152.0
+offset_top = -10.0
+offset_right = 199.0
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.871068, 0.96261)
@@ -82,70 +143,120 @@ theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="Quests" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+script = ExtResource("6_7er1a")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Quests"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 234.0
+offset_bottom = 214.0
+follow_focus = true
+scroll_vertical_custom_step = 100.0
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Quests/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="QuestItem" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_6s3vj")]
+layout_mode = 2
+
+[node name="QuestItem2" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_6s3vj")]
+layout_mode = 2
+
+[node name="QuestItem3" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_6s3vj")]
+layout_mode = 2
+
+[node name="QuestItem4" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_6s3vj")]
+layout_mode = 2
+
+[node name="QuestItem5" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_6s3vj")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 25.0
+offset_right = 611.0
+offset_bottom = 65.0
+
+[node name="QuestTitle" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+custom_minimum_size = Vector2(215, 20)
+layout_mode = 2
+text = "Quest title"
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+modulate = Color(0.714844, 0.714844, 0.714844, 1)
+custom_minimum_size = Vector2(215, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_vo45j")
+text = "Quest description"
+autowrap_mode = 2
+
+[node name="SpaceControl" type="Control" parent="Control/TabContainer/Quests/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="QuestStepItem" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("9_ostkv")]
+layout_mode = 2
+
+[node name="QuestStepItem2" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("9_ostkv")]
+layout_mode = 2
+
+[node name="QuestStepItem3" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("9_ostkv")]
+layout_mode = 2
+
+[node name="System" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/System"]
 texture_filter = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.509
-anchor_top = 0.5
-anchor_right = 0.509
-anchor_bottom = 0.5
-offset_left = -224.32
-offset_top = 85.0
-offset_right = -70.32
-offset_bottom = 151.0
+anchor_left = 0.508
+anchor_top = 0.501
+anchor_right = 0.508
+anchor_bottom = 0.501
+offset_left = -70.12
+offset_top = -97.308
+offset_right = 124.88
+offset_bottom = 185.692
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.759962, 0.431827)
+scale = Vector2(0.667178, 0.596362)
+theme_override_constants/separation = 25
+alignment = 1
 
-[node name="btn_save" type="Button" parent="Control/HBoxContainer"]
+[node name="btn_save" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "Save"
 
-[node name="btn_load" type="Button" parent="Control/HBoxContainer"]
+[node name="btn_load" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "Load
 "
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 214.0
-offset_top = 88.0
-offset_right = 410.0
-offset_bottom = 176.0
-scale = Vector2(1.12253, 1.1957)
-theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
-
-[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+[node name="btn_quit" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-columns = 5
-script = ExtResource("3_0xuew")
-data = ExtResource("4_k2s4e")
-
-[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
-layout_mode = 2
-
-[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
-layout_mode = 2
-
-[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
-layout_mode = 2
-
-[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
-layout_mode = 2
-
-[node name="InventorySlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
-layout_mode = 2
-
-[node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
-layout_mode = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-max_polyphony = 4
+theme_override_font_sizes/font_size = 50
+text = "Quit"

@@ -21,11 +21,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print(findQuestByTitle("Tutorial"))
 		#print("getQuestIndexByTitle:" , getQuestIndexByTitle("Return lost magical flute"))
 		#print("getQuestIndexByTitle:" , getQuestIndexByTitle("Tutorial"))
-		#print("before : " ,curret_quests)
-		#updateQuest("Tutorial")
-		#print("\n")
-		#updateQuest("Return lost magical flute", "Find the magical flute")
-		#updateQuest("Return lost magical flute","",true)
+		print("before : " ,curret_quests)
+		updateQuest("Return lost magical flute")
+		updateQuest("Return lost magical flute","",true)
+		updateQuest("Tutorial")
+		updateQuest("Tutorial","Complete the quest")
+		updateQuest("Tutorial", "", true)
+		print("\n")
+		updateQuest("Basic task")
+		updateQuest("Basic task", "Step 1")
+		updateQuest("Basic task", "Step 2")
 		print("quests : " , curret_quests)
 		#print("=========================================")
 		pass
@@ -52,7 +57,7 @@ func updateQuest(_title : String, _completed_step : String = "", _is_complete : 
 		}
 		
 		if _completed_step != "":
-			new_quest.completed_steps.append(_completed_step)
+			new_quest.completed_steps.append(_completed_step.to_lower())
 		
 		curret_quests.append(new_quest)
 		quest_updated.emit(new_quest)
@@ -62,7 +67,7 @@ func updateQuest(_title : String, _completed_step : String = "", _is_complete : 
 		#Quest was found, update it
 		var q = curret_quests[quest_index]
 		if _completed_step != "" and q.completed_steps.has(_completed_step) == false:
-			q.completed_steps.append(_completed_step)
+			q.completed_steps.append(_completed_step.to_lower())
 			pass
 		q.is_complete = _is_complete
 		quest_updated.emit(q)
@@ -101,8 +106,23 @@ func getQuestIndexByTitle( _title : String) -> int:
 
 
 func sortQuest() -> void:
+	var active_quests : Array = []
+	var completed_quests : Array = []
+	for q in curret_quests:
+		if q.is_complete:
+			completed_quests.append( q )
+		else:
+			active_quests.append( q )
+	
+	active_quests.sort_custom( sort_quests_ascending )
+	completed_quests.sort_custom( sort_quests_ascending )
+	
+	curret_quests = active_quests
+	curret_quests.append_array( completed_quests )
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+func sort_quests_ascending( a, b ):
+	if a.title < b.title:
+		return true
+	return false
