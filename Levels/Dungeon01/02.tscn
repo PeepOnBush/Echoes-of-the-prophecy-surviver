@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://crk2sdpxwjdj6" path="res://Tile Maps/Dungeon-01-layer.tscn" id="2_ln4qa"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="3_0xk46"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="4_etmmw"]
-[ext_resource type="PackedScene" uid="uid://hatum46ecrmx" path="res://Interactables/Dungeon/pressure_plate.tscn" id="5_ovawr"]
-[ext_resource type="PackedScene" uid="uid://b6ryrbmtlmx25" path="res://Interactables/Dungeon/barred_door.tscn" id="6_q0jd4"]
-[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/Dungeon/pushable_statue.tscn" id="7_xx4u3"]
+[ext_resource type="PackedScene" uid="uid://hatum46ecrmx" path="res://Interactables/dungeon/pressure_plate.tscn" id="5_ovawr"]
+[ext_resource type="PackedScene" uid="uid://b6ryrbmtlmx25" path="res://Interactables/dungeon/barred_door.tscn" id="6_q0jd4"]
+[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/dungeon/pushable_statue.tscn" id="7_xx4u3"]
 
 [node name="02" type="Node2D"]
 position = Vector2(1, -1)

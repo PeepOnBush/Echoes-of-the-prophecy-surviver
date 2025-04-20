@@ -97,6 +97,7 @@ func make_invulnerable( _duration : float = 1.0) -> void:
 	invulnerable = true
 	hit_box.monitoring = false
 	
+	@warning_ignore("redundant_await")
 	await get_tree().create_timer(_duration)
 	invulnerable = false
 	hit_box.monitoring = true

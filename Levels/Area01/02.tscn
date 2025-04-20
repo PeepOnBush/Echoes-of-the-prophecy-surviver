@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=23 format=4 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6l1vp"]
@@ -18,6 +18,10 @@
 [ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="16_7duxu"]
 [ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="17_bqn0v"]
 [ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="18_6xr28"]
+[ext_resource type="PackedScene" uid="uid://hatum46ecrmx" path="res://Interactables/dungeon/pressure_plate.tscn" id="19_vuf8t"]
+[ext_resource type="Resource" uid="uid://cfduwutvow4sn" path="res://Quests/Return_lost_flute.tres" id="20_3f38f"]
+[ext_resource type="PackedScene" uid="uid://dx48lwg3wwvy2" path="res://Quests/Utility_nodes/quest_advance_trigger.tscn" id="20_ctmuj"]
+[ext_resource type="Resource" uid="uid://bbylep33l8ey7" path="res://Quests/Long_quest.tres" id="21_kw111"]
 
 [node name="02" type="Node2D"]
 position = Vector2(1, 0)
@@ -131,6 +135,14 @@ script = ExtResource("17_bqn0v")
 text = "You can count on me"
 npc_info = ExtResource("8_ccwxv")
 
+[node name="QuestAdvanceTrigger" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch" instance=ExtResource("20_ctmuj")]
+signal_name = "selected"
+linked_quest = ExtResource("20_3f38f")
+setting_summary = "UPDATE QUEST:
+Quest: Return lost magical flute
+Step: 0 - N/A
+Complete: false"
+
 [node name="DialogText" type="Node" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_xlg0g")
 text = "THANKS GOD!!"
@@ -151,3 +163,26 @@ position = Vector2(79, 50)
 
 [node name="Pot2" parent="." instance=ExtResource("18_6xr28")]
 position = Vector2(116, 51)
+
+[node name="PressurePlate" parent="." instance=ExtResource("19_vuf8t")]
+position = Vector2(419, 44)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_ctmuj")]
+signal_name = "pressed"
+linked_quest = ExtResource("21_kw111")
+setting_summary = "UPDATE QUEST:
+Quest: Basic task
+Step: 0 - N/A
+Complete: false"
+
+[node name="PressurePlate2" parent="." instance=ExtResource("19_vuf8t")]
+position = Vector2(419, 79)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate2" instance=ExtResource("20_ctmuj")]
+signal_name = "pressed"
+linked_quest = ExtResource("21_kw111")
+quest_step = 1
+setting_summary = "UPDATE QUEST:
+Quest: Basic task
+Step: 1 - step 1
+Complete: false"

@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://bti6g1gqdopxv"]
+
+[ext_resource type="Texture2D" uid="uid://dwm6clcuq7dgt" path="res://Tile Maps/Sprites/tiles.PNG" id="1_nck4g"]
+[ext_resource type="Script" path="res://Tile Maps/LevelTileMapLayer.gd" id="2_6uyxl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ntwa"]
+texture = ExtResource("1_nck4g")
+18:17/0 = 0
+19:17/0 = 0
+20:17/0 = 0
+21:17/0 = 0
+22:17/0 = 0
+23:17/0 = 0
+24:17/0 = 0
+25:17/0 = 0
+26:17/0 = 0
+27:17/0 = 0
+28:17/0 = 0
+29:17/0 = 0
+18:18/0 = 0
+19:18/0 = 0
+20:18/0 = 0
+21:18/0 = 0
+22:18/0 = 0
+23:18/0 = 0
+24:18/0 = 0
+25:18/0 = 0
+26:18/0 = 0
+27:18/0 = 0
+28:18/0 = 0
+29:18/0 = 0
+18:19/0 = 0
+19:19/0 = 0
+20:19/0 = 0
+21:19/0 = 0
+22:19/0 = 0
+23:19/0 = 0
+24:19/0 = 0
+25:19/0 = 0
+26:19/0 = 0
+27:19/0 = 0
+28:19/0 = 0
+29:19/0 = 0
+18:20/0 = 0
+19:20/0 = 0
+20:20/0 = 0
+21:20/0 = 0
+22:20/0 = 0
+23:20/0 = 0
+24:20/0 = 0
+25:20/0 = 0
+26:20/0 = 0
+27:20/0 = 0
+28:20/0 = 0
+18:21/0 = 0
+19:21/0 = 0
+20:21/0 = 0
+21:21/0 = 0
+22:21/0 = 0
+23:21/0 = 0
+24:21/0 = 0
+25:21/0 = 0
+26:21/0 = 0
+27:21/0 = 0
+28:21/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_84wns"]
+sources/0 = SubResource("TileSetAtlasSource_6ntwa")
+
+[node name="TestTileLayer" type="TileMapLayer"]
+tile_set = SubResource("TileSet_84wns")
+rendering_quadrant_size = 32
+script = ExtResource("2_6uyxl")
+tile_size = 16.0

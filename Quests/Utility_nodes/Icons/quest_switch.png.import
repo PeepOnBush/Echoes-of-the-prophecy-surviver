@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k5s6s4cxpsuv"
-path="res://.godot/imported/dungeon_props.png-efac48749301c019019c6b8d3f2e2326.ctex"
+uid="uid://bao0gwegqjkvv"
+path="res://.godot/imported/quest_switch.png-951322c5c5d610310ef770a96ae671f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Interactables/dungeon/dungeon_props.png"
-dest_files=["res://.godot/imported/dungeon_props.png-efac48749301c019019c6b8d3f2e2326.ctex"]
+source_file="res://Quests/Utility_nodes/Icons/quest_switch.png"
+dest_files=["res://.godot/imported/quest_switch.png-951322c5c5d610310ef770a96ae671f5.ctex"]
 
 [params]
 

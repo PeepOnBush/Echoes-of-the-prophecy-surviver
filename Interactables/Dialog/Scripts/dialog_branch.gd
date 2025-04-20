@@ -2,6 +2,8 @@
 @icon("res://GUI/dialog_system/Icons/answer_bubble.svg")
 class_name DialogBranch extends DialogItem
 
+signal selected
+
 @export var text : String = "ok...." : set = setText
 
 var dialog_items : Array[DialogItem]
