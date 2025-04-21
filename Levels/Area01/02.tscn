@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=24 format=4 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6l1vp"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://hatum46ecrmx" path="res://Interactables/dungeon/pressure_plate.tscn" id="19_vuf8t"]
 [ext_resource type="Resource" uid="uid://cfduwutvow4sn" path="res://Quests/Return_lost_flute.tres" id="20_3f38f"]
 [ext_resource type="PackedScene" uid="uid://dx48lwg3wwvy2" path="res://Quests/Utility_nodes/quest_advance_trigger.tscn" id="20_ctmuj"]
+[ext_resource type="PackedScene" uid="uid://begrkqj8rxd3e" path="res://Quests/Utility_nodes/quest_activated_switch.tscn" id="21_0fwug"]
 [ext_resource type="Resource" uid="uid://bbylep33l8ey7" path="res://Quests/Long_quest.tres" id="21_kw111"]
 
 [node name="02" type="Node2D"]
@@ -56,6 +57,12 @@ level = "res://Levels/Area01/01.tscn"
 center_player = true
 size = 5
 side = 2
+
+[node name="Pot" parent="." instance=ExtResource("18_6xr28")]
+position = Vector2(79, 50)
+
+[node name="Pot2" parent="." instance=ExtResource("18_6xr28")]
+position = Vector2(116, 51)
 
 [node name="Npc" parent="." instance=ExtResource("7_hvt1o")]
 position = Vector2(332, 73)
@@ -136,6 +143,7 @@ text = "You can count on me"
 npc_info = ExtResource("8_ccwxv")
 
 [node name="QuestAdvanceTrigger" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch" instance=ExtResource("20_ctmuj")]
+position = Vector2(188, 77)
 signal_name = "selected"
 linked_quest = ExtResource("20_3f38f")
 setting_summary = "UPDATE QUEST:
@@ -158,14 +166,8 @@ script = ExtResource("11_xlg0g")
 text = "you motherfu....."
 npc_info = ExtResource("8_w0os1")
 
-[node name="Pot" parent="." instance=ExtResource("18_6xr28")]
-position = Vector2(79, 50)
-
-[node name="Pot2" parent="." instance=ExtResource("18_6xr28")]
-position = Vector2(116, 51)
-
 [node name="PressurePlate" parent="." instance=ExtResource("19_vuf8t")]
-position = Vector2(419, 44)
+position = Vector2(417, 37)
 
 [node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_ctmuj")]
 signal_name = "pressed"
@@ -175,10 +177,18 @@ Quest: Basic task
 Step: 0 - N/A
 Complete: false"
 
-[node name="PressurePlate2" parent="." instance=ExtResource("19_vuf8t")]
-position = Vector2(419, 79)
+[node name="QuestActivatedSwitch2" parent="." instance=ExtResource("21_0fwug")]
+position = Vector2(417, 80)
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("21_kw111")
+setting_summary = "UPDATE QUEST:
+Quest: Basic task
+Checking if player has quest"
 
-[node name="QuestAdvanceTrigger" parent="PressurePlate2" instance=ExtResource("20_ctmuj")]
+[node name="PressurePlate2" parent="QuestActivatedSwitch2" instance=ExtResource("19_vuf8t")]
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch2/PressurePlate2" instance=ExtResource("20_ctmuj")]
 signal_name = "pressed"
 linked_quest = ExtResource("21_kw111")
 quest_step = 1
@@ -186,3 +196,39 @@ setting_summary = "UPDATE QUEST:
 Quest: Basic task
 Step: 1 - step 1
 Complete: false"
+
+[node name="QuestActivatedSwitch3" parent="." instance=ExtResource("21_0fwug")]
+position = Vector2(16, 47)
+check_type = 2
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("21_kw111")
+quest_step = 2
+setting_summary = "UPDATE QUEST:
+Quest: Basic task
+Checking if player is on step: step 2"
+
+[node name="PressurePlate3" parent="QuestActivatedSwitch3" instance=ExtResource("19_vuf8t")]
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch3/PressurePlate3" instance=ExtResource("20_ctmuj")]
+signal_name = "pressed"
+linked_quest = ExtResource("21_kw111")
+quest_step = 2
+quest_complete = true
+setting_summary = "UPDATE QUEST:
+Quest: Basic task
+Step: 2 - step 2
+Complete: true"
+
+[node name="QuestActivatedSwitch" parent="." instance=ExtResource("21_0fwug")]
+position = Vector2(107, 83)
+check_type = 3
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("21_kw111")
+setting_summary = "UPDATE QUEST:
+Quest: Basic task
+Checking if step is complete"
+
+[node name="Pot3" parent="QuestActivatedSwitch" instance=ExtResource("18_6xr28")]
+position = Vector2(-10, 20)
