@@ -179,7 +179,6 @@ Complete: false"
 
 [node name="QuestActivatedSwitch2" parent="." instance=ExtResource("21_0fwug")]
 position = Vector2(417, 80)
-remove_when_activated = false
 react_to_global_signal = true
 linked_quest = ExtResource("21_kw111")
 setting_summary = "UPDATE QUEST:
@@ -200,7 +199,6 @@ Complete: false"
 [node name="QuestActivatedSwitch3" parent="." instance=ExtResource("21_0fwug")]
 position = Vector2(16, 47)
 check_type = 2
-remove_when_activated = false
 react_to_global_signal = true
 linked_quest = ExtResource("21_kw111")
 quest_step = 2
@@ -223,7 +221,6 @@ Complete: true"
 [node name="QuestActivatedSwitch" parent="." instance=ExtResource("21_0fwug")]
 position = Vector2(107, 83)
 check_type = 3
-remove_when_activated = false
 react_to_global_signal = true
 linked_quest = ExtResource("21_kw111")
 setting_summary = "UPDATE QUEST:

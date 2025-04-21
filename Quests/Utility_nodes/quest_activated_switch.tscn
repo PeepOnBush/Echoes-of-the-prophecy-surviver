@@ -6,8 +6,6 @@
 [node name="QuestActivatedSwitch" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_0vkba")
-remove_when_activated = null
-react_to_global_signal = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10

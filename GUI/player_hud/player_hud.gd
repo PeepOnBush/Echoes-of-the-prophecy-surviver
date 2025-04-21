@@ -13,6 +13,7 @@ var hearts : Array[HeartGui] = []
 @onready var boss_ui: Control = $Control/BossUI
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
 @onready var boss_label: Label = $Control/BossUI/Label
+@onready var notifcation: NotificationUI = $Control/Notifcation
 
 
 
@@ -111,4 +112,8 @@ func hideBossHealth() -> void:
 
 func updateBossHealth( hp : int, max_hp : int ) -> void:
 	boss_hp_bar.value = clampf( float(hp) / float(max_hp) * 100, 0, 100)
+	pass
+
+func queueNotification(_title : String , _message : String) -> void:
+	notifcation.addNotificationToQueue(_title,_message)
 	pass

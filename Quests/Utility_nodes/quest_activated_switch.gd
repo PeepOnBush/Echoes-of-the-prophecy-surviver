@@ -77,11 +77,6 @@ func checkIsActivated() -> void:
 	
 	pass
 
-func getPrevStep() -> String:
-	if quest_step <= getStepCount() and quest_step > 1:
-		return linked_quest.steps[quest_step - 2]
-	else:
-		return "N/A"
 
 func setIsActivated(_v : bool ) -> void:
 	is_activated = _v

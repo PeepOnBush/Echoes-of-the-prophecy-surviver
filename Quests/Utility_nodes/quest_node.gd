@@ -38,8 +38,14 @@ func getStepCount() -> int:
 func updateSummary() -> void:
 	setting_summary = "UPDATE QUEST:\nQuest: " + linked_quest.title + "\n"
 	setting_summary += "Step: " + str(quest_step) + " - " + getStep() + "\n"
-	setting_summary += "Complete: " + str(quest_complete	)
+	setting_summary += "Complete: " + str(quest_complete)
 	pass
+
+func getPrevStep() -> String:
+	if quest_step <= getStepCount() and quest_step > 1:
+		return linked_quest.steps[quest_step - 2]
+	else:
+		return "N/A"
 
 func getStep() -> String:
 	if quest_step != 0 and quest_step <= getStepCount():

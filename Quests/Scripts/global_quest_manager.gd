@@ -52,7 +52,7 @@ func updateQuest(_title : String, _completed_step : String = "", _is_complete : 
 		#quest was not found - add it to the current quests array
 		var new_quest : Dictionary = {
 			 title = _title,
-			 is_complete = _completed_step,
+			 is_complete = _is_complete,
 			 completed_steps = []
 		}
 		
@@ -62,6 +62,7 @@ func updateQuest(_title : String, _completed_step : String = "", _is_complete : 
 		curret_quests.append(new_quest)
 		quest_updated.emit(new_quest)
 		#display a notif that quests was added
+		PlayerHud.queueNotification("Quest Started", _title)
 		pass
 	else:
 		#Quest was found, update it
@@ -74,13 +75,20 @@ func updateQuest(_title : String, _completed_step : String = "", _is_complete : 
 		#Display a notif that quests was updated or completed
 		if q.is_complete == true:
 			distributeQuestRewards(findQuestByTitle(_title)) 
+			PlayerHud.queueNotification("Quest Complete!", _title)
+		else:
+			PlayerHud.queueNotification("Quest Updated", _title + ": " + _completed_step)
 	pass
 
 func distributeQuestRewards(_q : Quest) -> void:
 	#Give XP and items rewards to player
+	var _message : String = str(_q.reward_xp) + "xp"
 	PlayerManager.rewardXP(_q.reward_xp)
 	for i in _q.reward_items:
+		_message += ", " + i.item.name + " x" + str(i.quantity)
 		PlayerManager.INVENTORY_DATA.add_item(i.item, i.quantity)
+	
+	PlayerHud.queueNotification("Quest Rewards Received!", _message )
 	pass
 
 #Provide a quest and return the current quest associated with it
