@@ -12,7 +12,7 @@ quantity = 1
 [resource]
 script = ExtResource("2_wt2wc")
 title = "Return lost magical flute"
-steps = Array[String](["Find the magical flute", "Return the magical flute to gerald"])
+steps = Array[String](["Find the cave", "Find the magical flute", "Return the magical flute to gerald"])
 reward_xp = 200
 reward_items = Array[ExtResource("1_q7eo1")]([SubResource("Resource_4cwl5")])
 description = "Gerald has asked the hero to retrieve his lost magical flute from the dungeon"

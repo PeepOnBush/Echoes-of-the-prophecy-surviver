@@ -20,3 +20,7 @@ func getValue() -> void:
 func _getName() -> String:
 	# res://Levels//AreaO1/01.tscn/treasurechest/PersistentDataHandler
 	return get_tree().current_scene.scene_file_path + "/" + get_parent().name + "/" + name 
+
+func removeValue() -> void:
+	SaveManager.removePersistentValue(_getName())
+	pass

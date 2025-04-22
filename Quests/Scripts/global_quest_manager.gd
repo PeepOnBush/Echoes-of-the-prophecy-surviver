@@ -74,8 +74,8 @@ func updateQuest(_title : String, _completed_step : String = "", _is_complete : 
 		quest_updated.emit(q)
 		#Display a notif that quests was updated or completed
 		if q.is_complete == true:
-			distributeQuestRewards(findQuestByTitle(_title)) 
 			PlayerHud.queueNotification("Quest Complete!", _title)
+			distributeQuestRewards(findQuestByTitle(_title)) 
 		else:
 			PlayerHud.queueNotification("Quest Updated", _title + ": " + _completed_step)
 	pass
@@ -87,7 +87,7 @@ func distributeQuestRewards(_q : Quest) -> void:
 	for i in _q.reward_items:
 		_message += ", " + i.item.name + " x" + str(i.quantity)
 		PlayerManager.INVENTORY_DATA.add_item(i.item, i.quantity)
-	
+		
 	PlayerHud.queueNotification("Quest Rewards Received!", _message )
 	pass
 

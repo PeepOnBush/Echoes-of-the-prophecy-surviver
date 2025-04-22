@@ -63,6 +63,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	hand_01_up.position = hand_01.position
 	hand_01_up.frame = hand_01.frame + 4
@@ -95,6 +96,7 @@ func teleport( _location : int ) -> void:
 func idle() -> void:
 	enableHitBoxes()
 	
+	@warning_ignore("integer_division")
 	if randf() >= float(hp / max_hp) : # the lower the health get the higher probability this happening will be
 		animation_player.play("idle")
 		await animation_player.animation_finished
@@ -197,10 +199,16 @@ func defeat() -> void:
 	animation_player.play("destroy")
 	enableHitBoxes(false)
 	PlayerHud.hideBossHealth()
-	boss_defeated.setValue()
+	#boss_defeated.setValue()
 	await animation_player.animation_finished
-	door_block.enabled = false
+	$ItemDropper.position = boss_node.position
+	$ItemDropper.dropItem()
+	$ItemDropper.drop_collected.connect(openDoor)
 	pass
+
+func openDoor() -> void:
+	boss_defeated.setValue()
+	door_block.enabled = false
 
 func enableHitBoxes( _v : bool = true) -> void:
 	hit_box.set_deferred("monitorable", _v)

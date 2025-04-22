@@ -91,3 +91,8 @@ func addPersistentValue( value : String) -> void:
 func checkPersistentValue(value : String) -> bool:
 	var p = currentSave.persistence as Array
 	return p.has(value)
+
+func removePersistentValue(value : String ) -> void:
+	var p = currentSave.persistence as Array
+	p.erase(value)
+	pass

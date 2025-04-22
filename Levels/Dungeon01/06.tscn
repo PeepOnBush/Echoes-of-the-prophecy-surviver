@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://13tsrxyrnbva"]
+[gd_scene load_steps=49 format=4 uid="uid://13tsrxyrnbva"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_4oxdf"]
 [ext_resource type="AudioStream" uid="uid://1r67g4ua83ap" path="res://Levels/music/example_music_03.ogg" id="2_ybtxv"]
@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="11_34m1k"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="15_7geao"]
 [ext_resource type="AudioStream" uid="uid://badrvp5w0pvpn" path="res://Levels/Dungeon01/dark_wizard/Audio/boss_destroy.wav" id="15_dlcy7"]
+[ext_resource type="PackedScene" uid="uid://dqa7te3m6hyno" path="res://GeneralNodes/ItemDropper/item_dropper.tscn" id="19_ho2t6"]
+[ext_resource type="Resource" uid="uid://c6e1tpsbp8w8o" path="res://Items/magical_flute.tres" id="20_k1h1y"]
+[ext_resource type="PackedScene" uid="uid://dx48lwg3wwvy2" path="res://Quests/Utility_nodes/quest_advance_trigger.tscn" id="21_5bdj1"]
+[ext_resource type="Resource" uid="uid://cfduwutvow4sn" path="res://Quests/Return_lost_flute.tres" id="22_khp1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dn7jy"]
 texture = ExtResource("4_6v15k")
@@ -1020,12 +1024,13 @@ position = Vector2(524, 226)
 
 [node name="MagickaBoss" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(222, 101)
 script = ExtResource("10_0lig8")
 
 [node name="PersistentDataHandler" parent="MagickaBoss" instance=ExtResource("10_v1rit")]
 
 [node name="BossNode" type="Node2D" parent="MagickaBoss"]
-position = Vector2(223, 119)
+position = Vector2(1, 18)
 
 [node name="ShadowSprite" type="Sprite2D" parent="MagickaBoss/BossNode"]
 texture = SubResource("GradientTexture2D_pgroh")
@@ -1118,6 +1123,7 @@ libraries = {
 autoplay = "default"
 
 [node name="BeamAttacks" type="Node2D" parent="MagickaBoss"]
+position = Vector2(-222, -101)
 
 [node name="EB_H1" parent="MagickaBoss/BeamAttacks" instance=ExtResource("10_0sm3s")]
 position = Vector2(220, 44)
@@ -1141,6 +1147,7 @@ position = Vector2(390, 202)
 rotation = 1.5708
 
 [node name="PositionTarget" type="Node2D" parent="MagickaBoss"]
+position = Vector2(-222, -101)
 
 [node name="Sprite2D" type="Sprite2D" parent="MagickaBoss/PositionTarget"]
 position = Vector2(221, 52)
@@ -1157,3 +1164,17 @@ texture = SubResource("GradientTexture2D_mtdov")
 [node name="Sprite2D4" type="Sprite2D" parent="MagickaBoss/PositionTarget"]
 position = Vector2(40, 131)
 texture = SubResource("GradientTexture2D_mtdov")
+
+[node name="ItemDropper" parent="MagickaBoss" instance=ExtResource("19_ho2t6")]
+position = Vector2(1, 18)
+item_data = ExtResource("20_k1h1y")
+
+[node name="QuestAdvanceTrigger" parent="MagickaBoss/ItemDropper" instance=ExtResource("21_5bdj1")]
+position = Vector2(-1, -18)
+signal_name = "drop_collected"
+linked_quest = ExtResource("22_khp1v")
+quest_step = 2
+setting_summary = "UPDATE QUEST:
+Quest: Return lost magical flute
+Step: 2 - find the magical flute
+Complete: false"
