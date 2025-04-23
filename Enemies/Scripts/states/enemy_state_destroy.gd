@@ -30,6 +30,7 @@ func Enter() -> void:
 	enemy.animationPlayer.animation_finished.connect(_on_animation_finished)
 	disable_hurt_box()
 	drop_items()
+	PlayerManager.rewardXP(enemy.xp_reward)
 	pass
 ## What happen when the player exit this state ?
 func Exit() -> void:

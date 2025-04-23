@@ -3,13 +3,15 @@ extends Node
 const PLAYER = preload("res://Player/player.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://GUI/pause_menu/inventory/player_inventory.tres")
 
+signal leveled_up
 signal interact_pressed
 signal camera_shook(trauma : float)
 var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true
 
-var xp : int = 0
+
+var level_requirements = [ 0, 50, 100, 200, 400, 800, 1500, 3000, 4500, 6000, 8500, 12000 ]
 
 func _ready() -> void:
 	add_player_instance()
@@ -28,8 +30,12 @@ func set_health( hp : int, max_hp : int) -> void:
 	pass
 
 func rewardXP(_xp : int ) -> void:
-	xp += _xp
-	print("XP : ",str(xp))
+	player.xp += _xp
+	if player.xp >= level_requirements[player.level]:
+		player.level += 1
+		player.attack += 1
+		player.defense += 1
+		leveled_up.emit()
 	pass
  
 func set_player_position( _new_pos : Vector2 ) -> void:
@@ -54,4 +60,5 @@ func Interact() -> void:
 	interact_pressed.emit()
 
 func shakeCamera(trauma : float = 1) -> void:
-	camera_shook.emit(trauma)
+	@warning_ignore("narrowing_conversion")
+	camera_shook.emit(clampi(trauma,0 ,2))

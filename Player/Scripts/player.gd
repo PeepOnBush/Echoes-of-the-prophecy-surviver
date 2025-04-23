@@ -11,6 +11,15 @@ var direction : Vector2 = Vector2.ZERO
 var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
+var xp : int = 0
+var level : int = 1
+var defense : int = 1
+var attack : int = 1 :
+	set(v) :
+		attack = v
+		updateDamageValue()
+
+
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
@@ -28,6 +37,8 @@ func _ready() -> void:
 	state_Machine.Initialize(self)
 	hit_box.Damaged.connect(_take_damage)
 	update_hp(99)
+	updateDamageValue()
+	PlayerManager.leveled_up.connect(updateDamageValue)
 	pass # Replace with function body.
  
 
@@ -84,8 +95,15 @@ func _take_damage(_hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
 	if hp > 0:
-		update_hp(-_hurt_box.damage)
+		var dmg : int = _hurt_box.damage
+		
+		
+		if dmg > 0:
+			dmg = clampi(dmg - defense, 1, dmg )
+		
+		update_hp( -dmg )
 		PlayerDamaged.emit(_hurt_box)
+		
 	pass
 
 func update_hp( _delta : int ) -> void:
@@ -111,3 +129,9 @@ func pickupItem(_t : Throwable) -> void:
 func revivePlayer() -> void:
 	update_hp(99)
 	state_Machine.changeState($StateMachine/idle)
+
+
+func updateDamageValue() -> void:
+	%AttackHurtBox.damage = attack 
+	%ChargeSpinHurtBox.damage = attack * 2
+	pass

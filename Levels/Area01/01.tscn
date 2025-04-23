@@ -585,6 +585,8 @@ item_data = ExtResource("11_gy4gl")
 
 [node name="goblin" parent="." instance=ExtResource("11_kowrg")]
 position = Vector2(251, 141)
+hp = 1
+xp_reward = 50
 
 [node name="LevelTransition3" parent="." instance=ExtResource("3_mthjb")]
 position = Vector2(239, -15)

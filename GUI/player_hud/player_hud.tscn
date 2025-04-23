@@ -389,16 +389,17 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(66, 312)
+position = Vector2(538, 13)
 texture = ExtResource("2_ecbuc")
 region_enabled = true
 region_rect = Rect2(29, 0, 34, 8)
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Control"]
 layout_mode = 0
-offset_top = 320.0
-offset_right = 130.0
-offset_bottom = 344.0
+offset_left = 472.0
+offset_top = 21.0
+offset_right = 602.0
+offset_bottom = 45.0
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 2
 alignment = 1

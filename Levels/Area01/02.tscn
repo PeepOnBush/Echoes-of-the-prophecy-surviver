@@ -144,7 +144,6 @@ wait_time = 1.0
 [node name="QuestActivatedSwitch" parent="Npc2" instance=ExtResource("21_0fwug")]
 remove_when_activated = true
 react_to_global_signal = true
-free_on_remove = null
 linked_quest = ExtResource("20_3f38f")
 setting_summary = "UPDATE QUEST:
 Quest: Return lost magical flute
@@ -202,7 +201,6 @@ Checking if step is complete"
 
 [node name="QuestActivatedSwitch2" parent="Npc2/QuestActivatedSwitch3" instance=ExtResource("21_0fwug")]
 react_to_global_signal = true
-free_on_remove = null
 linked_quest = ExtResource("20_3f38f")
 setting_summary = "UPDATE QUEST:
 Quest: Return lost magical flute
@@ -270,7 +268,6 @@ Complete: false"
 [node name="QuestActivatedSwitch2" parent="." instance=ExtResource("21_0fwug")]
 position = Vector2(417, 80)
 react_to_global_signal = true
-free_on_remove = null
 linked_quest = ExtResource("21_kw111")
 setting_summary = "UPDATE QUEST:
 Quest: Basic task
@@ -291,7 +288,6 @@ Complete: false"
 position = Vector2(16, 47)
 check_type = 2
 react_to_global_signal = true
-free_on_remove = null
 linked_quest = ExtResource("21_kw111")
 quest_step = 2
 setting_summary = "UPDATE QUEST:
@@ -314,7 +310,6 @@ Complete: true"
 position = Vector2(107, 83)
 check_type = 3
 react_to_global_signal = true
-free_on_remove = null
 linked_quest = ExtResource("21_kw111")
 setting_summary = "UPDATE QUEST:
 Quest: Basic task

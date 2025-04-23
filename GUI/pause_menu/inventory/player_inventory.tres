@@ -5,4 +5,4 @@
 
 [resource]
 script = ExtResource("1_cp71v")
-slots = Array[ExtResource("2_a3xo6")]([null, null, null, null, null, null, null, null, null, null])
+slots = Array[ExtResource("2_a3xo6")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

@@ -8,4 +8,5 @@ class_name  DropData extends Resource
 func getDropCount() -> int:
 	if randf_range(0,100) >= probability:
 		return 0
+	@warning_ignore("narrowing_conversion")
 	return randf_range(min_amount,max_amount)
