@@ -38,7 +38,7 @@ func _ready() -> void:
 	hit_box.Damaged.connect(_take_damage)
 	update_hp(99)
 	updateDamageValue()
-	PlayerManager.leveled_up.connect(updateDamageValue)
+	PlayerManager.leveled_up.connect(onPlayerLevelUp)
 	pass # Replace with function body.
  
 
@@ -129,7 +129,12 @@ func pickupItem(_t : Throwable) -> void:
 func revivePlayer() -> void:
 	update_hp(99)
 	state_Machine.changeState($StateMachine/idle)
+	pass
 
+func onPlayerLevelUp() -> void:
+	effect_animation_player.play("level_up")
+	update_hp(max_hp)
+	pass
 
 func updateDamageValue() -> void:
 	%AttackHurtBox.damage = attack 

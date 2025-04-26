@@ -85,6 +85,7 @@ func loadGame() -> void:
 	playAudio(button_select_audio)
 	await fadeToBlack()
 	SaveManager.loadGame()
+	hideBossHealth()
 	pass
 
 func titleScreen() -> void:

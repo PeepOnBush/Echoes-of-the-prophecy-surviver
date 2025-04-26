@@ -24,8 +24,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _process(delta: float) -> void:
-	pass
 
 
 func setupTileScreen() -> void:
@@ -46,6 +44,7 @@ func startGame() -> void:
 func loadGame() -> void:
 	SaveManager.loadGame()
 	playAudio(button_press_audio)
+	PlayerHud.boss_hp_bar.visible = false
 	pass
 
 func exitTitleScreen() -> void:
