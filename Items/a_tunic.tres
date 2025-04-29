@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=7 format=3 uid="uid://c4kmbc1sc1uv4"]
+
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_xtle0"]
+[ext_resource type="Script" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_5bnb0"]
+[ext_resource type="Script" path="res://Items/Scripts/equipable_item_data.gd" id="3_8qkb3"]
+[ext_resource type="Texture2D" uid="uid://bdom8jkpn25gy" path="res://Items/Sprites/gear.png" id="4_gb4x3"]
+
+[sub_resource type="Resource" id="Resource_f038n"]
+script = ExtResource("2_5bnb0")
+type = 2
+value = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7en6"]
+atlas = ExtResource("4_gb4x3")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("3_8qkb3")
+type = 1
+modifiers = Array[ExtResource("2_5bnb0")]([SubResource("Resource_f038n")])
+name = "tunic "
+description = "A tunic is clean and pressed and the cape oh-so-stylish."
+texture = SubResource("AtlasTexture_k7en6")
+effects = Array[ExtResource("1_xtle0")]([])
