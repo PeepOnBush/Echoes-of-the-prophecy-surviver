@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bms5b35hj2ian"]
+[gd_scene load_steps=30 format=3 uid="uid://bms5b35hj2ian"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_g1nml"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_1j814"]
@@ -26,6 +26,62 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h8aau"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd4dw"]
+atlas = SubResource("CompressedTexture2D_h8aau")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vdvqf"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ldar"]
+atlas = SubResource("CompressedTexture2D_vdvqf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ros2n"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nfpq"]
+atlas = SubResource("CompressedTexture2D_ros2n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oiq33"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50t72"]
+atlas = SubResource("CompressedTexture2D_oiq33")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8y4mh"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cucj"]
+atlas = SubResource("CompressedTexture2D_8y4mh")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dkrn1"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykteu"]
+atlas = SubResource("CompressedTexture2D_dkrn1")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5peaj"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kh7a"]
+atlas = SubResource("CompressedTexture2D_5peaj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5e1fv"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2x0s"]
+atlas = SubResource("CompressedTexture2D_5e1fv")
+region = Rect2(16, 16, 16, 16)
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -92,7 +148,7 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/TabContainer/Inventory"]
-position = Vector2(140, 112)
+position = Vector2(140, 116)
 scale = Vector2(2.215, 2.215)
 texture = ExtResource("2_8dgh2")
 hframes = 16
@@ -102,9 +158,9 @@ vframes = 8
 texture_filter = 1
 layout_mode = 0
 offset_left = 262.0
-offset_top = 51.0
+offset_top = 33.0
 offset_right = 566.0
-offset_bottom = 247.0
+offset_bottom = 157.0
 scale = Vector2(1.12253, 1.1957)
 theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
 
@@ -186,15 +242,98 @@ layout_mode = 2
 [node name="InventorySlot24" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
 layout_mode = 2
 
-[node name="InventorySlot25" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_vr4sr")]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 261.0
+offset_top = 188.0
+offset_right = 565.0
+offset_bottom = 276.0
+scale = Vector2(1.12253, 1.1957)
+theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2"]
+layout_mode = 2
+columns = 8
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_sd4dw")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_5ldar")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_1nfpq")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_50t72")
+
+[node name="TextureRect5" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_4cucj")
+
+[node name="TextureRect6" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ykteu")
+
+[node name="TextureRect7" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_6kh7a")
+
+[node name="TextureRect8" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_m2x0s")
+
+[node name="InventorySlot_Armor" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Amulet" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Ring_1" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Ring_2" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Shield" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Tool_1" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot_Tool_2" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_vr4sr")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_hg0ok")]
 layout_mode = 0
 offset_left = 47.0
-offset_top = 179.0
+offset_top = 188.0
 offset_right = 218.0
-offset_bottom = 267.0
+offset_bottom = 276.0
 
 [node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
 visible = false
@@ -219,9 +358,9 @@ autowrap_mode = 2
 [node name="Label" type="Label" parent="Control/TabContainer/Inventory"]
 layout_mode = 0
 offset_left = 391.0
-offset_top = 22.0
+offset_top = 4.0
 offset_right = 484.0
-offset_bottom = 48.0
+offset_bottom = 30.0
 theme_override_font_sizes/font_size = 25
 text = "Backpack"
 

@@ -15,9 +15,14 @@ func _ready() -> void:
 func setSlotData( value : SlotData) -> void:
 	slot_data = value
 	if slot_data == null:
+		texture_rect.texture = null
+		label.text = ""
 		return
 	texture_rect.texture = slot_data.item_data.texture
-	label.text = str(slot_data.quantity)
+	if slot_data.item_data is EquipableItemData:
+		label.text = ""
+	else:
+		label.text = str(slot_data.quantity)
 
 func itemFocus() -> void:
 	if slot_data != null:

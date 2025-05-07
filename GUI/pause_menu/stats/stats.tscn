@@ -43,6 +43,7 @@ theme_override_fonts/font = ExtResource("2_41g7g")
 text = "Level "
 
 [node name="Level" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -63,6 +64,7 @@ theme_override_fonts/font = ExtResource("2_41g7g")
 text = "XP "
 
 [node name="XP" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -83,11 +85,21 @@ theme_override_fonts/font = ExtResource("2_41g7g")
 text = "Attack "
 
 [node name="Attack" type="Label" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_41g7g")
 text = "1"
+horizontal_alignment = 2
+
+[node name="Attack_change" type="Label" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_41g7g")
+text = "+1"
 horizontal_alignment = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
@@ -103,9 +115,19 @@ theme_override_fonts/font = ExtResource("2_41g7g")
 text = "Defense "
 
 [node name="Defense" type="Label" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_41g7g")
 text = "1"
+horizontal_alignment = 2
+
+[node name="Defense_change" type="Label" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_41g7g")
+text = "+1"
 horizontal_alignment = 2

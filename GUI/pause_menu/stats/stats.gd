@@ -1,9 +1,11 @@
 class_name Stats extends PanelContainer
 
-@onready var label_level: Label = $VBoxContainer/HBoxContainer/Level
-@onready var label_xp: Label = $VBoxContainer/HBoxContainer2/XP
-@onready var label_attack: Label = $VBoxContainer/HBoxContainer3/Attack
-@onready var label_defense: Label = $VBoxContainer/HBoxContainer4/Defense
+@onready var label_level: Label = %Level
+@onready var label_xp: Label = %XP
+@onready var label_attack: Label = %Attack
+@onready var label_defense: Label = %Defense
+@onready var attack_change: Label = %Attack_change
+@onready var defense_change: Label = %Defense_change
 
 
 # Called when the node enters the scene tree for the first time.

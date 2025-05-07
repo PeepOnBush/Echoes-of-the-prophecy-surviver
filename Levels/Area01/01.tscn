@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://pm8hmceeo3q5"]
+[gd_scene load_steps=23 format=4 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_747no"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_2kcq5"]
@@ -11,12 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://c3fniqgycu8x3" path="res://Tile Maps/Sprites/Grass-01.png" id="6_o2kh1"]
 [ext_resource type="Texture2D" uid="uid://droyqygji2muu" path="res://Tile Maps/Sprites/dungeon_entrance.png" id="7_4o1di"]
 [ext_resource type="PackedScene" uid="uid://do355fxws35sb" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="7_f7672"]
-[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="8_mee5a"]
 [ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="9_d27h5"]
 [ext_resource type="Resource" uid="uid://c1nmyo13084qi" path="res://Items/PurPetalouda.tres" id="11_gy4gl"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="11_kowrg"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
+[ext_resource type="Resource" uid="uid://cxdlgjpc5jphi" path="res://Items/w_katana.tres" id="13_0b7ak"]
 [ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="13_68kwa"]
+[ext_resource type="PackedScene" uid="uid://kwoyh5nnvi78" path="res://Items/item_pickup/ItemPickup.tscn" id="18_x8s04"]
+[ext_resource type="Resource" uid="uid://bfombh55dv6og" path="res://Items/a_ninja_suit.tres" id="19_50s7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akdm0"]
 texture = ExtResource("6_o2kh1")
@@ -574,8 +576,7 @@ side = 1
 
 [node name="TreasureChest" parent="." instance=ExtResource("7_f7672")]
 position = Vector2(233, 51)
-item_data = ExtResource("8_mee5a")
-quantity = 5
+item_data = ExtResource("13_0b7ak")
 
 [node name="TreasureChest2" parent="." instance=ExtResource("7_f7672")]
 position = Vector2(313, 51)
@@ -599,3 +600,7 @@ side = 2
 
 [node name="Pot" parent="." instance=ExtResource("13_68kwa")]
 position = Vector2(234, 94)
+
+[node name="ItemPickup" parent="." instance=ExtResource("18_x8s04")]
+position = Vector2(333, 104)
+item_data = ExtResource("19_50s7p")
