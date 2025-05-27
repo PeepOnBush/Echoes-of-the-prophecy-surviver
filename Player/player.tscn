@@ -1,10 +1,12 @@
-[gd_scene load_steps=91 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=93 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_6e47k"]
-[ext_resource type="Texture2D" uid="uid://bdgo4231rwes8" path="res://Player/Sprites/player_sprite.png" id="2_fhb45"]
+[ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
 [ext_resource type="Script" path="res://Player/Scripts/playerStateMachine.gd" id="3_jp3gb"]
+[ext_resource type="Script" path="res://Player/Scripts/PlayerSprite.gd" id="3_kt1yg"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_p3dgw"]
 [ext_resource type="Texture2D" uid="uid://b7v8ybje7upcy" path="res://Player/Sprites/AttackSprite01.png" id="3_r1p0k"]
+[ext_resource type="Texture2D" uid="uid://cqmnoxips60b5" path="res://Player/Sprites/player_sprite_sword.png" id="3_rt585"]
 [ext_resource type="Script" path="res://Player/Scripts/states/state_idle.gd" id="4_aljh0"]
 [ext_resource type="Script" path="res://Player/Scripts/states/state_walk.gd" id="5_p4m1t"]
 [ext_resource type="Script" path="res://Player/Scripts/states/state_attack.gd" id="6_2cibp"]
@@ -1617,9 +1619,22 @@ shape = SubResource("CircleShape2D_jsark")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -17)
 scale = Vector2(1.00835, 0.981556)
-texture = ExtResource("2_fhb45")
+texture = ExtResource("2_8f1sn")
 hframes = 16
 vframes = 8
+script = ExtResource("3_kt1yg")
+
+[node name="Sprite2DWeaponBelow" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("3_rt585")
+hframes = 16
+vframes = 16
+
+[node name="Sprite2DWeaponAbove" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("3_rt585")
+hframes = 16
+vframes = 16
+frame = 128
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)

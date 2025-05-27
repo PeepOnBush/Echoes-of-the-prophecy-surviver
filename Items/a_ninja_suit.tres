@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://bfombh55dv6og"]
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=9 format=3 uid="uid://bfombh55dv6og"]
 
 [ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_jtgqx"]
 [ext_resource type="Script" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_75nm7"]
 [ext_resource type="Script" path="res://Items/Scripts/equipable_item_data.gd" id="3_tryq6"]
 [ext_resource type="Texture2D" uid="uid://bdom8jkpn25gy" path="res://Items/Sprites/gear.png" id="4_frt6w"]
+[ext_resource type="Texture2D" uid="uid://ba103gx00c58q" path="res://Player/Sprites/player_sprite_ninja_suit.png" id="4_u5a75"]
 
 [sub_resource type="Resource" id="Resource_f038n"]
 script = ExtResource("2_75nm7")
@@ -23,6 +24,7 @@ region = Rect2(128, 0, 32, 32)
 script = ExtResource("3_tryq6")
 type = 1
 modifiers = Array[ExtResource("2_75nm7")]([SubResource("Resource_f038n"), SubResource("Resource_h1ip3")])
+sprite_texture = ExtResource("4_u5a75")
 name = "Ninja suit  "
 description = "This ninja suit is rad and suprisingly comfy."
 texture = SubResource("AtlasTexture_k7en6")

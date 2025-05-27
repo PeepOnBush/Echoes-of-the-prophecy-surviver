@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdgo4231rwes8"
-path="res://.godot/imported/player_sprite.png-b725e88656dbe70f8a11b96831749ee0.ctex"
+uid="uid://ba103gx00c58q"
+path="res://.godot/imported/player_sprite_ninja_suit.png-35646021292b64dcdf16f245805f4e7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sprites/player_sprite.png"
-dest_files=["res://.godot/imported/player_sprite.png-b725e88656dbe70f8a11b96831749ee0.ctex"]
+source_file="res://Player/Sprites/player_sprite_ninja_suit.png"
+dest_files=["res://.godot/imported/player_sprite_ninja_suit.png-35646021292b64dcdf16f245805f4e7b.ctex"]
 
 [params]
 

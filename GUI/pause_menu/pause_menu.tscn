@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_g1nml"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_1j814"]
-[ext_resource type="Texture2D" uid="uid://bdgo4231rwes8" path="res://Player/Sprites/player_sprite.png" id="2_8dgh2"]
+[ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_e2diq"]
 [ext_resource type="Script" path="res://GUI/pause_menu/inventory/Scripts/inventory_ui.gd" id="3_0xuew"]
 [ext_resource type="PackedScene" uid="uid://cji24g13bm6i4" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_vr4sr"]
 [ext_resource type="Resource" uid="uid://b8wucdmxpy1fp" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_k2s4e"]
@@ -131,7 +131,7 @@ metadata/_tab_index = 0
 [node name="Sprite2D" type="Sprite2D" parent="Control/TabContainer/Inventory"]
 position = Vector2(140, 116)
 scale = Vector2(2.215, 2.215)
-texture = ExtResource("2_8dgh2")
+texture = ExtResource("2_e2diq")
 hframes = 16
 vframes = 8
 
