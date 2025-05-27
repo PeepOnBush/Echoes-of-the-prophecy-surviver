@@ -1,8 +1,11 @@
 class_name PlayerCamera extends Camera2D
 
+
+
 @export_range(0 ,1 ,0.5 , "or_greater") var shake_power = 0.5 # overal strength of shake
 @export var shake_max_offset : float = 5.0 #Maximum shake in pixels
 @export var shake_decay : float = 1.0 # how quick the shake stop
+
 var shake_trauma : float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():

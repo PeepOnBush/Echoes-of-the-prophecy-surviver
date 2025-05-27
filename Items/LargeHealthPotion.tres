@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://bkdjwr6e5p5ea"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bkdjwr6e5p5ea"]
 
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_86o0a"]
 [ext_resource type="Script" path="res://Items/item_effects/item_effect_heal.gd" id="1_pjfq6"]
 [ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_2tavq"]
 [ext_resource type="Texture2D" uid="uid://j5bqmcu4jifv" path="res://Items/Sprites/Normal health potion.png" id="2_8jx7n"]
@@ -17,4 +18,4 @@ name = "Large potion"
 description = "A large size health potion that restore greatly amount of health
  "
 texture = ExtResource("2_8jx7n")
-effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([SubResource("Resource_cdd54")])
+effects = Array[ExtResource("1_86o0a")]([SubResource("Resource_cdd54")])

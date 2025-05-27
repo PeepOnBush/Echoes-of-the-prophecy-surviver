@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal shown
 signal hidden
+signal preview_stats_change( item : ItemData )
 
 @onready var audio_stream_player : AudioStreamPlayer = $Control/AudioStreamPlayer
 @onready var tab_container: TabContainer = $Control/TabContainer
@@ -74,6 +75,15 @@ func onQuitPressed() -> void:
 func updateItemDescription( newText : String ) -> void:
 	item_description.text = newText
 
+func focusedItemChanged( slot : SlotData) -> void:
+	if slot:
+		if slot.item_data:
+			updateItemDescription(slot.item_data.description)
+			previewStats(slot.item_data)
+	else :
+		updateItemDescription("")
+		previewStats(null)
+	pass
 
 func playerAudio( audio : AudioStream) -> void:
 	audio_stream_player.stream = audio 
@@ -86,4 +96,8 @@ func changeTab(_i : int = 1) -> void:
 		tab_container.get_tab_count()
 	) 
 	tab_container.get_tab_bar().grab_focus()
+	pass
+
+func previewStats(item : ItemData ) -> void:
+	preview_stats_change.emit(item)
 	pass

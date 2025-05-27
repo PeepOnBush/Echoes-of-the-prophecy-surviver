@@ -4,7 +4,7 @@ class_name  InventoryData extends Resource
 signal equipment_changed
 
 @export var slots : Array[ SlotData ]
-var equipment_slot_count : int = 8
+var equipment_slot_count : int = 6
 
 func _init() -> void:
 	connect_slots()
@@ -92,3 +92,78 @@ func useItem(item : ItemData, count : int = 1 ) -> bool:
 				s.quantity -= count
 				return true
 	return false
+
+func equipItem(slot : SlotData ) -> void:
+	if slot == null or not slot.item_data is EquipableItemData:
+		return
+	var  item : EquipableItemData = slot.item_data
+	var slot_index : int = slots.find(slot)
+	var equipment_index : int = slots.size() - equipment_slot_count
+	
+	match item.type:
+		EquipableItemData.Type.ARMOR:
+			equipment_index += 0
+			pass
+		EquipableItemData.Type.AMULET:
+			equipment_index += 1
+			pass
+		EquipableItemData.Type.WEAPON:
+			equipment_index += 2
+			pass
+		EquipableItemData.Type.RING:
+			equipment_index += 3
+			pass
+		EquipableItemData.Type.SHIELD:
+			equipment_index += 4
+			pass
+		EquipableItemData.Type.TOOL:
+			equipment_index += 5
+			pass
+	var unequiped_slot : SlotData = slots[equipment_index]
+	
+	slots[slot_index ] = unequiped_slot
+	slots[equipment_index] = slot
+	
+	equipment_changed.emit()
+	PauseMenu.focusedItemChanged(unequiped_slot)
+	pass
+
+func getAttackBonus() -> int:
+	return getEquipmentBonus(EquipableItemModifier.Type.ATTACK)
+
+func getAttackBonusDiff(item : EquipableItemData) -> int:
+	@warning_ignore("unused_variable")
+	var diff = 0
+	
+	var before : int = getAttackBonus()
+	var after : int =  getEquipmentBonus(EquipableItemModifier.Type.ATTACK, item)
+	
+	return after - before
+
+func getDefenseBonusDiff(item : EquipableItemData) -> int:
+	@warning_ignore("unused_variable")
+	var diff = 0
+	
+	var before : int = getDefendBonus()
+	var after : int =  getEquipmentBonus(EquipableItemModifier.Type.DEFENSE, item)
+	
+	return after - before
+
+func getDefendBonus() -> int:
+	return getEquipmentBonus(EquipableItemModifier.Type.DEFENSE)
+
+func getEquipmentBonus( bonus_type : EquipableItemModifier.Type, compare : EquipableItemData = null) -> int:
+	var bonus : int = 0
+	
+	for s in equipmentSlots():
+		if s == null :
+			continue
+		var e : EquipableItemData = s.item_data
+		if compare :
+			if e.type == compare.type:
+				e = compare
+		for m in e.modifiers:
+			if m.type == bonus_type:
+				bonus += m.value
+	
+	return bonus

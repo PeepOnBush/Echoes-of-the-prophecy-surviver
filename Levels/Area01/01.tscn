@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://droyqygji2muu" path="res://Tile Maps/Sprites/dungeon_entrance.png" id="7_4o1di"]
 [ext_resource type="PackedScene" uid="uid://do355fxws35sb" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="7_f7672"]
 [ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="9_d27h5"]
-[ext_resource type="Resource" uid="uid://c1nmyo13084qi" path="res://Items/PurPetalouda.tres" id="11_gy4gl"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="11_kowrg"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
 [ext_resource type="Resource" uid="uid://cxdlgjpc5jphi" path="res://Items/w_katana.tres" id="13_0b7ak"]
 [ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="13_68kwa"]
+[ext_resource type="Resource" uid="uid://c4kmbc1sc1uv4" path="res://Items/a_tunic.tres" id="15_8k5vg"]
 [ext_resource type="PackedScene" uid="uid://kwoyh5nnvi78" path="res://Items/item_pickup/ItemPickup.tscn" id="18_x8s04"]
 [ext_resource type="Resource" uid="uid://bfombh55dv6og" path="res://Items/a_ninja_suit.tres" id="19_50s7p"]
 
@@ -585,7 +585,7 @@ quantity = 12
 
 [node name="TreasureChest3" parent="." instance=ExtResource("7_f7672")]
 position = Vector2(153, 51)
-item_data = ExtResource("11_gy4gl")
+item_data = ExtResource("15_8k5vg")
 
 [node name="goblin" parent="." instance=ExtResource("11_kowrg")]
 position = Vector2(251, 141)

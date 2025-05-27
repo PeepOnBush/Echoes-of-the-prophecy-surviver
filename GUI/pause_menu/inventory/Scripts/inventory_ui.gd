@@ -10,10 +10,8 @@ var focusIndex: int = 0
 @onready var inventory_slot_amulet: InventorySlotUI = %InventorySlot_Amulet
 @onready var inventory_slot_weapon: InventorySlotUI = %InventorySlot_Weapon
 @onready var inventory_slot_ring_1: InventorySlotUI = %InventorySlot_Ring_1
-@onready var inventory_slot_ring_2: InventorySlotUI = %InventorySlot_Ring_2
-@onready var inventory_slot_shield: InventorySlotUI = %InventorySlot_Shield
-@onready var inventory_slot_tool_1: InventorySlotUI = %InventorySlot_Tool_1
-@onready var inventory_slot_tool_2: InventorySlotUI = %InventorySlot_Tool_2
+@onready var inventory_slot_shield_2: InventorySlotUI = %InventorySlot_Shield2
+@onready var inventory_slot_tool: InventorySlotUI = %InventorySlot_Tool
 
 
 func _ready() -> void:
@@ -21,6 +19,7 @@ func _ready() -> void:
 	PauseMenu.hidden.connect(clearInventory)
 	clearInventory()
 	data.changed.connect(onInventoryChanged)
+	data.equipment_changed.connect(onInventoryChanged)
 	pass
 	
 func clearInventory() -> void:
@@ -42,10 +41,8 @@ func updateInventory( apply_focus : bool = true) -> void:
 	inventory_slot_amulet.setSlotData(e_slot[1])
 	inventory_slot_weapon.setSlotData(e_slot[2])
 	inventory_slot_ring_1.setSlotData(e_slot[3])
-	inventory_slot_ring_2.setSlotData(e_slot[4])
-	inventory_slot_shield.setSlotData(e_slot[5])
-	inventory_slot_tool_1.setSlotData(e_slot[6])
-	inventory_slot_tool_2.setSlotData(e_slot[7])
+	inventory_slot_shield_2.setSlotData(e_slot[4])
+	inventory_slot_tool.setSlotData(e_slot[5])
 	if apply_focus:
 		get_child(0).grab_focus()
 
@@ -57,6 +54,5 @@ func itemFocus() -> void:
 			return
 
 func onInventoryChanged() -> void: 
-	clearInventory()
-	updateInventory()
+	updateInventory(false)
 	

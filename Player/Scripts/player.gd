@@ -14,6 +14,7 @@ var max_hp : int = 6
 var xp : int = 0
 var level : int = 1
 var defense : int = 1
+var defense_bonus  : int = 0
 var attack : int = 1 :
 	set(v) :
 		attack = v
@@ -39,6 +40,7 @@ func _ready() -> void:
 	update_hp(99)
 	updateDamageValue()
 	PlayerManager.leveled_up.connect(onPlayerLevelUp)
+	PlayerManager.INVENTORY_DATA.equipment_changed.connect(onEquipmentChanged)
 	pass # Replace with function body.
  
 
@@ -99,7 +101,7 @@ func _take_damage(_hurt_box : HurtBox) -> void:
 		
 		
 		if dmg > 0:
-			dmg = clampi(dmg - defense, 1, dmg )
+			dmg = clampi(dmg - defense - defense_bonus, 1, dmg )
 		
 		update_hp( -dmg )
 		PlayerDamaged.emit(_hurt_box)
@@ -137,6 +139,12 @@ func onPlayerLevelUp() -> void:
 	pass
 
 func updateDamageValue() -> void:
-	%AttackHurtBox.damage = attack 
-	%ChargeSpinHurtBox.damage = attack * 2
+	var damageValue : int = attack + PlayerManager.INVENTORY_DATA.getAttackBonus()
+	%AttackHurtBox.damage = damageValue 
+	%ChargeSpinHurtBox.damage = damageValue * 2
+	pass
+
+func onEquipmentChanged() -> void:
+	updateDamageValue()
+	defense_bonus = PlayerManager.INVENTORY_DATA.getDefendBonus()
 	pass
