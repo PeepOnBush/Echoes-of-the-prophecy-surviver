@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3iobd78lcjly"]
 
 [ext_resource type="Texture2D" uid="uid://b2ekv8kofnkbr" path="res://Interactables/Dialog/Sprites/dialog_interactable.png" id="1_a2wb8"]
-[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="1_v7t20"]
+[ext_resource type="Script" uid="uid://brx4clinsa661" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="1_v7t20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtybw"]
 size = Vector2(40, 32)
@@ -118,10 +118,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0lvyt"]
 _data = {
-"RESET": SubResource("Animation_lmkh4"),
-"default": SubResource("Animation_i11u5"),
-"hide": SubResource("Animation_3wn3l"),
-"show": SubResource("Animation_n0ghc")
+&"RESET": SubResource("Animation_lmkh4"),
+&"default": SubResource("Animation_i11u5"),
+&"hide": SubResource("Animation_3wn3l"),
+&"show": SubResource("Animation_n0ghc")
 }
 
 [node name="DialogInteraction" type="Area2D"]

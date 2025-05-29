@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EquipableItemData" load_steps=9 format=3 uid="uid://bfombh55dv6og"]
 
-[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_jtgqx"]
-[ext_resource type="Script" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_75nm7"]
-[ext_resource type="Script" path="res://Items/Scripts/equipable_item_data.gd" id="3_tryq6"]
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_jtgqx"]
+[ext_resource type="Script" uid="uid://smty8slelvf6" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_75nm7"]
+[ext_resource type="Script" uid="uid://cx2lluddddebo" path="res://Items/Scripts/equipable_item_data.gd" id="3_tryq6"]
 [ext_resource type="Texture2D" uid="uid://bdom8jkpn25gy" path="res://Items/Sprites/gear.png" id="4_frt6w"]
 [ext_resource type="Texture2D" uid="uid://ba103gx00c58q" path="res://Player/Sprites/player_sprite_ninja_suit.png" id="4_u5a75"]
 

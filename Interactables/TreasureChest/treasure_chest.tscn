@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://do355fxws35sb"]
 
-[ext_resource type="Script" path="res://Interactables/TreasureChest/treasure_chest.gd" id="1_o2t5a"]
+[ext_resource type="Script" uid="uid://ca4m350nwo7p2" path="res://Interactables/TreasureChest/treasure_chest.gd" id="1_o2t5a"]
 [ext_resource type="Texture2D" uid="uid://ckd4mngmnk4e5" path="res://Interactables/TreasureChest/Fantasy RPG (Toony) 32x32.png" id="1_wqf7g"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_7udl2"]
 [ext_resource type="FontFile" uid="uid://qnkpjj5qtby0" path="res://GUI/Fonts/Abaddon Bold.ttf" id="4_ubse1"]
@@ -177,10 +177,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0p7kx"]
 _data = {
-"RESET": SubResource("Animation_nqrjn"),
-"closed": SubResource("Animation_5gafe"),
-"open_chest": SubResource("Animation_h55oe"),
-"opened": SubResource("Animation_t0sy8")
+&"RESET": SubResource("Animation_nqrjn"),
+&"closed": SubResource("Animation_5gafe"),
+&"open_chest": SubResource("Animation_h55oe"),
+&"opened": SubResource("Animation_t0sy8")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtec5"]

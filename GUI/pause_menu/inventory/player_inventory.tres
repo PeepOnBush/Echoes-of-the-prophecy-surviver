@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryData" load_steps=7 format=3 uid="uid://b8wucdmxpy1fp"]
 
-[ext_resource type="Script" path="res://GUI/pause_menu/inventory/Scripts/inventory_data.gd" id="1_cp71v"]
-[ext_resource type="Script" path="res://GUI/pause_menu/inventory/Scripts/slot_data.gd" id="2_a3xo6"]
+[ext_resource type="Script" uid="uid://kdv4viqmyyge" path="res://GUI/pause_menu/inventory/Scripts/inventory_data.gd" id="1_cp71v"]
+[ext_resource type="Script" uid="uid://bv6h6gvmqbt5a" path="res://GUI/pause_menu/inventory/Scripts/slot_data.gd" id="2_a3xo6"]
 [ext_resource type="Resource" uid="uid://c4kmbc1sc1uv4" path="res://Items/a_tunic.tres" id="3_s6w3k"]
 [ext_resource type="Resource" uid="uid://ch72nshll0vxq" path="res://Items/w_iron_sword.tres" id="4_uvmr1"]
 

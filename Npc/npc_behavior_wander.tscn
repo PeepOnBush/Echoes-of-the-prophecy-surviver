@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbj5i8si4a24t"]
 
-[ext_resource type="Script" path="res://Npc/Scripts/npc_behavior_wander.gd" id="1_mkvgp"]
+[ext_resource type="Script" uid="uid://ba2j6ctf8e14p" path="res://Npc/Scripts/npc_behavior_wander.gd" id="1_mkvgp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_euu47"]
 radius = 32.0

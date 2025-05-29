@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bkdjwr6e5p5ea"]
 
-[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_86o0a"]
-[ext_resource type="Script" path="res://Items/item_effects/item_effect_heal.gd" id="1_pjfq6"]
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_86o0a"]
+[ext_resource type="Script" uid="uid://2qbko5eushmx" path="res://Items/item_effects/item_effect_heal.gd" id="1_pjfq6"]
 [ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_2tavq"]
 [ext_resource type="Texture2D" uid="uid://j5bqmcu4jifv" path="res://Items/Sprites/Normal health potion.png" id="2_8jx7n"]
-[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="2_go8wq"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_go8wq"]
 
 [sub_resource type="Resource" id="Resource_cdd54"]
 script = ExtResource("1_pjfq6")

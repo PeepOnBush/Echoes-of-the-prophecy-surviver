@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cji24g13bm6i4"]
 
-[ext_resource type="Script" path="res://GUI/pause_menu/inventory/Scripts/inventory_slot_ui.gd" id="1_lpxwy"]
+[ext_resource type="Script" uid="uid://brv12xcj14hmq" path="res://GUI/pause_menu/inventory/Scripts/inventory_slot_ui.gd" id="1_lpxwy"]
 [ext_resource type="Texture2D" uid="uid://bwueaqlbglncu" path="res://Items/Sprites/PurPetalouda.png" id="2_ufkic"]
 [ext_resource type="FontFile" uid="uid://qnkpjj5qtby0" path="res://GUI/Fonts/Abaddon Bold.ttf" id="3_u1gtu"]
 

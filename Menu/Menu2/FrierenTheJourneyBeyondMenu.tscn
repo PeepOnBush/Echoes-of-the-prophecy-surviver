@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cxpnsixa42cqb"]
 
-[ext_resource type="Script" path="res://Menu/Menu2/frieren_the_journey_beyond_menu.gd" id="1_4vkhu"]
+[ext_resource type="Script" uid="uid://d2o7g4e84f8tn" path="res://Menu/Menu2/frieren_the_journey_beyond_menu.gd" id="1_4vkhu"]
 [ext_resource type="Texture2D" uid="uid://cqvtxv400x88e" path="res://Menu/Menu2/MenuAnimated.png" id="1_ebp7t"]
 [ext_resource type="Texture2D" uid="uid://cni0e42gxmijv" path="res://Menu/Menu2/MenuLogo.png" id="2_mnj30"]
 [ext_resource type="AudioStream" uid="uid://dx3vr6dacxmh6" path="res://Menu/menu_focus.wav" id="2_nqry0"]
@@ -44,7 +44,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_18fcv"]
 _data = {
-"SoundTrack": SubResource("Animation_6spjk")
+&"SoundTrack": SubResource("Animation_6spjk")
 }
 
 [sub_resource type="Animation" id="Animation_xw8xv"]
@@ -82,8 +82,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0gk45"]
 _data = {
-"Menu": SubResource("Animation_xw8xv"),
-"RESET": SubResource("Animation_knfa3")
+&"Menu": SubResource("Animation_xw8xv"),
+&"RESET": SubResource("Animation_knfa3")
 }
 
 [node name="FrierenTheJourneyBeyondMenu" type="Node2D"]

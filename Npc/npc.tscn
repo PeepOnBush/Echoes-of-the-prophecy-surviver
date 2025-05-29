@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://pdb02vlsxpnk"]
 
-[ext_resource type="Script" path="res://Npc/Scripts/npc.gd" id="1_nl227"]
+[ext_resource type="Script" uid="uid://px3onqgseddq" path="res://Npc/Scripts/npc.gd" id="1_nl227"]
 [ext_resource type="Texture2D" uid="uid://c4wshqneyittq" path="res://Npc/Sprites/npc_sprite_02.png" id="2_l2kyw"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_1c7du"]
 
@@ -117,13 +117,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egpr6"]
 _data = {
-"RESET": SubResource("Animation_eeikk"),
-"idle_down": SubResource("Animation_m6207"),
-"idle_side": SubResource("Animation_1no6u"),
-"idle_up": SubResource("Animation_2u3p7"),
-"walk_down": SubResource("Animation_m3dq5"),
-"walk_side": SubResource("Animation_weeo1"),
-"walk_up": SubResource("Animation_6ccrx")
+&"RESET": SubResource("Animation_eeikk"),
+&"idle_down": SubResource("Animation_m6207"),
+&"idle_side": SubResource("Animation_1no6u"),
+&"idle_up": SubResource("Animation_2u3p7"),
+&"walk_down": SubResource("Animation_m3dq5"),
+&"walk_side": SubResource("Animation_weeo1"),
+&"walk_up": SubResource("Animation_6ccrx")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbp7l"]
@@ -149,7 +149,7 @@ texture = ExtResource("3_1c7du")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_egpr6")
+&"": SubResource("AnimationLibrary_egpr6")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

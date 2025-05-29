@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://dvurp7ksoo8i1"]
 
 [ext_resource type="Texture2D" uid="uid://cj1gkghp8hu3e" path="res://Levels/Dungeon01/dark_wizard/Sprites/energy-beam.png" id="1_fw6me"]
-[ext_resource type="Script" path="res://Levels/Dungeon01/dark_wizard/Script/beam_attack.gd" id="1_il2x0"]
+[ext_resource type="Script" uid="uid://csjse26l2y1d6" path="res://Levels/Dungeon01/dark_wizard/Script/beam_attack.gd" id="1_il2x0"]
 [ext_resource type="Material" uid="uid://d3fy1x8vlrbfw" path="res://Shaders and Materials/LightMaterials.tres" id="1_p567a"]
-[ext_resource type="Script" path="res://Levels/Dungeon01/dark_wizard/Script/energy_beam_sprite.gd" id="3_4g7wa"]
+[ext_resource type="Script" uid="uid://l30d4wqe80fl" path="res://Levels/Dungeon01/dark_wizard/Script/energy_beam_sprite.gd" id="3_4g7wa"]
 [ext_resource type="Texture2D" uid="uid://bt1vf3ayotpt0" path="res://Levels/Dungeon01/dark_wizard/Sprites/energy-beam-large.png" id="4_6dqt6"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="5_3pttv"]
 [ext_resource type="AudioStream" uid="uid://dbln2uk2nhto5" path="res://Levels/Dungeon01/dark_wizard/Audio/boss_beam.wav" id="5_urst6"]
@@ -192,9 +192,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2408q"]
 _data = {
-"RESET": SubResource("Animation_txkch"),
-"attack": SubResource("Animation_6ocqk"),
-"default": SubResource("Animation_fg7bk")
+&"RESET": SubResource("Animation_txkch"),
+&"attack": SubResource("Animation_6ocqk"),
+&"default": SubResource("Animation_fg7bk")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6ok"]

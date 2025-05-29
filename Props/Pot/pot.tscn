@@ -103,9 +103,9 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77lyn"]
 _data = {
-"RESET": SubResource("Animation_riwfj"),
-"default": SubResource("Animation_m0n3j"),
-"destroy": SubResource("Animation_6njtk")
+&"RESET": SubResource("Animation_riwfj"),
+&"default": SubResource("Animation_m0n3j"),
+&"destroy": SubResource("Animation_6njtk")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7sk7"]

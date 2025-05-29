@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://d3u0chmjjfa7s"]
 
-[ext_resource type="Script" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
+[ext_resource type="Script" uid="uid://nwqx8s3opd8m" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
 [ext_resource type="Texture2D" uid="uid://b8tfeeopjphxi" path="res://GUI/player_hud/gui-health.png" id="2_ecbuc"]
 [ext_resource type="PackedScene" uid="uid://b43yya5yg2c6m" path="res://GUI/player_hud/heart_gui.tscn" id="3_dtpa4"]
 [ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="4_mqu0o"]
 [ext_resource type="Texture2D" uid="uid://dw2yayeip8q12" path="res://GUI/player_hud/boss-hp.png" id="5_1jeqg"]
 [ext_resource type="Texture2D" uid="uid://rajccyeg2r2h" path="res://GUI/player_hud/panel_notification.png" id="6_q8jci"]
-[ext_resource type="Script" path="res://GUI/player_hud/notification.gd" id="6_qrqr1"]
+[ext_resource type="Script" uid="uid://bwwj5m2yiuhau" path="res://GUI/player_hud/notification.gd" id="6_qrqr1"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="7_467n6"]
 [ext_resource type="AudioStream" uid="uid://xpgw6vvufltn" path="res://GUI/player_hud/notification.wav" id="9_tj3s2"]
 
@@ -246,9 +246,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xfivr"]
 _data = {
-"RESET": SubResource("Animation_u63or"),
-"fade_to_black": SubResource("Animation_sachx"),
-"show_game_over": SubResource("Animation_xt4a7")
+&"RESET": SubResource("Animation_u63or"),
+&"fade_to_black": SubResource("Animation_sachx"),
+&"show_game_over": SubResource("Animation_xt4a7")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0hju"]
@@ -369,8 +369,8 @@ tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nwdhr"]
 _data = {
-"RESET": SubResource("Animation_kxh8n"),
-"show_notification": SubResource("Animation_kiati")
+&"RESET": SubResource("Animation_kxh8n"),
+&"show_notification": SubResource("Animation_kiati")
 }
 
 [node name="PlayerHud" type="CanvasLayer"]

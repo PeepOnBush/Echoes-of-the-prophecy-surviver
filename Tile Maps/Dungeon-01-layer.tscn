@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://crk2sdpxwjdj6"]
 
 [ext_resource type="Texture2D" uid="uid://r0riclyimlje" path="res://Tile Maps/Sprites/dungeon.png" id="1_f8vr8"]
-[ext_resource type="Script" path="res://Tile Maps/LevelTileMapLayer.gd" id="2_s4l1t"]
+[ext_resource type="Script" uid="uid://5k41v8hcwkwk" path="res://Tile Maps/LevelTileMapLayer.gd" id="2_s4l1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dn7jy"]
 texture = ExtResource("1_f8vr8")

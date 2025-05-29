@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://ccugjtnkgn3or"]
 
 [ext_resource type="Texture2D" uid="uid://c72dv5kjet0ra" path="res://Player/Sprites/Frieren.png" id="1_6ja42"]
-[ext_resource type="Script" path="res://Menu/Menu1/PlayMenu.gd" id="1_edks3"]
+[ext_resource type="Script" uid="uid://dilps6umkxrwh" path="res://Menu/Menu1/PlayMenu.gd" id="1_edks3"]
 [ext_resource type="AudioStream" uid="uid://bqqd665jgwdhl" path="res://Player/Audio/Frieren the Slayer.mp3" id="2_w5bm5"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_wlpcn"]
 [ext_resource type="AudioStream" uid="uid://cpdusx7n45atv" path="res://Menu/Menu1/blow.wav" id="4_ysa06"]
@@ -204,8 +204,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_se0qq"]
 _data = {
-"Menu": SubResource("Animation_6uydb"),
-"RESET": SubResource("Animation_mnde3")
+&"Menu": SubResource("Animation_6uydb"),
+&"RESET": SubResource("Animation_mnde3")
 }
 
 [sub_resource type="Animation" id="Animation_fp75m"]
@@ -240,8 +240,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmgky"]
 _data = {
-"Aura_01_Layer1": SubResource("Animation_fp75m"),
-"RESET": SubResource("Animation_r2axh")
+&"Aura_01_Layer1": SubResource("Animation_fp75m"),
+&"RESET": SubResource("Animation_r2axh")
 }
 
 [sub_resource type="Animation" id="Animation_850kx"]
@@ -276,8 +276,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_530bm"]
 _data = {
-"Aura_01_Layer2": SubResource("Animation_850kx"),
-"RESET": SubResource("Animation_bdl3e")
+&"Aura_01_Layer2": SubResource("Animation_850kx"),
+&"RESET": SubResource("Animation_bdl3e")
 }
 
 [sub_resource type="Animation" id="Animation_60n7q"]
@@ -314,8 +314,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyd25"]
 _data = {
-"Loop": SubResource("Animation_60n7q"),
-"RESET": SubResource("Animation_aqhab")
+&"Loop": SubResource("Animation_60n7q"),
+&"RESET": SubResource("Animation_aqhab")
 }
 
 [node name="Menu" type="Node2D"]

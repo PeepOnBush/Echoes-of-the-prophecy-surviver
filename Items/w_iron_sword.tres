@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://ch72nshll0vxq"]
 
-[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_d3suw"]
-[ext_resource type="Script" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_c6b2n"]
-[ext_resource type="Script" path="res://Items/Scripts/equipable_item_data.gd" id="3_oj6uv"]
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_d3suw"]
+[ext_resource type="Script" uid="uid://smty8slelvf6" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_c6b2n"]
+[ext_resource type="Script" uid="uid://cx2lluddddebo" path="res://Items/Scripts/equipable_item_data.gd" id="3_oj6uv"]
 [ext_resource type="Texture2D" uid="uid://bdom8jkpn25gy" path="res://Items/Sprites/gear.png" id="4_uu834"]
 [ext_resource type="Texture2D" uid="uid://cqmnoxips60b5" path="res://Player/Sprites/player_sprite_sword.png" id="4_xen2e"]
 

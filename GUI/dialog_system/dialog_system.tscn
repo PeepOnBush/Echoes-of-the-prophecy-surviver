@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://byrky0o0s3e3d"]
 
-[ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_jfjvd"]
+[ext_resource type="Script" uid="uid://5set2id68s7m" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_jfjvd"]
 [ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="1_shpx4"]
 [ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="3_jsyly"]
-[ext_resource type="Script" path="res://GUI/dialog_system/Scripts/dialog_potrait.gd" id="4_g1le2"]
+[ext_resource type="Script" uid="uid://cpmkvp7suudto" path="res://GUI/dialog_system/Scripts/dialog_potrait.gd" id="4_g1le2"]
 [ext_resource type="AudioStream" uid="uid://cckqokiix1gi3" path="res://GUI/dialog_system/Audio/voice_blip.wav" id="4_ow4rp"]
 [ext_resource type="Theme" uid="uid://dtwluxsttprq7" path="res://GUI/dialog_system/dialog_choice_theme.tres" id="6_kuyi2"]
 
@@ -71,8 +71,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3if7w"]
 _data = {
-"RESET": SubResource("Animation_27a6j"),
-"default": SubResource("Animation_83an2")
+&"RESET": SubResource("Animation_27a6j"),
+&"default": SubResource("Animation_83an2")
 }
 
 [node name="DialogSystem" type="CanvasLayer"]

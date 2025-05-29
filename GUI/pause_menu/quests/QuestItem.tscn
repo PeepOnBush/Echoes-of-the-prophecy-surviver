@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kwny8egbbql7"]
 
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="1_6h5ig"]
-[ext_resource type="Script" path="res://GUI/pause_menu/quests/quest_item.gd" id="1_r8rwg"]
+[ext_resource type="Script" uid="uid://cpdhpp0gwqbgf" path="res://GUI/pause_menu/quests/quest_item.gd" id="1_r8rwg"]
 
 [node name="QuestItem" type="Button"]
 custom_minimum_size = Vector2(200, 45)

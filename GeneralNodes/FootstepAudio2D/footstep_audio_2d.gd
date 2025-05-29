@@ -26,5 +26,4 @@ func getFootstepType() -> void:
 					continue
 				stream_randomizer.set_stream(0,footsteps_variants[type])
 			pass
-		pass
 	pass

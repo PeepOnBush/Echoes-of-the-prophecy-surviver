@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://cxdlgjpc5jphi"]
 
-[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_jye4d"]
-[ext_resource type="Script" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_s1u2u"]
-[ext_resource type="Script" path="res://Items/Scripts/equipable_item_data.gd" id="3_cw1op"]
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_jye4d"]
+[ext_resource type="Script" uid="uid://smty8slelvf6" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_s1u2u"]
+[ext_resource type="Script" uid="uid://cx2lluddddebo" path="res://Items/Scripts/equipable_item_data.gd" id="3_cw1op"]
 [ext_resource type="Texture2D" uid="uid://bdom8jkpn25gy" path="res://Items/Sprites/gear.png" id="4_2bsy8"]
 [ext_resource type="Texture2D" uid="uid://5n5pjihkm7xy" path="res://Player/Sprites/player_sprite_sword_katana.png" id="4_b0ujg"]
 

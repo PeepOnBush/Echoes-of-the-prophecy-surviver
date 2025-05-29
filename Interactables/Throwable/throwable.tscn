@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c04b03sub3mm3"]
 
-[ext_resource type="Script" path="res://Interactables/Throwable/throwable.gd" id="1_8bk46"]
+[ext_resource type="Script" uid="uid://b3gy18jayt0sh" path="res://Interactables/Throwable/throwable.gd" id="1_8bk46"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="2_ej38y"]
 
 [node name="Throwable" type="Area2D"]

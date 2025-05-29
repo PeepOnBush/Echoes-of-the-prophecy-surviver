@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://bbylep33l8ey7"]
 
-[ext_resource type="Script" path="res://Quests/Scripts/quest_reward_item.gd" id="1_hbt7s"]
+[ext_resource type="Script" uid="uid://lqhpwrk3xkss" path="res://Quests/Scripts/quest_reward_item.gd" id="1_hbt7s"]
 [ext_resource type="Resource" uid="uid://3fxy3trfqnpf" path="res://Items/SmallHealthPotion.tres" id="2_or6m6"]
-[ext_resource type="Script" path="res://Quests/Scripts/quest_resource.gd" id="2_qqivk"]
+[ext_resource type="Script" uid="uid://cj3vq775tqtuc" path="res://Quests/Scripts/quest_resource.gd" id="2_qqivk"]
 
 [sub_resource type="Resource" id="Resource_6lrjb"]
 script = ExtResource("1_hbt7s")

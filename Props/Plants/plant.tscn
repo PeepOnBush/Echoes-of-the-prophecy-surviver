@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhhxuhkv5t5ab"]
 
-[ext_resource type="Script" path="res://Props/Plants/plant.gd" id="1_6p6n2"]
+[ext_resource type="Script" uid="uid://disphw3gw83ty" path="res://Props/Plants/plant.gd" id="1_6p6n2"]
 [ext_resource type="Texture2D" uid="uid://d23vjgncvco70" path="res://Props/Sprites/Props2.png" id="2_5w7oh"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_7kdry"]
 

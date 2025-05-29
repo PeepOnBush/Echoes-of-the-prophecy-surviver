@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b8fjmebu0l7sj"]
 
-[ext_resource type="Script" path="res://Interactables/dungeon/Scripts/locked_door.gd" id="1_7xm4f"]
+[ext_resource type="Script" uid="uid://dyjqonfpmonfx" path="res://Interactables/dungeon/Scripts/locked_door.gd" id="1_7xm4f"]
 [ext_resource type="Texture2D" uid="uid://k5s6s4cxpsuv" path="res://Interactables/dungeon/dungeon_props.png" id="1_qg4uv"]
 [ext_resource type="Resource" uid="uid://c81k8r85oikd0" path="res://Items/cursed_key.tres" id="2_s0lx4"]
 [ext_resource type="PackedScene" uid="uid://eqn70yocq61" path="res://GeneralNodes/PersistentDataHandler/persistent_data_handler.tscn" id="2_ywiry"]
@@ -145,11 +145,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lelex"]
 _data = {
-"RESET": SubResource("Animation_bb87k"),
-"close_door": SubResource("Animation_s2a20"),
-"closed": SubResource("Animation_g1ws5"),
-"open_door": SubResource("Animation_d03dh"),
-"opened": SubResource("Animation_7o7ni")
+&"RESET": SubResource("Animation_bb87k"),
+&"close_door": SubResource("Animation_s2a20"),
+&"closed": SubResource("Animation_g1ws5"),
+&"open_door": SubResource("Animation_d03dh"),
+&"opened": SubResource("Animation_7o7ni")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdx8"]

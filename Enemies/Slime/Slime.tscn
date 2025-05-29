@@ -1,20 +1,20 @@
 [gd_scene load_steps=40 format=3 uid="uid://ckl8plhl1alqu"]
 
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="1_6exb3"]
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_c31tp"]
+[ext_resource type="Script" uid="uid://caqc5162cs7yv" path="res://Enemies/Scripts/enemy.gd" id="1_c31tp"]
 [ext_resource type="Texture2D" uid="uid://clfcwd3k2dtud" path="res://Enemies/Slime/Slime.png" id="2_norh4"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="3_7imus"]
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStateMachine.gd" id="4_nkxwc"]
-[ext_resource type="Script" path="res://Enemies/Scripts/states/enemy_state_idle.gd" id="5_i1hb8"]
+[ext_resource type="Script" uid="uid://b16qvxi5tp07p" path="res://Enemies/Scripts/EnemyStateMachine.gd" id="4_nkxwc"]
+[ext_resource type="Script" uid="uid://bon1u83fcn7lr" path="res://Enemies/Scripts/states/enemy_state_idle.gd" id="5_i1hb8"]
 [ext_resource type="AudioStream" uid="uid://b0eavgt8ts2im" path="res://Enemies/Slime/hit_00.wav" id="5_jilhs"]
 [ext_resource type="AudioStream" uid="uid://d2wok8dj0pmo" path="res://Enemies/Slime/hit_01.wav" id="6_feivn"]
-[ext_resource type="Script" path="res://Enemies/Scripts/states/enemy_state_wander.gd" id="6_ggxmg"]
+[ext_resource type="Script" uid="uid://dg2gkxbwein6c" path="res://Enemies/Scripts/states/enemy_state_wander.gd" id="6_ggxmg"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="7_4prkb"]
 [ext_resource type="Texture2D" uid="uid://de7bke6q6b8a1" path="res://Enemies/Slime/DestroySmoke.png" id="9_trvce"]
-[ext_resource type="Script" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="10_pbf3n"]
-[ext_resource type="Script" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="12_0dw7i"]
+[ext_resource type="Script" uid="uid://d3t7ymtwqy1lf" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="10_pbf3n"]
+[ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="12_0dw7i"]
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_2m0ya"]
-[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_h0n5y"]
+[ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_h0n5y"]
 [ext_resource type="Resource" uid="uid://08fyr62oj82t" path="res://Items/stone.tres" id="15_stlk5"]
 [ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="16_3jjym"]
 
@@ -696,19 +696,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfgs5"]
 _data = {
-"RESET": SubResource("Animation_goino"),
-"destroy_down": SubResource("Animation_f8i0u"),
-"destroy_side": SubResource("Animation_xmf0d"),
-"destroy_up": SubResource("Animation_w67rb"),
-"idle_down": SubResource("Animation_n2k7j"),
-"idle_side": SubResource("Animation_hbvn3"),
-"idle_up": SubResource("Animation_kepvl"),
-"stun_down": SubResource("Animation_r5aaf"),
-"stun_side": SubResource("Animation_cearj"),
-"stun_up": SubResource("Animation_132v7"),
-"walk_down": SubResource("Animation_rxrdd"),
-"walk_side": SubResource("Animation_a4lfx"),
-"walk_up": SubResource("Animation_ooy7o")
+&"RESET": SubResource("Animation_goino"),
+&"destroy_down": SubResource("Animation_f8i0u"),
+&"destroy_side": SubResource("Animation_xmf0d"),
+&"destroy_up": SubResource("Animation_w67rb"),
+&"idle_down": SubResource("Animation_n2k7j"),
+&"idle_side": SubResource("Animation_hbvn3"),
+&"idle_up": SubResource("Animation_kepvl"),
+&"stun_down": SubResource("Animation_r5aaf"),
+&"stun_side": SubResource("Animation_cearj"),
+&"stun_up": SubResource("Animation_132v7"),
+&"walk_down": SubResource("Animation_rxrdd"),
+&"walk_side": SubResource("Animation_a4lfx"),
+&"walk_up": SubResource("Animation_ooy7o")
 }
 
 [sub_resource type="Resource" id="Resource_k17h7"]
@@ -788,8 +788,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m87v0"]
 _data = {
-"RESET": SubResource("Animation_0kc84"),
-"destroy": SubResource("Animation_u74wj")
+&"RESET": SubResource("Animation_0kc84"),
+&"destroy": SubResource("Animation_u74wj")
 }
 
 [node name="Slime" type="CharacterBody2D"]
