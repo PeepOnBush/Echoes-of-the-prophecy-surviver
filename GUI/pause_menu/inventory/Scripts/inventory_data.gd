@@ -93,6 +93,12 @@ func useItem(item : ItemData, count : int = 1 ) -> bool:
 				return true
 	return false
 
+func swapItemByIndex(_i1 : int, _i2 : int) -> void:
+	var temp : SlotData = slots[_i1]
+	slots[_i1] = slots[_i2]
+	slots[_i2] = temp
+	pass
+
 func equipItem(slot : SlotData ) -> void:
 	if slot == null or not slot.item_data is EquipableItemData:
 		return
