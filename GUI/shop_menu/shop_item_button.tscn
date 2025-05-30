@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjicm3aa570yq"]
+
+[ext_resource type="Texture2D" uid="uid://bwueaqlbglncu" path="res://Items/Sprites/PurPetalouda.png" id="1_5unjq"]
+[ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="2_rm5x1"]
+
+[node name="ShopItemButton" type="Button"]
+custom_minimum_size = Vector2(255, 36)
+offset_right = 260.0
+offset_bottom = 36.0
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 163.0
+offset_bottom = 27.0
+text = "Label for the item so we can see what is it"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+texture_repeat = 1
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 36.0
+offset_bottom = 34.0
+texture = ExtResource("1_5unjq")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Currency" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 11.0
+offset_right = 251.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_rm5x1")
+text = "100"
+horizontal_alignment = 3
+clip_text = true

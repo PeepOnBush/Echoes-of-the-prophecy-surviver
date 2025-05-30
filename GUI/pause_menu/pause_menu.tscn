@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cpnvfxptcaq5j" path="res://Items/Sprites/gear2.png" id="7_lbpde"]
 [ext_resource type="PackedScene" uid="uid://cpnewyspe8twp" path="res://GUI/pause_menu/quests/QuestStepItem.tscn" id="9_ostkv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o440m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3762"]
 atlas = ExtResource("2_1j814")
 region = Rect2(96, 0, 32, 32)
 
@@ -22,38 +22,38 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-texture = SubResource("AtlasTexture_o440m")
+texture = SubResource("AtlasTexture_u3762")
 texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h8aau"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvrss"]
 load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sd4dw"]
-atlas = SubResource("CompressedTexture2D_h8aau")
+atlas = SubResource("CompressedTexture2D_cvrss")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vdvqf"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgl3m"]
 load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ldar"]
-atlas = SubResource("CompressedTexture2D_vdvqf")
+atlas = SubResource("CompressedTexture2D_fgl3m")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ros2n"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ak53x"]
 load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nfpq"]
-atlas = SubResource("CompressedTexture2D_ros2n")
+atlas = SubResource("CompressedTexture2D_ak53x")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oiq33"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_00kwt"]
 load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50t72"]
-atlas = SubResource("CompressedTexture2D_oiq33")
+atlas = SubResource("CompressedTexture2D_00kwt")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ykteu"]
