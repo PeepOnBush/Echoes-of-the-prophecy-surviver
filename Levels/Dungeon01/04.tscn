@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://crk2sdpxwjdj6" path="res://Tile Maps/Dungeon-01-layer.tscn" id="2_58bh4"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="3_b20o4"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="4_i0v6p"]
-[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/dungeon/pushable_statue.tscn" id="7_q04et"]
+[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/Dungeon/pushable_statue.tscn" id="7_q04et"]
 
 [node name="04" type="Node2D"]
 position = Vector2(-2, -1)

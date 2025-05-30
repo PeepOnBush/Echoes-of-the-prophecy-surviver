@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://rpldn435ahql"]
+
+[ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/shopkeeper.gd" id="1_3wpx6"]
+[ext_resource type="PackedScene" uid="uid://pdb02vlsxpnk" path="res://Npc/npc.tscn" id="2_3i4a3"]
+[ext_resource type="Resource" uid="uid://bjnvm8f8m6ehf" path="res://Npc/00_Npcs/shopkeeper.tres" id="3_3i4a3"]
+[ext_resource type="PackedScene" uid="uid://b3iobd78lcjly" path="res://Interactables/Dialog/dialog_interaction.tscn" id="4_vstww"]
+[ext_resource type="Script" uid="uid://dh6vtewwh8j5o" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="5_d11tu"]
+[ext_resource type="Script" uid="uid://hflhtv60v71f" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="6_j6l3k"]
+[ext_resource type="Script" uid="uid://b81no7fe2rkd6" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="7_gkfk0"]
+
+[node name="Shopkeeper" type="Node2D"]
+script = ExtResource("1_3wpx6")
+
+[node name="Npc" parent="." instance=ExtResource("2_3i4a3")]
+npc_resource = ExtResource("3_3i4a3")
+
+[node name="DialogInteraction" parent="Npc" instance=ExtResource("4_vstww")]
+
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("5_d11tu")
+text = "May i interest you in my wares ?"
+npc_info = ExtResource("3_3i4a3")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("6_j6l3k")
+npc_info = ExtResource("3_3i4a3")
+metadata/_custom_type_script = "uid://hflhtv60v71f"
+
+[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
+script = ExtResource("7_gkfk0")
+text = "Yes"
+npc_info = ExtResource("3_3i4a3")
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
+script = ExtResource("7_gkfk0")
+text = "No"
+npc_info = ExtResource("3_3i4a3")
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("5_d11tu")
+text = "So long adventurer."
+npc_info = ExtResource("3_3i4a3")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"

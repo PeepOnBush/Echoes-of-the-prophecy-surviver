@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="3_6n5y1"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="4_0188e"]
 [ext_resource type="PackedScene" uid="uid://dqa7te3m6hyno" path="res://GeneralNodes/ItemDropper/item_dropper.tscn" id="6_0gyvp"]
-[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/dungeon/pushable_statue.tscn" id="7_bu2d2"]
+[ext_resource type="PackedScene" uid="uid://c306w0wfwehyc" path="res://Interactables/Dungeon/pushable_statue.tscn" id="7_bu2d2"]
 [ext_resource type="Resource" uid="uid://dtkusruxl17ui" path="res://Items/key_dungeon.tres" id="7_cjx6b"]
 
 [node name="05" type="Node2D"]
