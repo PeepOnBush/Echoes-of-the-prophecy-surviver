@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://brx4clinsa661" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="1_v7t20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtybw"]
-size = Vector2(40, 32)
+size = Vector2(40, 36)
 
 [sub_resource type="Animation" id="Animation_lmkh4"]
 length = 0.001
@@ -143,6 +143,6 @@ hframes = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
-"": SubResource("AnimationLibrary_0lvyt")
+&"": SubResource("AnimationLibrary_0lvyt")
 }
 autoplay = "default"

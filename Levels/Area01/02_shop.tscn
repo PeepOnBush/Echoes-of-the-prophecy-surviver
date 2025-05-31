@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://caexi0s6k0xm"]
+[gd_scene load_steps=13 format=4 uid="uid://caexi0s6k0xm"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_1j3ei"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="2_s10e4"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="5_7727t"]
 [ext_resource type="PackedScene" uid="uid://rpldn435ahql" path="res://Interactables/Shopkeeper/Shopkeeper.tscn" id="6_d4kj3"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="7_cnw57"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="7_meb4l"]
+[ext_resource type="Resource" uid="uid://ch72nshll0vxq" path="res://Items/w_iron_sword.tres" id="8_24ur4"]
+[ext_resource type="Resource" uid="uid://cxdlgjpc5jphi" path="res://Items/w_katana.tres" id="9_54jjq"]
+[ext_resource type="Resource" uid="uid://c1nmyo13084qi" path="res://Items/PurPetalouda.tres" id="10_ktyg8"]
+[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="11_qkluu"]
+[ext_resource type="Resource" uid="uid://bfombh55dv6og" path="res://Items/a_ninja_suit.tres" id="12_ena7o"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_1j3ei")
@@ -32,3 +38,4 @@ side = 3
 
 [node name="Shopkeeper" parent="." instance=ExtResource("6_d4kj3")]
 position = Vector2(263, 126)
+shop_inventory = Array[ExtResource("7_meb4l")]([ExtResource("8_24ur4"), ExtResource("9_54jjq"), ExtResource("10_ktyg8"), ExtResource("11_qkluu"), ExtResource("12_ena7o")])
