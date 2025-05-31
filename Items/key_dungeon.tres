@@ -14,4 +14,5 @@ name = "key_dungeon"
 description = "a normal, golden looking key
 "
 texture = SubResource("AtlasTexture_wxb3c")
+cost = 10
 effects = Array[ExtResource("1_ucis2")]([])

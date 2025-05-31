@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_oc08r"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_2hogj"]
 [ext_resource type="Resource" uid="uid://08fyr62oj82t" path="res://Items/stone.tres" id="15_5d7pa"]
-[ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="16_0nyhm"]
+[ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_pj30j"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="16_xubuf"]
 [ext_resource type="Script" uid="uid://cmedoimntypgj" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="17_0qxhq"]
 [ext_resource type="PackedScene" uid="uid://bxtno0bcv8fky" path="res://Enemies/vision_area.tscn" id="17_d4qqs"]
@@ -458,7 +458,7 @@ max_amount = 2
 
 [sub_resource type="Resource" id="Resource_58ww5"]
 script = ExtResource("14_2hogj")
-item = ExtResource("16_0nyhm")
+item = ExtResource("16_pj30j")
 probability = 100.0
 min_amount = 1
 max_amount = 5
@@ -506,7 +506,7 @@ shape = SubResource("CapsuleShape2D_onqxo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yfgs5")
+&"": SubResource("AnimationLibrary_yfgs5")
 }
 autoplay = "idle_down"
 

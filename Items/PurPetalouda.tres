@@ -9,4 +9,5 @@ script = ExtResource("2_gjgy8")
 name = "Pur PetaLouda"
 description = "A powerful bloodthirst sword"
 texture = ExtResource("3_yhkbr")
+cost = 1000
 effects = Array[ExtResource("1_dqvrx")]([])

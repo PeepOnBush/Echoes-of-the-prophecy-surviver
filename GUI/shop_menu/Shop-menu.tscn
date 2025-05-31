@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cds5fmp5bl01j"]
+[gd_scene load_steps=13 format=3 uid="uid://cds5fmp5bl01j"]
 
 [ext_resource type="Script" uid="uid://3mm1bn7qdb17" path="res://GUI/shop_menu/shop_menu.gd" id="1_hjops"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="1_v6lgt"]
 [ext_resource type="PackedScene" uid="uid://bjicm3aa570yq" path="res://GUI/shop_menu/shop_item_button.tscn" id="2_poooo"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="3_poooo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjops"]
-atlas = ExtResource("1_v6lgt")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hjops"]
+load_path = "res://.godot/imported/currency_bright_outline.png-c19e058e6262f7034887abcb986dbd1b.ctex"
 
 [sub_resource type="Animation" id="Animation_hjops"]
 length = 0.001
@@ -21,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(553, 13)]
+"values": [Vector2(505, 13)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -36,8 +35,24 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_0aj8m"]
+resource_name = "enough_currency"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(505, 13), Vector2(505, 5), Vector2(505, 13)]
+}
+
 [sub_resource type="Animation" id="Animation_poooo"]
-resource_name = "not_enough_gems"
+resource_name = "not_enough_currency"
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,7 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(553, 13), Vector2(551, 13), Vector2(554, 13), Vector2(550, 13), Vector2(553, 13)]
+"values": [Vector2(505, 13), Vector2(504, 13), Vector2(506, 13), Vector2(507, 13), Vector2(505, 13)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -67,7 +82,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0aj8m"]
 _data = {
 &"RESET": SubResource("Animation_hjops"),
-&"not_enough_gems": SubResource("Animation_poooo")
+&"enough_currency": SubResource("Animation_0aj8m"),
+&"not_enough_currency": SubResource("Animation_poooo")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o440m"]
@@ -84,6 +100,10 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjops"]
+atlas = ExtResource("1_v6lgt")
+region = Rect2(0, 0, 32, 32)
 
 [node name="Shop-menu" type="CanvasLayer"]
 layer = 3
@@ -110,10 +130,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -87.0
+offset_left = -135.0
 offset_top = 13.0
-offset_right = -20.0
-offset_bottom = 45.0
+offset_right = -25.0
+offset_bottom = 49.0
 grow_horizontal = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/CurrencyPanel"]
@@ -124,14 +144,18 @@ theme_override_constants/separation = 0
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
-texture = SubResource("AtlasTexture_hjops")
+texture = SubResource("CompressedTexture2D_hjops")
+expand_mode = 4
 stretch_mode = 3
 
 [node name="Currency" type="Label" parent="Control/CurrencyPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_poooo")
 text = "100"
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="Control/CurrencyPanel/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
@@ -201,7 +225,7 @@ layout_mode = 2
 
 [node name="ItemImage" type="TextureRect" parent="Control/DetailPanel/Control"]
 unique_name_in_owner = true
-texture_filter = 1
+texture_filter = 2
 texture_repeat = 1
 layout_mode = 0
 offset_left = 24.7429
@@ -236,8 +260,7 @@ text = "Item description
 I have no idea what i'm doing but i'm enjoying this"
 autowrap_mode = 2
 
-[node name="ItemPrice" type="Label" parent="Control/DetailPanel/Control"]
-unique_name_in_owner = true
+[node name="ItemPriceHolder" type="Label" parent="Control/DetailPanel/Control"]
 layout_mode = 0
 offset_left = 157.479
 offset_top = 10.0719
@@ -267,8 +290,7 @@ offset_bottom = 44.0719
 theme_override_fonts/font = ExtResource("3_poooo")
 text = "999"
 
-[node name="ItemPrice2" type="Label" parent="Control/DetailPanel/Control"]
-unique_name_in_owner = true
+[node name="ItemHeld" type="Label" parent="Control/DetailPanel/Control"]
 layout_mode = 0
 offset_left = 157.479
 offset_top = 27.6349

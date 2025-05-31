@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_2m0ya"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_h0n5y"]
 [ext_resource type="Resource" uid="uid://08fyr62oj82t" path="res://Items/stone.tres" id="15_stlk5"]
-[ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="16_3jjym"]
+[ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_ts4pi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -727,7 +727,7 @@ max_amount = 2
 
 [sub_resource type="Resource" id="Resource_58ww5"]
 script = ExtResource("14_h0n5y")
-item = ExtResource("16_3jjym")
+item = ExtResource("16_ts4pi")
 probability = 100.0
 min_amount = 1
 max_amount = 5
@@ -832,7 +832,7 @@ shape = SubResource("CapsuleShape2D_onqxo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yfgs5")
+&"": SubResource("AnimationLibrary_yfgs5")
 }
 autoplay = "idle_down"
 
@@ -867,5 +867,5 @@ hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DestroyEffectSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_m87v0")
+&"": SubResource("AnimationLibrary_m87v0")
 }

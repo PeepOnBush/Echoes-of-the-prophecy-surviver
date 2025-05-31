@@ -91,4 +91,5 @@ script = ExtResource("1_a6hih")
 name = "cursed_key"
 description = "cursed, rusty looking key."
 texture = SubResource("AnimatedTexture_ws7cs")
+cost = 10
 effects = Array[ExtResource("1_y3xln")]([])

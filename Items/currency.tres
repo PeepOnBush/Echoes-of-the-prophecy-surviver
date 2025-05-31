@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cmx8a82ujv46g"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_oqxmv"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_nbti1"]
+[ext_resource type="Texture2D" uid="uid://bygmcpbervw6e" path="res://Items/Sprites/small_currency_bright_outline.png" id="3_oqxmv"]
+
+[resource]
+script = ExtResource("2_nbti1")
+name = "gold coin"
+description = "Currency used on this land"
+texture = ExtResource("3_oqxmv")
+cost = 100
+effects = Array[ExtResource("1_oqxmv")]([])

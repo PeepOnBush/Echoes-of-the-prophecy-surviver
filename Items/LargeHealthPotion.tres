@@ -18,4 +18,5 @@ name = "Large potion"
 description = "A large size health potion that restore greatly amount of health
  "
 texture = ExtResource("2_8jx7n")
+cost = 25
 effects = Array[ExtResource("1_86o0a")]([SubResource("Resource_cdd54")])

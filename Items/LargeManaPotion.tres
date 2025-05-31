@@ -10,4 +10,5 @@ name = "Large mana potion"
 description = "A large size mana potion that restore greatly amount of mana
  "
 texture = ExtResource("2_milgg")
+cost = 25
 effects = Array[ExtResource("1_6p4gh")]([])
