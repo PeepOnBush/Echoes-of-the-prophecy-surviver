@@ -4,6 +4,7 @@ class_name stateWalking extends State
 @export var moveSpeed : float = 100.0 
 @onready var idle: State = $"../idle"
 @onready var attack : State = $"../attack"
+@onready var dash: State = $"../Dash"
 
 func Enter() -> void:
 	print("walking")
@@ -32,6 +33,8 @@ func Physics(_delta : float) -> State:
 func HandleInput( _event: InputEvent) -> State:
 	if _event.is_action_pressed("attack"):
 		return attack
-	if _event.is_action_pressed("interact"):
+	elif _event.is_action_pressed("interact"):
 		PlayerManager.Interact()
+	elif _event.is_action_pressed("dash"):
+		return dash
 	return null

@@ -2,6 +2,7 @@ class_name stateIdle extends State
 
 @onready var walk : State = $"../walk"
 @onready var attack : State = $"../attack"
+@onready var dash: State = $"../Dash"
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
@@ -27,6 +28,8 @@ func Physics(_delta : float) -> State:
 func HandleInput( _event: InputEvent) -> State:
 	if _event.is_action_pressed("attack"):
 		return attack
-	if _event.is_action_pressed("interact"):
+	elif _event.is_action_pressed("interact"):
 		PlayerManager.Interact()
+	elif _event.is_action_pressed("dash"):
+		return dash
 	return null

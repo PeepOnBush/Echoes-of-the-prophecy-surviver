@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=98 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://bgwmsug4t0h60" path="res://Player/Audio/throw.wav" id="20_2x77b"]
 [ext_resource type="Script" uid="uid://cdduc0x5xcebc" path="res://Player/Scripts/states/state_death.gd" id="21_fex6f"]
 [ext_resource type="AudioStream" uid="uid://b4l4ngjvjd1ck" path="res://Player/Audio/exhausted.wav" id="22_5nomk"]
+[ext_resource type="Script" uid="uid://bbmadbbh30lud" path="res://Player/Scripts/states/state_dash.gd" id="25_c6x0f"]
 [ext_resource type="AudioStream" uid="uid://dn175yywxamob" path="res://Player/Audio/level_up_jingle.wav" id="28_wltuf"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="30_6xyq0"]
 [ext_resource type="PackedScene" uid="uid://dejmrltbvwd4d" path="res://GeneralNodes/FootstepAudio2D/Footstep-Audio-2D.tscn" id="34_c0eyh"]
@@ -1456,6 +1457,57 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_j2n6q"]
+resource_name = "dash_down"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_c6x0f"]
+resource_name = "dash_up"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_jp1hh"]
+resource_name = "dash_side"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [17]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8n5a"]
 _data = {
 &"RESET": SubResource("Animation_pkufx"),
@@ -1475,6 +1527,9 @@ _data = {
 &"charge_walk_down": SubResource("Animation_sgekh"),
 &"charge_walk_side": SubResource("Animation_gvw4n"),
 &"charge_walk_up": SubResource("Animation_l2w3i"),
+&"dash_down": SubResource("Animation_j2n6q"),
+&"dash_side": SubResource("Animation_jp1hh"),
+&"dash_up": SubResource("Animation_c6x0f"),
 &"death": SubResource("Animation_6mcxr"),
 &"idle_down": SubResource("Animation_ulpq3"),
 &"idle_side": SubResource("Animation_r25xv"),
@@ -1885,6 +1940,12 @@ throw_audio = ExtResource("20_2x77b")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("21_fex6f")
 exhaust_audio = ExtResource("22_5nomk")
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("25_c6x0f")
+move_speed = 250.0
+effect_delay = 0.05
+dash_audio = ExtResource("18_532ee")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("11_dqbc7")
