@@ -511,7 +511,6 @@ sources/0 = SubResource("TileSetAtlasSource_akdm0")
 sources/1 = SubResource("TileSetAtlasSource_bvto2")
 
 [node name="01" type="Node2D"]
-position = Vector2(1, 2)
 script = ExtResource("1_747no")
 music = ExtResource("12_36ld3")
 

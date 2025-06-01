@@ -22,13 +22,13 @@ func init() -> void:
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
+	disable_hurt_box()
 	enemy.invulnerable = true
 	_direction = enemy.global_position.direction_to(_damage_position)
 	enemy.SetDirection(_direction)
 	enemy.velocity = _direction * -knockback_speed
 	enemy.UpdateAnimation( animName )
 	enemy.animationPlayer.animation_finished.connect(_on_animation_finished)
-	disable_hurt_box()
 	drop_items()
 	PlayerManager.rewardXP(enemy.xp_reward)
 	pass
@@ -49,6 +49,8 @@ func _on_enemy_destroyed(hurt_box : HurtBox) -> void:
 	
 func _on_animation_finished( _a : String ) -> void:
 	enemy.queue_free()
+
+
 
 func disable_hurt_box() -> void:
 	var hurt_box : HurtBox = enemy.get_node_or_null("HurtBox")

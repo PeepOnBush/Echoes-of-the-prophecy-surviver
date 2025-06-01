@@ -1,18 +1,22 @@
-class_name StateDash extends State
+class_name StateDashAttack extends State
 
 @export var move_speed : float = 200
 @export var effect_delay : float = 0.1
 @export var dash_audio : AudioStream
 @onready var idle: State = $"../idle"
+@onready var attack: State  = $"../attack"
+@onready var hurt_box : HurtBox = %AttackHurtBox
 
 var direction : Vector2 = Vector2.ZERO
 var next_state : State = null
 var effect_timer : float = 0
+var attacking : bool = false
+
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
 	player.invulnerable = true
-	player.UpdateAnimation("dash")
+	player.UpdateAnimation("attack")
 	player.animationPlayer.animation_finished.connect( onAnimationFinished )
 	direction = player.direction 
 	if direction == Vector2.ZERO:
@@ -20,6 +24,9 @@ func Enter() -> void:
 	if dash_audio:
 		player.audio.stream = dash_audio
 		player.audio.play()
+	attacking = true
+	if attacking:
+		hurt_box.monitoring = true
 	effect_timer = 0
 	pass
 ## What happen when the player exit this state ?
@@ -27,7 +34,8 @@ func Exit() -> void:
 	player.invulnerable = false
 	player.animationPlayer.animation_finished.disconnect( onAnimationFinished )
 	next_state = null
-
+	attacking = false
+	hurt_box.monitoring = false
 	pass 
 ## What happen when the _process update in this state ?
 func Process(_delta : float) -> State:

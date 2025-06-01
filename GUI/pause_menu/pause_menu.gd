@@ -6,17 +6,24 @@ signal preview_stats_change( item : ItemData )
 
 @onready var audio_stream_player : AudioStreamPlayer = $Control/AudioStreamPlayer
 @onready var tab_container: TabContainer = $Control/TabContainer
-
+@export var button_select_audio : AudioStream = preload("res://Menu/menu_select.wav")
+@export var button_focus_audio : AudioStream = preload("res://Menu/menu_focus.wav")
 @onready var btn_save : Button =  $Control/TabContainer/System/VBoxContainer/btn_save
 @onready var btn_load : Button = $Control/TabContainer/System/VBoxContainer/btn_load
 @onready var btn_quit: Button = $Control/TabContainer/System/VBoxContainer/btn_quit
 @onready var btn_menu: Button = $Control/TabContainer/System/VBoxContainer/btn_menu
 @onready var item_description : Label = $Control/TabContainer/Inventory/ItemDescription
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var is_paused : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hidePauseMenu()
+	btn_save.focus_entered.connect(playAudio.bind(button_focus_audio))
+	btn_load.focus_entered.connect(playAudio.bind(button_focus_audio))
+	btn_menu.focus_entered.connect(playAudio.bind(button_focus_audio))
+	btn_quit.focus_entered.connect(playAudio.bind(button_focus_audio))
+
 	btn_save.pressed.connect(onSavePressed)
 	btn_load.pressed.connect(onLoadPressed)
 	btn_menu.pressed.connect(onMenuPressed)
@@ -36,10 +43,10 @@ func _unhandled_input(event : InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	if is_paused:
 		if event.is_action_pressed("right_bumper"):
-			#change tab
+			playAudio(button_focus_audio)
 			changeTab(1)
 		elif event.is_action_pressed("left_bumper"):
-			#change tab
+			playAudio(button_focus_audio)
 			changeTab(-1)
 		
 
@@ -64,6 +71,7 @@ func onSavePressed() -> void:
 	pass
 
 func onLoadPressed() -> void:
+	playAudio(button_select_audio)
 	if is_paused == false:
 		return
 	SaveManager.loadGame()
@@ -75,6 +83,7 @@ func onQuitPressed() -> void:
 	get_tree().quit()
 
 func onMenuPressed() -> void:
+	playAudio(button_select_audio)
 	hidePauseMenu()
 	LevelManager.load_new_level("res://Menu/Menu2/FrierenTheJourneyBeyondMenu.tscn","",Vector2.ZERO)
 	pass
@@ -92,8 +101,8 @@ func focusedItemChanged( slot : SlotData) -> void:
 		previewStats(null)
 	pass
 
-func playerAudio( audio : AudioStream) -> void:
-	audio_stream_player.stream = audio 
+func playerAudio( _audio : AudioStream) -> void:
+	audio_stream_player.stream = _audio 
 	audio_stream_player.play()
 
 func changeTab(_i : int = 1) -> void:
@@ -108,3 +117,7 @@ func changeTab(_i : int = 1) -> void:
 func previewStats(item : ItemData ) -> void:
 	preview_stats_change.emit(item)
 	pass
+
+func playAudio(_a : AudioStream) -> void:
+	audio.stream = _a
+	audio.play()

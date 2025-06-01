@@ -3,6 +3,7 @@ class_name stateIdle extends State
 @onready var walk : State = $"../walk"
 @onready var attack : State = $"../attack"
 @onready var dash: State = $"../Dash"
+@onready var dash_attack: State = $"../DashAttack"
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
@@ -32,4 +33,6 @@ func HandleInput( _event: InputEvent) -> State:
 		PlayerManager.Interact()
 	elif _event.is_action_pressed("dash"):
 		return dash
+	elif _event.is_action_pressed("dash_attack"):
+		return dash_attack
 	return null

@@ -460,3 +460,5 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cvrss")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

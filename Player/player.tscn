@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=99 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://cdduc0x5xcebc" path="res://Player/Scripts/states/state_death.gd" id="21_fex6f"]
 [ext_resource type="AudioStream" uid="uid://b4l4ngjvjd1ck" path="res://Player/Audio/exhausted.wav" id="22_5nomk"]
 [ext_resource type="Script" uid="uid://bbmadbbh30lud" path="res://Player/Scripts/states/state_dash.gd" id="25_c6x0f"]
+[ext_resource type="Script" uid="uid://coryg3x7bb4hk" path="res://Player/Scripts/states/state_dash_attack.gd" id="26_jp1hh"]
 [ext_resource type="AudioStream" uid="uid://dn175yywxamob" path="res://Player/Audio/level_up_jingle.wav" id="28_wltuf"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="30_6xyq0"]
 [ext_resource type="PackedScene" uid="uid://dejmrltbvwd4d" path="res://GeneralNodes/FootstepAudio2D/Footstep-Audio-2D.tscn" id="34_c0eyh"]
@@ -1923,6 +1924,7 @@ attack_sound = ExtResource("8_dwu3j")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("11_oe0p3")
+invulnerable_duration = 1.5
 
 [node name="ChargeAttack" type="Node" parent="StateMachine"]
 script = ExtResource("12_jnhl5")
@@ -1943,8 +1945,13 @@ exhaust_audio = ExtResource("22_5nomk")
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource("25_c6x0f")
-move_speed = 250.0
-effect_delay = 0.05
+effect_delay = 0.07
+dash_audio = ExtResource("18_532ee")
+
+[node name="DashAttack" type="Node" parent="StateMachine"]
+script = ExtResource("26_jp1hh")
+move_speed = 300.0
+effect_delay = 0.01
 dash_audio = ExtResource("18_532ee")
 
 [node name="Camera2D" type="Camera2D" parent="."]

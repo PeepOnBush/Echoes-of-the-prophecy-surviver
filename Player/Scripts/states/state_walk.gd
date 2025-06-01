@@ -5,6 +5,7 @@ class_name stateWalking extends State
 @onready var idle: State = $"../idle"
 @onready var attack : State = $"../attack"
 @onready var dash: State = $"../Dash"
+@onready var dash_attack: State = $"../DashAttack"
 
 func Enter() -> void:
 	print("walking")
@@ -37,4 +38,6 @@ func HandleInput( _event: InputEvent) -> State:
 		PlayerManager.Interact()
 	elif _event.is_action_pressed("dash"):
 		return dash
+	elif _event.is_action_pressed("dash_attack"):
+		return dash_attack
 	return null

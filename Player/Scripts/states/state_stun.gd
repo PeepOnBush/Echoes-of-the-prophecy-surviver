@@ -3,7 +3,7 @@ class_name stateStun extends State
 
 @export var knockback_speed : float = 200.0
 @export var decelerate_speed : float = 10.0
-@export var invulnerable_duration : float = 1.0 
+@export var invulnerable_duration : float = 1.0
 
 var hurt_box : HurtBox 
 var direction : Vector2
