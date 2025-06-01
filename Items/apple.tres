@@ -21,4 +21,5 @@ script = ExtResource("1_6vd0x")
 name = "Apple"
 description = "A delicious apple"
 texture = SubResource("AtlasTexture_2ybag")
+cost = 10
 effects = Array[ExtResource("1_mo3ih")]([SubResource("Resource_u8cfm")])

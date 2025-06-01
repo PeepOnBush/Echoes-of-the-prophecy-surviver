@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bms5b35hj2ian"]
+[gd_scene load_steps=26 format=3 uid="uid://bms5b35hj2ian"]
 
 [ext_resource type="Script" uid="uid://bk31s5as3fcxx" path="res://GUI/pause_menu/pause_menu.gd" id="1_g1nml"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_1j814"]
+[ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="2_cvrss"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_e2diq"]
 [ext_resource type="Script" uid="uid://dxvhhrxdp3gae" path="res://GUI/pause_menu/inventory/Scripts/inventory_ui.gd" id="3_0xuew"]
 [ext_resource type="PackedScene" uid="uid://cji24g13bm6i4" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_vr4sr"]
@@ -121,10 +122,12 @@ offset_top = 27.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_cvrss")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -324,6 +327,7 @@ offset_left = 391.0
 offset_top = 4.0
 offset_right = 484.0
 offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("2_cvrss")
 theme_override_font_sizes/font_size = 25
 text = "Backpack"
 
@@ -377,6 +381,7 @@ offset_bottom = 65.0
 [node name="QuestTitle" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
 custom_minimum_size = Vector2(215, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cvrss")
 text = "Quest title"
 autowrap_mode = 2
 
@@ -402,7 +407,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="System" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -428,6 +432,7 @@ alignment = 1
 texture_filter = 2
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cvrss")
 theme_override_font_sizes/font_size = 50
 text = "Save"
 
@@ -435,13 +440,23 @@ text = "Save"
 texture_filter = 2
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cvrss")
 theme_override_font_sizes/font_size = 50
 text = "Load
 "
+
+[node name="btn_menu" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cvrss")
+theme_override_font_sizes/font_size = 50
+text = "Main menu"
 
 [node name="btn_quit" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cvrss")
 theme_override_font_sizes/font_size = 50
 text = "Quit"

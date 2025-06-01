@@ -10,6 +10,7 @@ signal preview_stats_change( item : ItemData )
 @onready var btn_save : Button =  $Control/TabContainer/System/VBoxContainer/btn_save
 @onready var btn_load : Button = $Control/TabContainer/System/VBoxContainer/btn_load
 @onready var btn_quit: Button = $Control/TabContainer/System/VBoxContainer/btn_quit
+@onready var btn_menu: Button = $Control/TabContainer/System/VBoxContainer/btn_menu
 @onready var item_description : Label = $Control/TabContainer/Inventory/ItemDescription
 
 var is_paused : bool = false
@@ -18,6 +19,7 @@ func _ready():
 	hidePauseMenu()
 	btn_save.pressed.connect(onSavePressed)
 	btn_load.pressed.connect(onLoadPressed)
+	btn_menu.pressed.connect(onMenuPressed)
 	btn_quit.pressed.connect(onQuitPressed)
 	pass # Replace with function body.
 
@@ -71,6 +73,11 @@ func onLoadPressed() -> void:
 
 func onQuitPressed() -> void:
 	get_tree().quit()
+
+func onMenuPressed() -> void:
+	hidePauseMenu()
+	LevelManager.load_new_level("res://Menu/Menu2/FrierenTheJourneyBeyondMenu.tscn","",Vector2.ZERO)
+	pass
 
 func updateItemDescription( newText : String ) -> void:
 	item_description.text = newText

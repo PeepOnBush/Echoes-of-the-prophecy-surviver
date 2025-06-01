@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cds5fmp5bl01j"]
+[gd_scene load_steps=14 format=3 uid="uid://cds5fmp5bl01j"]
 
 [ext_resource type="Script" uid="uid://3mm1bn7qdb17" path="res://GUI/shop_menu/shop_menu.gd" id="1_hjops"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="1_v6lgt"]
 [ext_resource type="PackedScene" uid="uid://bjicm3aa570yq" path="res://GUI/shop_menu/shop_item_button.tscn" id="2_poooo"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="3_poooo"]
+[ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="5_0aj8m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hjops"]
 load_path = "res://.godot/imported/currency_bright_outline.png-c19e058e6262f7034887abcb986dbd1b.ctex"
@@ -243,6 +244,7 @@ offset_left = 3.36265
 offset_top = 34.3255
 offset_right = 245.363
 offset_bottom = 71.3255
+theme_override_fonts/font = ExtResource("5_0aj8m")
 text = "Item name "
 vertical_alignment = 2
 autowrap_mode = 2
@@ -339,6 +341,7 @@ offset_left = 38.0
 offset_top = 21.0
 offset_right = 151.0
 offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("5_0aj8m")
 theme_override_font_sizes/font_size = 25
 text = "Shopkeeper "
 

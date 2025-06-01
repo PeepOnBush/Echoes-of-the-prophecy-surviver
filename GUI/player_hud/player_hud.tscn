@@ -509,9 +509,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -63.0
-offset_top = -19.0
+offset_top = -25.0
 offset_right = 63.0
-offset_bottom = 35.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -538,7 +538,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/GameOver"]
 libraries = {
-"": SubResource("AnimationLibrary_xfivr")
+&"": SubResource("AnimationLibrary_xfivr")
 }
 
 [node name="BossUI" type="Control" parent="Control"]
@@ -606,6 +606,7 @@ theme_override_colors/font_color = Color(1, 0.939233, 0.756932, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.203922)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_mqu0o")
 text = "Boss Name"
 
 [node name="Notifcation" type="Control" parent="Control"]
@@ -632,6 +633,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_mqu0o")
 text = "Quest name  "
 autowrap_mode = 2
 
@@ -645,7 +647,7 @@ autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Notifcation"]
 libraries = {
-"": SubResource("AnimationLibrary_nwdhr")
+&"": SubResource("AnimationLibrary_nwdhr")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

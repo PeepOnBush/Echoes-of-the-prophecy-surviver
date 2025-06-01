@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://byrky0o0s3e3d"]
+[gd_scene load_steps=15 format=3 uid="uid://byrky0o0s3e3d"]
 
 [ext_resource type="Script" uid="uid://5set2id68s7m" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_jfjvd"]
 [ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="1_shpx4"]
+[ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="3_8tyrm"]
 [ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="3_jsyly"]
 [ext_resource type="Script" uid="uid://cpmkvp7suudto" path="res://GUI/dialog_system/Scripts/dialog_potrait.gd" id="4_g1le2"]
 [ext_resource type="AudioStream" uid="uid://cckqokiix1gi3" path="res://GUI/dialog_system/Audio/voice_blip.wav" id="4_ow4rp"]
@@ -118,6 +119,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_p44wm")
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
+theme_override_fonts/normal_font = ExtResource("3_8tyrm")
+theme_override_fonts/mono_font = ExtResource("3_8tyrm")
+theme_override_fonts/italics_font = ExtResource("3_8tyrm")
+theme_override_fonts/bold_italics_font = ExtResource("3_8tyrm")
+theme_override_fonts/bold_font = ExtResource("3_8tyrm")
 bbcode_enabled = true
 text = "Hello 
 [wave]hello everyone [/wave]
@@ -136,6 +142,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_8tyrm")
 theme_override_font_sizes/font_size = 21
 text = "Gerome"
 
@@ -166,6 +173,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2dm3q")
 [node name="Label" type="Label" parent="DialogUi/DialogProgressIndicator"]
 texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8tyrm")
 text = "Next
 "
 horizontal_alignment = 1
@@ -196,30 +204,35 @@ alignment = 1
 
 [node name="Button" type="Button" parent="DialogUi/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8tyrm")
 text = "Choice 1...
 "
 alignment = 0
 
 [node name="Button2" type="Button" parent="DialogUi/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8tyrm")
 text = "Choice 1...
 "
 alignment = 0
 
 [node name="Button3" type="Button" parent="DialogUi/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8tyrm")
 text = "Choice 1...
 "
 alignment = 0
 
 [node name="Button4" type="Button" parent="DialogUi/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8tyrm")
 text = "Choice 1...
 "
 alignment = 0
 
 [node name="Button5" type="Button" parent="DialogUi/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8tyrm")
 text = "Choice 1...
 "
 alignment = 0
