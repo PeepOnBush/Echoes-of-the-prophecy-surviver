@@ -20,7 +20,8 @@ var attack : int = 1 :
 		attack = v
 		updateDamageValue()
 
-
+const arrow_count : int = 1
+var bomb_count : int = 10
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
@@ -105,7 +106,8 @@ func _take_damage(_hurt_box : HurtBox) -> void:
 		
 		update_hp( -dmg )
 		PlayerDamaged.emit(_hurt_box)
-		
+		EffectManager.damageText(_hurt_box.damage, global_position + Vector2(0,-36))
+
 	pass
 
 func update_hp( _delta : int ) -> void:

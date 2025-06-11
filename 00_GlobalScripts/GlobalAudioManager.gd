@@ -12,7 +12,7 @@ func _ready() -> void:
 	for i  in music_audio_player_count:
 		var audioPlayer = AudioStreamPlayer.new()
 		add_child(audioPlayer)
-		audioPlayer.bus = musicBus
+		audioPlayer.bus = musicBus 
 		musicPlayer.append(audioPlayer)
 		audioPlayer.volume_db = -40
 

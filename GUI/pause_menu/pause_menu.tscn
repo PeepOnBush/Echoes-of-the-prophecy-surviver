@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bms5b35hj2ian"]
+[gd_scene load_steps=34 format=3 uid="uid://bms5b35hj2ian"]
 
 [ext_resource type="Script" uid="uid://bk31s5as3fcxx" path="res://GUI/pause_menu/pause_menu.gd" id="1_g1nml"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_1j814"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://dxvhhrxdp3gae" path="res://GUI/pause_menu/inventory/Scripts/inventory_ui.gd" id="3_0xuew"]
 [ext_resource type="PackedScene" uid="uid://cji24g13bm6i4" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_vr4sr"]
 [ext_resource type="Resource" uid="uid://b8wucdmxpy1fp" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_k2s4e"]
+[ext_resource type="FontFile" uid="uid://qnkpjj5qtby0" path="res://GUI/Fonts/Abaddon Bold.ttf" id="5_00kwt"]
+[ext_resource type="Texture2D" uid="uid://cmln4ri2adw8e" path="res://Player/Sprites/ZeShuriken.png" id="5_1oddi"]
+[ext_resource type="Script" uid="uid://ctf4gujtwoo5m" path="res://GUI/pause_menu/inventory/Scripts/gear_item_button.gd" id="5_syaa3"]
+[ext_resource type="Texture2D" uid="uid://b28gk7kynf0np" path="res://Player/Sprites/ability-icons.png" id="6_1oddi"]
 [ext_resource type="PackedScene" uid="uid://kwny8egbbql7" path="res://GUI/pause_menu/quests/QuestItem.tscn" id="6_6s3vj"]
 [ext_resource type="Script" uid="uid://bfsta4uthdkd5" path="res://GUI/pause_menu/quest_ui.gd" id="6_7er1a"]
 [ext_resource type="PackedScene" uid="uid://via51omk5c0j" path="res://GUI/pause_menu/stats/stats.tscn" id="6_hg0ok"]
@@ -28,6 +32,22 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syaa3"]
+atlas = ExtResource("5_1oddi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ptsh"]
+atlas = ExtResource("6_1oddi")
+region = Rect2(96, -0.338, 32, 32.375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00kwt"]
+atlas = ExtResource("6_1oddi")
+region = Rect2(64, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oddi"]
+atlas = ExtResource("6_1oddi")
+region = Rect2(0, 0, 32, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvrss"]
 load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
@@ -124,19 +144,139 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_cvrss")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
+tab_focus_mode = 1
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/TabContainer/Inventory"]
-position = Vector2(140, 116)
+position = Vector2(140, 137)
 scale = Vector2(2.215, 2.215)
 texture = ExtResource("2_e2diq")
 hframes = 16
 vframes = 8
+
+[node name="AbilityContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 53.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 68.0
+scale = Vector2(1.12253, 1.1957)
+theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.816)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("5_syaa3")
+description = "A shuriken that would return to you when after you throw it."
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_syaa3")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.816)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("5_syaa3")
+description = "A grapping hook that could pull."
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot2"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_8ptsh")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.816)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("5_syaa3")
+description = "A basic bow for beginner "
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_00kwt")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 52.0
+scale = Vector2(0.585778, 0.714653)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_00kwt")
+theme_override_font_sizes/font_size = 22
+text = "55
+
+"
+horizontal_alignment = 1
+
+[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.816)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("5_syaa3")
+description = "An extremly dangerous explosive item."
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_1oddi")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.7817
+offset_top = -4.67266
+offset_right = 49.7817
+offset_bottom = 79.3273
+scale = Vector2(0.585778, 0.714653)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_00kwt")
+theme_override_font_sizes/font_size = 22
+text = "55
+
+"
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
 texture_filter = 1
@@ -230,9 +370,9 @@ layout_mode = 2
 texture_filter = 1
 layout_mode = 0
 offset_left = 302.0
-offset_top = 188.0
+offset_top = 192.0
 offset_right = 534.0
-offset_bottom = 276.0
+offset_bottom = 280.0
 scale = Vector2(1.12253, 1.1957)
 theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
 
@@ -297,9 +437,9 @@ layout_mode = 2
 [node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_hg0ok")]
 layout_mode = 0
 offset_left = 47.0
-offset_top = 188.0
+offset_top = 192.0
 offset_right = 218.0
-offset_bottom = 276.0
+offset_bottom = 280.0
 
 [node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
 visible = false
@@ -407,6 +547,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="System" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

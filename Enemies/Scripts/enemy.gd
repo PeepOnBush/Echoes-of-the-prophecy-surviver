@@ -56,7 +56,6 @@ func SetDirection( _new_direction : Vector2) -> bool:
 		sprite.scale.x = sprite.scale.x * (-1) 
 	else:
 		sprite.scale.x = sprite.scale.y
-		print(sprite.scale.y)
 	return true
 
 
