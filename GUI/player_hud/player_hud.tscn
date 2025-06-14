@@ -1,14 +1,44 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3u0chmjjfa7s"]
+[gd_scene load_steps=29 format=3 uid="uid://d3u0chmjjfa7s"]
 
 [ext_resource type="Script" uid="uid://nwqx8s3opd8m" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
 [ext_resource type="Texture2D" uid="uid://b8tfeeopjphxi" path="res://GUI/player_hud/gui-health.png" id="2_ecbuc"]
 [ext_resource type="PackedScene" uid="uid://b43yya5yg2c6m" path="res://GUI/player_hud/heart_gui.tscn" id="3_dtpa4"]
+[ext_resource type="Texture2D" uid="uid://cmln4ri2adw8e" path="res://Player/Sprites/ZeShuriken.png" id="4_ea3vn"]
 [ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="4_mqu0o"]
 [ext_resource type="Texture2D" uid="uid://dw2yayeip8q12" path="res://GUI/player_hud/boss-hp.png" id="5_1jeqg"]
+[ext_resource type="Texture2D" uid="uid://b28gk7kynf0np" path="res://Player/Sprites/ability-icons.png" id="5_3m3x0"]
 [ext_resource type="Texture2D" uid="uid://rajccyeg2r2h" path="res://GUI/player_hud/panel_notification.png" id="6_q8jci"]
 [ext_resource type="Script" uid="uid://bwwj5m2yiuhau" path="res://GUI/player_hud/notification.gd" id="6_qrqr1"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="7_467n6"]
 [ext_resource type="AudioStream" uid="uid://xpgw6vvufltn" path="res://GUI/player_hud/notification.wav" id="9_tj3s2"]
+
+[sub_resource type="Gradient" id="Gradient_scbx3"]
+offsets = PackedFloat32Array(0, 0.617241, 1)
+colors = PackedColorArray(1, 0.965321, 0.63153, 1, 1, 0.746, 0.237, 0.544, 1, 0.209, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_terqw"]
+gradient = SubResource("Gradient_scbx3")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nb4v"]
+atlas = ExtResource("4_ea3vn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1kye"]
+atlas = ExtResource("5_3m3x0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5viu"]
+atlas = ExtResource("5_3m3x0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki6p8"]
+atlas = ExtResource("5_3m3x0")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="FontVariation" id="FontVariation_6k8ot"]
 base_font = ExtResource("4_mqu0o")
@@ -464,6 +494,106 @@ layout_mode = 2
 [node name="Heart20" parent="Control/HFlowContainer" instance=ExtResource("3_dtpa4")]
 layout_mode = 2
 
+[node name="Abilities" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 7.0
+offset_right = 94.0
+offset_bottom = 31.0
+scale = Vector2(1.6, 1.6)
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_terqw")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 35.0
+offset_bottom = 36.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_5nb4v")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_terqw")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect2"]
+texture_filter = 2
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 35.0
+offset_bottom = 36.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_e1kye")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_terqw")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect3"]
+texture_filter = 2
+offset_left = 3.33333
+offset_top = 4.0
+offset_right = 35.3333
+offset_bottom = 36.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_w5viu")
+stretch_mode = 3
+
+[node name="ArrowCountLabel" type="Label" parent="Control/Abilities/HBoxContainer/TextureRect3"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 34.0
+scale = Vector2(0.845, 0.845)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("7_467n6")
+theme_override_font_sizes/font_size = 16
+text = "99"
+horizontal_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_terqw")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect4"]
+texture_filter = 2
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 35.0
+offset_bottom = 36.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_ki6p8")
+stretch_mode = 3
+
+[node name="BombCountLabel" type="Label" parent="Control/Abilities/HBoxContainer/TextureRect4"]
+unique_name_in_owner = true
+offset_left = 0.916664
+offset_top = 16.6667
+offset_right = 24.9167
+offset_bottom = 34.6667
+scale = Vector2(0.845, 0.845)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("7_467n6")
+theme_override_font_sizes/font_size = 16
+text = "99"
+horizontal_alignment = 1
+
 [node name="GameOver" type="Control" parent="Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -491,9 +621,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
+offset_left = -50.0
 offset_top = -55.5
-offset_right = 46.5
+offset_right = 43.0
 offset_bottom = -32.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -508,10 +638,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -25.0
-offset_right = 63.0
-offset_bottom = 41.0
+offset_left = -66.5
+offset_top = -19.0
+offset_right = 59.5
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -620,8 +750,9 @@ script = ExtResource("6_qrqr1")
 [node name="PanelContainer" type="PanelContainer" parent="Control/Notifcation"]
 layout_mode = 0
 offset_left = 5.0
+offset_top = 5.0
 offset_right = 249.0
-offset_bottom = 58.0
+offset_bottom = 63.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_yerqq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Notifcation/PanelContainer"]

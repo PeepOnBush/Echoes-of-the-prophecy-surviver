@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bms5b35hj2ian"]
+[gd_scene load_steps=37 format=3 uid="uid://bms5b35hj2ian"]
 
 [ext_resource type="Script" uid="uid://bk31s5as3fcxx" path="res://GUI/pause_menu/pause_menu.gd" id="1_g1nml"]
 [ext_resource type="Texture2D" uid="uid://1rf5vq74p4ye" path="res://Items/Sprites/items.png" id="2_1j814"]
@@ -17,6 +17,19 @@
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="6_vo45j"]
 [ext_resource type="Texture2D" uid="uid://cpnvfxptcaq5j" path="res://Items/Sprites/gear2.png" id="7_lbpde"]
 [ext_resource type="PackedScene" uid="uid://cpnewyspe8twp" path="res://GUI/pause_menu/quests/QuestStepItem.tscn" id="9_ostkv"]
+
+[sub_resource type="Theme" id="Theme_1oddi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oddi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.219501, 0.219501, 0.219501, 1)
+border_color = Color(0.167553, 0.0786344, 0.0752887, 1)
+
+[sub_resource type="Theme" id="Theme_syaa3"]
+Button/styles/hover = SubResource("StyleBoxFlat_1oddi")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3762"]
 atlas = ExtResource("2_1j814")
@@ -97,6 +110,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+mouse_default_cursor_shape = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -142,6 +156,7 @@ offset_top = 27.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_1oddi")
 theme_override_fonts/font = ExtResource("2_cvrss")
 tab_alignment = 1
 current_tab = 0
@@ -149,6 +164,7 @@ tab_focus_mode = 1
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
 layout_mode = 2
+theme = SubResource("Theme_syaa3")
 metadata/_tab_index = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/TabContainer/Inventory"]
@@ -177,6 +193,7 @@ self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+flat = true
 script = ExtResource("5_syaa3")
 description = "A shuriken that would return to you when after you throw it."
 
@@ -195,6 +212,7 @@ self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+flat = true
 script = ExtResource("5_syaa3")
 description = "A grapping hook that could pull."
 
@@ -213,6 +231,7 @@ self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+flat = true
 script = ExtResource("5_syaa3")
 description = "A basic bow for beginner "
 
@@ -249,6 +268,7 @@ self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+flat = true
 script = ExtResource("5_syaa3")
 description = "An extremly dangerous explosive item."
 

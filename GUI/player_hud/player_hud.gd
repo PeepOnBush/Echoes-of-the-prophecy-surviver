@@ -15,6 +15,10 @@ var hearts : Array[HeartGui] = []
 @onready var boss_label: Label = $Control/BossUI/Label
 @onready var notifcation: NotificationUI = $Control/Notifcation
 
+@onready var abilities: Control = $Control/Abilities
+@onready var ability_items : HBoxContainer = $Control/Abilities/HBoxContainer
+@onready var arrow_count_label: Label = %ArrowCountLabel
+@onready var bomb_count_label: Label = %BombCountLabel
 
 
 func _ready():
@@ -30,6 +34,10 @@ func _ready():
 	title_button.pressed.connect(titleScreen)
 	LevelManager.level_load_started.connect(hideGameOverScreen)
 	hideBossHealth()
+	
+	updateAbilityUI(0)
+	PauseMenu.shown.connect(onShowPauseMenu)
+	PauseMenu.hidden.connect(onHidePauseMenu)
 	pass
 
 func updateHp(_hp : int, _maxHP : int) -> void:
@@ -117,4 +125,30 @@ func updateBossHealth( hp : int, max_hp : int ) -> void:
 
 func queueNotification(_title : String , _message : String) -> void:
 	notifcation.addNotificationToQueue(_title,_message)
+	pass
+
+func  updateAbilityUI(ability_index : int ) -> void:
+	var _items : Array[Node] = ability_items.get_children()
+	for a in _items:
+		a.self_modulate = Color(1,1,1,0)
+		a.modulate = Color(0.6,0.6,0.6,0.8)
+	_items[ability_index].self_modulate = Color(1,1,1,1)
+	_items[ability_index].modulate = Color(1,1,1,1)
+	playAudio(button_focus_audio)
+	pass
+
+func update_arrow_count( count : int ) -> void:
+	arrow_count_label.text = str(count)
+	pass
+
+func update_bomb_count( count : int ) -> void:
+	bomb_count_label.text = str(count)
+	pass
+
+func onShowPauseMenu() -> void:
+	abilities.visible = false
+	pass
+
+func onHidePauseMenu() -> void:
+	abilities.visible = true
 	pass

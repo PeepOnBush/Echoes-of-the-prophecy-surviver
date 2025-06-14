@@ -118,9 +118,9 @@ offset_top = 148.0
 offset_right = 327.0
 offset_bottom = 173.0
 scale = Vector2(1.67653, 1.50818)
-theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aldl8")
 text = "New Game
 "
@@ -140,9 +140,9 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.67653, 1.50818)
-theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wa0g1")
 text = "Continue
 "
@@ -170,11 +170,11 @@ frame = 11
 [node name="SoundTrack" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_18fcv")
+&"": SubResource("AnimationLibrary_18fcv")
 }
 autoplay = "SoundTrack"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_0gk45")
+&"": SubResource("AnimationLibrary_0gk45")
 }
