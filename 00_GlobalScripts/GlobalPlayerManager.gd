@@ -70,3 +70,8 @@ func Interact() -> void:
 func shakeCamera(trauma : float = 1) -> void:
 	@warning_ignore("narrowing_conversion")
 	camera_shook.emit(clampi(trauma,0 ,2))
+
+func apply_hitstop(duration: float = 5.0) -> void:
+	get_tree().paused = true
+	await get_tree().create_timer(duration).timeout
+	get_tree().paused = false

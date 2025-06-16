@@ -492,7 +492,7 @@ hframes = 34
 [node name="HurtBox" parent="Sprite2D" instance=ExtResource("2_4nwja")]
 position = Vector2(0, 9.78699)
 scale = Vector2(0.558347, 0.575705)
-damage = 10
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(0, -10)

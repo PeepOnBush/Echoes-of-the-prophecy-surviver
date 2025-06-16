@@ -1924,6 +1924,7 @@ attack_sound = ExtResource("8_dwu3j")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("11_oe0p3")
+knockback_speed = 3000.0
 invulnerable_duration = 1.5
 
 [node name="ChargeAttack" type="Node" parent="StateMachine"]
@@ -1950,11 +1951,14 @@ dash_audio = ExtResource("18_532ee")
 
 [node name="DashAttack" type="Node" parent="StateMachine"]
 script = ExtResource("26_jp1hh")
-move_speed = 300.0
+move_speed = 500.0
 effect_delay = 0.01
 dash_audio = ExtResource("18_532ee")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 script = ExtResource("11_dqbc7")
 shake_power = 1.0
 shake_decay = 2.0
@@ -2016,9 +2020,9 @@ debug_color = Color(0.851, 0, 0.898, 0.016)
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = -27.0
-offset_top = -68.0
+offset_top = -73.0
 offset_right = 28.0
-offset_bottom = -51.0
+offset_bottom = -56.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_fonts/font = ExtResource("30_6xyq0")

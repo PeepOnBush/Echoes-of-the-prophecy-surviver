@@ -49,4 +49,3 @@ func throw(throwDirection : Vector2) -> void:
 	PlayerManager.play_audio(catchAudio)
 	visible = true 
 	pass
-	
