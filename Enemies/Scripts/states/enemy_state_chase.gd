@@ -22,6 +22,7 @@ func init() -> void:
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
+
 	_timer = state_aggro_duration
 	enemy.UpdateAnimation(animName)
 	if attack_area:
