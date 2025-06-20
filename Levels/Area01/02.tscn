@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=26 format=4 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6l1vp"]
@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://cfduwutvow4sn" path="res://Quests/Return_lost_flute.tres" id="20_3f38f"]
 [ext_resource type="PackedScene" uid="uid://dx48lwg3wwvy2" path="res://Quests/Utility_nodes/quest_advance_trigger.tscn" id="20_ctmuj"]
 [ext_resource type="PackedScene" uid="uid://begrkqj8rxd3e" path="res://Quests/Utility_nodes/quest_activated_switch.tscn" id="21_0fwug"]
+[ext_resource type="PackedScene" uid="uid://0q3hys88excm" path="res://Interactables/Bomb/bomb.tscn" id="24_d1jyu"]
 
 [sub_resource type="GDScript" id="GDScript_530m6"]
 script/source = "extends Node
@@ -262,3 +263,6 @@ Complete: true"
 
 [node name="Node" type="Node" parent="Npc2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch/DialogInteraction2/QuestAdvanceTrigger"]
 script = SubResource("GDScript_530m6")
+
+[node name="Bomb" parent="." instance=ExtResource("24_d1jyu")]
+position = Vector2(238, 72)

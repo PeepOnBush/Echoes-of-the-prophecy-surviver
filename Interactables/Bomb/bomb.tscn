@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://0q3hys88excm"]
+[gd_scene load_steps=15 format=3 uid="uid://0q3hys88excm"]
 
 [ext_resource type="Texture2D" uid="uid://b26nsi8jg55ln" path="res://Interactables/Bomb/assets/bomb.png" id="1_3scff"]
 [ext_resource type="Script" uid="uid://cnpste1dhl3gp" path="res://GeneralNodes/HurtBoxes/hurt_box.gd" id="2_5wb2x"]
 [ext_resource type="AudioStream" uid="uid://cucxjnbp7yhp5" path="res://Levels/Dungeon01/dark_wizard/Audio/boss_fireball_hit.wav" id="2_abyv1"]
+[ext_resource type="PackedScene" uid="uid://c04b03sub3mm3" path="res://Interactables/Throwable/throwable.tscn" id="4_abyv1"]
+[ext_resource type="Script" uid="uid://cjt42nb0kijia" path="res://Interactables/Bomb/bomb.gd" id="4_rsrix"]
 
 [sub_resource type="Gradient" id="Gradient_abyv1"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -18,82 +20,6 @@ fill_to = Vector2(1, 0.5)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffuaa"]
 atlas = ExtResource("1_3scff")
 region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="Animation" id="Animation_g2gln"]
-resource_name = "default"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ExplosionSprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BombSprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BombSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BombSprite:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.35, 0.45, 0.5, 0.6, 0.7, 0.75, 0.85, 0.95, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HurtBox:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BombShadowSprite:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_pqe8h"]
 length = 0.001
@@ -112,7 +38,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BombSprite:visible")
+tracks/1/path = NodePath("Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -124,7 +50,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BombSprite:frame")
+tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -136,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BombSprite:modulate")
+tracks/3/path = NodePath("Sprite2D:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -182,6 +108,82 @@ tracks/6/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_g2gln"]
+resource_name = "default"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.35, 0.45, 0.5, 0.6, 0.7, 0.75, 0.85, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(4, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HurtBox:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BombShadowSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_3scff"]
 resource_name = "explode"
 step = 0.1
@@ -200,7 +202,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BombSprite:visible")
+tracks/1/path = NodePath("Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -260,6 +262,20 @@ tracks/5/keys = {
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7, 8]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Throwable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shock"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q2ikk"]
 _data = {
@@ -271,13 +287,16 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wb2x"]
 radius = 50.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsrix"]
+size = Vector2(16, 8)
+
 [node name="Bomb" type="Node2D"]
 
 [node name="BombShadowSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.87, 0.87)
 texture = SubResource("GradientTexture2D_rsrix")
 
-[node name="BombSprite" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
 texture = SubResource("AtlasTexture_ffuaa")
 hframes = 4
@@ -294,7 +313,7 @@ frame = 2
 libraries = {
 &"": SubResource("AnimationLibrary_q2ikk")
 }
-autoplay = "explode"
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -309,3 +328,14 @@ metadata/_custom_type_script = "uid://cnpste1dhl3gp"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_5wb2x")
 debug_color = Color(0.7, 0, 0.052, 0.014)
+
+[node name="Throwable" parent="." instance=ExtResource("4_abyv1")]
+script = ExtResource("4_rsrix")
+fuse_duration = 4.0
+bounciness = 0.25
+max_bounces = 5
+throw_speed = 300.0
+throw_height_strength = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwable"]
+shape = SubResource("RectangleShape2D_rsrix")

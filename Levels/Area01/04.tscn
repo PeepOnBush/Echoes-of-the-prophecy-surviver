@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c8d77iaa4nl2t"]
+[gd_scene load_steps=10 format=4 uid="uid://c8d77iaa4nl2t"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_8pwvu"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="2_8vlh7"]
@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://c6x60e1x0hs5s" path="res://Player/Sprites/ChibiModel2remake.png" id="5_oykgd"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="7_d0id7"]
 [ext_resource type="PackedScene" uid="uid://0q3hys88excm" path="res://Interactables/Bomb/bomb.tscn" id="8_5ckhh"]
+[ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="9_71foy"]
 
 [node name="Testing" type="Node2D"]
 script = ExtResource("1_8pwvu")
 music = ExtResource("2_8vlh7")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_epdwf")]
-position = Vector2(255, 425)
+position = Vector2(815, 402)
 
 [node name="Testing-map-layer" parent="." instance=ExtResource("4_63iu3")]
 position = Vector2(-2, 154)
@@ -31,7 +32,10 @@ scale = Vector2(0.585, 0.585)
 texture = ExtResource("5_oykgd")
 
 [node name="goblin" parent="." instance=ExtResource("7_d0id7")]
-position = Vector2(330, 425)
+position = Vector2(890, 402)
 
 [node name="Bomb" parent="." instance=ExtResource("8_5ckhh")]
-position = Vector2(291, 420)
+position = Vector2(851, 397)
+
+[node name="Pot" parent="." instance=ExtResource("9_71foy")]
+position = Vector2(772, 416)

@@ -6,9 +6,12 @@
 [node name="Throwable" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
-monitorable = false
 script = ExtResource("1_8bk46")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_ej38y")]
 position = Vector2(2, 0)
 collision_mask = 256
+
+[node name="WallDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
