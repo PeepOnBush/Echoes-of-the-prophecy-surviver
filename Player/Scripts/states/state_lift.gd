@@ -5,6 +5,7 @@ class_name StateLift extends State
 
 @onready var carry : State = $"../Carry"
 
+var start_anim_late : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,13 +13,15 @@ func _ready() -> void:
 ## What happen when the player enter this state ?
 func Enter() -> void:
 	player.UpdateAnimation("lift")
+	if start_anim_late:
+		player.animationPlayer.seek(0.2)
 	player.animationPlayer.animation_finished.connect(stateComplete)
 	player.audio.stream = lift_audio
 	player.audio.play()
 	pass
 ## What happen when the player exit this state ?
 func Exit() -> void:
-	
+	start_anim_late = false
 	pass 
 ## What happen when the _process update in this state ?
 func Process(_delta : float) -> State:
