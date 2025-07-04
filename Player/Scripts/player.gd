@@ -20,7 +20,7 @@ var attack : int = 1 :
 		attack = v
 		updateDamageValue()
 
-const arrow_count : int = 1
+var arrow_count : int = 999999
 var bomb_count : int = 10
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c8d77iaa4nl2t"]
+[gd_scene load_steps=11 format=4 uid="uid://c8d77iaa4nl2t"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_8pwvu"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="2_8vlh7"]
@@ -9,13 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="7_d0id7"]
 [ext_resource type="PackedScene" uid="uid://0q3hys88excm" path="res://Interactables/Bomb/bomb.tscn" id="8_5ckhh"]
 [ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="9_71foy"]
+[ext_resource type="PackedScene" uid="uid://bcnwbocox5ubu" path="res://Interactables/arrow/arrow.tscn" id="10_p2fdc"]
 
 [node name="Testing" type="Node2D"]
 script = ExtResource("1_8pwvu")
 music = ExtResource("2_8vlh7")
-
-[node name="PlayerSpawn" parent="." instance=ExtResource("4_epdwf")]
-position = Vector2(815, 402)
 
 [node name="Testing-map-layer" parent="." instance=ExtResource("4_63iu3")]
 position = Vector2(-2, 154)
@@ -39,3 +37,36 @@ position = Vector2(851, 397)
 
 [node name="Pot" parent="." instance=ExtResource("9_71foy")]
 position = Vector2(772, 416)
+
+[node name="Arrow" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(270, 265)
+
+[node name="Arrow2" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(266, 284)
+
+[node name="Arrow3" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(303, 261)
+
+[node name="Arrow4" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(305, 291)
+
+[node name="Arrow5" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(266, 241)
+
+[node name="Arrow6" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(308, 246)
+
+[node name="Arrow7" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(259, 304)
+
+[node name="Arrow8" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(339, 309)
+
+[node name="Arrow9" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(294, 326)
+
+[node name="Arrow10" parent="." instance=ExtResource("10_p2fdc")]
+position = Vector2(300, 356)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_epdwf")]
+position = Vector2(364, 208)
