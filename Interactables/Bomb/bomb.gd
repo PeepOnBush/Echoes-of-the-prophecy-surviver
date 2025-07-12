@@ -31,6 +31,7 @@ func onAnimationChange(_old_name : String , _new_name : String) -> void:
 func playerInteract() -> void:
 	super()
 	throw_speed = og_throw_speed
+	bounce_count = 0
 	pass
 
 func hitGround() -> void:

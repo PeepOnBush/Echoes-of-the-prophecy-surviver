@@ -223,7 +223,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0p7kx")
+&"": SubResource("AnimationLibrary_0p7kx")
 }
 autoplay = "closed"
 

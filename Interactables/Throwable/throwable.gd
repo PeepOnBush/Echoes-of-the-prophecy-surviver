@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 func destroy() -> void:
 	set_physics_process(false)
 	if animation_player:
-		animation_player.play("destroy")
+		animation_player.play("explode")
 		await animation_player.animation_finished
 	prop.queue_free()
 

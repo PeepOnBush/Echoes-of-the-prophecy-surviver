@@ -5,10 +5,10 @@ const BOMB = preload("res://Interactables/Bomb/bomb.tscn")
 var abilities : Array[String] = [
 	"BOOMERANG","GRAPPLE","BOW", "BOMB"
 ]
-
 var seleted_ability : int = 0
 var player : Player 
 var boomerang_instance : Boomerang = null
+var noMoreArrow : AudioStream = preload("res://GUI/shop_menu/Audio/error.wav")
 
 @onready var state_machine: playerStateMachine = $"../StateMachine"
 @onready var idle: stateIdle = $"../StateMachine/idle"
@@ -16,8 +16,7 @@ var boomerang_instance : Boomerang = null
 @onready var carry: StateCarry = $"../StateMachine/Carry"
 @onready var lift: StateLift = $"../StateMachine/Lift"
 @onready var shoot: StateShoot = $"../StateMachine/Shoot"
-
-
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../Audio/AudioStreamPlayer2D"
 func _ready() -> void:
 	player = PlayerManager.player
 	PlayerHud.update_arrow_count(player.arrow_count)
@@ -66,7 +65,6 @@ func bombAbility() -> void:
 		return
 	elif state_machine.currentState == idle or state_machine.currentState == walk :
 		player.bomb_count -= 1
-		PlayerHud.update_bomb_count(player.bomb_count)
 		lift.start_anim_late = true
 		var bomb : Node2D = BOMB.instantiate()
 		player.add_sibling(bomb)
@@ -79,10 +77,11 @@ func bombAbility() -> void:
 
 func bow_ability() -> void:
 	if player.arrow_count <= 0 :
+		audio_stream_player_2d.stream = noMoreArrow
+		audio_stream_player_2d.play()
 		return
 	elif state_machine.currentState == idle or state_machine.currentState == walk :
 		player.arrow_count -= 1
-		PlayerHud.update_arrow_count(player.arrow_count)
 		player.state_Machine.changeState(shoot)
 		pass
 	pass

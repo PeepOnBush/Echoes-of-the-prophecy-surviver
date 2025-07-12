@@ -31,6 +31,8 @@ texture = ExtResource("5_oykgd")
 
 [node name="goblin" parent="." instance=ExtResource("7_d0id7")]
 position = Vector2(890, 402)
+hp = 1
+xp_reward = 50
 
 [node name="Bomb" parent="." instance=ExtResource("8_5ckhh")]
 position = Vector2(851, 397)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://knue0lvhipfm"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_6gcwn"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="4_paul1"]
+[ext_resource type="Texture2D" uid="uid://cpovx2memccka" path="res://Items/Sprites/items_02.png" id="5_6gcwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56mv"]
+atlas = ExtResource("5_6gcwn")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_paul1")
+name = "Arrow"
+description = ""
+texture = SubResource("AtlasTexture_j56mv")
+cost = 10
+effects = Array[ExtResource("1_6gcwn")]([])

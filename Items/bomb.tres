@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dda1qxqlul4lf"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_5pik1"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="4_slx5n"]
+[ext_resource type="Texture2D" uid="uid://cpovx2memccka" path="res://Items/Sprites/items_02.png" id="5_bog4k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56mv"]
+atlas = ExtResource("5_bog4k")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_slx5n")
+name = "Bomb"
+description = ""
+texture = SubResource("AtlasTexture_j56mv")
+cost = 10
+effects = Array[ExtResource("1_5pik1")]([])

@@ -52,6 +52,7 @@ func Physics(_delta : float) -> State:
 func HandleInput( _event : InputEvent ) -> State:
 	return null
 
+@warning_ignore("unused_parameter")
 func onAnimationFinished(animation_name : String) -> void: # add in the bracket animation_name : String if needed
 	next_state = idle
 	pass

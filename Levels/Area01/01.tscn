@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://pm8hmceeo3q5"]
+[gd_scene load_steps=25 format=4 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_747no"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_2kcq5"]
@@ -18,7 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="13_68kwa"]
 [ext_resource type="Resource" uid="uid://c4kmbc1sc1uv4" path="res://Items/a_tunic.tres" id="15_8k5vg"]
 [ext_resource type="PackedScene" uid="uid://kwoyh5nnvi78" path="res://Items/item_pickup/ItemPickup.tscn" id="18_x8s04"]
-[ext_resource type="Resource" uid="uid://bfombh55dv6og" path="res://Items/a_ninja_suit.tres" id="19_50s7p"]
+[ext_resource type="Resource" uid="uid://dda1qxqlul4lf" path="res://Items/bomb.tres" id="19_suexf"]
+[ext_resource type="Resource" uid="uid://knue0lvhipfm" path="res://Items/arrow.tres" id="20_ao3f7"]
 [ext_resource type="PackedScene" uid="uid://0q3hys88excm" path="res://Interactables/Bomb/bomb.tscn" id="20_suexf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akdm0"]
@@ -600,8 +601,14 @@ side = 2
 position = Vector2(234, 94)
 
 [node name="ItemPickup" parent="." instance=ExtResource("18_x8s04")]
-position = Vector2(333, 104)
-item_data = ExtResource("19_50s7p")
+position = Vector2(330, 105)
+item_data = ExtResource("19_suexf")
+item_count = 5
+
+[node name="ItemPickup2" parent="." instance=ExtResource("18_x8s04")]
+position = Vector2(302, 105)
+item_data = ExtResource("20_ao3f7")
+item_count = 2
 
 [node name="Bomb" parent="." instance=ExtResource("20_suexf")]
 position = Vector2(195, 75)

@@ -226,7 +226,7 @@ layout_mode = 2
 
 [node name="ItemImage" type="TextureRect" parent="Control/DetailPanel/Control"]
 unique_name_in_owner = true
-texture_filter = 2
+texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
 offset_left = 24.7429
@@ -244,6 +244,7 @@ offset_left = 3.36265
 offset_top = 34.3255
 offset_right = 245.363
 offset_bottom = 71.3255
+theme_override_colors/font_color = Color(0.608479, 0.443919, 0.188635, 1)
 theme_override_fonts/font = ExtResource("5_0aj8m")
 text = "Item name "
 vertical_alignment = 2
@@ -256,7 +257,7 @@ offset_left = 4.25349
 offset_top = 74.4693
 offset_right = 246.253
 offset_bottom = 111.469
-theme_override_colors/font_color = Color(0.744392, 0.744392, 0.744392, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_poooo")
 text = "Item description
 I have no idea what i'm doing but i'm enjoying this"
@@ -268,7 +269,7 @@ offset_left = 157.479
 offset_top = 10.0719
 offset_right = 249.479
 offset_bottom = 26.0719
-theme_override_colors/font_color = Color(0.744392, 0.744392, 0.744392, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_poooo")
 text = "Purchase Price "
 
@@ -298,7 +299,7 @@ offset_left = 157.479
 offset_top = 27.6349
 offset_right = 249.479
 offset_bottom = 43.6349
-theme_override_colors/font_color = Color(0.744392, 0.744392, 0.744392, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_poooo")
 text = "In Inventory"
 

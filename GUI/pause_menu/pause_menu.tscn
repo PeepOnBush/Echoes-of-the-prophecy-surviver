@@ -247,7 +247,6 @@ stretch_mode = 3
 
 [node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
 unique_name_in_owner = true
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 17.0

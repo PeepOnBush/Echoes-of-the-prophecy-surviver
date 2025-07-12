@@ -20,8 +20,8 @@ var attack : int = 1 :
 		attack = v
 		updateDamageValue()
 
-var arrow_count : int = 999999
-var bomb_count : int = 10
+var arrow_count : int = 5 : set = _setArrowCount
+var bomb_count : int = 10 : set = _setBombCount
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
@@ -149,4 +149,14 @@ func updateDamageValue() -> void:
 func onEquipmentChanged() -> void:
 	updateDamageValue()
 	defense_bonus = PlayerManager.INVENTORY_DATA.getDefendBonus()
+	pass
+
+func _setArrowCount(value : int) -> void:
+	arrow_count = value
+	PlayerHud.update_arrow_count(value)
+	pass
+
+func _setBombCount(value : int) -> void:
+	bomb_count = value
+	PlayerHud.update_bomb_count(value)
 	pass
