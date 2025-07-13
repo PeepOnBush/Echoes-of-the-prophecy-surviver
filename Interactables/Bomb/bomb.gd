@@ -24,6 +24,11 @@ func _ready() -> void:
 	
 	pass
 
+func _physics_process( delta: float ) -> void:
+	super( delta )
+	explosion_sprite.position = object_sprite.position
+	pass
+
 func onAnimationChange(_old_name : String , _new_name : String) -> void:
 	animation_player.speed_scale = 1.0 
 	pass
@@ -43,7 +48,7 @@ func hitGround() -> void:
 	else : 
 		set_physics_process(false)
 		hurt_box.set_deferred("monitoring",false)
-		hurt_box.did_damage.disconnect(didDamage)
+		#hurt_box.did_damage.disconnect(didDamage)
 		wall_detect.body_entered.disconnect(onBodyEntered)
 		area_entered.connect(onAreaEnter)
 		area_exited.connect(onAreaExit)

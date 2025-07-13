@@ -13,7 +13,7 @@ var vertical_velocity : float = 0
 var ground_height : float = 0
 var animation_player : AnimationPlayer
 
-@onready var hurt_box : HurtBox = $HurtBox
+@onready var hurt_box: HurtBox = $HurtBox
 @onready var wall_detect: Area2D = $WallDetect
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,6 @@ func _ready() -> void:
 	area_exited.connect(onAreaExit)
 	prop = get_parent()
 	setupCollisionBoxes()
-	
 	object_sprite = prop.get_node("Sprite2D")
 	ground_height = object_sprite.position.y
 	animation_player = prop.find_child("AnimationPlayer")
@@ -41,9 +40,10 @@ func _physics_process(delta: float) -> void:
 func destroy() -> void:
 	set_physics_process(false)
 	if animation_player:
-		animation_player.play("explode")
+		animation_player.play("destroy")
 		await animation_player.animation_finished
 	prop.queue_free()
+	pass
 
 func hitGround() -> void:
 	destroy()
@@ -85,8 +85,6 @@ func drop() -> void:
 	vertical_velocity = -200
 	throw_speed = 100
 	set_physics_process(true)
-	hurt_box.set_deferred("monitoring", true)
-	hurt_box.did_damage.connect(destroy)
 	wall_detect.body_entered.connect(onBodyEntered)
 	pass
 
