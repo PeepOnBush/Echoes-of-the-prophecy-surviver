@@ -552,14 +552,18 @@ texture_region_size = Vector2i(32, 32)
 12:15/0 = 0
 12:15/0/z_index = -1
 12:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+12:15/0/physics_layer_1/polygon_0/points = PackedVector2Array(-3.18631, -16, 16, -16, 16, 16, -3.82357, 16)
 13:15/0 = 0
 13:15/0/z_index = -1
 13:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+13:15/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 3.18631, -16, 3.18631, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_1mvh7"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
+physics_layer_1/collision_layer = 32
+physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_flglk")
 
 [node name="Shop-tilemap-layer" type="TileMapLayer" groups=["tilemaps"]]

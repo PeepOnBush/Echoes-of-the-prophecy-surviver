@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=104 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://dn175yywxamob" path="res://Player/Audio/level_up_jingle.wav" id="28_wltuf"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="30_6xyq0"]
 [ext_resource type="PackedScene" uid="uid://dejmrltbvwd4d" path="res://GeneralNodes/FootstepAudio2D/Footstep-Audio-2D.tscn" id="34_c0eyh"]
+[ext_resource type="Texture2D" uid="uid://5sp0uwrdssb2" path="res://Player/Sprites/grapple.png" id="38_iyprq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsark"]
 
@@ -1848,7 +1849,7 @@ color_ramp = SubResource("GradientTexture1D_71t1b")
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
-collision_mask = 16
+collision_mask = 24
 motion_mode = 1
 script = ExtResource("1_6e47k")
 
@@ -2050,6 +2051,10 @@ position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_v4mu0")
 debug_color = Color(0.847, 0.286, 0.612, 0.06)
 
+[node name="GrappleRayCast2D" type="RayCast2D" parent="Interactions"]
+unique_name_in_owner = true
+collision_mask = 48
+
 [node name="HitBox" parent="." instance=ExtResource("13_0vex8")]
 modulate = Color(1, 1, 1, 0.173)
 collision_layer = 2
@@ -2096,3 +2101,19 @@ explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_a83sq")
 
 [node name="FootstepAudio2D" parent="." instance=ExtResource("34_c0eyh")]
+
+[node name="GrappleHook" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -11)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GrappleHook"]
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 25.0
+texture = ExtResource("38_iyprq")
+patch_margin_top = 16
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GrappleHook"]
