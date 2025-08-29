@@ -16,6 +16,7 @@ var noMoreArrow : AudioStream = preload("res://GUI/shop_menu/Audio/error.wav")
 @onready var carry: StateCarry = $"../StateMachine/Carry"
 @onready var lift: StateLift = $"../StateMachine/Lift"
 @onready var shoot: StateShoot = $"../StateMachine/Shoot"
+@onready var grapple: stateGrapple = $"../StateMachine/Grapple"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../Audio/AudioStreamPlayer2D"
 func _ready() -> void:
 	player = PlayerManager.player
@@ -29,9 +30,9 @@ func _unhandled_input(event : InputEvent) -> void:
 			0:
 				boomerangAbility()
 			1:
-				print("Grapple hook")
+				grappleAbility()
 			2:
-				bow_ability()
+				bowAbility()
 			3: 
 				bombAbility()
 	elif event.is_action_pressed("switch_ability"):
@@ -75,7 +76,7 @@ func bombAbility() -> void:
 		pass
 	pass
 
-func bow_ability() -> void:
+func bowAbility() -> void:
 	if player.arrow_count <= 0 :
 		audio_stream_player_2d.stream = noMoreArrow
 		audio_stream_player_2d.play()
@@ -83,5 +84,11 @@ func bow_ability() -> void:
 	elif state_machine.currentState == idle or state_machine.currentState == walk :
 		player.arrow_count -= 1
 		player.state_Machine.changeState(shoot)
+		pass
+	pass
+
+func grappleAbility() -> void:
+	if state_machine.currentState == idle or state_machine.currentState == walk :
+		player.state_Machine.changeState(grapple)
 		pass
 	pass

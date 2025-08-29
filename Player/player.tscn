@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=110 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -34,10 +34,15 @@
 [ext_resource type="Script" uid="uid://bbmadbbh30lud" path="res://Player/Scripts/states/state_dash.gd" id="25_c6x0f"]
 [ext_resource type="Script" uid="uid://coryg3x7bb4hk" path="res://Player/Scripts/states/state_dash_attack.gd" id="26_jp1hh"]
 [ext_resource type="Script" uid="uid://bjctcw7f2qrt3" path="res://Player/Scripts/states/state_shoot.gd" id="27_qs4pp"]
+[ext_resource type="Script" uid="uid://c6e8o1mvh8yty" path="res://Player/Scripts/states/state_grapple.gd" id="28_f4lon"]
 [ext_resource type="AudioStream" uid="uid://dn175yywxamob" path="res://Player/Audio/level_up_jingle.wav" id="28_wltuf"]
+[ext_resource type="AudioStream" uid="uid://bjor20votuwo7" path="res://Player/Audio/grapple_fire.wav" id="29_6pogt"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="30_6xyq0"]
+[ext_resource type="AudioStream" uid="uid://cueclcays5a7k" path="res://Player/Audio/grapple_stick.wav" id="30_ie76m"]
+[ext_resource type="AudioStream" uid="uid://ciwjdq0g4jyet" path="res://Player/Audio/grapple_clang.wav" id="31_dy65m"]
 [ext_resource type="PackedScene" uid="uid://dejmrltbvwd4d" path="res://GeneralNodes/FootstepAudio2D/Footstep-Audio-2D.tscn" id="34_c0eyh"]
 [ext_resource type="Texture2D" uid="uid://5sp0uwrdssb2" path="res://Player/Sprites/grapple.png" id="38_iyprq"]
+[ext_resource type="AudioStream" uid="uid://deap8sbcfj3j" path="res://Player/Audio/grapple_chain.wav" id="43_ie76m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsark"]
 
@@ -1847,6 +1852,9 @@ gravity = Vector3(0, -250, 0)
 color = Color(0, 1, 0.470588, 1)
 color_ramp = SubResource("GradientTexture1D_71t1b")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie76m"]
+size = Vector2(14, 20)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
 collision_mask = 24
@@ -2014,6 +2022,14 @@ dash_audio = ExtResource("18_532ee")
 [node name="Shoot" type="Node" parent="StateMachine"]
 script = ExtResource("27_qs4pp")
 
+[node name="Grapple" type="Node" parent="StateMachine"]
+script = ExtResource("28_f4lon")
+grapple_distance = 250.0
+grapple_speed = 400.0
+grapple_fire_audio = ExtResource("29_6pogt")
+grapple_stick_audio = ExtResource("30_ie76m")
+grapple_bounce_audio = ExtResource("31_dy65m")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -2116,4 +2132,24 @@ patch_margin_bottom = 9
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
+[node name="Control" type="Control" parent="GrappleHook/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GrappleHurtBox" parent="GrappleHook/NinePatchRect/Control" instance=ExtResource("10_gk32h")]
+unique_name_in_owner = true
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleHook/NinePatchRect/Control/GrappleHurtBox"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ie76m")
+debug_color = Color(0.968627, 0.117647, 0.345098, 0.121569)
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GrappleHook"]
+stream = ExtResource("43_ie76m")
