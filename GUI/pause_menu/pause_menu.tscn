@@ -184,11 +184,12 @@ offset_bottom = 68.0
 scale = Vector2(1.12253, 1.1957)
 theme_override_styles/panel = SubResource("StyleBoxTexture_05sg8")
 
-[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+[node name="AbilityGridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 columns = 8
 
-[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
@@ -197,7 +198,7 @@ flat = true
 script = ExtResource("5_syaa3")
 description = "A shuriken that would return to you when after you throw it."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -207,7 +208,7 @@ texture = SubResource("AtlasTexture_syaa3")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
@@ -216,7 +217,7 @@ flat = true
 script = ExtResource("5_syaa3")
 description = "A grapping hook that could pull."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot2"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -226,7 +227,7 @@ texture = SubResource("AtlasTexture_8ptsh")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
@@ -235,7 +236,7 @@ flat = true
 script = ExtResource("5_syaa3")
 description = "A basic bow for beginner "
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -245,7 +246,7 @@ texture = SubResource("AtlasTexture_00kwt")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3"]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
@@ -262,7 +263,7 @@ text = "55
 "
 horizontal_alignment = 1
 
-[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 self_modulate = Color(1, 1, 1, 0.816)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
@@ -271,7 +272,7 @@ flat = true
 script = ExtResource("5_syaa3")
 description = "An extremly dangerous explosive item."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot4"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -281,7 +282,7 @@ texture = SubResource("AtlasTexture_1oddi")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot4"]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0

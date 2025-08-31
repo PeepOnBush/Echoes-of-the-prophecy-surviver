@@ -3,9 +3,9 @@ class_name PlayerAbilities extends Node
 const BOOMERANG = preload("res://Player/boomerang.tscn")
 const BOMB = preload("res://Interactables/Bomb/bomb.tscn")
 var abilities : Array[String] = [
-	"BOOMERANG","GRAPPLE","BOW", "BOMB"
+	"","","", "" #BOOMERANG, GRAPPLE, ARROW, BOMB
 ]
-var seleted_ability : int = 0
+var selected_ability : int = 0
 var player : Player 
 var boomerang_instance : Boomerang = null
 var noMoreArrow : AudioStream = preload("res://GUI/shop_menu/Audio/error.wav")
@@ -22,11 +22,20 @@ func _ready() -> void:
 	player = PlayerManager.player
 	PlayerHud.update_arrow_count(player.arrow_count)
 	PlayerHud.update_bomb_count(player.bomb_count)
+	setupAbilities()
 
+func setupAbilities() -> void:
+	#update pause menu
+	PauseMenu.updateAbilityItems(abilities)
+	#update player HUD
+	PlayerHud.updateAbilityItem(abilities)
+	selected_ability = 0
+	toggleAbility()
+	pass
 
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("ability"):
-		match seleted_ability:
+		match selected_ability:
 			0:
 				boomerangAbility()
 			1:
@@ -41,8 +50,12 @@ func _unhandled_input(event : InputEvent) -> void:
 	pass
 
 func toggleAbility() -> void:
-	seleted_ability = wrapi(seleted_ability+1, 0 ,4)
-	PlayerHud.updateAbilityUI(seleted_ability)
+	if abilities.count("") == abilities.size():
+		return
+	selected_ability = wrapi(selected_ability+1, 0 ,4)
+	while abilities[selected_ability] == "":
+		selected_ability = wrapi(selected_ability+1, 0 ,4)
+	PlayerHud.updateAbilityUI(selected_ability)
 	pass
 
 func boomerangAbility() -> void:

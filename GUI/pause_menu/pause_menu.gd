@@ -122,3 +122,12 @@ func previewStats(item : ItemData ) -> void:
 func playAudio(_a : AudioStream) -> void:
 	audio.stream = _a
 	audio.play()
+
+func updateAbilityItems( items : Array[String] ) -> void :
+	var  item_buttons : Array[Node] = %AbilityGridContainer.get_children()
+	for i in item_buttons.size():
+		if items[i] == "":
+			item_buttons[i].visible = false
+		else:
+			item_buttons[i].visible = true 
+	pass

@@ -127,6 +127,15 @@ func queueNotification(_title : String , _message : String) -> void:
 	notifcation.addNotificationToQueue(_title,_message)
 	pass
 
+func updateAbilityItem(items : Array[String]) -> void:
+	var  ability_items : Array[Node] = ability_items.get_children()
+	for i in ability_items.size():
+		if items[i] == "":
+			ability_items[i].visible = false
+		else:
+			ability_items[i].visible = true 
+	pass
+
 func  updateAbilityUI(ability_index : int ) -> void:
 	var _items : Array[Node] = ability_items.get_children()
 	for a in _items:
