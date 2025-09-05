@@ -23,7 +23,7 @@ var currentSave : Dictionary = {
 	quests = [
 		#return { title = "not found", is_complete = false, completed_steps = [''] }
 	],
-	
+	abilities = ["", "", "", ""]
 }
 
 func saveGame() -> void:
@@ -77,6 +77,7 @@ func updatePlayerData() -> void:
 	currentSave.player.xp = p.xp
 	currentSave.player.attack = p.attack
 	currentSave.player.defense = p.defense
+	currentSave.abilities = p.player_abilities.abilities
 	pass
 
 func updateScenePath() -> void:

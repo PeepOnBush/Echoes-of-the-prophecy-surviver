@@ -32,6 +32,7 @@ var bomb_count : int = 10 : set = _setBombCount
 @onready var lift: StateLift = $StateMachine/Lift
 @onready var held_item: Node2D = $Sprite2D/HeldItem
 @onready var carry: StateCarry = $StateMachine/Carry
+@onready var player_abilities: PlayerAbilities = $Abilities
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -23,13 +23,15 @@ func _ready() -> void:
 	PlayerHud.update_arrow_count(player.arrow_count)
 	PlayerHud.update_bomb_count(player.bomb_count)
 	setupAbilities()
+	SaveManager.game_loaded.connect(onGameLoaded)
+	PlayerManager.INVENTORY_DATA.ability_acquired.connect(onAbilityAcquired)
 
-func setupAbilities() -> void:
+func setupAbilities( select_index : int = 0) -> void:
 	#update pause menu
 	PauseMenu.updateAbilityItems(abilities)
 	#update player HUD
 	PlayerHud.updateAbilityItem(abilities)
-	selected_ability = 0
+	selected_ability = select_index - 1
 	toggleAbility()
 	pass
 
@@ -104,4 +106,27 @@ func grappleAbility() -> void:
 	if state_machine.currentState == idle or state_machine.currentState == walk :
 		player.state_Machine.changeState(grapple)
 		pass
+	pass
+
+func onGameLoaded() -> void:
+	var new_abilities = SaveManager.currentSave.abilities
+	print(new_abilities)
+	abilities.clear()
+	for i in new_abilities:
+		abilities.append(i)
+	pass
+
+func onAbilityAcquired(_ability : AbilityItemData) -> void:
+	print("give ability", _ability.type)
+	 #BOOMERANG, GRAPPLE, ARROW, BOMB
+	match _ability.type:
+		_ability.Type.BOOMERANG:
+			abilities[0] = "BOOMERANG"
+		_ability.Type.GRAPPLE:
+			abilities[1] = "GRAPPLE"
+		_ability.Type.ARROW:
+			abilities[2] = "ARROW"
+		_ability.Type.BOMB:
+			abilities[3] = "BOMB"
+	setupAbilities(selected_ability)
 	pass

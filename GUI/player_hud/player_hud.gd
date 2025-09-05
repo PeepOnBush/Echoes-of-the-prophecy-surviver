@@ -128,6 +128,7 @@ func queueNotification(_title : String , _message : String) -> void:
 	pass
 
 func updateAbilityItem(items : Array[String]) -> void:
+	@warning_ignore("confusable_local_usage", "shadowed_variable")
 	var  ability_items : Array[Node] = ability_items.get_children()
 	for i in ability_items.size():
 		if items[i] == "":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c61vemuv3j740"]
+[gd_scene load_steps=32 format=4 uid="uid://c61vemuv3j740"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_jhm8w"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6l1vp"]
@@ -25,6 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://begrkqj8rxd3e" path="res://Quests/Utility_nodes/quest_activated_switch.tscn" id="21_0fwug"]
 [ext_resource type="PackedScene" uid="uid://0q3hys88excm" path="res://Interactables/Bomb/bomb.tscn" id="24_d1jyu"]
 [ext_resource type="PackedScene" uid="uid://cwwcriknicaie" path="res://Interactables/GrapplePost/grapple_post.tscn" id="25_a2klq"]
+[ext_resource type="PackedScene" uid="uid://do355fxws35sb" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="26_vv7nh"]
+[ext_resource type="Resource" uid="uid://lubluqb8c40o" path="res://Items/ability_boomerang.tres" id="27_vv7nh"]
+[ext_resource type="Resource" uid="uid://cc0jhv0so6xvk" path="res://Items/ability_bomb.tres" id="28_vv7nh"]
+[ext_resource type="Resource" uid="uid://crvrsf50hrk7n" path="res://Items/ability_grapple.tres" id="29_s3up8"]
+[ext_resource type="Resource" uid="uid://0mdfdrgp4br0" path="res://Items/ability_arrow.tres" id="30_dffud"]
 
 [sub_resource type="GDScript" id="GDScript_530m6"]
 script/source = "extends Node
@@ -118,7 +123,7 @@ text = "SHHHHH no one will trust you"
 npc_info = ExtResource("8_w0os1")
 
 [node name="Npc2" parent="." instance=ExtResource("7_hvt1o")]
-position = Vector2(183, 115)
+position = Vector2(183, 137.382)
 npc_resource = ExtResource("8_ccwxv")
 
 [node name="NpcBehaviorPatrol" parent="Npc2" instance=ExtResource("11_vxtty")]
@@ -279,3 +284,19 @@ position = Vector2(431, 233)
 
 [node name="GrapplePost4" parent="." instance=ExtResource("25_a2klq")]
 position = Vector2(116, 417)
+
+[node name="TreasureChest" parent="." instance=ExtResource("26_vv7nh")]
+position = Vector2(3, 77)
+item_data = ExtResource("27_vv7nh")
+
+[node name="TreasureChest2" parent="." instance=ExtResource("26_vv7nh")]
+position = Vector2(44, 77)
+item_data = ExtResource("28_vv7nh")
+
+[node name="TreasureChest3" parent="." instance=ExtResource("26_vv7nh")]
+position = Vector2(82, 77)
+item_data = ExtResource("29_s3up8")
+
+[node name="TreasureChest4" parent="." instance=ExtResource("26_vv7nh")]
+position = Vector2(123, 77)
+item_data = ExtResource("30_dffud")
