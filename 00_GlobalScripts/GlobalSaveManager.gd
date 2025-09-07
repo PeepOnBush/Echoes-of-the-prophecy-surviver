@@ -16,7 +16,9 @@ var currentSave : Dictionary = {
 		hp = 1,
 		max_hp = 1,
 		pos_x = 0,
-		pos_y = 0
+		pos_y = 0,
+		arrow_count = 0,
+		bomb_count = 0
 	},
 	items = [],
 	persistence = [],
@@ -61,6 +63,8 @@ func loadGame() -> void:
 	_p.xp = currentSave.player.xp
 	_p.attack = currentSave.player.attack
 	_p.defense = currentSave.player.defense
+	_p.arrow_count = currentSave.player.arrow_count
+	_p.bomb_count = currentSave.player.bomb_count
 	PlayerManager.INVENTORY_DATA.parseSaveData(currentSave.items)
 	QuestManager.curret_quests = currentSave.quests
 	await LevelManager.level_loaded
@@ -77,6 +81,8 @@ func updatePlayerData() -> void:
 	currentSave.player.xp = p.xp
 	currentSave.player.attack = p.attack
 	currentSave.player.defense = p.defense
+	currentSave.player.arrow_count = p.arrow_count
+	currentSave.player.bomb_count = p.bomb_count
 	currentSave.abilities = p.player_abilities.abilities
 	pass
 
