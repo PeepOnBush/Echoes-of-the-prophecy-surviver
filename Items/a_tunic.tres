@@ -8,7 +8,6 @@
 [sub_resource type="Resource" id="Resource_f038n"]
 script = ExtResource("2_5bnb0")
 type = 2
-value = 1
 
 [sub_resource type="Resource" id="Resource_dhhdw"]
 metadata/__load_path__ = "res://Player/Sprites/newest_player_sprite.png"
@@ -26,4 +25,3 @@ name = "tunic "
 description = "A tunic is clean and pressed and the cape oh-so-stylish."
 texture = SubResource("AtlasTexture_k7en6")
 cost = 200
-effects = Array[ExtResource("1_xtle0")]([])

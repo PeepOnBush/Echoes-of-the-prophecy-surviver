@@ -16,7 +16,7 @@ var plain_text : String
 var dialog_items : Array[DialogItem]
 var dialog_item_index : int = 0
 var waiting_for_choice : bool = false 
-
+var watching_cutsceen : bool = false
 
 
 @onready var dialog_ui: Control = $DialogUi
@@ -43,7 +43,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if isActive == false:
+	if isActive == false or watching_cutsceen == true:
 		return
 	if(
 		event.is_action_pressed("interact") or 
@@ -59,13 +59,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif waiting_for_choice == true:
 			return
 		
-		dialog_item_index +=1
-		if dialog_item_index < dialog_items.size():
-			startDialog()
-		else:
-			hideDialog()
+		advanceDialog()
+	pass
 func showDialog( _items : Array[DialogItem] ) -> void:
 	isActive = true
+	if _items[0] is DialogCutscene:
+		dialog_ui.visible = false
+	else:
+		dialog_ui.visible = true
 	dialog_ui.visible = true
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	dialog_items = _items
@@ -96,8 +97,29 @@ func startDialog() -> void:
 		setDialogText(_d as DialogText)
 	elif _d is DialogChoice:
 		setDialogChoice(_d as DialogChoice)
+	elif _d is DialogCutscene:
+		startDialogCutscene(_d as DialogCutscene)
 	pass
 
+func startDialogCutscene(_d : DialogCutscene) -> void:
+	watching_cutsceen = true
+	_d.play()
+	choice_options.visible = false
+	dialog_ui.visible = false
+	await _d.finished
+	watching_cutsceen = false
+	choice_options.visible = true
+	dialog_ui.visible = true
+	advanceDialog()
+	pass
+
+func advanceDialog() -> void:
+	dialog_item_index +=1
+	if dialog_item_index < dialog_items.size():
+		startDialog()
+	else:
+		hideDialog()
+	pass
 
 ## set dialog and npc variables, etc based on dialog item parameters
 ## once set start text timer

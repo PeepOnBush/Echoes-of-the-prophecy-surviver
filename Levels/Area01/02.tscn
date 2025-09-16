@@ -96,7 +96,7 @@ position = Vector2(79, 50)
 position = Vector2(116, 51)
 
 [node name="Npc" parent="." instance=ExtResource("7_hvt1o")]
-position = Vector2(324, 240)
+position = Vector2(298, 237)
 npc_resource = ExtResource("8_w0os1")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("8_seruy")]
@@ -123,7 +123,7 @@ text = "SHHHHH no one will trust you"
 npc_info = ExtResource("8_w0os1")
 
 [node name="Npc2" parent="." instance=ExtResource("7_hvt1o")]
-position = Vector2(183, 137.382)
+position = Vector2(176.835, 136.361)
 npc_resource = ExtResource("8_ccwxv")
 
 [node name="NpcBehaviorPatrol" parent="Npc2" instance=ExtResource("11_vxtty")]

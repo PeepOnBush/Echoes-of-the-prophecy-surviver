@@ -9,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_f038n"]
 script = ExtResource("2_c6b2n")
 type = 1
-value = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7en6"]
 atlas = ExtResource("4_uu834")
@@ -17,11 +16,9 @@ region = Rect2(32, 0, 32, 32)
 
 [resource]
 script = ExtResource("3_oj6uv")
-type = 0
 modifiers = Array[ExtResource("2_c6b2n")]([SubResource("Resource_f038n")])
 sprite_texture = ExtResource("4_xen2e")
 name = "Iron sword"
 description = "A normal looking sword made out of iron."
 texture = SubResource("AtlasTexture_k7en6")
 cost = 120
-effects = Array[ExtResource("1_d3suw")]([])
