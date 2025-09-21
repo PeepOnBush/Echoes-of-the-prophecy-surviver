@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://ydrtsb0qqk6d"]
+[gd_scene load_steps=19 format=4 uid="uid://ydrtsb0qqk6d"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_1q4bq"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="2_8wcc2"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://pdb02vlsxpnk" path="res://Npc/npc.tscn" id="10_tm1w6"]
 [ext_resource type="Resource" uid="uid://bj4wankd7m213" path="res://Npc/00_Npcs/npc_02.tres" id="11_vui78"]
 [ext_resource type="PackedScene" uid="uid://bbj5i8si4a24t" path="res://Npc/npc_behavior_wander.tscn" id="12_joo1r"]
+[ext_resource type="Script" uid="uid://qgurtwoi8frf" path="res://Interactables/Dialog/Scripts/cutscene_action_animation_movement.gd" id="12_k1vaf"]
 [ext_resource type="PackedScene" uid="uid://b3iobd78lcjly" path="res://Interactables/Dialog/dialog_interaction.tscn" id="13_jsws7"]
+[ext_resource type="PackedScene" uid="uid://cfjf7nyd863it" path="res://Props/Pot/pot.tscn" id="14_bkkcu"]
 [ext_resource type="Script" uid="uid://dh6vtewwh8j5o" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="14_vtyie"]
 [ext_resource type="Resource" uid="uid://b3tprasevnjy" path="res://Npc/00_Npcs/00_hero.tres" id="15_uw81c"]
 
@@ -41,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [0.0, 0.5]
 }
 
 [sub_resource type="Animation" id="Animation_k1vaf"]
@@ -57,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 0.0]
+"values": [0.5, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cekg7"]
@@ -79,7 +81,7 @@ tile_map_data = PackedByteArray("AAD6//r/AAADAAAAAAD6//v/AAACAAEAAAD6//z/AAACAAE
 position = Vector2(220, 38)
 
 [node name="Npc" parent="." instance=ExtResource("10_tm1w6")]
-position = Vector2(298, 237)
+position = Vector2(258, 197)
 npc_resource = ExtResource("11_vui78")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("12_joo1r")]
@@ -87,11 +89,39 @@ scale = Vector2(1.1, 1.1)
 
 [node name="DialogInteraction" parent="Npc" instance=ExtResource("13_jsws7")]
 
+[node name="DialogCutscene_move" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("9_orlcl")
+metadata/_custom_type_script = "uid://bxeywc72jcc2k"
+
+[node name="CutsceneActionAnimationMovement" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(168, 149)
+script = ExtResource("12_k1vaf")
+timing_method = 1
+object_to_move = NodePath("../../..")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://qgurtwoi8frf"
+
+[node name="CutsceneActionAnimationMovement2" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(169, 231)
+script = ExtResource("12_k1vaf")
+timing_method = 1
+object_to_move = NodePath("../../..")
+move_duration = 2.0
+move_speed = 400.0
+metadata/_custom_type_script = "uid://qgurtwoi8frf"
+
+[node name="CutsceneActionAnimationMovement3" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(368, 204)
+script = ExtResource("12_k1vaf")
+object_to_move = NodePath("../../../../Pot")
+metadata/_custom_type_script = "uid://qgurtwoi8frf"
+
 [node name="DialogCutscene" type="Node" parent="Npc/DialogInteraction"]
 script = ExtResource("9_orlcl")
 metadata/_custom_type_script = "uid://bxeywc72jcc2k"
 
-[node name="CutsceneActionAnimation" type="Node" parent="Npc/DialogInteraction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="CutsceneActionAnimation2" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("10_k1vaf")
 animation_player = NodePath("../../../../AnimationPlayer")
 animation_name = "fade_to_black"
@@ -114,7 +144,7 @@ npc_info = ExtResource("15_uw81c")
 script = ExtResource("9_orlcl")
 metadata/_custom_type_script = "uid://bxeywc72jcc2k"
 
-[node name="CutsceneActionAnimation" type="Node" parent="Npc/DialogInteraction/DialogCutscene2" node_paths=PackedStringArray("animation_player")]
+[node name="CutsceneActionAnimation2" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene2" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("10_k1vaf")
 animation_player = NodePath("../../../../AnimationPlayer")
 animation_name = "fade_to_normal"
@@ -133,3 +163,6 @@ libraries = {
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0
 blend_mode = 1
+
+[node name="Pot" parent="." instance=ExtResource("14_bkkcu")]
+position = Vector2(360, 157)
