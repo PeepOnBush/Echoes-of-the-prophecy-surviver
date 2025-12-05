@@ -45,3 +45,6 @@ func fadeOutAndStop( audioPlayer : AudioStreamPlayer) -> void:
 	await tween.finished
 	audioPlayer.stop()
 	pass
+
+func getCurrentTrack() -> AudioStream:
+	return musicPlayer[currentMusicPlayer].stream

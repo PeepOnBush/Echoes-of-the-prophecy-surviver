@@ -2,7 +2,7 @@ extends Node
 
 const PLAYER = preload("res://Player/player.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://GUI/pause_menu/inventory/player_inventory.tres")
-
+signal xp_changed
 signal leveled_up
 signal interact_pressed
 signal camera_shook(trauma : float)
@@ -31,6 +31,7 @@ func set_health( hp : int, max_hp : int) -> void:
 
 func rewardXP(_xp : int ) -> void:
 	player.xp += _xp
+	xp_changed.emit()
 	checkForLevelAdvance()
 	pass
  
@@ -75,3 +76,16 @@ func apply_hitstop(duration: float = 5.0) -> void:
 	get_tree().paused = true
 	await get_tree().create_timer(duration).timeout
 	get_tree().paused = false
+
+func resetCameraOnPlayer(tween_duration : float = 0.5) -> void:
+	var camera : Camera2D = get_viewport().get_camera_2d()
+	if camera:
+		if camera.get_parent() == player:
+			return
+		camera.reparent(player)
+		
+		var tween : Tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(camera,"position",Vector2.ZERO,tween_duration)
+	pass

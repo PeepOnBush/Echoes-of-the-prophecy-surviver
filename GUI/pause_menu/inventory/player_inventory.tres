@@ -1,15 +1,22 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=9 format=3 uid="uid://b8wucdmxpy1fp"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=11 format=3 uid="uid://b8wucdmxpy1fp"]
 
 [ext_resource type="Script" uid="uid://kdv4viqmyyge" path="res://GUI/pause_menu/inventory/Scripts/inventory_data.gd" id="1_cp71v"]
 [ext_resource type="Script" uid="uid://bv6h6gvmqbt5a" path="res://GUI/pause_menu/inventory/Scripts/slot_data.gd" id="2_a3xo6"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="3_d33ra"]
 [ext_resource type="Resource" uid="uid://c4kmbc1sc1uv4" path="res://Items/a_tunic.tres" id="3_s6w3k"]
+[ext_resource type="Resource" uid="uid://c1nmyo13084qi" path="res://Items/PurPetalouda.tres" id="4_0w5vp"]
 [ext_resource type="Resource" uid="uid://ch72nshll0vxq" path="res://Items/w_iron_sword.tres" id="4_uvmr1"]
 
 [sub_resource type="Resource" id="Resource_0w5vp"]
 script = ExtResource("2_a3xo6")
 item_data = ExtResource("3_d33ra")
 quantity = 100
+metadata/_custom_type_script = "uid://bv6h6gvmqbt5a"
+
+[sub_resource type="Resource" id="Resource_18tpa"]
+script = ExtResource("2_a3xo6")
+item_data = ExtResource("4_0w5vp")
+quantity = 1
 metadata/_custom_type_script = "uid://bv6h6gvmqbt5a"
 
 [sub_resource type="Resource" id="Resource_rmuk5"]
@@ -24,4 +31,4 @@ quantity = 1
 
 [resource]
 script = ExtResource("1_cp71v")
-slots = Array[ExtResource("2_a3xo6")]([SubResource("Resource_0w5vp"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, SubResource("Resource_rmuk5"), null, SubResource("Resource_yjopt"), null, null, null])
+slots = Array[ExtResource("2_a3xo6")]([SubResource("Resource_0w5vp"), SubResource("Resource_18tpa"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, SubResource("Resource_rmuk5"), null, SubResource("Resource_yjopt"), null, null, null])

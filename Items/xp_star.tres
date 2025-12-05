@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://cxhtbkhnvtxl2"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_ht6kk"]
+[ext_resource type="Script" uid="uid://uxvg1cx6o1k" path="res://Items/item_effects/experience.gd" id="2_nkslm"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_oli5x"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_wvynx"]
+[ext_resource type="Texture2D" uid="uid://bmhl24usi4vy4" path="res://Items/Sprites/experience.png" id="3_ht6kk"]
+
+[sub_resource type="Resource" id="Resource_oli5x"]
+script = ExtResource("2_nkslm")
+audio = ExtResource("2_oli5x")
+metadata/_custom_type_script = "uid://uxvg1cx6o1k"
+
+[resource]
+script = ExtResource("2_wvynx")
+name = "xp_star"
+description = "an experience star"
+texture = ExtResource("3_ht6kk")
+cost = 0
+effects = Array[ExtResource("1_ht6kk")]([SubResource("Resource_oli5x")])

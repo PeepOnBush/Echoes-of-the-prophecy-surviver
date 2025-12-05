@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d03ocog1h40dv"]
+[gd_scene load_steps=36 format=3 uid="uid://d03ocog1h40dv"]
 
 [ext_resource type="Script" uid="uid://caqc5162cs7yv" path="res://Enemies/Scripts/enemy.gd" id="1_8sl34"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="2_4nwja"]
@@ -7,17 +7,14 @@
 [ext_resource type="AudioStream" uid="uid://b0eavgt8ts2im" path="res://Enemies/Slime/hit_00.wav" id="6_pruwg"]
 [ext_resource type="AudioStream" uid="uid://d2wok8dj0pmo" path="res://Enemies/Slime/hit_01.wav" id="7_7epcc"]
 [ext_resource type="Script" uid="uid://b16qvxi5tp07p" path="res://Enemies/Scripts/EnemyStateMachine.gd" id="8_s1eyc"]
-[ext_resource type="Script" uid="uid://bon1u83fcn7lr" path="res://Enemies/Scripts/states/enemy_state_idle.gd" id="9_nul0v"]
-[ext_resource type="Script" uid="uid://dg2gkxbwein6c" path="res://Enemies/Scripts/states/enemy_state_wander.gd" id="10_mm3iy"]
 [ext_resource type="Script" uid="uid://d3t7ymtwqy1lf" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="11_0v36n"]
 [ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="12_dys85"]
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_oc08r"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_2hogj"]
-[ext_resource type="Resource" uid="uid://08fyr62oj82t" path="res://Items/stone.tres" id="15_5d7pa"]
+[ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="14_os3db"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_pj30j"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="16_xubuf"]
 [ext_resource type="Script" uid="uid://cmedoimntypgj" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="17_0qxhq"]
-[ext_resource type="PackedScene" uid="uid://bxtno0bcv8fky" path="res://Enemies/vision_area.tscn" id="17_d4qqs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -505,29 +502,24 @@ _data = {
 [sub_resource type="Resource" id="Resource_k17h7"]
 script = ExtResource("14_2hogj")
 item = ExtResource("13_oc08r")
-probability = 100.0
-min_amount = 1
 max_amount = 2
 
 [sub_resource type="Resource" id="Resource_uo7u8"]
 script = ExtResource("14_2hogj")
-item = ExtResource("15_5d7pa")
-probability = 50.0
-min_amount = 1
+item = ExtResource("14_os3db")
 max_amount = 2
 
 [sub_resource type="Resource" id="Resource_58ww5"]
 script = ExtResource("14_2hogj")
 item = ExtResource("16_pj30j")
-probability = 100.0
-min_amount = 1
 max_amount = 5
 
 [node name="goblin" type="CharacterBody2D"]
-position = Vector2(0.38813, 10.4169)
+position = Vector2(0, 10)
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_8sl34")
+xp_reward = 0
 
 [node name="HitBox" parent="." instance=ExtResource("3_46hwl")]
 
@@ -573,14 +565,8 @@ autoplay = "idle_down"
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("8_s1eyc")
 
-[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("9_nul0v")
-after_idle_state = NodePath("../Wander")
-
-[node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
-script = ExtResource("10_mm3iy")
-state_animation_duration = 0.7
-nextState = NodePath("../Idle")
+[node name="Chase" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("17_0qxhq")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
 script = ExtResource("11_0v36n")
@@ -592,19 +578,5 @@ nextState = NodePath("../Chase")
 script = ExtResource("12_dys85")
 drops = Array[ExtResource("14_2hogj")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
 
-[node name="Chase" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("vision_area", "attack_area", "nextState")]
-script = ExtResource("17_0qxhq")
-vision_area = NodePath("../../VisionArea")
-attack_area = NodePath("../../Sprite2D/HurtBox")
-state_aggro_duration = 7.5
-nextState = NodePath("../Idle")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
-
-[node name="VisionArea" parent="." instance=ExtResource("17_d4qqs")]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea"]
-position = Vector2(1, -10)
-rotation = -0.000104615
-polygon = PackedVector2Array(-16, 0, 16, 0, 128, 128, -128, 128)

@@ -16,6 +16,7 @@ func _ready() -> void:
 	PauseMenu.preview_stats_change.connect(onPreviewStatsChanged)
 	inventory = PlayerManager.INVENTORY_DATA
 	inventory.equipment_changed.connect(updateStats)
+	PlayerManager.xp_changed.connect(updateStats) 
 	pass # Replace with function body.
 
 func updateStats() -> void:

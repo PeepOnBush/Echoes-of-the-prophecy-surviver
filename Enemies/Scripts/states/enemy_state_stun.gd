@@ -18,7 +18,6 @@ func init() -> void:
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
-	enemy.invulnerable = true
 	animationFinished = false
 	_direction = enemy.global_position.direction_to(_damage_position)
 	

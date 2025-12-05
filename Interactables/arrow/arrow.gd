@@ -19,7 +19,9 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	position += move_dir*move_speed*delta
+	# Move forward in the direction of rotation
+	var direction = Vector2.RIGHT.rotated(rotation)
+	position += direction * move_speed * delta
 	pass
 
 func shoot(fire_dir : Vector2 ) -> void:

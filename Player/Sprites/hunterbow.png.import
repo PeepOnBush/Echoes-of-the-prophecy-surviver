@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iud688adiw3n"
-path="res://.godot/imported/newest_player_sprite.png-5fda0ae90339b7800803831029cfe704.ctex"
+uid="uid://b0xkcd57b2dp3"
+path="res://.godot/imported/hunterbow.png-29498af27cf597042ae4cf2003b78d6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sprites/newest_player_sprite.png"
-dest_files=["res://.godot/imported/newest_player_sprite.png-5fda0ae90339b7800803831029cfe704.ctex"]
+source_file="res://Player/Sprites/hunterbow.png"
+dest_files=["res://.godot/imported/hunterbow.png-29498af27cf597042ae4cf2003b78d6b.ctex"]
 
 [params]
 

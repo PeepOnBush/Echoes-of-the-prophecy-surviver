@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=117 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -40,9 +40,16 @@
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="30_6xyq0"]
 [ext_resource type="AudioStream" uid="uid://cueclcays5a7k" path="res://Player/Audio/grapple_stick.wav" id="30_ie76m"]
 [ext_resource type="AudioStream" uid="uid://ciwjdq0g4jyet" path="res://Player/Audio/grapple_clang.wav" id="31_dy65m"]
+[ext_resource type="Script" uid="uid://cgeul3wlrnylp" path="res://Player/Scripts/states/state_cutscene.gd" id="32_dy65m"]
 [ext_resource type="PackedScene" uid="uid://dejmrltbvwd4d" path="res://GeneralNodes/FootstepAudio2D/Footstep-Audio-2D.tscn" id="34_c0eyh"]
 [ext_resource type="Texture2D" uid="uid://5sp0uwrdssb2" path="res://Player/Sprites/grapple.png" id="38_iyprq"]
 [ext_resource type="AudioStream" uid="uid://deap8sbcfj3j" path="res://Player/Audio/grapple_chain.wav" id="43_ie76m"]
+[ext_resource type="Script" uid="uid://cw37n3ky38bpf" path="res://Player/Scripts/WeaponController.gd" id="45_1l10g"]
+[ext_resource type="PackedScene" uid="uid://bcnwbocox5ubu" path="res://Interactables/arrow/arrow.tscn" id="46_6rl0i"]
+[ext_resource type="Texture2D" uid="uid://b0xkcd57b2dp3" path="res://Player/Sprites/hunterbow.png" id="47_6rl0i"]
+[ext_resource type="PackedScene" uid="uid://cup64ee7e4rrq" path="res://Player/spawner.tscn" id="48_wvbyc"]
+[ext_resource type="PackedScene" uid="uid://ckl8plhl1alqu" path="res://Enemies/Slime/Slime.tscn" id="49_gvnt1"]
+[ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="50_1kmt7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsark"]
 
@@ -1979,6 +1986,9 @@ script = ExtResource("3_jp3gb")
 [node name="idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_aljh0")
 
+[node name="Cutscene" type="Node" parent="StateMachine"]
+script = ExtResource("32_dy65m")
+
 [node name="walk" type="Node" parent="StateMachine"]
 script = ExtResource("5_p4m1t")
 
@@ -2153,3 +2163,20 @@ debug_color = Color(0.968627, 0.117647, 0.345098, 0.121569)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GrappleHook"]
 stream = ExtResource("43_ie76m")
+
+[node name="WeaponPivot" type="Node2D" parent="."]
+position = Vector2(0, -17)
+script = ExtResource("45_1l10g")
+arrow_scene = ExtResource("46_6rl0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(15.000008, 2)
+rotation = 2.3561945
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("47_6rl0i")
+
+[node name="Muzzle" type="Marker2D" parent="WeaponPivot"]
+position = Vector2(23, 2)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("48_wvbyc")]
+enemy_scenes = Array[PackedScene]([ExtResource("49_gvnt1"), ExtResource("50_1kmt7")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byrky0o0s3e3d"]
+[gd_scene load_steps=20 format=3 uid="uid://byrky0o0s3e3d"]
 
 [ext_resource type="Script" uid="uid://5set2id68s7m" path="res://GUI/dialog_system/Scripts/dialog_system.gd" id="1_jfjvd"]
 [ext_resource type="Texture2D" uid="uid://dttoub7shdhc5" path="res://GUI/dialog_system/Sprites/text-bubble.png" id="1_shpx4"]
@@ -7,6 +7,172 @@
 [ext_resource type="Script" uid="uid://cpmkvp7suudto" path="res://GUI/dialog_system/Scripts/dialog_potrait.gd" id="4_g1le2"]
 [ext_resource type="AudioStream" uid="uid://cckqokiix1gi3" path="res://GUI/dialog_system/Audio/voice_blip.wav" id="4_ow4rp"]
 [ext_resource type="Theme" uid="uid://dtwluxsttprq7" path="res://GUI/dialog_system/dialog_choice_theme.tres" id="6_kuyi2"]
+
+[sub_resource type="Animation" id="Animation_8tyrm"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vyuf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_onhof"]
+resource_name = "start"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -37), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 360), Vector2(0, 324)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2mc8p"]
+resource_name = "end"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 324), Vector2(0, 360)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mc8p"]
+_data = {
+&"RESET": SubResource("Animation_vyuf5"),
+&"default": SubResource("Animation_8tyrm"),
+&"end": SubResource("Animation_2mc8p"),
+&"start": SubResource("Animation_onhof")
+}
 
 [sub_resource type="Gradient" id="Gradient_7atso"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -80,6 +246,41 @@ _data = {
 process_mode = 3
 script = ExtResource("1_jfjvd")
 
+[node name="CutsceneUi" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneUi"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -37.0
+offset_bottom = -1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CutsceneUi"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 35.99997
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneUi"]
+libraries = {
+&"": SubResource("AnimationLibrary_2mc8p")
+}
+autoplay = "default"
+
 [node name="DialogUi" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -120,10 +321,10 @@ texture_filter = 1
 layout_mode = 2
 theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
 theme_override_fonts/normal_font = ExtResource("3_8tyrm")
-theme_override_fonts/mono_font = ExtResource("3_8tyrm")
-theme_override_fonts/italics_font = ExtResource("3_8tyrm")
-theme_override_fonts/bold_italics_font = ExtResource("3_8tyrm")
 theme_override_fonts/bold_font = ExtResource("3_8tyrm")
+theme_override_fonts/bold_italics_font = ExtResource("3_8tyrm")
+theme_override_fonts/italics_font = ExtResource("3_8tyrm")
+theme_override_fonts/mono_font = ExtResource("3_8tyrm")
 bbcode_enabled = true
 text = "Hello 
 [wave]hello everyone [/wave]

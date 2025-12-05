@@ -10,4 +10,3 @@ name = "gold coin"
 description = "Currency used on this land"
 texture = ExtResource("3_oqxmv")
 cost = 100
-effects = Array[ExtResource("1_oqxmv")]([])

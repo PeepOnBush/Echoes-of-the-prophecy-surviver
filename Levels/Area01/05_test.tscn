@@ -1,12 +1,14 @@
-[gd_scene load_steps=19 format=4 uid="uid://ydrtsb0qqk6d"]
+[gd_scene load_steps=21 format=4 uid="uid://ydrtsb0qqk6d"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_1q4bq"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="2_8wcc2"]
 [ext_resource type="PackedScene" uid="uid://b611m75cuixve" path="res://Tile Maps/Grass-01-layer.tscn" id="3_vd45i"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="5_xcc75"]
 [ext_resource type="Script" uid="uid://bxeywc72jcc2k" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="9_orlcl"]
+[ext_resource type="Script" uid="uid://cb5twdaywq34" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="10_cekg7"]
 [ext_resource type="Script" uid="uid://nte0qejiry5w" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="10_k1vaf"]
 [ext_resource type="PackedScene" uid="uid://pdb02vlsxpnk" path="res://Npc/npc.tscn" id="10_tm1w6"]
+[ext_resource type="Script" uid="uid://ddnhawlfrd1cu" path="res://Interactables/Dialog/Scripts/cutscene_action_player.gd" id="11_i7lu3"]
 [ext_resource type="Resource" uid="uid://bj4wankd7m213" path="res://Npc/00_Npcs/npc_02.tres" id="11_vui78"]
 [ext_resource type="PackedScene" uid="uid://bbj5i8si4a24t" path="res://Npc/npc_behavior_wander.tscn" id="12_joo1r"]
 [ext_resource type="Script" uid="uid://qgurtwoi8frf" path="res://Interactables/Dialog/Scripts/cutscene_action_animation_movement.gd" id="12_k1vaf"]
@@ -92,6 +94,46 @@ scale = Vector2(1.1, 1.1)
 [node name="DialogCutscene_move" type="Node" parent="Npc/DialogInteraction"]
 script = ExtResource("9_orlcl")
 metadata/_custom_type_script = "uid://bxeywc72jcc2k"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move"]
+position = Vector2(66, 210)
+script = ExtResource("11_i7lu3")
+finish_direction = "right"
+timing_method = 1
+metadata/_custom_type_script = "uid://ddnhawlfrd1cu"
+
+[node name="CutsceneActionPlayer2" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move"]
+position = Vector2(422, 226)
+script = ExtResource("11_i7lu3")
+timing_method = 1
+metadata/_custom_type_script = "uid://ddnhawlfrd1cu"
+
+[node name="CutsceneActionPlayer3" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move"]
+position = Vector2(427, 53)
+script = ExtResource("11_i7lu3")
+finish_direction = "left"
+timing_method = 1
+metadata/_custom_type_script = "uid://ddnhawlfrd1cu"
+
+[node name="CutsceneActionPlayer4" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move"]
+position = Vector2(62, 43)
+script = ExtResource("11_i7lu3")
+finish_direction = "down"
+timing_method = 1
+metadata/_custom_type_script = "uid://ddnhawlfrd1cu"
+
+[node name="CutsceneActionPlayer5" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move"]
+position = Vector2(204, 193)
+script = ExtResource("11_i7lu3")
+finish_direction = "right"
+timing_method = 1
+metadata/_custom_type_script = "uid://ddnhawlfrd1cu"
+
+[node name="CutsceneActionCamera" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move"]
+position = Vector2(224, 113)
+script = ExtResource("10_cekg7")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://cb5twdaywq34"
 
 [node name="CutsceneActionAnimationMovement" type="Node2D" parent="Npc/DialogInteraction/DialogCutscene_move" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(168, 149)

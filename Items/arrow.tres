@@ -11,7 +11,4 @@ region = Rect2(32, 0, 32, 32)
 [resource]
 script = ExtResource("4_paul1")
 name = "Arrow"
-description = ""
 texture = SubResource("AtlasTexture_j56mv")
-cost = 10
-effects = Array[ExtResource("1_6gcwn")]([])

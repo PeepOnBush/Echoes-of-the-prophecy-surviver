@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ckl8plhl1alqu"]
+[gd_scene load_steps=41 format=3 uid="uid://ckl8plhl1alqu"]
 
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="1_6exb3"]
 [ext_resource type="Script" uid="uid://caqc5162cs7yv" path="res://Enemies/Scripts/enemy.gd" id="1_c31tp"]
@@ -15,8 +15,9 @@
 [ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="12_0dw7i"]
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_2m0ya"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_h0n5y"]
-[ext_resource type="Resource" uid="uid://08fyr62oj82t" path="res://Items/stone.tres" id="15_stlk5"]
+[ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="16_2vvwu"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_ts4pi"]
+[ext_resource type="Script" uid="uid://cmedoimntypgj" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="17_2vvwu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -714,22 +715,16 @@ _data = {
 [sub_resource type="Resource" id="Resource_k17h7"]
 script = ExtResource("14_h0n5y")
 item = ExtResource("13_2m0ya")
-probability = 100.0
-min_amount = 1
 max_amount = 2
 
 [sub_resource type="Resource" id="Resource_uo7u8"]
 script = ExtResource("14_h0n5y")
-item = ExtResource("15_stlk5")
-probability = 50.0
-min_amount = 1
+item = ExtResource("16_2vvwu")
 max_amount = 2
 
 [sub_resource type="Resource" id="Resource_58ww5"]
 script = ExtResource("14_h0n5y")
 item = ExtResource("16_ts4pi")
-probability = 100.0
-min_amount = 1
 max_amount = 5
 
 [sub_resource type="Animation" id="Animation_0kc84"]
@@ -796,7 +791,7 @@ _data = {
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_c31tp")
-xp_reward = 20
+xp_reward = 0
 
 [node name="HurtBox" parent="." instance=ExtResource("7_4prkb")]
 damage = null
@@ -839,6 +834,9 @@ autoplay = "idle_down"
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("4_nkxwc")
 
+[node name="Chase" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("17_2vvwu")
+
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("5_i1hb8")
 after_idle_state = NodePath("../Wander")
@@ -850,7 +848,7 @@ nextState = NodePath("../Idle")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
 script = ExtResource("10_pbf3n")
-nextState = NodePath("../Idle")
+nextState = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("12_0dw7i")

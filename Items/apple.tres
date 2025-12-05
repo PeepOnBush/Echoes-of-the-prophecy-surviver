@@ -10,7 +10,6 @@
 script = ExtResource("2_qd1x3")
 heal_amount = 2
 audio = ExtResource("1_kmyy2")
-use_description = ""
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ybag"]
 atlas = ExtResource("2_n1jc6")
@@ -21,5 +20,4 @@ script = ExtResource("1_6vd0x")
 name = "Apple"
 description = "A delicious apple"
 texture = SubResource("AtlasTexture_2ybag")
-cost = 10
 effects = Array[ExtResource("1_mo3ih")]([SubResource("Resource_u8cfm")])

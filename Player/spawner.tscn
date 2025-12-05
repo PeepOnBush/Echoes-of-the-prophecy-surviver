@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cup64ee7e4rrq"]
+
+[ext_resource type="Script" uid="uid://ck84oepigr61l" path="res://Player/Scripts/EnemySpawner.gd" id="1_jsega"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdytb"]
+
+[node name="EnemySpawner" type="Area2D"]
+script = ExtResource("1_jsega")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(53.865, 53.865)
+shape = SubResource("CircleShape2D_pdytb")
+debug_color = Color(0.77254903, 0, 0.18039216, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

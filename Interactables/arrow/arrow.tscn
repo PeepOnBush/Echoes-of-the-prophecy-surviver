@@ -16,14 +16,14 @@ script = ExtResource("1_d1t5a")
 fire_audio = ExtResource("4_nejv5")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_nejv5")]
-collision_mask = 258
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_oy4uj")
 debug_color = Color(0.980392, 0, 0.388235, 0.0705882)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -6)
 texture = ExtResource("3_xcusk")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

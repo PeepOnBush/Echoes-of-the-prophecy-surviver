@@ -13,13 +13,13 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		#editor_selection = EditorInterface.get_selection()
 		editor_selection = Engine.get_singleton( "EditorInterface" ).get_selection()
-		editor_selection.selection_changed.connect( onSelectionChanged )
+		editor_selection.selection_changed.connect( _on_selection_changed )
 		return
-	checkNpcData()
+	check_npc_data()
 
 
 
-func checkNpcData() -> void:
+func check_npc_data() -> void:
 	if npc_info == null:
 		var p = self
 		var _checking : bool = true
@@ -34,7 +34,7 @@ func checkNpcData() -> void:
 
 
 
-func onSelectionChanged() -> void:
+func _on_selection_changed() -> void:
 	if editor_selection == null:
 		return
 	
@@ -49,15 +49,14 @@ func onSelectionChanged() -> void:
 			if example_dialog == null:
 				return
 			self.add_child( example_dialog )
-			example_dialog.offset = getParentGlobalPosition() + Vector2( 32, -200 )
-			checkNpcData()
-			_setEditorDisplay()
+			example_dialog.offset = get_parent_global_position() + Vector2( 32, -200 )
+			check_npc_data()
+			_set_editor_display()
 	pass
 
-func _setEditorDisplay() -> void:
-	pass
 
-func getParentGlobalPosition() -> Vector2:
+
+func get_parent_global_position() -> Vector2:
 	var p = self
 	var _checking : bool = true
 	while _checking == true:
@@ -68,3 +67,8 @@ func getParentGlobalPosition() -> Vector2:
 		else:
 			_checking = false
 	return Vector2.ZERO
+
+
+
+func _set_editor_display() -> void:
+	pass

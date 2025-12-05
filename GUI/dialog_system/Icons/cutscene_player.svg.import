@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iud688adiw3n"
-path="res://.godot/imported/newest_player_sprite.png-5fda0ae90339b7800803831029cfe704.ctex"
+uid="uid://s6ynyn7qkt3i"
+path="res://.godot/imported/cutscene_player.svg-6eadf99c72448f504791ff01e424e8cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sprites/newest_player_sprite.png"
-dest_files=["res://.godot/imported/newest_player_sprite.png-5fda0ae90339b7800803831029cfe704.ctex"]
+source_file="res://GUI/dialog_system/Icons/cutscene_player.svg"
+dest_files=["res://.godot/imported/cutscene_player.svg-6eadf99c72448f504791ff01e424e8cf.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

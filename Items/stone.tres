@@ -15,4 +15,3 @@ description = "A weird looking stone
 "
 texture = SubResource("AtlasTexture_c2anf")
 cost = 5
-effects = Array[ExtResource("1_mmn2y")]([])
