@@ -25,7 +25,7 @@ var bomb_count : int = 10 : set = _setBombCount
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var sprite : Sprite2D = $newSprite2D
 @onready var state_Machine : playerStateMachine = $StateMachine
 @onready var hit_box : HitBox = $HitBox
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
@@ -48,9 +48,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process( _delta ):
-	
-	#direction.x = Input.get_action_strength("Right") - Input.get_action_strength("Left");
-	#direction.y = Input.get_action_strength("Down") - Input.get_action_strength("Up");
 	
 	direction = Vector2(
 		Input.get_axis("left","right"),
@@ -80,7 +77,10 @@ func SetDirection() -> bool:
 	
 	cardinal_direction = newDirection
 	DirectionChanged.emit(newDirection)
-	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	if cardinal_direction == Vector2.RIGHT:
+		sprite.scale.x = sprite.scale.x * (-1) 
+	else:
+		sprite.scale.x = sprite.scale.y
 	return true
 
 func UpdateAnimation( state : String) -> void:
@@ -100,7 +100,6 @@ func _take_damage(_hurt_box : HurtBox) -> void:
 		return
 	if hp > 0:
 		var dmg : int = _hurt_box.damage
-		
 		
 		if dmg > 0:
 			dmg = clampi(dmg - defense - defense_bonus, 1, dmg )

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://41qbsv2pwdtn"
-path="res://.godot/imported/sprite_261.png-066f408dffb45bae78984b17f2a70e16.ctex"
+uid="uid://dl27sfuaxufl5"
+path="res://.godot/imported/Zephyr_movement.png-f782b1d61082968ba4f95397dc3bdb60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://FutureAssests/frieren/sprite_261.png"
-dest_files=["res://.godot/imported/sprite_261.png-066f408dffb45bae78984b17f2a70e16.ctex"]
+source_file="res://Player/Sprites/Zephyr_movement.png"
+dest_files=["res://.godot/imported/Zephyr_movement.png-f782b1d61082968ba4f95397dc3bdb60.ctex"]
 
 [params]
 
