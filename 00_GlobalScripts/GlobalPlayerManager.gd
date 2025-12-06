@@ -40,10 +40,10 @@ func checkForLevelAdvance() -> void:
 		return
 	if player.xp >= level_requirements[player.level]:
 		player.level += 1
-		player.attack += 1
-		player.defense += 1
+		#player.attack += 1
+		#player.defense += 1
 		leveled_up.emit()
-		checkForLevelAdvance()
+		#checkForLevelAdvance()
 	pass
 
 

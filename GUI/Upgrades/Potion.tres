@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://1c7efgmqe2cg"]
+
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_dcfu7"]
+[ext_resource type="Texture2D" uid="uid://j5bqmcu4jifv" path="res://Items/Sprites/Normal health potion.png" id="1_kyglt"]
+
+[resource]
+script = ExtResource("1_dcfu7")
+title = "FULL HEAL"
+description = "Restore you health to full"
+icon = ExtResource("1_kyglt")
+type = 0
+value = 99.0
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

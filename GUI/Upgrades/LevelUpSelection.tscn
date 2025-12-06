@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtaff2qqtw33y"]
+
+[ext_resource type="Script" uid="uid://b4ic63vr8nqlv" path="res://GUI/Upgrades/level_up_selection.gd" id="1_rv710"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="2_12qoy"]
+[ext_resource type="Resource" uid="uid://bei5yerwoicvv" path="res://GUI/Upgrades/Muscle.tres" id="3_xr6w3"]
+[ext_resource type="Resource" uid="uid://c8sdc8615rwpe" path="res://GUI/Upgrades/Iron Skin.tres" id="4_pth4c"]
+[ext_resource type="Resource" uid="uid://1c7efgmqe2cg" path="res://GUI/Upgrades/Potion.tres" id="5_m6qme"]
+
+[node name="LevelUpSelection" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_rv710")
+all_upgrades = Array[ExtResource("2_12qoy")]([ExtResource("3_xr6w3"), ExtResource("4_pth4c"), ExtResource("5_m6qme")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

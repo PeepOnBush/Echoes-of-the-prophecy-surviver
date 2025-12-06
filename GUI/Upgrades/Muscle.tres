@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://bei5yerwoicvv"]
+
+[ext_resource type="Texture2D" uid="uid://b0fbo4j6croyq" path="res://GUI/Upgrades/Icons/Arm.png" id="1_ikk3h"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_rvrgi"]
+
+[resource]
+script = ExtResource("1_rvrgi")
+title = "Muscle"
+description = "Muscle UP!!"
+icon = ExtResource("1_ikk3h")
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

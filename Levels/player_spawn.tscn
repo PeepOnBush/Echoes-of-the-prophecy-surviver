@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt1b3x65mntyw"]
 
 [ext_resource type="Script" uid="uid://b4gdj0uavsrrr" path="res://Levels/Scripts/player_spawn.gd" id="1_7w6th"]
-[ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_d760b"]
+[ext_resource type="Texture2D" uid="uid://dl27sfuaxufl5" path="res://Player/Sprites/Zephyr_movement.png" id="2_lyuil"]
 
 [node name="PlayerSpawn" type="Node2D"]
 script = ExtResource("1_7w6th")
@@ -9,6 +9,6 @@ script = ExtResource("1_7w6th")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.541176, 0.945098, 0.584314, 0.870588)
 position = Vector2(0, -17)
-texture = ExtResource("2_d760b")
-hframes = 16
-vframes = 8
+texture = ExtResource("2_lyuil")
+hframes = 8
+vframes = 5
