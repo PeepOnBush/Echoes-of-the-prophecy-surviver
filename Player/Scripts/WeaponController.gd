@@ -1,25 +1,31 @@
 extends Node2D
 
 @export var arrow_scene: PackedScene
+@export var fire_rate: float = 0.2 # 0.2 seconds between shots (5 shots per sec)
 
+var current_cooldown: float = 0.0
 func _process(delta):
-	# 1. Make the Pivot look at the mouse
+	# 1. Aim at Mouse (Existing logic)
 	look_at(get_global_mouse_position())
 	
-	# 2. Handle Sprite Flipping (so the bow isn't upside down when aiming left)
+	# Flip logic (Existing logic)
 	var angle_degrees = rotation_degrees
-	# Normalize angle to -180 to 180 range logic usually handles itself, but:
 	if abs(angle_degrees) > 90:
-		scale.y = -1 # Flip vertically to keep bow right-side up
+		scale.y = -1 
 	else:
 		scale.y = 1
 
-func _input(event):
-	# 3. Shooting
-	if event.is_action_pressed("click"): # Make sure "click" is mapped in Input Map (Project Settings)
+	# 2. Cooldown Management
+	if current_cooldown > 0:
+		current_cooldown -= delta
+
+	# 3. SHOOTING LOGIC (Hold to Shoot)
+	# We use 'Input' directly instead of 'event'
+	if Input.is_action_pressed("click") and current_cooldown <= 0:
 		shoot()
-	if event.is_action("click"):
-		shoot()
+		current_cooldown = fire_rate # Reset timer
+
+
 
 func shoot():
 	if arrow_scene:

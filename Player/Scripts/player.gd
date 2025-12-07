@@ -160,3 +160,7 @@ func _setBombCount(value : int) -> void:
 	bomb_count = value
 	PlayerHud.update_bomb_count(value)
 	pass
+
+func enableOrbitDarkGemController()-> void:
+	get_node("OrbitController").activate()
+	pass

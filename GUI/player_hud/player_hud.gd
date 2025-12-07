@@ -9,6 +9,7 @@ var hearts : Array[HeartGui] = []
 @onready var continue_button: Button = $Control/GameOver/VBoxContainer/ContinueButton
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
+@onready var timer_label: Label = $Control/TimerLabel
 
 @onready var boss_ui: Control = $Control/BossUI
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
@@ -146,6 +147,13 @@ func  updateAbilityUI(ability_index : int ) -> void:
 	_items[ability_index].modulate = Color(1,1,1,1)
 	playAudio(button_focus_audio)
 	pass
+
+func update_timer(time_in_seconds: float) -> void:
+	var minutes = int(time_in_seconds / 60)
+	var seconds = int(time_in_seconds) % 60
+	
+	# Format to show 01:05 instead of 1:5
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func update_arrow_count( count : int ) -> void:
 	arrow_count_label.text = str(count)

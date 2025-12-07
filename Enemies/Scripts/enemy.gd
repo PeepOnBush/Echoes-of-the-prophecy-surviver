@@ -16,8 +16,8 @@ var invulnerable : bool = false
 
 @onready var hit_box : HitBox = $HitBox
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
-@onready var sprite : Sprite2D = $Sprite2D
 @onready var state_Machine : EnemyStateMachine = $EnemyStateMachine
+@onready var sprite : Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

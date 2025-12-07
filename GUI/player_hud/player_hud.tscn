@@ -419,6 +419,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="TimerLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "00:00"
+
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(538, 13)
 texture = ExtResource("2_ecbuc")

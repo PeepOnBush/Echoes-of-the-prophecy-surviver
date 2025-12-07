@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://blr747prvd8qj"]
+
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_5t5vq"]
+[ext_resource type="Texture2D" uid="uid://bgck07eoh1aov" path="res://GUI/Upgrades/Icons/OrbitGem.png" id="1_58cw1"]
+
+[resource]
+script = ExtResource("1_5t5vq")
+title = "Dark Orbit"
+description = "A Dark Orbit float around you dealing damage"
+icon = ExtResource("1_58cw1")
+type = 6
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

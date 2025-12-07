@@ -1,6 +1,6 @@
 class_name UpgradeData extends Resource
 
-enum UpgradeType { HEAL, ATTACK, DEFENSE, SPEED, ARROW, BOMB }
+enum UpgradeType { HEAL, ATTACK, DEFENSE, SPEED, ARROW, BOMB, ORBIT }
 
 @export var title : String = "Upgrade Name"
 @export_multiline var description : String = "Description of what it does."

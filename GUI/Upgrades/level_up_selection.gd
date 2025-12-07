@@ -3,7 +3,6 @@ class_name LevelUpSelection extends CanvasLayer
 signal upgrade_selected
 
 const CARD_SCENE = preload("res://GUI/Upgrades/UpgradeCard.tscn") # Adjust path to where you saved Step 2
- 
 @export var all_upgrades : Array[UpgradeData] # Drag your 3 test resources here!
 
 @onready var card_container: HBoxContainer = $HBoxContainer
@@ -56,6 +55,9 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			player.arrow_count += int(upgrade.value)
 		UpgradeData.UpgradeType.BOMB:
 			player.bomb_count += int(upgrade.value)
+		UpgradeData.UpgradeType.ORBIT:
+			player.enableOrbitDarkGemController()
+			pass
 
 	# Close Menu
 	visible = false
