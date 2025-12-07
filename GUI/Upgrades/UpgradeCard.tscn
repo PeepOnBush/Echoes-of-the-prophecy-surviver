@@ -1,13 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://gcwtjdhvkcgj"]
+[gd_scene load_steps=4 format=3 uid="uid://gcwtjdhvkcgj"]
 
 [ext_resource type="Script" uid="uid://dqjivdddm47jo" path="res://GUI/Upgrades/upgrade_card.gd" id="1_fuyh5"]
+[ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="2_0ny10"]
 [ext_resource type="Texture2D" uid="uid://b0fbo4j6croyq" path="res://GUI/Upgrades/Icons/Arm.png" id="2_k7jgt"]
 
 [node name="UpgradeCard" type="Button"]
 custom_minimum_size = Vector2(150, 250)
-offset_right = 150.0
-offset_bottom = 255.0
+offset_left = 1.0
+offset_right = 151.9434
+offset_bottom = 250.0
+scale = Vector2(0.53, 0.53)
 script = ExtResource("1_fuyh5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -5.6603775
+offset_right = 152.8302
+offset_bottom = 249.05661
+texture = ExtResource("2_0ny10")
+region_rect = Rect2(1, 95, 47, 33)
+patch_margin_left = 5
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(147.815, 0)
@@ -33,4 +48,5 @@ stretch_mode = 5
 custom_minimum_size = Vector2(82.995, 150)
 layout_mode = 2
 text = "This will buff you alot i know this sound bulls"
+horizontal_alignment = 1
 autowrap_mode = 3
