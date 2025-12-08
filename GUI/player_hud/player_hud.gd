@@ -4,13 +4,17 @@ extends CanvasLayer
 @export var button_select_audio : AudioStream = preload("res://Menu/menu_select.wav")
 
 var hearts : Array[HeartGui] = []
+var bars_original_pos: Vector2
+
 @onready var game_over: Control = $Control/GameOver
 @onready var title_button: Button = $Control/GameOver/VBoxContainer/TitleButton
 @onready var continue_button: Button = $Control/GameOver/VBoxContainer/ContinueButton
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 @onready var timer_label: Label = $Control/TimerLabel
-
+@onready var health_bar: TextureProgressBar = $Control/VBoxContainer/HealthBar
+@onready var stamina_bar: TextureProgressBar = $Control/VBoxContainer/StaminaBar
+@onready var v_box_container: VBoxContainer = $Control/VBoxContainer
 @onready var boss_ui: Control = $Control/BossUI
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
 @onready var boss_label: Label = $Control/BossUI/Label
@@ -39,19 +43,21 @@ func _ready():
 	updateAbilityUI(0)
 	PauseMenu.shown.connect(onShowPauseMenu)
 	PauseMenu.hidden.connect(onHidePauseMenu)
+	await get_tree().process_frame 
+	bars_original_pos = v_box_container.position
 	pass
 
-func updateHp(_hp : int, _maxHP : int) -> void:
-	updateMaxHp(_maxHP)
-	for i in _maxHP :
-		updateHeart(i,_hp)
-	pass
+#func updateHp(_hp : int, _maxHP : int) -> void:
+	#updateMaxHp(_maxHP)
+	#for i in _maxHP :
+		#updateHeart(i,_hp)
+	#pass
 
 func updateHeart(_index : int , _hp : int ) -> void:
 	var _value : int = clampi(_hp - _index  * 2, 0 , 2)
 	hearts[_index].value = _value
 	pass
-	
+
 func updateMaxHp(_maxHP : int) -> void:
 	var _heartCount : int  = roundi(_maxHP * 0.5)
 	for i in hearts.size():
@@ -59,6 +65,52 @@ func updateMaxHp(_maxHP : int) -> void:
 			hearts[i].visible = true
 		else :
 			hearts[i].visible = false
+	pass
+
+# --- NEW HP LOGIC ---
+func updateHp(_hp : int, _maxHP : int) -> void:
+	# Update Max
+	health_bar.max_value = _maxHP
+	
+	# 2. DETECT DAMAGE
+	# If the new HP is lower than what the bar currently shows, it's damage.
+	if _hp < health_bar.value:
+		shake_container() # <--- CALL THE SHAKE
+	
+	# Smoothly animate the value
+	update_bar_smoothly(health_bar, _hp)
+	pass
+func shake_container() -> void:
+	var tween = create_tween()
+	var shake_power = 5.0 
+	
+	# Parallel: Do the shake AND the color flash at the same time
+	tween.set_parallel(true)
+	
+	# 1. Flash Red
+	health_bar.modulate = Color(10, 10, 10) # Flash pure white/bright
+	tween.tween_property(health_bar, "modulate", Color.WHITE, 0.3)
+	
+	# 2. Shake (Must disable parallel to make these sequential steps, 
+	#    or just use a second tween for position)
+	var pos_tween = create_tween()
+	for i in 5:
+		var _offset = Vector2(randf_range(-shake_power, shake_power), randf_range(-shake_power, shake_power))
+		pos_tween.tween_property(v_box_container, "position", bars_original_pos + _offset, 0.05)
+	pos_tween.tween_property(v_box_container, "position", bars_original_pos, 0.05)
+	pass
+# --- NEW STAMINA LOGIC ---
+func updateStamina(_current : float, _max : float) -> void:
+	stamina_bar.max_value = _max
+	# Stamina changes fast, so maybe we don't tween, or we tween very fast
+	stamina_bar.value = _current
+
+# Helper function to tween bars
+func update_bar_smoothly(bar: TextureProgressBar, new_value: int) -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(bar, "value", new_value, 0.2) # 0.2s duration
 	pass
 
 func showGameOverScreen() -> void:
@@ -89,6 +141,7 @@ func hideGameOverScreen() -> void:
 func playAudio(_a : AudioStream) -> void:
 	audio.stream = _a
 	audio.play()
+	pass
 
 func loadGame() -> void:
 	playAudio(button_select_audio)

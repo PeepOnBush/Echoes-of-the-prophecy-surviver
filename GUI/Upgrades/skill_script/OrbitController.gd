@@ -1,6 +1,6 @@
 class_name OrbitController extends Node2D
 
-@export var rotation_speed: float = 3.0 # How fast it spins
+@export var rotation_speed: float = 4.0 # How fast it spins
 @onready var hurt_box: HurtBox = $Visuals/HurtBox
 var is_active: bool = false
 

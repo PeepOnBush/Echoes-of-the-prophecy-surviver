@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3u0chmjjfa7s"]
+[gd_scene load_steps=35 format=3 uid="uid://d3u0chmjjfa7s"]
 
 [ext_resource type="Script" uid="uid://nwqx8s3opd8m" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
+[ext_resource type="Texture2D" uid="uid://bylxkhahjdvm8" path="res://GUI/player_hud/HealthBar DARK.png" id="2_5nb4v"]
 [ext_resource type="Texture2D" uid="uid://b8tfeeopjphxi" path="res://GUI/player_hud/gui-health.png" id="2_ecbuc"]
 [ext_resource type="PackedScene" uid="uid://b43yya5yg2c6m" path="res://GUI/player_hud/heart_gui.tscn" id="3_dtpa4"]
 [ext_resource type="Texture2D" uid="uid://cmln4ri2adw8e" path="res://Player/Sprites/ZeShuriken.png" id="4_ea3vn"]
@@ -12,6 +13,24 @@
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="7_467n6"]
 [ext_resource type="AudioStream" uid="uid://xpgw6vvufltn" path="res://GUI/player_hud/notification.wav" id="9_tj3s2"]
 [ext_resource type="PackedScene" uid="uid://dtaff2qqtw33y" path="res://GUI/Upgrades/LevelUpSelection.tscn" id="12_3m3x0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdg2b"]
+atlas = ExtResource("2_5nb4v")
+region = Rect2(18, 40, 64, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xefh"]
+atlas = ExtResource("2_5nb4v")
+region = Rect2(19, 30, 62, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xolfj"]
+atlas = ExtResource("2_5nb4v")
+region = Rect2(19, 46, 59, 4)
+margin = Rect2(1, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrurj"]
+atlas = ExtResource("2_5nb4v")
+region = Rect2(19, 35, 58, 2)
+margin = Rect2(1, 0, 0, 0.285)
 
 [sub_resource type="Gradient" id="Gradient_scbx3"]
 offsets = PackedFloat32Array(0, 0.617241, 1)
@@ -407,6 +426,8 @@ _data = {
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_loiu6")
+button_focus_audio = null
+button_select_audio = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -418,6 +439,28 @@ offset_right = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 74.0
+offset_bottom = 25.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_under = SubResource("AtlasTexture_vdg2b")
+texture_progress = SubResource("AtlasTexture_6xefh")
+texture_progress_offset = Vector2(1.065, 1)
+
+[node name="StaminaBar" type="TextureProgressBar" parent="Control/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_under = SubResource("AtlasTexture_xolfj")
+texture_progress = SubResource("AtlasTexture_hrurj")
 
 [node name="TimerLabel" type="Label" parent="Control"]
 layout_mode = 1
@@ -437,6 +480,7 @@ region_enabled = true
 region_rect = Rect2(29, 0, 34, 8)
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 472.0
 offset_top = 21.0
@@ -508,7 +552,8 @@ layout_mode = 2
 
 [node name="Abilities" type="Control" parent="Control"]
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 480.0
+offset_right = 520.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities"]
@@ -674,8 +719,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_right = -2.0
+offset_left = -7.0
+offset_right = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -688,6 +733,7 @@ libraries = {
 }
 
 [node name="BossUI" type="Control" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -757,6 +803,7 @@ text = "Boss Name"
 
 [node name="Notifcation" type="Control" parent="Control"]
 process_mode = 3
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

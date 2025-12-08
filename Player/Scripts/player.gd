@@ -22,6 +22,8 @@ var attack : int = 1 :
 
 var arrow_count : int = 5 : set = _setArrowCount
 var bomb_count : int = 10 : set = _setBombCount
+var stamina : float = 100.0
+var stamina_regen : float = 20.0 # How much per second
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
@@ -33,6 +35,8 @@ var bomb_count : int = 10 : set = _setBombCount
 @onready var held_item: Node2D = $Sprite2D/HeldItem
 @onready var carry: StateCarry = $StateMachine/Carry
 @onready var player_abilities: PlayerAbilities = $Abilities
+
+@export var max_stamina : float = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,6 +57,11 @@ func _process( _delta ):
 		Input.get_axis("left","right"),
 		Input.get_axis("up", "down")
 	).normalized()
+	# Regen Stamina
+	if stamina < max_stamina:
+		stamina += stamina_regen * _delta
+		stamina = min(stamina, max_stamina)
+		PlayerHud.updateStamina(stamina, max_stamina)
 	pass 
 
 

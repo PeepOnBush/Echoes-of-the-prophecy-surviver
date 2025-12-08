@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1atxf435b578"]
+
+[ext_resource type="Script" uid="uid://bgiyuvrmoi3j1" path="res://GeneralNodes/AttackRange/attack_range.gd" id="1_7qt3s"]
+
+[node name="AttackRange" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_7qt3s")

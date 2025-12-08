@@ -11,6 +11,11 @@ var effect_timer : float = 0
 
 ## What happen when the player enter this state ?
 func Enter() -> void:
+	if player.stamina < 25:
+		state_machine.changeState(idle)
+		return
+	player.stamina -= 25
+	PlayerHud.updateStamina(player.stamina, player.max_stamina)
 	player.invulnerable = true
 	player.UpdateAnimation("dash")
 	player.animationPlayer.animation_finished.connect( onAnimationFinished )
