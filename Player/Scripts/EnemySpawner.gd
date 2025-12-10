@@ -1,4 +1,4 @@
-extends Area2D
+class_name EnemySpawner extends Area2D
 
 # --- 1. CONFIGURATION ---
 @export var spawn_radius: float = 400.0
@@ -6,7 +6,7 @@ extends Area2D
 # Drag your specific enemy scenes here in the Inspector
 @export var slime_scene: PackedScene
 @export var goblin_scene: PackedScene
-
+@export var boss_scene: PackedScene
 # --- 2. THE DIRECTOR BRAIN ---
 var time_elapsed: float = 0.0
 var current_wave_index: int = -1
@@ -29,8 +29,17 @@ var waves : Array = [
 	# 30 to 60 seconds: Goblin Horde
 	{ "time": 30, "rate": 0.5, "types": ["goblin"] },
 	
+	# THE BOSS WAVE (e.g., at 60 seconds)
+	{ 
+		"time": 40, 
+		"rate": 999.0, # Stop spawning other enemies (or keep them slow)
+		"types": ["boss"], # Special tag
+		"is_boss_wave": true
+	},
+	
 	# 60+ seconds: CHAOS (Everything, super fast)
-	{ "time": 60, "rate": 0.2, "types": ["slime", "goblin"] }
+	#{ "time": 60, "rate": 0.2, "types": ["slime", "goblin"] }
+	
 ]
 
 func _ready() -> void:
@@ -40,6 +49,7 @@ func _ready() -> void:
 	
 	# Force start the first wave
 	check_wave_update()
+
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
@@ -74,7 +84,22 @@ func start_wave(wave_data: Dictionary) -> void:
 		match type_name:
 			"slime": active_enemy_pool.append(slime_scene)
 			"goblin": active_enemy_pool.append(goblin_scene)
-
+	
+	if wave_data.has("is_boss_wave"):
+		spawn_boss()
+	pass
+	
+func spawn_boss() -> void:
+	# Spawn him farther away so he has time to walk in
+	var spawn_pos = global_position + Vector2(600, 0) 
+	
+	var boss = boss_scene.instantiate()
+	get_tree().current_scene.add_child(boss)
+	boss.global_position = spawn_pos
+	
+	# Optional: Play a warning sound?
+	# GlobalAudioManager.play_music(boss_music)
+	pass
 func _on_timer_timeout() -> void:
 	if active_enemy_pool.size() == 0:
 		return

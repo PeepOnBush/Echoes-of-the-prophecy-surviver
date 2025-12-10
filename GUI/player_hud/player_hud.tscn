@@ -733,7 +733,6 @@ libraries = {
 }
 
 [node name="BossUI" type="Control" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -803,7 +802,6 @@ text = "Boss Name"
 
 [node name="Notifcation" type="Control" parent="Control"]
 process_mode = 3
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

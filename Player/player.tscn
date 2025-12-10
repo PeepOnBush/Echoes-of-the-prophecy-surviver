@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=120 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://ckl8plhl1alqu" path="res://Enemies/Slime/Slime.tscn" id="49_gvnt1"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="50_1kmt7"]
 [ext_resource type="PackedScene" uid="uid://4fh3c2uvc8bo" path="res://GUI/Upgrades/skill_scene/orbit_controller.tscn" id="52_1kmt7"]
+[ext_resource type="PackedScene" uid="uid://ddaiy04uk27fm" path="res://Enemies/goblin_boss/goblin_boss.tscn" id="52_c4i3b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsark"]
 
@@ -2207,5 +2208,6 @@ position = Vector2(20, 2)
 [node name="EnemySpawner" parent="." instance=ExtResource("48_wvbyc")]
 slime_scene = ExtResource("49_gvnt1")
 goblin_scene = ExtResource("50_1kmt7")
+boss_scene = ExtResource("52_c4i3b")
 
 [node name="OrbitController" parent="." instance=ExtResource("52_1kmt7")]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://pm8hmceeo3q5"]
+[gd_scene load_steps=5 format=4 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_747no"]
 [ext_resource type="PackedScene" uid="uid://b611m75cuixve" path="res://Tile Maps/Grass-01-layer.tscn" id="3_g1smm"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="4_pwydo"]
-[ext_resource type="PackedScene" uid="uid://blm3ifei3xdrg" path="res://Enemies/soldier/soldier.tscn" id="7_xhij5"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
 
 [node name="01" type="Node2D"]
@@ -15,6 +14,3 @@ tile_map_data = PackedByteArray("AAD9//3/AAABAAIAAAD9//7/AAABAAMAAAD9////AAABAAI
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_pwydo")]
 position = Vector2(2, 9)
-
-[node name="soldier" parent="." instance=ExtResource("7_xhij5")]
-position = Vector2(184, 17)
