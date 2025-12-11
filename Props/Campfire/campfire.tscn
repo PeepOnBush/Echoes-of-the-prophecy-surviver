@@ -1,0 +1,116 @@
+[gd_scene load_steps=18 format=3 uid="uid://yhsygb7ab6mc"]
+
+[ext_resource type="Script" uid="uid://layujlu0kllq" path="res://Props/Campfire/campfire.gd" id="1_6rpxk"]
+[ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_ar5sa"]
+[ext_resource type="Texture2D" uid="uid://duvxu71ng0n6h" path="res://Props/Sprites/Group 4 - 1.png" id="2_wcoab"]
+[ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_cpudx"]
+[ext_resource type="Script" uid="uid://bbn1dpi7tekrr" path="res://Props/Torches/torch_light_flicker.gd" id="5_o8t7y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcoab"]
+atlas = ExtResource("1_ar5sa")
+region = Rect2(320, 712, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpudx"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rpxk"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8t7y"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6gk6"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es54i"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v1lg"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5mic"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbem7"]
+atlas = ExtResource("2_wcoab")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s42be"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpudx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rpxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8t7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6gk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es54i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v1lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5mic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbem7")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_a1nks"]
+offsets = PackedFloat32Array(0.10355, 0.266272, 0.597633, 0.905325, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.87451, 0, 1, 1, 0.419608, 0, 1, 0.184314, 0.027451, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6gk6"]
+gradient = SubResource("Gradient_a1nks")
+width = 561
+height = 286
+fill = 1
+fill_from = Vector2(0.5, 0.54)
+fill_to = Vector2(1, 0.5)
+
+[node name="Campfire" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_6rpxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wcoab")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -35)
+scale = Vector2(1.255, 1.255)
+sprite_frames = SubResource("SpriteFrames_s42be")
+animation = &"burning"
+frame_progress = 0.7500878
+speed_scale = 4.0
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
+show_behind_parent = true
+position = Vector2(-2, 2)
+scale = Vector2(2.22, 2.22)
+texture = ExtResource("3_cpudx")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -5)
+energy = 0.5
+texture = SubResource("GradientTexture2D_j6gk6")
+texture_scale = 0.85
+script = ExtResource("5_o8t7y")

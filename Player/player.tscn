@@ -1897,6 +1897,13 @@ hframes = 8
 vframes = 5
 frame = 2
 
+[node name="ShadowSprite" type="Sprite2D" parent="newSprite2D"]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
+show_behind_parent = true
+position = Vector2(0, 34.000008)
+scale = Vector2(1.9999998, 1.9999989)
+texture = ExtResource("3_p3dgw")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -17)
@@ -1917,13 +1924,6 @@ texture = ExtResource("3_rt585")
 hframes = 16
 vframes = 16
 frame = 128
-
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
-modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
-show_behind_parent = true
-position = Vector2(0, 19.357)
-scale = Vector2(0.991719, 1.01879)
-texture = ExtResource("3_p3dgw")
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(0, 9.16912)

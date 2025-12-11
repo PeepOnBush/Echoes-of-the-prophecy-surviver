@@ -4,6 +4,7 @@ class_name EnemySpawner extends Area2D
 @export var spawn_radius: float = 400.0
 
 # Drag your specific enemy scenes here in the Inspector
+@export var isEnabled : bool = false 
 @export var slime_scene: PackedScene
 @export var goblin_scene: PackedScene
 @export var boss_scene: PackedScene
@@ -74,21 +75,24 @@ func check_wave_update() -> void:
 			print("WAVE STARTED: ", current_wave_index)
 
 func start_wave(wave_data: Dictionary) -> void:
+	if isEnabled:
 	# 1. Set the Spawn Rate
-	spawn_timer.wait_time = wave_data["rate"]
-	spawn_timer.start() # Restart timer to apply new speed immediately
-	
-	# 2. Build the Enemy Pool
-	active_enemy_pool.clear()
-	for type_name in wave_data["types"]:
-		match type_name:
-			"slime": active_enemy_pool.append(slime_scene)
-			"goblin": active_enemy_pool.append(goblin_scene)
-	
-	if wave_data.has("is_boss_wave"):
-		spawn_boss()
+		spawn_timer.wait_time = wave_data["rate"]
+		spawn_timer.start() # Restart timer to apply new speed immediately
+		
+		# 2. Build the Enemy Pool
+		active_enemy_pool.clear()
+		for type_name in wave_data["types"]:
+			match type_name:
+				"slime": active_enemy_pool.append(slime_scene)
+				"goblin": active_enemy_pool.append(goblin_scene)
+		
+		if wave_data.has("is_boss_wave"):
+			spawn_boss()
+	else: 
+		return
 	pass
-	
+		
 func spawn_boss() -> void:
 	# Spawn him farther away so he has time to walk in
 	var spawn_pos = global_position + Vector2(600, 0) 
@@ -101,7 +105,7 @@ func spawn_boss() -> void:
 	# GlobalAudioManager.play_music(boss_music)
 	pass
 func _on_timer_timeout() -> void:
-	if active_enemy_pool.size() == 0:
+	if active_enemy_pool.size() == 0 and !isEnabled:
 		return
 		
 	# 1. Pick random enemy from the CURRENT wave pool
