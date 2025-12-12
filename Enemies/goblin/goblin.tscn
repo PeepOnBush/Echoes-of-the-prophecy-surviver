@@ -519,6 +519,7 @@ position = Vector2(0, 10)
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_8sl34")
+hp = 0
 xp_reward = 0
 
 [node name="HitBox" parent="." instance=ExtResource("3_46hwl")]

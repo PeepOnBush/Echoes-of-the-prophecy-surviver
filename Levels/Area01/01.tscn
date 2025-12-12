@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
 
 [node name="01" type="Node2D"]
+position = Vector2(14, -9)
 script = ExtResource("1_747no")
 music = ExtResource("12_36ld3")
 

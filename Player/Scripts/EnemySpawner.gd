@@ -4,7 +4,9 @@ class_name EnemySpawner extends Area2D
 @export var spawn_radius: float = 400.0
 
 # Drag your specific enemy scenes here in the Inspector
-@export var isEnabled : bool = false 
+@export var isEnabled : bool = false
+
+@export_category("Spawn") 
 @export var slime_scene: PackedScene
 @export var goblin_scene: PackedScene
 @export var boss_scene: PackedScene
@@ -25,15 +27,15 @@ var waves : Array = [
 	{ "time": 0, "rate": 2.0, "types": ["slime"] },
 	
 	# 10 to 30 seconds: Add Goblins, faster spawn
-	{ "time": 10, "rate": 1.0, "types": ["slime", "slime", "goblin"] },
+	{ "time": 5, "rate": 1.0, "types": ["slime", "slime", "goblin"] },
 	
 	# 30 to 60 seconds: Goblin Horde
-	{ "time": 30, "rate": 0.5, "types": ["goblin"] },
+	{ "time": 10, "rate": 0.5, "types": ["goblin"] },
 	
 	# THE BOSS WAVE (e.g., at 60 seconds)
 	{ 
-		"time": 40, 
-		"rate": 999.0, # Stop spawning other enemies (or keep them slow)
+		"time": 15, 
+		"rate": 0.5, # Stop spawning other enemies (or keep them slow)
 		"types": ["boss"], # Special tag
 		"is_boss_wave": true
 	},
@@ -100,12 +102,15 @@ func spawn_boss() -> void:
 	var boss = boss_scene.instantiate()
 	get_tree().current_scene.add_child(boss)
 	boss.global_position = spawn_pos
-	
+	boss.tree_exited.connect(on_boss_defeated)
 	# Optional: Play a warning sound?
 	# GlobalAudioManager.play_music(boss_music)
 	pass
 func _on_timer_timeout() -> void:
-	if active_enemy_pool.size() == 0 and !isEnabled:
+	if isEnabled == false :
+		return
+	
+	if active_enemy_pool.size() == 0:
 		return
 		
 	# 1. Pick random enemy from the CURRENT wave pool
@@ -121,3 +126,18 @@ func _on_timer_timeout() -> void:
 	# 4. Add to Level
 	get_tree().current_scene.add_child(enemy_instance)
 	enemy_instance.global_position = global_position + spawn_vector
+
+func on_boss_defeated() -> void:
+	# Stop the spawner
+	onRoundFinish(false)
+	
+	# Optional: You can also trigger the Victory Screen here if you haven't yet
+	# PlayerHud.show_victory()
+
+
+func onRoundFinish(should_spawn: bool = false) -> void:
+	isEnabled = should_spawn
+	
+	if isEnabled == false:
+		spawn_timer.stop() # Make sure the timer actually stops ticking!
+	pass

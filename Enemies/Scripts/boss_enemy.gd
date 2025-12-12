@@ -1,5 +1,6 @@
 class_name BossEnemy extends Enemy # Inherits all your movement/damage logic
 
+
 @export var boss_name: String = "King Goblin"
 
 func _ready() -> void:
@@ -30,5 +31,7 @@ func _exit_tree() -> void:
 	# Restore Camera
 	var cam = get_viewport().get_camera_2d()
 	if cam:
-		var tween = create_tween()
+		var tween = cam.create_tween()
 		tween.tween_property(cam, "zoom", Vector2(1.0, 1.0), 1.0)
+		print("zoomed back in")
+	

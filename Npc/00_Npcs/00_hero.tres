@@ -5,6 +5,5 @@
 
 [resource]
 script = ExtResource("1_xudpl")
-npc_name = "Hero"
+npc_name = "Zephyr"
 portrait = ExtResource("1_pihmd")
-dialog_audio_pitch = 1.0

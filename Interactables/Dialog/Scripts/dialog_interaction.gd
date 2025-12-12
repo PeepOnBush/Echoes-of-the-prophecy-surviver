@@ -62,5 +62,6 @@ func onAreaExit(_a : Area2D) -> void:
 	pass
 
 func  _on_dialog_finished () -> void:
+	print("nothing to check")
 	DialogSystem.finished.disconnect(_on_dialog_finished)
 	finished.emit()

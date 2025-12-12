@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=27 format=4 uid="uid://dwrr28hbrgy8g"]
 
+[ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
 [ext_resource type="PackedScene" uid="uid://yhsygb7ab6mc" path="res://Props/Campfire/campfire.tscn" id="2_yfvmv"]
 [ext_resource type="PackedScene" uid="uid://3j1go2ri4mun" path="res://Props/Plants/tree_01.tscn" id="3_6o8vo"]
@@ -9,16 +10,125 @@
 [ext_resource type="PackedScene" uid="uid://bkfhtobsghugg" path="res://Props/Boulders/boulder_01.tscn" id="5_qykqg"]
 [ext_resource type="PackedScene" uid="uid://nrymqircra1i" path="res://Props/Boulders/boulder_02.tscn" id="6_bnes4"]
 [ext_resource type="PackedScene" uid="uid://b66lgbvmnr5e7" path="res://Props/Tent/tent_sylvana_right.tscn" id="6_vx0gi"]
-[ext_resource type="PackedScene" uid="uid://dd7j5gpjql1j6" path="res://Props/Tent/tent_right.tscn" id="6_whhgw"]
-[ext_resource type="PackedScene" uid="uid://dqlckl607amjw" path="res://Props/Tent/tent_left.tscn" id="7_6o7iy"]
 [ext_resource type="PackedScene" uid="uid://bhgak21xumlk1" path="res://Props/Boulders/boulder_03.tscn" id="7_sq0bv"]
 [ext_resource type="PackedScene" uid="uid://c6jknrhflvq2p" path="res://Props/Crate/crate_01.tscn" id="8_6o7iy"]
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
+[ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
+[ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="16_5asfd"]
+[ext_resource type="PackedScene" uid="uid://h3jgfy06igs1" path="res://Props/Tent/tent_zax_left.tscn" id="16_wxkw2"]
+[ext_resource type="PackedScene" uid="uid://pdb02vlsxpnk" path="res://Npc/npc.tscn" id="17_8ufsh"]
+[ext_resource type="Resource" uid="uid://dkqyortgvr7uo" path="res://Npc/00_Npcs/Sylvana.tres" id="18_g5msq"]
+[ext_resource type="Resource" uid="uid://8vyit1jwkvpk" path="res://Npc/00_Npcs/Illyana.tres" id="18_iwrgl"]
+[ext_resource type="PackedScene" uid="uid://b3iobd78lcjly" path="res://Interactables/Dialog/dialog_interaction.tscn" id="19_1vqai"]
+[ext_resource type="Resource" uid="uid://b1glp512ms4sk" path="res://Npc/00_Npcs/Zax.tres" id="19_iwrgl"]
+[ext_resource type="Script" uid="uid://dh6vtewwh8j5o" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="20_m31bb"]
+[ext_resource type="Resource" uid="uid://b3tprasevnjy" path="res://Npc/00_Npcs/00_hero.tres" id="21_m31bb"]
+[ext_resource type="Resource" uid="uid://bfeciwdsqvo4u" path="res://Npc/00_Npcs/Soran.tres" id="21_xq8lc"]
+[ext_resource type="PackedScene" uid="uid://bpa153288yir4" path="res://Props/Tent/tent_soran_right.tscn" id="25_dsofs"]
+[ext_resource type="PackedScene" uid="uid://cwi0bbkupk0nt" path="res://Props/Boulders/boulder_05.tscn" id="26_8dm5i"]
 
 [node name="Camp" type="Node2D"]
+script = ExtResource("1_cmse6")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_6o8vo")]
-position = Vector2(117, 356)
+position = Vector2(315, 208)
+
+[node name="Sylvana" parent="." instance=ExtResource("17_8ufsh")]
+position = Vector2(156, 432)
+npc_resource = ExtResource("18_g5msq")
+
+[node name="DialogInteraction" parent="Sylvana" instance=ExtResource("19_1vqai")]
+
+[node name="DialogText" type="Node" parent="Sylvana/DialogInteraction"]
+process_mode = 3
+script = ExtResource("20_m31bb")
+text = "Hi zephyr !"
+npc_info = ExtResource("18_g5msq")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText2" type="Node" parent="Sylvana/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Yo syl !"
+npc_info = ExtResource("21_m31bb")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText3" type="Node" parent="Sylvana/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Have a geat night"
+npc_info = ExtResource("18_g5msq")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="Zax" parent="." instance=ExtResource("17_8ufsh")]
+position = Vector2(318, 513)
+npc_resource = ExtResource("19_iwrgl")
+
+[node name="DialogInteraction" parent="Zax" instance=ExtResource("19_1vqai")]
+
+[node name="DialogText" type="Node" parent="Zax/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Yo zephyr !"
+npc_info = ExtResource("19_iwrgl")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText2" type="Node" parent="Zax/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Yooo dawg , you good ?"
+npc_info = ExtResource("21_m31bb")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText3" type="Node" parent="Zax/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Hell yeah twin, i'm aight "
+npc_info = ExtResource("19_iwrgl")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="Illyana" parent="." instance=ExtResource("17_8ufsh")]
+position = Vector2(146, 516)
+npc_resource = ExtResource("18_iwrgl")
+
+[node name="DialogInteraction" parent="Illyana" instance=ExtResource("19_1vqai")]
+
+[node name="DialogText" type="Node" parent="Illyana/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "oh!! Hi zephyr. ... how are you 0.0!"
+npc_info = ExtResource("18_iwrgl")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText2" type="Node" parent="Illyana/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Oh hi illy, i'm fine thanks."
+npc_info = ExtResource("21_m31bb")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText3" type="Node" parent="Illyana/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Oh, that's good to know!!, take care now"
+npc_info = ExtResource("18_iwrgl")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="Soran" parent="." instance=ExtResource("17_8ufsh")]
+position = Vector2(753, 457)
+npc_resource = ExtResource("21_xq8lc")
+
+[node name="DialogInteraction" parent="Soran" instance=ExtResource("19_1vqai")]
+
+[node name="DialogText" type="Node" parent="Soran/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Sup"
+npc_info = ExtResource("21_xq8lc")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText2" type="Node" parent="Soran/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "hey"
+npc_info = ExtResource("21_m31bb")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogText3" type="Node" parent="Soran/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "skedaddle buddy, i'm chilling rn"
+npc_info = ExtResource("21_xq8lc")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
 [node name="Campfire" parent="." instance=ExtResource("2_yfvmv")]
 position = Vector2(244, 474)
@@ -33,26 +143,38 @@ position = Vector2(-238, 501)
 [node name="Tree04" parent="." instance=ExtResource("3_6o8vo")]
 position = Vector2(-120, 479)
 
+[node name="Tree08" parent="." instance=ExtResource("3_6o8vo")]
+position = Vector2(807, 124)
+
 [node name="Tree02" parent="." instance=ExtResource("4_dplml")]
 position = Vector2(-140, 535)
+
+[node name="Tree09" parent="." instance=ExtResource("4_dplml")]
+position = Vector2(767, 189)
+
+[node name="Tree06" parent="." instance=ExtResource("4_dplml")]
+position = Vector2(-106, 86)
 
 [node name="Tree03" parent="." instance=ExtResource("5_0tivk")]
 position = Vector2(-224, 529)
 
+[node name="Tree05" parent="." instance=ExtResource("5_0tivk")]
+position = Vector2(-228, 58)
+
+[node name="Tree07" parent="." instance=ExtResource("5_0tivk")]
+position = Vector2(882, 179)
+
 [node name="TentSylvanaRight" parent="." instance=ExtResource("6_vx0gi")]
 position = Vector2(96, 406)
 
-[node name="TentRight2" parent="." instance=ExtResource("6_whhgw")]
-position = Vector2(80, 474)
+[node name="TentIllyanaRight" parent="." instance=ExtResource("15_wcx41")]
+position = Vector2(89, 476)
 
-[node name="TentRight3" parent="." instance=ExtResource("6_whhgw")]
-position = Vector2(695, 446)
+[node name="TentZephyrLeft" parent="." instance=ExtResource("16_5asfd")]
+position = Vector2(368, 410)
 
-[node name="TentLeft" parent="." instance=ExtResource("7_6o7iy")]
-position = Vector2(376, 409)
-
-[node name="TentLeft2" parent="." instance=ExtResource("7_6o7iy")]
-position = Vector2(382, 479)
+[node name="TentZaxLeft" parent="." instance=ExtResource("16_wxkw2")]
+position = Vector2(378, 482)
 
 [node name="Crate01" parent="." instance=ExtResource("8_6o7iy")]
 show_behind_parent = true
@@ -68,7 +190,7 @@ position = Vector2(-272, 520)
 
 [node name="Boulder02" parent="." instance=ExtResource("6_bnes4")]
 z_index = -1
-position = Vector2(-289, 488)
+position = Vector2(-180, 531)
 
 [node name="Boulder03" parent="." instance=ExtResource("7_sq0bv")]
 z_index = -1
@@ -92,3 +214,18 @@ tile_map_data = PackedByteArray("AAD2//v/AgAHAAEAAAD2//z/AgAHAAEAAAD2//3/AgAHAAE
 color = Color(0.24336612, 0.26239687, 0.25016284, 1)
 energy = 0.8
 blend_mode = 2
+
+[node name="TentSoranRight" parent="." instance=ExtResource("25_dsofs")]
+position = Vector2(695, 447)
+
+[node name="Boulder05" parent="." instance=ExtResource("26_8dm5i")]
+position = Vector2(-130, 645)
+
+[node name="Boulder06" parent="." instance=ExtResource("26_8dm5i")]
+position = Vector2(643, 599)
+
+[node name="Boulder07" parent="." instance=ExtResource("26_8dm5i")]
+position = Vector2(632, -104)
+
+[node name="Boulder08" parent="." instance=ExtResource("26_8dm5i")]
+position = Vector2(-331, -131)

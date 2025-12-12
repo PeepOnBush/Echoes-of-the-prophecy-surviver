@@ -83,7 +83,7 @@ tile_map_data = PackedByteArray("AAD6//r/AAADAAAAAAD6//v/AAACAAEAAAD6//z/AAACAAE
 position = Vector2(220, 38)
 
 [node name="Npc" parent="." instance=ExtResource("10_tm1w6")]
-position = Vector2(258, 197)
+position = Vector2(265, 194)
 npc_resource = ExtResource("11_vui78")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("12_joo1r")]

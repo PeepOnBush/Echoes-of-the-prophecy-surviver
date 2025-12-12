@@ -7,6 +7,7 @@ atlas = ExtResource("1_0o3uo")
 region = Rect2(360, 24, 152, 216)
 
 [node name="Tree03" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, -84)

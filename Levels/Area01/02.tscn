@@ -96,7 +96,7 @@ position = Vector2(79, 50)
 position = Vector2(116, 51)
 
 [node name="Npc" parent="." instance=ExtResource("7_hvt1o")]
-position = Vector2(298, 237)
+position = Vector2(293, 238)
 npc_resource = ExtResource("8_w0os1")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("8_seruy")]
@@ -121,6 +121,12 @@ npc_info = ExtResource("12_3o1n0")
 script = ExtResource("11_xlg0g")
 text = "SHHHHH no one will trust you"
 npc_info = ExtResource("8_w0os1")
+
+[node name="DialogText4" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("11_xlg0g")
+text = "SHetttt"
+npc_info = ExtResource("8_w0os1")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
 [node name="Npc2" parent="." instance=ExtResource("7_hvt1o")]
 position = Vector2(176.835, 136.361)

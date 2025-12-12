@@ -77,4 +77,3 @@ func _take_damage(hurt_box : HurtBox) -> void:
 		enemyDamaged.emit(hurt_box)
 	else :
 		enemyDestroyed.emit(hurt_box)
-	

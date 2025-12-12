@@ -1881,6 +1881,7 @@ color_ramp = SubResource("GradientTexture1D_71t1b")
 size = Vector2(14, 20)
 
 [node name="Player" type="CharacterBody2D"]
+top_level = true
 position = Vector2(0, -16)
 collision_mask = 24
 motion_mode = 1
@@ -2206,6 +2207,7 @@ texture = ExtResource("47_6rl0i")
 position = Vector2(20, 2)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("48_wvbyc")]
+isEnabled = true
 slime_scene = ExtResource("49_gvnt1")
 goblin_scene = ExtResource("50_1kmt7")
 boss_scene = ExtResource("52_c4i3b")
