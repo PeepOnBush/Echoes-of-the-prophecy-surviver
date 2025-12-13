@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .bg {
+        fill: url(#linear-gradient);
+      }
+      .mark {
+        fill: #fff;
+      }
+    </style>
+
+    <linearGradient id="linear-gradient"
+      x1="12" y1="6.1" x2="12" y2="24.5"
+      gradientTransform="translate(0 26) scale(1 -1)"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9007b"/>
+      <stop offset="1" stop-color="#ff9f00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <path class="bg"
+    d="M0,24V2.4C0,1.7.2,1.2.7.7S1.7,0,2.4,0h19.2
+       C22.3,0,22.8.2,23.3.7s.7,1,.7,1.7v14.4
+       c0,.7-.2,1.2-.7,1.7s-1,.7-1.7.7H4.8L0,24Z"/>
+
+  <!-- Exclamation mark -->
+  <rect class="mark" x="11" y="5" width="2" height="10" rx="1"/>
+  <circle class="mark" cx="12" cy="18" r="1.5"/>
+</svg>

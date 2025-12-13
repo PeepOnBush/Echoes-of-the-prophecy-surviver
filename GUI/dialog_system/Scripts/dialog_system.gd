@@ -108,6 +108,8 @@ func startDialog() -> void:
 		setDialogChoice(_d as DialogChoice)
 	elif _d is DialogCutscene:
 		startDialogCutscene(_d as DialogCutscene)
+	elif _d is DialogResult:
+		startDialogResult(_d as DialogResult)
 	pass
 
 func startDialogCutscene(_d : DialogCutscene) -> void:
@@ -121,7 +123,19 @@ func startDialogCutscene(_d : DialogCutscene) -> void:
 	dialog_ui.visible = true
 	advanceDialog()
 	pass
-
+func startDialogResult(_d : DialogResult) -> void:
+	# 1. Hide the UI temporarily if you want (Optional)
+	# dialog_ui.visible = false 
+	
+	# 2. Execute the logic and wait for it to finish
+	await _d.execute()
+	
+	# 3. Show UI again if hidden
+	# dialog_ui.visible = true
+	
+	# 4. Move to the next item
+	advanceDialog()
+	pass
 func advanceDialog() -> void:
 	dialog_item_index +=1
 	if dialog_item_index < dialog_items.size():

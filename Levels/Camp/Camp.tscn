@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=32 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://nrymqircra1i" path="res://Props/Boulders/boulder_02.tscn" id="6_bnes4"]
 [ext_resource type="PackedScene" uid="uid://b66lgbvmnr5e7" path="res://Props/Tent/tent_sylvana_right.tscn" id="6_vx0gi"]
 [ext_resource type="PackedScene" uid="uid://bhgak21xumlk1" path="res://Props/Boulders/boulder_03.tscn" id="7_sq0bv"]
+[ext_resource type="Script" uid="uid://dxb54vu6b0t5" path="res://Interactables/Dialog/Scripts/dialog_result.gd" id="8_2cp7b"]
 [ext_resource type="PackedScene" uid="uid://c6jknrhflvq2p" path="res://Props/Crate/crate_01.tscn" id="8_6o7iy"]
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
 [ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
@@ -26,6 +27,10 @@
 [ext_resource type="Resource" uid="uid://bfeciwdsqvo4u" path="res://Npc/00_Npcs/Soran.tres" id="21_xq8lc"]
 [ext_resource type="PackedScene" uid="uid://bpa153288yir4" path="res://Props/Tent/tent_soran_right.tscn" id="25_dsofs"]
 [ext_resource type="PackedScene" uid="uid://cwi0bbkupk0nt" path="res://Props/Boulders/boulder_05.tscn" id="26_8dm5i"]
+[ext_resource type="PackedScene" uid="uid://cq2ttc25ota37" path="res://Props/Plants/lilly_pad_01.tscn" id="27_cmse6"]
+[ext_resource type="PackedScene" uid="uid://yrsqvsgw5mb6" path="res://Props/Plants/lilly_pad_03.tscn" id="28_m7mq7"]
+[ext_resource type="PackedScene" uid="uid://d0vqamduomx1k" path="res://Props/Plants/lilly_pad_02.tscn" id="29_pfu2o"]
+[ext_resource type="PackedScene" uid="uid://b6ryrbmtlmx25" path="res://Interactables/dungeon/barred_door.tscn" id="31_352wt"]
 
 [node name="Camp" type="Node2D"]
 script = ExtResource("1_cmse6")
@@ -57,6 +62,10 @@ script = ExtResource("20_m31bb")
 text = "Have a geat night"
 npc_info = ExtResource("18_g5msq")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogResult" type="Node" parent="Sylvana/DialogInteraction"]
+script = ExtResource("8_2cp7b")
+metadata/_custom_type_script = "uid://dxb54vu6b0t5"
 
 [node name="Zax" parent="." instance=ExtResource("17_8ufsh")]
 position = Vector2(318, 513)
@@ -229,3 +238,33 @@ position = Vector2(632, -104)
 
 [node name="Boulder08" parent="." instance=ExtResource("26_8dm5i")]
 position = Vector2(-331, -131)
+
+[node name="LillyPad01" parent="." instance=ExtResource("27_cmse6")]
+position = Vector2(805, 628)
+
+[node name="LillyPad04" parent="." instance=ExtResource("27_cmse6")]
+position = Vector2(127.00001, 600)
+
+[node name="LillyPad05" parent="." instance=ExtResource("27_cmse6")]
+position = Vector2(348, 665)
+
+[node name="LillyPad03" parent="." instance=ExtResource("28_m7mq7")]
+position = Vector2(769.00006, 607)
+
+[node name="LillyPad07" parent="." instance=ExtResource("28_m7mq7")]
+position = Vector2(194, 644)
+
+[node name="LillyPad08" parent="." instance=ExtResource("28_m7mq7")]
+position = Vector2(223.00002, 627)
+
+[node name="LillyPad09" parent="." instance=ExtResource("28_m7mq7")]
+position = Vector2(190.00002, 597)
+
+[node name="LillyPad02" parent="." instance=ExtResource("29_pfu2o")]
+position = Vector2(819, 595)
+
+[node name="LillyPad06" parent="." instance=ExtResource("29_pfu2o")]
+position = Vector2(392, 594)
+
+[node name="BarredDoor" parent="." instance=ExtResource("31_352wt")]
+position = Vector2(205, 400)
