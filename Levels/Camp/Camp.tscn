@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=33 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://nrymqircra1i" path="res://Props/Boulders/boulder_02.tscn" id="6_bnes4"]
 [ext_resource type="PackedScene" uid="uid://b66lgbvmnr5e7" path="res://Props/Tent/tent_sylvana_right.tscn" id="6_vx0gi"]
 [ext_resource type="PackedScene" uid="uid://bhgak21xumlk1" path="res://Props/Boulders/boulder_03.tscn" id="7_sq0bv"]
-[ext_resource type="Script" uid="uid://dxb54vu6b0t5" path="res://Interactables/Dialog/Scripts/dialog_result.gd" id="8_2cp7b"]
 [ext_resource type="PackedScene" uid="uid://c6jknrhflvq2p" path="res://Props/Crate/crate_01.tscn" id="8_6o7iy"]
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
+[ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="9_352wt"]
 [ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
 [ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="16_5asfd"]
 [ext_resource type="PackedScene" uid="uid://h3jgfy06igs1" path="res://Props/Tent/tent_zax_left.tscn" id="16_wxkw2"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://yrsqvsgw5mb6" path="res://Props/Plants/lilly_pad_03.tscn" id="28_m7mq7"]
 [ext_resource type="PackedScene" uid="uid://d0vqamduomx1k" path="res://Props/Plants/lilly_pad_02.tscn" id="29_pfu2o"]
 [ext_resource type="PackedScene" uid="uid://b6ryrbmtlmx25" path="res://Interactables/dungeon/barred_door.tscn" id="31_352wt"]
+[ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="33_7vfp2"]
 
 [node name="Camp" type="Node2D"]
 script = ExtResource("1_cmse6")
@@ -63,9 +64,11 @@ text = "Have a geat night"
 npc_info = ExtResource("18_g5msq")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
-[node name="DialogResult" type="Node" parent="Sylvana/DialogInteraction"]
-script = ExtResource("8_2cp7b")
-metadata/_custom_type_script = "uid://dxb54vu6b0t5"
+[node name="Do_ HEAL_PLAYER" type="Node" parent="Sylvana/DialogInteraction"]
+script = ExtResource("9_352wt")
+action_type = 1
+int_amount = 5
+metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
 [node name="Zax" parent="." instance=ExtResource("17_8ufsh")]
 position = Vector2(318, 513)
@@ -268,3 +271,6 @@ position = Vector2(392, 594)
 
 [node name="BarredDoor" parent="." instance=ExtResource("31_352wt")]
 position = Vector2(205, 400)
+
+[node name="goblin" parent="." instance=ExtResource("33_7vfp2")]
+position = Vector2(262, 61)
