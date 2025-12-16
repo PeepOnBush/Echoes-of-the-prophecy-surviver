@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=34 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bhgak21xumlk1" path="res://Props/Boulders/boulder_03.tscn" id="7_sq0bv"]
 [ext_resource type="PackedScene" uid="uid://c6jknrhflvq2p" path="res://Props/Crate/crate_01.tscn" id="8_6o7iy"]
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="9_7vfp2"]
 [ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="9_352wt"]
 [ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
 [ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="16_5asfd"]
@@ -68,6 +69,7 @@ metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 script = ExtResource("9_352wt")
 action_type = 1
 int_amount = 5
+audio_clip = ExtResource("9_7vfp2")
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
 [node name="Zax" parent="." instance=ExtResource("17_8ufsh")]

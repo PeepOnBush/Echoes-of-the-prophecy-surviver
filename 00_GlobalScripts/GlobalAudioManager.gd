@@ -6,7 +6,7 @@ var currentMusicPlayer : int = 0
 var musicPlayer : Array[AudioStreamPlayer] = []
 var musicBus : String = "Music"
 var musicFadeDuration : float = 2.5
-
+var sfxBus : String = "SFX"
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for i  in music_audio_player_count:
@@ -32,6 +32,25 @@ func playMusic( _audio : AudioStream) -> void:
 		oldAudioPlayer = musicPlayer[0]
 	fadeOutAndStop(oldAudioPlayer)
 	pass
+func play_sfx(_audio : AudioStream, _pitch_scale : float = 1.0) -> void:
+	if _audio == null:
+		return
+	
+	# 1. Create a temporary player
+	var new_player = AudioStreamPlayer.new()
+	add_child(new_player)
+	
+	# 2. Configure it
+	new_player.stream = _audio
+	new_player.bus = sfxBus
+	new_player.pitch_scale = _pitch_scale
+	
+	# 3. Play
+	new_player.play()
+	
+	# 4. Cleanup (Wait for finish, then delete self)
+	await new_player.finished
+	new_player.queue_free()
 
 func playAndFadeIn( audioPlayer : AudioStreamPlayer) -> void:
 	audioPlayer.play(0)

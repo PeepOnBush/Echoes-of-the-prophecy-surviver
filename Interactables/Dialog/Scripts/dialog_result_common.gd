@@ -31,15 +31,18 @@ func _on_execute() -> void:
 	match action_type:
 		ActionType.GIVE_XP:
 			PlayerManager.rewardXP(int_amount)
+			AudioManager.play_sfx(audio_clip)
 			print("Gave XP: ", int_amount)
 			
 		ActionType.HEAL_PLAYER:
+			AudioManager.play_sfx(audio_clip)
 			PlayerManager.player.update_hp(int_amount)
 			print("Healed: ", int_amount)
 			
 		ActionType.GIVE_ITEM:
 			if item_data:
 				PlayerManager.INVENTORY_DATA.add_item(item_data, int_amount)
+				AudioManager.play_sfx(audio_clip)
 				# Trigger a notification UI here if you want
 				
 		ActionType.PLAY_SOUND:
@@ -48,6 +51,7 @@ func _on_execute() -> void:
 				
 		ActionType.MODIFY_QUEST:
 			# Example: Update a quest step
+			AudioManager.play_sfx(audio_clip)
 			QuestManager.updateQuest(string_data, "step_complete", true)
 			
 		ActionType.REMOVE_PARENT_NPC:
