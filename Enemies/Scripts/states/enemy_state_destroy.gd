@@ -48,7 +48,12 @@ func _on_enemy_destroyed(hurt_box : HurtBox) -> void:
 	state_machine.changeState(self)
 	
 func _on_animation_finished( _a : String ) -> void:
-	enemy.queue_free()
+	# Check if the specific enemy (like a Boss) has custom death logic
+	if enemy.has_method("on_death_complete"):
+		enemy.on_death_complete()
+	else:
+		# Normal behavior for Slimes/Goblins
+		enemy.queue_free()
 
 
 

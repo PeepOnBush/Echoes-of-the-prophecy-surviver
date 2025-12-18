@@ -2207,6 +2207,7 @@ texture = ExtResource("47_6rl0i")
 position = Vector2(20, 2)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("48_wvbyc")]
+isEnabled = true
 slime_scene = ExtResource("49_gvnt1")
 goblin_scene = ExtResource("50_1kmt7")
 boss_scene = ExtResource("52_c4i3b")

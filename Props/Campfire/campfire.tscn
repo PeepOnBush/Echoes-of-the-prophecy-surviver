@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://yhsygb7ab6mc"]
+[gd_scene load_steps=23 format=3 uid="uid://yhsygb7ab6mc"]
 
 [ext_resource type="Script" uid="uid://layujlu0kllq" path="res://Props/Campfire/campfire.gd" id="1_6rpxk"]
 [ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_ar5sa"]
 [ext_resource type="Texture2D" uid="uid://duvxu71ng0n6h" path="res://Props/Sprites/Group 4 - 1.png" id="2_wcoab"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_cpudx"]
+[ext_resource type="Texture2D" uid="uid://dk3kkxqe8gcek" path="res://Props/Sprites/Smoke Dark - 1.png" id="4_es54i"]
 [ext_resource type="Script" uid="uid://bbn1dpi7tekrr" path="res://Props/Torches/torch_light_flicker.gd" id="5_o8t7y"]
 [ext_resource type="AudioStream" uid="uid://db7y3kjbd40fq" path="res://Props/Campfire/campfire-crackling-fireplace-sound-119594.wav" id="6_j6gk6"]
 
@@ -75,6 +76,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_es54i"]
+resource_name = "smoking"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9666667),
+"transitions": PackedFloat32Array(0.9659363, 0.5358867),
+"update": 0,
+"values": [0, 7]
+}
+
+[sub_resource type="Animation" id="Animation_7v1lg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5mic"]
+_data = {
+&"RESET": SubResource("Animation_7v1lg"),
+&"smoking": SubResource("Animation_es54i")
+}
+
 [sub_resource type="Gradient" id="Gradient_a1nks"]
 offsets = PackedFloat32Array(0.10355, 0.266272, 0.597633, 0.905325, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.87451, 0, 1, 1, 0.419608, 0, 1, 0.184314, 0.027451, 0, 1, 0, 0, 0, 1)
@@ -91,15 +130,20 @@ fill_to = Vector2(1, 0.5)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_6rpxk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SmokeSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -66.666664)
+texture = ExtResource("4_es54i")
+hframes = 8
+
+[node name="FireSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_wcoab")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -35)
+[node name="FireAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.6666666, -35.000004)
 scale = Vector2(1.255, 1.255)
 sprite_frames = SubResource("SpriteFrames_s42be")
 animation = &"burning"
-frame_progress = 0.7500878
+frame_progress = 0.07473263
 speed_scale = 4.0
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
@@ -109,6 +153,11 @@ position = Vector2(-2, 2)
 scale = Vector2(2.22, 2.22)
 texture = ExtResource("3_cpudx")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f5mic")
+}
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -5)
 energy = 0.5
@@ -117,4 +166,5 @@ texture_scale = 0.85
 script = ExtResource("5_o8t7y")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("6_j6gk6")
