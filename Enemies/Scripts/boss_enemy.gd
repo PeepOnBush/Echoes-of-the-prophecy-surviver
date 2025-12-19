@@ -45,7 +45,9 @@ func on_death_complete() -> void:
 		# Configure the Portal
 		portal.level = return_to_camp_scene
 		portal.target_transition_area = "LevelTransition" # Or wherever you want to land in Camp
-		
+		portal.center_player = true
+		if "is_dynamic_spawn" in portal:
+			portal.is_dynamic_spawn = true
 		# Add to Scene Root (So it doesn't get deleted with the boss)
 		get_tree().current_scene.call_deferred("add_child", portal)
 		portal.global_position = global_position

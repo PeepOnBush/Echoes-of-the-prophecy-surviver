@@ -456,8 +456,8 @@ color_ramp = SubResource("Gradient_dedri")
 environment = SubResource("Environment_dedri")
 
 [node name="LevelTransition" parent="." instance=ExtResource("39_ohoch")]
-position = Vector2(287, -160)
+position = Vector2(288, -160)
+collision_mask = 0
 level = "uid://pm8hmceeo3q5"
-center_player = true
-size = 12
+size = 1
 side = 2

@@ -5,6 +5,9 @@ signal scene_entered
 
 enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
+var is_dynamic_spawn : bool = false
+
+
 @export_file( "*.tscn" ) var level 
 
 @export var target_transition_area : String = "LevelTransition"
@@ -38,9 +41,13 @@ func _ready() -> void:
 	monitoring = false
 	_place_player()
 	
-	await LevelManager.level_loaded
+	if is_dynamic_spawn == false:
+		await LevelManager.level_loaded
 	monitoring = true
-	body_entered.connect(_player_entered)
+	
+	if self.has_signal("body_entered"): 
+		if not body_entered.is_connected(_player_entered):
+			body_entered.connect(_player_entered)
 	
 	pass # Replace with function body.
 
