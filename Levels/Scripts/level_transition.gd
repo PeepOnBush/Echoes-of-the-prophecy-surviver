@@ -19,7 +19,9 @@ var is_dynamic_spawn : bool = false
 @export_range(1,12,1, "or_greater") var size : int = 2:
 	set( _v ) :
 		size = _v
-		_update_area()
+		# Only update if inside tree or if we can find the node immediately
+		if is_inside_tree() or get_node_or_null("CollisionShape2D"):
+			_update_area()
 
 @export var side : SIDE = SIDE.LEFT :
 	set( _v ) :
@@ -88,6 +90,12 @@ func get_offset() -> Vector2:
 
 
 func _update_area() -> void:
+	# Ensure we have the reference
+	if collision_shape == null:
+		collision_shape = get_node_or_null("CollisionShape2D")
+	
+	if collision_shape == null:
+		return # Safety exit if called too early
 	var new_rect : Vector2 = Vector2(32,32)
 	var new_position : Vector2 = Vector2.ZERO
 	if side == SIDE.TOP:

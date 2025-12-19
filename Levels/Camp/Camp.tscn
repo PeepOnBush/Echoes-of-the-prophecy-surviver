@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=43 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -38,7 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://ch650taccfa1v" path="res://Props/Plants/log_01.tscn" id="36_vmu3g"]
 [ext_resource type="PackedScene" uid="uid://ci70ko4sko51r" path="res://Props/Signs/sign_01.tscn" id="37_8ahue"]
 [ext_resource type="PackedScene" uid="uid://8jch38smaquw" path="res://Props/Bridges/bridge_01.tscn" id="38_dedri"]
-[ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="39_ohoch"]
+[ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="39_ohoch"]
+[ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="40_qay8i"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -368,7 +369,15 @@ position = Vector2(814, 395)
 position = Vector2(247, 421)
 
 [node name="Sign01" parent="Props" instance=ExtResource("37_8ahue")]
-position = Vector2(82, -157)
+position = Vector2(82, -123)
+
+[node name="DialogInteraction" parent="Props/Sign01" instance=ExtResource("19_1vqai")]
+
+[node name="DialogText" type="Node" parent="Props/Sign01/DialogInteraction"]
+script = ExtResource("20_m31bb")
+text = "Camp site"
+npc_info = ExtResource("21_m31bb")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
 [node name="Sign02" parent="Props" instance=ExtResource("37_8ahue")]
 position = Vector2(-461, 187)
@@ -452,12 +461,18 @@ scale_amount_max = 4.9
 color = Color(2.3298683, 2.0284631, 0, 1)
 color_ramp = SubResource("Gradient_dedri")
 
+[node name="LevelTransition_interact" parent="." instance=ExtResource("39_ohoch")]
+position = Vector2(288, -95)
+level = "uid://pm8hmceeo3q5"
+center_player = true
+side = 2
+
+[node name="LevelTransition" parent="." instance=ExtResource("40_qay8i")]
+position = Vector2(288, -95)
+collision_mask = 0
+center_player = true
+size = 3
+side = 2
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dedri")
-
-[node name="LevelTransition" parent="." instance=ExtResource("39_ohoch")]
-position = Vector2(288, -160)
-collision_mask = 0
-level = "uid://pm8hmceeo3q5"
-size = 1
-side = 2

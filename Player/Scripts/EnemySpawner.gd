@@ -46,23 +46,31 @@ var waves : Array = [
 ]
 
 func _ready() -> void:
-	# Make sure the timer loops
+	# 1. AUTO-START: Always enable spawning when the level loads fresh
+	isEnabled = true
+	# 2. RESET TIMER
+	time_elapsed = 0.0
+	current_wave_index = -1
+	# 3. RESET HUD: Snap the UI back to 00:00 immediately
+	PlayerHud.update_timer(0.0) 
+	# 4. DIFFICULTY SCALING
+	# Example: Run 1 = 100% speed. Run 2 = 110% speed.
+	var difficulty_mult = 1.0 + ((LevelManager.current_run_difficulty - 1) * 0.1)
+	apply_difficulty_to_waves(difficulty_mult)
+	
+	# 3. Setup Timer
 	spawn_timer.one_shot = false
 	spawn_timer.timeout.connect(_on_timer_timeout)
-	
-	# Force start the first wave
+	spawn_timer.start()
 	check_wave_update()
-
 
 func _process(delta: float) -> void:
-	time_elapsed += delta
-	check_wave_update()
-	
-	# Optional: Print time to console for debugging
-	# print(int(time_elapsed))
-	# Update the UI
-	PlayerHud.update_timer(time_elapsed)
-	pass
+	# FIX: Only tick time if the spawner is active!
+	# This ensures that when you kill the boss (isEnabled=false), the clock STOPS.
+	if isEnabled:
+		time_elapsed += delta
+		check_wave_update()
+		PlayerHud.update_timer(time_elapsed)
 func check_wave_update() -> void:
 	var next_index = current_wave_index + 1
 	
@@ -96,36 +104,44 @@ func start_wave(wave_data: Dictionary) -> void:
 	pass
 		
 func spawn_boss() -> void:
-	# Spawn him farther away so he has time to walk in
-	var spawn_pos = global_position + Vector2(600, 0) 
+	# Use Player position as reference
+	var center_pos = Vector2.ZERO
+	if PlayerManager.player:
+		center_pos = PlayerManager.player.global_position
+		
+	var spawn_pos = center_pos + Vector2(600, 0) 
 	
 	var boss = boss_scene.instantiate()
 	get_tree().current_scene.add_child(boss)
 	boss.global_position = spawn_pos
+	
+	# Connect signal
 	boss.tree_exited.connect(on_boss_defeated)
-	# Optional: Play a warning sound?
-	# GlobalAudioManager.play_music(boss_music)
 	pass
 func _on_timer_timeout() -> void:
-	if isEnabled == false :
-		return
-	
-	if active_enemy_pool.size() == 0:
+	if isEnabled == false or active_enemy_pool.size() == 0:
 		return
 		
-	# 1. Pick random enemy from the CURRENT wave pool
 	var random_enemy_scene = active_enemy_pool.pick_random()
+	if random_enemy_scene == null: return
+
 	var enemy_instance = random_enemy_scene.instantiate()
 	
-	# 2. Math: Pick random angle (0 to 360)
+	# --- POSITIONING FIX ---
 	var random_angle = randf() * TAU 
-	
-	# 3. Create vector: Go 'spawn_radius' distance in that direction
 	var spawn_vector = Vector2(spawn_radius, 0).rotated(random_angle)
 	
-	# 4. Add to Level
+	# OLD CODE:
+	# enemy_instance.global_position = global_position + spawn_vector
+	
+	# NEW CODE: Find the player explicitly!
+	if PlayerManager.player:
+		enemy_instance.global_position = PlayerManager.player.global_position + spawn_vector
+	else:
+		# Fallback if player is dead/missing
+		enemy_instance.global_position = global_position + spawn_vector
+	
 	get_tree().current_scene.add_child(enemy_instance)
-	enemy_instance.global_position = global_position + spawn_vector
 
 func on_boss_defeated() -> void:
 	# Stop the spawner
@@ -141,3 +157,13 @@ func onRoundFinish(should_spawn: bool = false) -> void:
 	if isEnabled == false:
 		spawn_timer.stop() # Make sure the timer actually stops ticking!
 	pass
+
+# --- NEW HELPER FOR DIFFICULTY ---
+func apply_difficulty_to_waves(multiplier: float) -> void:
+	# We iterate through the dictionary and speed up spawn rates
+	# Note: We duplicate so we don't permanently change the defaults in the Resource
+	var scaled_waves = waves.duplicate(true)
+	for w in scaled_waves:
+		if w.has("rate"):
+			w["rate"] = w["rate"] / multiplier # Higher multiplier = Lower wait time
+	waves = scaled_waves

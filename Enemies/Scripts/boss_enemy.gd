@@ -49,9 +49,11 @@ func on_death_complete() -> void:
 		if "is_dynamic_spawn" in portal:
 			portal.is_dynamic_spawn = true
 		# Add to Scene Root (So it doesn't get deleted with the boss)
+		LevelManager.increment_difficulty()
 		get_tree().current_scene.call_deferred("add_child", portal)
 		portal.global_position = global_position
-	
+		# 2. INCREASE DIFFICULTY FOR NEXT TIME
+		# Because we won, the next time we enter the arena, it should be harder.
 	# 2. NOW delete the boss
 	# This triggers 'tree_exited', which tells the Spawner to stop via the signal we set up earlier.
 	queue_free()

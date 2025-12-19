@@ -9,6 +9,7 @@ signal  TileMapsBoundChanged( bounds : Array[Vector2])
 var Current_TileMaps_Bounds : Array[Vector2]
 var target_transition : String
 var position_offset : Vector2
+var current_run_difficulty: int = 1
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -47,3 +48,7 @@ func load_new_level(
 	level_loaded.emit()
 	
 	pass
+
+func increment_difficulty() -> void:
+	current_run_difficulty += 1
+	print("New Run! Difficulty Level: ", current_run_difficulty)
