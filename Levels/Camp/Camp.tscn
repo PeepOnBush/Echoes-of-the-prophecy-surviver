@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=46 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -39,7 +39,10 @@
 [ext_resource type="PackedScene" uid="uid://ci70ko4sko51r" path="res://Props/Signs/sign_01.tscn" id="37_8ahue"]
 [ext_resource type="PackedScene" uid="uid://8jch38smaquw" path="res://Props/Bridges/bridge_01.tscn" id="38_dedri"]
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="39_ohoch"]
+[ext_resource type="PackedScene" uid="uid://ccl8gsyr204o7" path="res://Props/sign_02.tscn" id="39_shx74"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="40_qay8i"]
+[ext_resource type="PackedScene" uid="uid://cesqg1j7vncmp" path="res://Props/Plants/bushes_04.tscn" id="40_sdoba"]
+[ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/tree_04.tscn" id="41_0vr2m"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -60,7 +63,7 @@ script = ExtResource("1_cmse6")
 position = Vector2(315, 208)
 
 [node name="Sylvana" parent="." instance=ExtResource("17_8ufsh")]
-position = Vector2(156, 432)
+position = Vector2(233, 221)
 npc_resource = ExtResource("18_g5msq")
 
 [node name="DialogInteraction" parent="Sylvana" instance=ExtResource("19_1vqai")]
@@ -92,7 +95,7 @@ audio_clip = ExtResource("9_7vfp2")
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
 [node name="Zax" parent="." instance=ExtResource("17_8ufsh")]
-position = Vector2(318, 513)
+position = Vector2(395, 302)
 npc_resource = ExtResource("19_iwrgl")
 
 [node name="DialogInteraction" parent="Zax" instance=ExtResource("19_1vqai")]
@@ -116,7 +119,7 @@ npc_info = ExtResource("19_iwrgl")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
 [node name="Illyana" parent="." instance=ExtResource("17_8ufsh")]
-position = Vector2(146, 516)
+position = Vector2(223, 305)
 npc_resource = ExtResource("18_iwrgl")
 
 [node name="DialogInteraction" parent="Illyana" instance=ExtResource("19_1vqai")]
@@ -164,7 +167,8 @@ npc_info = ExtResource("21_xq8lc")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
 [node name="Campfire" parent="." instance=ExtResource("2_yfvmv")]
-position = Vector2(244, 474)
+top_level = true
+position = Vector2(321, 263)
 
 [node name="Campfire2" parent="." instance=ExtResource("2_yfvmv")]
 position = Vector2(814, 495)
@@ -190,55 +194,25 @@ position = Vector2(262, 61)
 
 [node name="Props" type="Node2D" parent="."]
 
-[node name="Tree11" parent="Props" instance=ExtResource("4_dplml")]
-position = Vector2(816, 331)
-
-[node name="Tree12" parent="Props" instance=ExtResource("3_6o8vo")]
-position = Vector2(887, 402)
-
-[node name="Tree08" parent="Props" instance=ExtResource("3_6o8vo")]
-position = Vector2(807, 124)
-
-[node name="Tree02" parent="Props" instance=ExtResource("4_dplml")]
-position = Vector2(-140, 535)
-
-[node name="Tree09" parent="Props" instance=ExtResource("4_dplml")]
-position = Vector2(767, 189)
-
-[node name="Tree06" parent="Props" instance=ExtResource("4_dplml")]
-position = Vector2(-106, 86)
-
-[node name="Tree03" parent="Props" instance=ExtResource("5_0tivk")]
-position = Vector2(-224, 529)
-
-[node name="Tree05" parent="Props" instance=ExtResource("5_0tivk")]
-position = Vector2(-228, 58)
-
-[node name="Tree07" parent="Props" instance=ExtResource("5_0tivk")]
-position = Vector2(882, 179)
-
-[node name="Tree10" parent="Props" instance=ExtResource("5_0tivk")]
-position = Vector2(882, 179)
-
 [node name="TentSylvanaRight" parent="Props" instance=ExtResource("6_vx0gi")]
-position = Vector2(96, 406)
+position = Vector2(173, 195)
 
 [node name="TentIllyanaRight" parent="Props" instance=ExtResource("15_wcx41")]
-position = Vector2(89, 476)
+position = Vector2(166, 265)
 
 [node name="TentZephyrLeft" parent="Props" instance=ExtResource("16_5asfd")]
-position = Vector2(368, 410)
+position = Vector2(445, 199)
 
 [node name="TentZaxLeft" parent="Props" instance=ExtResource("16_wxkw2")]
-position = Vector2(378, 482)
+position = Vector2(455, 271)
 
 [node name="Crate01" parent="Props" instance=ExtResource("8_6o7iy")]
 show_behind_parent = true
-position = Vector2(375, 392)
+position = Vector2(452, 181)
 
 [node name="Crate02" parent="Props" instance=ExtResource("8_6o7iy")]
 show_behind_parent = true
-position = Vector2(345, 392)
+position = Vector2(422, 181)
 
 [node name="Boulder01" parent="Props" instance=ExtResource("5_qykqg")]
 z_index = -1
@@ -333,10 +307,10 @@ show_behind_parent = true
 position = Vector2(-71, 418)
 
 [node name="Bushes04" parent="Props" instance=ExtResource("34_2ts1t")]
-position = Vector2(53, 503)
+position = Vector2(130, 292)
 
 [node name="Bushes05" parent="Props" instance=ExtResource("34_2ts1t")]
-position = Vector2(405, 432)
+position = Vector2(482, 221)
 
 [node name="Bushes06" parent="Props" instance=ExtResource("34_2ts1t")]
 position = Vector2(810, 343)
@@ -366,7 +340,8 @@ position = Vector2(-16, 436)
 position = Vector2(814, 395)
 
 [node name="Log01" parent="Props" instance=ExtResource("36_vmu3g")]
-position = Vector2(247, 421)
+show_behind_parent = true
+position = Vector2(324, 210)
 
 [node name="Sign01" parent="Props" instance=ExtResource("37_8ahue")]
 position = Vector2(82, -123)
@@ -392,6 +367,47 @@ metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
 [node name="Bridge01" parent="Props" instance=ExtResource("38_dedri")]
 position = Vector2(-364, 228)
+
+[node name="Sign03" parent="Props" instance=ExtResource("39_shx74")]
+position = Vector2(-271, 167)
+
+[node name="Bushes14" parent="Props" instance=ExtResource("40_sdoba")]
+position = Vector2(-205, 87)
+
+[node name="Tree" type="Node2D" parent="Props"]
+
+[node name="Tree11" parent="Props/Tree" instance=ExtResource("4_dplml")]
+position = Vector2(816, 331)
+
+[node name="Tree12" parent="Props/Tree" instance=ExtResource("3_6o8vo")]
+position = Vector2(887, 402)
+
+[node name="Tree08" parent="Props/Tree" instance=ExtResource("3_6o8vo")]
+position = Vector2(807, 124)
+
+[node name="Tree02" parent="Props/Tree" instance=ExtResource("4_dplml")]
+position = Vector2(-140, 535)
+
+[node name="Tree09" parent="Props/Tree" instance=ExtResource("4_dplml")]
+position = Vector2(767, 189)
+
+[node name="Tree06" parent="Props/Tree" instance=ExtResource("4_dplml")]
+position = Vector2(-106, 86)
+
+[node name="Tree03" parent="Props/Tree" instance=ExtResource("5_0tivk")]
+position = Vector2(-224, 529)
+
+[node name="Tree05" parent="Props/Tree" instance=ExtResource("5_0tivk")]
+position = Vector2(-228, 58)
+
+[node name="Tree07" parent="Props/Tree" instance=ExtResource("5_0tivk")]
+position = Vector2(882, 179)
+
+[node name="Tree10" parent="Props/Tree" instance=ExtResource("5_0tivk")]
+position = Vector2(882, 179)
+
+[node name="Tree04" parent="Props/Tree" instance=ExtResource("41_0vr2m")]
+position = Vector2(-470, -75)
 
 [node name="Fireflies" type="CPUParticles2D" parent="."]
 position = Vector2(306, 678)
