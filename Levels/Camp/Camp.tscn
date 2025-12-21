@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=45 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://yrsqvsgw5mb6" path="res://Props/Plants/lilly_pad_03.tscn" id="28_m7mq7"]
 [ext_resource type="PackedScene" uid="uid://d0vqamduomx1k" path="res://Props/Plants/lilly_pad_02.tscn" id="29_pfu2o"]
 [ext_resource type="PackedScene" uid="uid://lko0bl6ujnky" path="res://Props/Plants/bushes_01.tscn" id="33_2ts1t"]
-[ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="33_7vfp2"]
 [ext_resource type="PackedScene" uid="uid://dk05uks27rjfv" path="res://Props/Plants/bushes_02.tscn" id="34_2ts1t"]
 [ext_resource type="PackedScene" uid="uid://b16s4x7sue8y1" path="res://Props/Plants/bushes_03.tscn" id="35_bixrs"]
 [ext_resource type="PackedScene" uid="uid://ch650taccfa1v" path="res://Props/Plants/log_01.tscn" id="36_vmu3g"]
@@ -188,9 +187,6 @@ tile_map_data = PackedByteArray("AAD2//v/AgAHAAEAAAD2//z/AgAHAAEAAAD2//3/AgAHAAE
 color = Color(0.117440104, 0.12662369, 0.122031905, 1)
 energy = 0.8
 blend_mode = 2
-
-[node name="goblin" parent="." instance=ExtResource("33_7vfp2")]
-position = Vector2(262, 61)
 
 [node name="Props" type="Node2D" parent="."]
 
