@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://ci70ko4sko51r" path="res://Props/Signs/sign_01.tscn" id="37_8ahue"]
 [ext_resource type="PackedScene" uid="uid://8jch38smaquw" path="res://Props/Bridges/bridge_01.tscn" id="38_dedri"]
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="39_ohoch"]
-[ext_resource type="PackedScene" uid="uid://d313xig07le5v" path="res://Props/Signs/sign_02.tscn" id="39_shx74"]
+[ext_resource type="PackedScene" uid="uid://ccl8gsyr204o7" path="res://Props/Signs/sign_02.tscn" id="39_shx74"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="40_qay8i"]
 [ext_resource type="PackedScene" uid="uid://cesqg1j7vncmp" path="res://Props/Plants/Bushes/bushes_04.tscn" id="40_sdoba"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="41_0vr2m"]
@@ -492,3 +492,6 @@ side = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dedri")
+
+[node name="Npc" parent="." instance=ExtResource("17_8ufsh")]
+position = Vector2(293, 67)
