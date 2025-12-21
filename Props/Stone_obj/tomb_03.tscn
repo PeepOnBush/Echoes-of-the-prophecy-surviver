@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://674dhdxy50f6"]
+
+[ext_resource type="Texture2D" uid="uid://cdjkakw3sn5lq" path="res://Props/Sprites/TX Props with Shadow.png" id="1_8klx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnv6f"]
+atlas = ExtResource("1_8klx7")
+region = Rect2(224, 300, 32, 44)
+
+[node name="Tomb03" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_gnv6f")

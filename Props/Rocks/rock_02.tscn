@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1n5qxy54rhcv"]
+
+[ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_808et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksy38"]
+atlas = ExtResource("1_808et")
+region = Rect2(292, 492, 40, 40)
+
+[node name="Rock02" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ksy38")
