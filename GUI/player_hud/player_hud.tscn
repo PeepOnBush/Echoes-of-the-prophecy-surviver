@@ -1,18 +1,27 @@
-[gd_scene load_steps=35 format=3 uid="uid://d3u0chmjjfa7s"]
+[gd_scene load_steps=44 format=3 uid="uid://d3u0chmjjfa7s"]
 
 [ext_resource type="Script" uid="uid://nwqx8s3opd8m" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
 [ext_resource type="Texture2D" uid="uid://bylxkhahjdvm8" path="res://GUI/player_hud/HealthBar DARK.png" id="2_5nb4v"]
 [ext_resource type="Texture2D" uid="uid://b8tfeeopjphxi" path="res://GUI/player_hud/gui-health.png" id="2_ecbuc"]
+[ext_resource type="AudioStream" uid="uid://dfru6ualka671" path="res://GUI/combo_sound/Combo1.wav" id="2_vtnyi"]
 [ext_resource type="PackedScene" uid="uid://b43yya5yg2c6m" path="res://GUI/player_hud/heart_gui.tscn" id="3_dtpa4"]
+[ext_resource type="AudioStream" uid="uid://dtdyjrt1yyptn" path="res://GUI/combo_sound/Combo2.wav" id="3_fcxvu"]
 [ext_resource type="Texture2D" uid="uid://cmln4ri2adw8e" path="res://Player/Sprites/ZeShuriken.png" id="4_ea3vn"]
 [ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="4_mqu0o"]
+[ext_resource type="AudioStream" uid="uid://kacvbmmnrcbs" path="res://GUI/combo_sound/Combo3.wav" id="4_w2qg4"]
 [ext_resource type="Texture2D" uid="uid://dw2yayeip8q12" path="res://GUI/player_hud/boss-hp.png" id="5_1jeqg"]
 [ext_resource type="Texture2D" uid="uid://b28gk7kynf0np" path="res://Player/Sprites/ability-icons.png" id="5_3m3x0"]
+[ext_resource type="AudioStream" uid="uid://c3pbouavt8oiq" path="res://GUI/combo_sound/Combo4.wav" id="5_c8yyi"]
+[ext_resource type="AudioStream" uid="uid://ds0dot7x07v8l" path="res://GUI/combo_sound/Combo5.wav" id="6_cxlay"]
 [ext_resource type="Texture2D" uid="uid://rajccyeg2r2h" path="res://GUI/player_hud/panel_notification.png" id="6_q8jci"]
 [ext_resource type="Script" uid="uid://bwwj5m2yiuhau" path="res://GUI/player_hud/notification.gd" id="6_qrqr1"]
+[ext_resource type="AudioStream" uid="uid://cgqds2rdo248v" path="res://GUI/combo_sound/Combo6.wav" id="7_116kx"]
 [ext_resource type="FontFile" uid="uid://bm8wps6kvpwh4" path="res://GUI/Fonts/m5x7.ttf" id="7_467n6"]
+[ext_resource type="AudioStream" uid="uid://rohmg45n17m4" path="res://GUI/combo_sound/Combo7.wav" id="8_4q2gv"]
+[ext_resource type="AudioStream" uid="uid://cxrsk5blfs1mm" path="res://GUI/combo_sound/Combo8.wav" id="9_ac11f"]
 [ext_resource type="AudioStream" uid="uid://xpgw6vvufltn" path="res://GUI/player_hud/notification.wav" id="9_tj3s2"]
 [ext_resource type="PackedScene" uid="uid://dtaff2qqtw33y" path="res://GUI/Upgrades/LevelUpSelection.tscn" id="12_3m3x0"]
+[ext_resource type="FontFile" uid="uid://by81ot4ikjj0s" path="res://GUI/Fonts/Abaddon Light.ttf" id="13_e1kye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdg2b"]
 atlas = ExtResource("2_5nb4v")
@@ -426,8 +435,7 @@ _data = {
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_loiu6")
-button_focus_audio = null
-button_select_audio = null
+combo_sounds = Array[AudioStream]([ExtResource("2_vtnyi"), ExtResource("3_fcxvu"), ExtResource("4_w2qg4"), ExtResource("5_c8yyi"), ExtResource("6_cxlay"), ExtResource("7_116kx"), ExtResource("8_4q2gv"), ExtResource("9_ac11f")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -841,6 +849,23 @@ autowrap_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_nwdhr")
 }
+
+[node name="ComboContainer" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 13.0
+offset_top = 30.0
+offset_right = 53.0
+offset_bottom = 70.0
+pivot_offset = Vector2(20, 20)
+
+[node name="Label" type="Label" parent="Control/ComboContainer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("13_e1kye")
+theme_override_font_sizes/font_size = 24
+text = "x1"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

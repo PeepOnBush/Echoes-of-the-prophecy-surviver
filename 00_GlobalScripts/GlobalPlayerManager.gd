@@ -6,6 +6,8 @@ signal xp_changed
 signal leveled_up
 signal interact_pressed
 signal camera_shook(trauma : float)
+@warning_ignore("unused_signal")
+signal enemy_defeated
 var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true

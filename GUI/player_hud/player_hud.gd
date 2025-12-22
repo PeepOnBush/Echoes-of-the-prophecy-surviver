@@ -24,7 +24,16 @@ var bars_original_pos: Vector2
 @onready var ability_items : HBoxContainer = $Control/Abilities/HBoxContainer
 @onready var arrow_count_label: Label = %ArrowCountLabel
 @onready var bomb_count_label: Label = %BombCountLabel
+# --- COMBO SYSTEM ---
+@export_category("Combo System")
+@export var combo_sounds: Array[AudioStream] # Drag your 5-10 sounds here!
+@export var combo_timeout: float = 3.0 # How many seconds before combo resets
 
+@onready var combo_container: Control = $Control/ComboContainer
+@onready var combo_label: Label = $Control/ComboContainer/Label
+
+var current_combo: int = 0
+var combo_timer: Timer
 
 func _ready():
 	for child in $Control/HFlowContainer.get_children():
@@ -45,6 +54,7 @@ func _ready():
 	PauseMenu.hidden.connect(onHidePauseMenu)
 	await get_tree().process_frame 
 	bars_original_pos = v_box_container.position
+	setup_combo_system()
 	pass
 
 #func updateHp(_hp : int, _maxHP : int) -> void:
@@ -222,4 +232,58 @@ func onShowPauseMenu() -> void:
 
 func onHidePauseMenu() -> void:
 	abilities.visible = true
+	pass
+func setup_combo_system() -> void:
+	# 1. Hide initially
+	combo_container.visible = false
+	combo_container.scale = Vector2(1, 1)
+	
+	# 2. Create internal timer
+	combo_timer = Timer.new()
+	add_child(combo_timer)
+	combo_timer.wait_time = combo_timeout
+	combo_timer.one_shot = true
+	combo_timer.timeout.connect(reset_combo)
+	
+	# 3. Listen for kills
+	PlayerManager.enemy_defeated.connect(on_enemy_killed)
+func on_enemy_killed() -> void:
+	# 1. Logic
+	current_combo += 1
+	combo_timer.start() # Reset the countdown
+	combo_container.visible = true
+	
+	# 2. Visuals (Update Text)
+	combo_label.text = "x" + str(current_combo)
+	
+	# 3. The "Pop" Effect (Tween)
+	# We kill any running tween so it doesn't glitch if you hit fast
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_ELASTIC) # Makes it bouncy
+	tween.set_ease(Tween.EASE_OUT)
+	
+	# Scale UP to 1.5x, then back DOWN to 1.0x
+	combo_container.scale = Vector2(1.5, 1.5) 
+	tween.tween_property(combo_container, "scale", Vector2(1.0, 1.0), 0.3)
+	
+	# 4. The Audio Logic (Array Indexing)
+	if combo_sounds.size() > 0:
+		# Logic: If combo is 1, use index 0. 
+		# If combo > array size, use the LAST sound.
+		var sound_index = min(current_combo - 1, combo_sounds.size() - 1)
+		var sound_to_play = combo_sounds[sound_index]
+		
+		# Play using your Global Audio Manager
+		AudioManager.play_sfx(sound_to_play)
+
+func reset_combo() -> void:
+	current_combo = 0
+	
+	# Optional: Fade out instead of instant disappear
+	var tween = create_tween()
+	tween.tween_property(combo_container, "modulate:a", 0.0, 0.2)
+	tween.tween_callback(func(): 
+		combo_container.visible = false
+		combo_container.modulate.a = 1.0 # Reset for next time
+	)
 	pass
