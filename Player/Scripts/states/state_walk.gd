@@ -8,27 +8,29 @@ class_name stateWalking extends State
 @onready var dash_attack: State = $"../DashAttack"
 
 func Enter() -> void:
-	print("walking")
+	# print("walking")
 	player.UpdateAnimation("walk")
-	
 	pass
-## What happen when the player exit this state ?
+
 func Exit() -> void:
-	
 	pass
-## What happen when the _process update in this state ?
+
 func Process(_delta: float) -> State:
+	# 1. Stop if no input
 	if player.direction == Vector2.ZERO:
 		return idle
 	
+	# 2. Move (WASD)
 	player.velocity = player.direction * moveSpeed
 	
-	if player.SetDirection():
-		player.UpdateAnimation("walk")
+	# 3. Update Animation
+	# We call this every frame. Player.gd handles the "Up/Down/Side" based on mouse.
+	# So if you hold W (Up) but aim Right, this plays "walk_side".
+	player.UpdateAnimation("walk")
+	
 	return null
 	
 func Physics(_delta : float) -> State:
-	
 	return null
 
 func HandleInput( _event: InputEvent) -> State:

@@ -63,7 +63,7 @@ func Process(_delta : float) -> State:
 		if player.direction == Vector2.ZERO:
 			walking = false
 			player.UpdateAnimation("charge")
-		elif player.SetDirection() or walking == false:
+		elif walking == false:
 			walking = true
 			player.UpdateAnimation("charge_walk")
 			pass

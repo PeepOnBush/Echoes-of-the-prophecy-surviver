@@ -17,17 +17,20 @@ var nextState : State = null
 func init() -> void:
 	player.PlayerDamaged.connect(_player_damaged)
 func Enter() -> void:
-
 	player.animationPlayer.animation_finished.connect(_animation_finished)
+	
+	# Calculate knockback direction
 	direction = player.global_position.direction_to(hurt_box.global_position)
 	player.velocity = direction * -knockback_speed
+	
+	# Just play the animation based on current facing
 	player.UpdateAnimation("stun")
-	player.SetDirection()
+	
+	# REMOVED: player.SetDirection() (No longer needed/exists)
 	
 	player.make_invulnerable(invulnerable_duration)
 	player.effect_animation_player.play("damaged")
 	PlayerManager.shakeCamera(hurt_box.damage)
-	#PlayerManager.apply_hitstop(0.3)
 	pass
 ## What happen when the player exit this state ?
 func Exit() -> void:

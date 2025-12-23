@@ -62,6 +62,12 @@ func _process( _delta ):
 		stamina += stamina_regen * _delta
 		stamina = min(stamina, max_stamina)
 		PlayerHud.updateStamina(stamina, max_stamina)
+	# 2. FACING LOGIC (Mouse) - Only if not stunned/dead
+	# Check state to prevent spinning while stunned/dying
+	var current_state_name = state_Machine.currentState.name if state_Machine.currentState else ""
+	if current_state_name != "Stun" and current_state_name != "Death":
+		update_facing_direction()
+
 	pass 
 
 
@@ -74,23 +80,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	pass
 
 
-func SetDirection() -> bool:
-	if direction == Vector2.ZERO:
-		return false
+func update_facing_direction() -> void:
+	var mouse_pos = get_global_mouse_position()
+	var aim_direction = (mouse_pos - global_position).normalized()
 	
-	
-	var direction_id : int = int( round( (direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()) )
+	# Calculate cardinal direction based on AIM, not movement
+	var direction_id : int = int( round( (aim_direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()) )
 	var newDirection = DIR_4[direction_id]
-	if newDirection == cardinal_direction:
-		return false
 	
-	cardinal_direction = newDirection
-	DirectionChanged.emit(newDirection)
-	if cardinal_direction == Vector2.RIGHT:
-		sprite.scale.x = sprite.scale.x * (-1) 
+	if newDirection != cardinal_direction:
+		cardinal_direction = newDirection
+		DirectionChanged.emit(newDirection)
+	
+	# --- THE FIX ---
+	# Get the current vertical size (absolute value to ignore any accidental negative Y)
+	var current_scale = abs(sprite.scale.y)
+	
+	# Sprite Flipping based on Mouse X
+	if mouse_pos.x < global_position.x:
+		# If your sprite faces LEFT by default, this should be Positive
+		sprite.scale.x = current_scale 
 	else:
-		sprite.scale.x = sprite.scale.y
-	return true
+		# And this should be Negative to flip it Right
+		sprite.scale.x = -current_scale
 
 func UpdateAnimation( state : String) -> void:
 	animationPlayer.play(state + "_" + AnimDirection())
