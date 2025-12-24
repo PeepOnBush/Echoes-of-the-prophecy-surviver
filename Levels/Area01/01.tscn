@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://pm8hmceeo3q5"]
+[gd_scene load_steps=14 format=4 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_747no"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="3_c2gse"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://lko0bl6ujnky" path="res://Props/Plants/Bushes/bushes_01.tscn" id="7_vg1n0"]
 [ext_resource type="PackedScene" uid="uid://ddaiy04uk27fm" path="res://Enemies/goblin_boss/goblin_boss.tscn" id="8_f2d14"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
+[ext_resource type="PackedScene" uid="uid://bjsiwkhffp8h1" path="res://Props/ExplosiveBarrel/explosive_barrel.tscn" id="13_uv5ft"]
 
 [node name="01" type="Node2D"]
 position = Vector2(14, -9)
@@ -31,3 +32,6 @@ isEnabled = true
 slime_scene = ExtResource("6_th3kk")
 goblin_scene = ExtResource("7_b60gt")
 boss_scene = ExtResource("8_f2d14")
+
+[node name="ExplosiveBarrel" parent="." instance=ExtResource("13_uv5ft")]
+position = Vector2(197, 17)

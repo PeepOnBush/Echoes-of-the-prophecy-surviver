@@ -64,6 +64,7 @@ func _process( _delta ):
 		PlayerHud.updateStamina(stamina, max_stamina)
 	# 2. FACING LOGIC (Mouse) - Only if not stunned/dead
 	# Check state to prevent spinning while stunned/dying
+	@warning_ignore("incompatible_ternary")
 	var current_state_name = state_Machine.currentState.name if state_Machine.currentState else ""
 	if current_state_name != "Stun" and current_state_name != "Death":
 		update_facing_direction()
