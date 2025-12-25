@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="1_b8lr4"]
 [ext_resource type="Script" uid="uid://dsbhkj4kducq8" path="res://Npc/Scripts/npc_resource.gd" id="2_3f23h"]
-[ext_resource type="Texture2D" uid="uid://nc32uafc2oog" path="res://Npc/Sprites/npc_sprite.png" id="3_rrrgc"]
+[ext_resource type="Texture2D" uid="uid://blce0s0v5ym55" path="res://Npc/Characters/Sprite/png/Syl2.png" id="3_b8lr4"]
 
 [resource]
 script = ExtResource("2_3f23h")
 npc_name = "Sylvana"
-sprite = ExtResource("3_rrrgc")
+sprite = ExtResource("3_b8lr4")
 portrait = ExtResource("1_b8lr4")
 dialog_audio_pitch = 0.5
 metadata/_custom_type_script = "uid://dsbhkj4kducq8"

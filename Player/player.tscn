@@ -1887,7 +1887,7 @@ script = ExtResource("1_6e47k")
 shape = SubResource("CircleShape2D_jsark")
 
 [node name="newSprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -13.000002)
+position = Vector2(0, -13)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_gvnt1")
 hframes = 8

@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="1_pxvet"]
 [ext_resource type="Script" uid="uid://dsbhkj4kducq8" path="res://Npc/Scripts/npc_resource.gd" id="2_r8q56"]
-[ext_resource type="Texture2D" uid="uid://nc32uafc2oog" path="res://Npc/Sprites/npc_sprite.png" id="3_goop2"]
+[ext_resource type="Texture2D" uid="uid://c43amelyq8d1q" path="res://Npc/Characters/Sprite/png/Soran.png" id="3_pxvet"]
 
 [resource]
 script = ExtResource("2_r8q56")
 npc_name = "Soran"
-sprite = ExtResource("3_goop2")
+sprite = ExtResource("3_pxvet")
 portrait = ExtResource("1_pxvet")
 dialog_audio_pitch = 1.7
 metadata/_custom_type_script = "uid://dsbhkj4kducq8"
