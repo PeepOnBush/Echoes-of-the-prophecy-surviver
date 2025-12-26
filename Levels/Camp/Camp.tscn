@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=40 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -12,9 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://d34cv1qyipm27" path="res://Npc/Characters/Sylvana/Sylvana.tscn" id="6_bixrs"]
 [ext_resource type="PackedScene" uid="uid://nrymqircra1i" path="res://Props/Boulders/boulder_02.tscn" id="6_bnes4"]
 [ext_resource type="PackedScene" uid="uid://b66lgbvmnr5e7" path="res://Props/Tent/tent_sylvana_right.tscn" id="6_vx0gi"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="7_8ahue"]
 [ext_resource type="PackedScene" uid="uid://bhgak21xumlk1" path="res://Props/Boulders/boulder_03.tscn" id="7_sq0bv"]
 [ext_resource type="PackedScene" uid="uid://k1bglfe87cx7" path="res://Npc/Characters/Zax/Zax.tscn" id="7_vmu3g"]
 [ext_resource type="PackedScene" uid="uid://c6jknrhflvq2p" path="res://Props/Crate/crate_01.tscn" id="8_6o7iy"]
+[ext_resource type="Resource" uid="uid://c6e1tpsbp8w8o" path="res://Items/magical_flute.tres" id="8_dedri"]
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
 [ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
 [ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="16_5asfd"]
@@ -73,6 +75,7 @@ position = Vector2(214, 279)
 [node name="Sylvana" parent="." instance=ExtResource("6_bixrs")]
 top_level = true
 position = Vector2(220, 210)
+shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("8_dedri")])
 
 [node name="Zax" parent="." instance=ExtResource("7_vmu3g")]
 top_level = true

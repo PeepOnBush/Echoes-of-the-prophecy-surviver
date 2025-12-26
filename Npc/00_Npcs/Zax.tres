@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xu5korkulr7h" path="res://Npc/Sprites/portraits/npc_portrait_01.png" id="1_5xm4h"]
 [ext_resource type="Script" uid="uid://dsbhkj4kducq8" path="res://Npc/Scripts/npc_resource.gd" id="2_gahya"]
-[ext_resource type="Texture2D" uid="uid://b6i3jj715vvtv" path="res://Npc/Characters/Sprite/png/Zax-export.png" id="3_5xm4h"]
+[ext_resource type="Texture2D" uid="uid://bcl0yopw2a4bh" path="res://Npc/Characters/Sprite/png/Zax-export.png" id="3_5xm4h"]
 
 [resource]
 script = ExtResource("2_gahya")

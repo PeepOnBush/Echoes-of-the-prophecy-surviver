@@ -271,7 +271,6 @@ npc_resource = ExtResource("3_sbxra")
 [node name="Sprite2D" type="Sprite2D" parent="Npc"]
 position = Vector2(0, -20)
 texture = ExtResource("4_lp6xb")
-hframes = 16
 
 [node name="ShadowSprite" type="Sprite2D" parent="Npc/Sprite2D"]
 modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)

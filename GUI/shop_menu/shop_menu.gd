@@ -9,6 +9,7 @@ const ERROR = preload("res://GUI/shop_menu/Audio/error.wav")
 const OPEN_SHOP = preload("res://GUI/shop_menu/Audio/open_shop.wav")
 const PURCHASE = preload("res://GUI/shop_menu/Audio/purchase.wav")
 const SHOP_ITEM_BUTTON = preload("res://GUI/shop_menu/shop_item_button.tscn")
+const SHOP_ITEM = preload("res://Interactables/Shopkeeper/Shopkeeper.tscn")
 const MENU_FOCUS = preload("res://Menu/menu_focus.wav")
 const MENU_SELECT = preload("res://Menu/menu_select.wav")
 
@@ -43,15 +44,18 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func showMenu(items : Array[ItemData],dialog_triggered : bool = true) -> void:
-	print(items,items.size())
-	if dialog_triggered:
-		await DialogSystem.finished
-	enabledMenu()
-	populateItemList(items)
-	updateCurrency()	
-	shop_items_container.get_child(0).grab_focus()
-	playAudio(OPEN_SHOP)
-	shown.emit()
+	if items.size() != 0:
+		print(items,items.size())
+		if dialog_triggered:
+			await DialogSystem.finished
+		enabledMenu()
+		populateItemList(items)
+		updateCurrency()
+		shop_items_container.get_child(0).grab_focus()
+		playAudio(OPEN_SHOP)
+		shown.emit()
+	else:
+		return
 	pass
 
 func hideMenu() -> void:
