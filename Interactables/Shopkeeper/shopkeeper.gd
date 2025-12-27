@@ -1,7 +1,7 @@
 class_name ShopKeeper extends Node2D
 
+@export_category("Item for sale")
 @export var shop_inventory : Array[ItemData]
-
 @onready var dialog_branch_yes: DialogBranch = $Npc/DialogInteraction/DialogChoice/DialogBranch
 
 

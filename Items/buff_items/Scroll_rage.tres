@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://d4nysa1ppw80w"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_yao0r"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_wgkfs"]
+[ext_resource type="Texture2D" uid="uid://klfb0sv34rci" path="res://GUI/Upgrades/Icons/rage.png" id="3_di0f4"]
+[ext_resource type="Resource" uid="uid://btarem3xa235v" path="res://GUI/Upgrades/skill_resources/Rage.tres" id="4_so02u"]
+
+[resource]
+script = ExtResource("2_wgkfs")
+upgrade_to_unlock = ExtResource("4_so02u")
+name = "Scroll_rage"
+description = "A way to endure rage and use it in battle"
+texture = ExtResource("3_di0f4")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

@@ -3,7 +3,7 @@ class_name LevelUpSelection extends CanvasLayer
 signal upgrade_selected
 
 const CARD_SCENE = preload("res://GUI/Upgrades/UpgradeCard.tscn") # Adjust path to where you saved Step 2
-@export var all_upgrades : Array[UpgradeData] # Drag your 3 test resources here!
+#@export var all_upgrades : Array[UpgradeData] # Drag your 3 test resources here!
 
 @onready var card_container: HBoxContainer = $HBoxContainer
 
@@ -13,23 +13,30 @@ func _ready() -> void:
 	PlayerManager.leveled_up.connect(show_options)
 
 func show_options() -> void:
-	# 1. Pause Game
 	get_tree().paused = true
 	visible = true
 	
-	# 2. Clear old cards
 	for c in card_container.get_children():
 		c.queue_free()
 	
-	# 3. Pick 3 Random Items
 	var options : Array[UpgradeData] = []
-	var available_pool = all_upgrades.duplicate()
 	
-	for i in range(3):
-		if available_pool.size() > 0:
-			var picked = available_pool.pick_random()
-			options.append(picked)
-			available_pool.erase(picked) # Don't pick the same one twice
+	# --- NEW: GET POOL FROM MANAGER ---
+	# This pulls (Defaults + What you bought from NPCs)
+	var available_pool = PlayerManager.get_battle_upgrade_pool()
+	# ----------------------------------
+	
+	# Safety check
+	if available_pool.size() < 3:
+		print("Not enough upgrades in pool!")
+		options = available_pool # Just show what we have
+	else:
+		# Pick 3 Random
+		for i in range(3):
+			if available_pool.size() > 0:
+				var picked = available_pool.pick_random()
+				options.append(picked)
+				available_pool.erase(picked)
 	
 	# 4. Create Card Instances
 	for option in options:
@@ -37,11 +44,12 @@ func show_options() -> void:
 		card_container.add_child(card_instance)
 		card_instance.set_card_data(option)
 		card_instance.selected.connect(apply_upgrade)
+	pass
 
 func apply_upgrade(upgrade : UpgradeData) -> void:
 	var player = PlayerManager.player
 	
-	match upgrade.type:
+	match upgrade.buff:
 		UpgradeData.UpgradeType.HEAL:
 			player.update_hp(int(upgrade.value))
 		UpgradeData.UpgradeType.ATTACK:
@@ -57,9 +65,14 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			player.bomb_count += int(upgrade.value)
 		UpgradeData.UpgradeType.ORBIT:
 			player.enableOrbitDarkGemController()
+		UpgradeData.UpgradeType.RAGE:
+			player.attack += int(upgrade.value)
+			player.stamina += int(upgrade.value)
+			print(player.attack + " attack " + player.stamina + " stamina")
 			pass
-
+	
 	# Close Menu
 	visible = false
 	get_tree().paused = false
 	upgrade_selected.emit()
+	pass

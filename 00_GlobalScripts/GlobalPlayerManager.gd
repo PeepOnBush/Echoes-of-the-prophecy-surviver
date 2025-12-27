@@ -11,8 +11,10 @@ signal enemy_defeated
 var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true
-
-
+# The default pool (Basic stats everyone starts with)
+var default_upgrades: Array[UpgradeData] = [] 
+# The pool of special skills you bought from Sylvana/Soran
+var unlocked_upgrades: Array[UpgradeData] = [] 
 #var level_requirements = [ 0, 50, 100, 200, 400, 800, 1500, 3000, 4500, 6000, 8500, 12000 ]
 var level_requirements = [0 , 5 , 10 , 20 , 25 ]
 func _ready() -> void:
@@ -91,3 +93,19 @@ func resetCameraOnPlayer(tween_duration : float = 0.5) -> void:
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.tween_property(camera,"position",Vector2.ZERO,tween_duration)
 	pass
+
+# Call this to unlock a new skill
+func unlock_new_upgrade(upgrade: UpgradeData) -> void:
+	if not unlocked_upgrades.has(upgrade):
+		unlocked_upgrades.append(upgrade)
+		# Save game here usually
+
+# Helper to check if we already bought it (so we don't buy it twice)
+func has_unlocked(upgrade: UpgradeData) -> bool:
+	return unlocked_upgrades.has(upgrade)
+
+# Returns the COMPLETE list for the Battle Level Up Screen
+func get_battle_upgrade_pool() -> Array[UpgradeData]:
+	var total_pool = default_upgrades.duplicate()
+	total_pool.append_array(unlocked_upgrades)
+	return total_pool

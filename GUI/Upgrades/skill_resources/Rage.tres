@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://btarem3xa235v"]
+
+[ext_resource type="Texture2D" uid="uid://klfb0sv34rci" path="res://GUI/Upgrades/Icons/rage.png" id="1_aedbk"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_i1xoo"]
+
+[resource]
+script = ExtResource("1_i1xoo")
+title = "Rage"
+description = "Go full berserk mode, enhance power and agility 
++5 strength 
++5 agility"
+icon = ExtResource("1_aedbk")
+type = 7
+value = 5.0
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"
