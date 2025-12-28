@@ -12,12 +12,13 @@ var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true
 # The default pool (Basic stats everyone starts with)
-var default_upgrades: Array[UpgradeData] = [] 
+@export var default_upgrades: Array[UpgradeData] = [] 
 # The pool of special skills you bought from Sylvana/Soran
 var unlocked_upgrades: Array[UpgradeData] = [] 
 #var level_requirements = [ 0, 50, 100, 200, 400, 800, 1500, 3000, 4500, 6000, 8500, 12000 ]
 var level_requirements = [0 , 5 , 10 , 20 , 25 ]
 func _ready() -> void:
+	getDefaultBuff()
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	playerSpawned = true
@@ -109,3 +110,8 @@ func get_battle_upgrade_pool() -> Array[UpgradeData]:
 	var total_pool = default_upgrades.duplicate()
 	total_pool.append_array(unlocked_upgrades)
 	return total_pool
+
+func getDefaultBuff() -> void:
+	default_upgrades.append(preload("res://GUI/Upgrades/skill_resources/Iron Skin.tres"))
+	default_upgrades.append(preload("res://GUI/Upgrades/skill_resources/Muscle.tres"))
+	pass

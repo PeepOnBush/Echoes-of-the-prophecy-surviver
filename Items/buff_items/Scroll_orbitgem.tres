@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://cfbw1no3bccv3"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_wqvn3"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_7ctuy"]
+[ext_resource type="Texture2D" uid="uid://4pnraxbqmuuu" path="res://GUI/Upgrades/OrbitGem.png" id="3_oldb8"]
+[ext_resource type="Resource" uid="uid://blr747prvd8qj" path="res://GUI/Upgrades/skill_resources/Orbit Gem.tres" id="4_2kovp"]
+
+[resource]
+script = ExtResource("2_7ctuy")
+upgrade_to_unlock = ExtResource("4_2kovp")
+name = "Orbit Gem"
+description = "Create an orbit gem that float around the user dealing damage to whatever touches it."
+texture = ExtResource("3_oldb8")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

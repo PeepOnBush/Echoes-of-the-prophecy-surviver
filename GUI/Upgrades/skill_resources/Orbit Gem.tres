@@ -8,5 +8,5 @@ script = ExtResource("1_5t5vq")
 title = "Dark Orbit"
 description = "A Dark Orbit float around you dealing damage"
 icon = ExtResource("1_58cw1")
-type = 6
+buff = 6
 metadata/_custom_type_script = "uid://cge86fu8ylc1q"

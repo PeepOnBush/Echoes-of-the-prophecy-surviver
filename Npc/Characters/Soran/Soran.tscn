@@ -292,6 +292,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
 [node name="DialogInteraction" type="Area2D" parent="Npc"]
 process_mode = 3
+position = Vector2(0, 10)
 collision_layer = 0
 collision_mask = 4
 monitorable = false

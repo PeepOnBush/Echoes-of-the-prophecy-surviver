@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://18ws2352lhb0"
+path="res://.godot/imported/Song for the Beyond - Frieren_ Beyond Journey's End OST Disc 2 - 36.mp3-738bbafd87f8d0234805143c735fdd09.mp3str"
+
+[deps]
+
+source_file="res://Levels/music/Song for the Beyond - Frieren_ Beyond Journey's End OST Disc 2 - 36.mp3"
+dest_files=["res://.godot/imported/Song for the Beyond - Frieren_ Beyond Journey's End OST Disc 2 - 36.mp3-738bbafd87f8d0234805143c735fdd09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

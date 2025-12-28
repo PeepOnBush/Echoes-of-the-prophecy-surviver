@@ -8,5 +8,4 @@ script = ExtResource("1_jegrd")
 title = "Iron Skin"
 description = "HARDEN YOUR SKIN"
 icon = ExtResource("1_o0xtu")
-type = 2
 metadata/_custom_type_script = "uid://cge86fu8ylc1q"
