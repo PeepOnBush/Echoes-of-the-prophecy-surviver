@@ -5,11 +5,14 @@ extends CanvasLayer
 
 var hearts : Array[HeartGui] = []
 var bars_original_pos: Vector2
-
+@onready var victory_screen: Control = $Control/VictoryScreen
 @onready var game_over: Control = $Control/GameOver
 @onready var title_button: Button = $Control/GameOver/VBoxContainer/TitleButton
 @onready var continue_button: Button = $Control/GameOver/VBoxContainer/ContinueButton
-@onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
+@onready var game_over_animation: AnimationPlayer = $Control/GameOver/GameOverAnimation
+@onready var victory_screen_animation: AnimationPlayer = $Control/VictoryScreen/VictoryScreenAnimation
+@onready var restart_button: Button = $Control/VictoryScreen/VBoxContainer/RestartButton
+@onready var quit_button: Button = $Control/VictoryScreen/VBoxContainer/QuitButton
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 @onready var timer_label: Label = $Control/TimerLabel
 @onready var health_bar: TextureProgressBar = $Control/VBoxContainer/HealthBar
@@ -25,6 +28,10 @@ var bars_original_pos: Vector2
 @onready var arrow_count_label: Label = %ArrowCountLabel
 @onready var bomb_count_label: Label = %BombCountLabel
 # --- COMBO SYSTEM ---
+
+@export_file("*.tscn") var restart_to_scene : String 
+
+
 @export_category("Combo System")
 @export var combo_sounds: Array[AudioStream] # Drag your 5-10 sounds here!
 @export var combo_timeout: float = 3.0 # How many seconds before combo resets
@@ -35,6 +42,7 @@ var bars_original_pos: Vector2
 var current_combo: int = 0
 var combo_timer: Timer
 
+
 func _ready():
 	for child in $Control/HFlowContainer.get_children():
 		if child is HeartGui:
@@ -42,11 +50,21 @@ func _ready():
 			child.visible = false
 	
 	hideGameOverScreen()
+	hideVictoryScreen()
+	#GameOverScreen
 	continue_button.focus_entered.connect(playAudio.bind(button_focus_audio))
 	continue_button.pressed.connect(loadGame)
 	title_button.focus_entered.connect(playAudio.bind(button_focus_audio))
 	title_button.pressed.connect(titleScreen)
+	
+	#VictoryScreen
+	restart_button.focus_entered.connect(playAudio.bind(button_focus_audio))
+	restart_button.pressed.connect(restartGame)
+	quit_button.focus_entered.connect(playAudio.bind(button_focus_audio))
+	quit_button.pressed.connect(quitGame)
 	LevelManager.level_load_started.connect(hideGameOverScreen)
+	LevelManager.level_load_started.connect(hideVictoryScreen)
+
 	hideBossHealth()
 	
 	updateAbilityUI(0)
@@ -130,8 +148,8 @@ func showGameOverScreen() -> void:
 	var can_continue : bool = SaveManager.getSaveFile() != null
 	continue_button.visible = can_continue
 	
-	animation_player.play("show_game_over")
-	await animation_player.animation_finished
+	game_over_animation.play("show_game_over")
+	await game_over_animation.animation_finished
 	#focus a button
 	
 	if can_continue == true:
@@ -141,11 +159,28 @@ func showGameOverScreen() -> void:
 	
 	pass
 
+func showVictoryScreen() -> void:
+	victory_screen.visible = true
+	victory_screen.mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	continue_button.visible = true
+	
+	victory_screen_animation.play("show_victory_screen")
+	await victory_screen_animation.animation_finished
+	
+	restart_button.grab_focus()
+	pass
 
 func hideGameOverScreen() -> void:
 	game_over.visible = false
 	game_over.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	game_over.modulate = Color(1,1,1,0)
+	pass
+
+func hideVictoryScreen() -> void:
+	victory_screen.visible = false
+	victory_screen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	victory_screen.modulate = Color(1,1,1,0)
 	pass
 
 func playAudio(_a : AudioStream) -> void:
@@ -155,21 +190,37 @@ func playAudio(_a : AudioStream) -> void:
 
 func loadGame() -> void:
 	playAudio(button_select_audio)
-	await fadeToBlack()
+	await gameOverFadeToBlack()
 	SaveManager.loadGame()
 	hideBossHealth()
 	pass
 
+func quitGame() -> void:
+	get_tree().quit()
+	pass
+
+func restartGame() -> void:
+	playAudio(button_select_audio)
+	await victoryScreenFadeToBlack()
+	LevelManager.load_new_level(restart_to_scene,"",Vector2.ZERO)
+	pass
+
 func titleScreen() -> void:
 	playAudio(button_select_audio)
-	await fadeToBlack()
+	await gameOverFadeToBlack()
 	LevelManager.load_new_level("res://Menu/Menu2/FrierenTheJourneyBeyondMenu.tscn","",Vector2.ZERO)
 	pass
 
 
-func fadeToBlack() -> bool:
-	animation_player.play("fade_to_black")
-	await animation_player.animation_finished
+func gameOverFadeToBlack() -> bool:
+	game_over_animation.play("fade_to_black")
+	await game_over_animation.animation_finished
+	PlayerManager.player.revivePlayer()
+	return true
+
+func victoryScreenFadeToBlack() -> bool:
+	victory_screen_animation.play("fade_to_black")
+	await victory_screen_animation.animation_finished
 	PlayerManager.player.revivePlayer()
 	return true
 

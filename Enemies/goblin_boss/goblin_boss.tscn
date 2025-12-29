@@ -485,6 +485,7 @@ scale = Vector2(2.5, 2.5)
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_x6yc4")
+is_final_boss = true
 portal_scene = ExtResource("2_xmqtq")
 return_to_camp_scene = "uid://dwrr28hbrgy8g"
 

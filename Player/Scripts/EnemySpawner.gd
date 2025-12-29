@@ -9,7 +9,9 @@ class_name EnemySpawner extends Area2D
 @export_category("Spawn") 
 @export var slime_scene: PackedScene
 @export var goblin_scene: PackedScene
-@export var boss_scene: PackedScene
+#@export var boss_scene: PackedScene
+@export var boss_list: Array[PackedScene] 
+
 # --- 2. THE DIRECTOR BRAIN ---
 var time_elapsed: float = 0.0
 var current_wave_index: int = -1
@@ -104,19 +106,31 @@ func start_wave(wave_data: Dictionary) -> void:
 	pass
 		
 func spawn_boss() -> void:
-	# Use Player position as reference
+	# Calculate which boss to spawn based on Run Count
+	# Run 1 = Index 0. Run 2 = Index 1.
+	var boss_index = (LevelManager.current_run_difficulty - 1)
+	
+	# Safety Check: If we run out of bosses (e.g., Round 5 but only 3 bosses),
+	# Loop back to the first one, or pick the last one.
+	if boss_index >= boss_list.size():
+		boss_index = boss_index % boss_list.size() # Loops (0, 1, 2, 0, 1, 2)
+		# OR use: boss_index = boss_list.size() - 1 # Keeps fighting the last/hardest boss
+	
+	var boss_to_spawn = boss_list[boss_index]
+	
+	# --- Standard Spawn Logic ---
 	var center_pos = Vector2.ZERO
 	if PlayerManager.player:
 		center_pos = PlayerManager.player.global_position
 		
 	var spawn_pos = center_pos + Vector2(600, 0) 
 	
-	var boss = boss_scene.instantiate()
-	get_tree().current_scene.add_child(boss)
-	boss.global_position = spawn_pos
+	var boss_instance = boss_to_spawn.instantiate()
+	get_tree().current_scene.add_child(boss_instance)
+	boss_instance.global_position = spawn_pos
 	
-	# Connect signal
-	boss.tree_exited.connect(on_boss_defeated)
+	boss_instance.tree_exited.connect(on_boss_defeated)
+
 	pass
 func _on_timer_timeout() -> void:
 	if isEnabled == false or active_enemy_pool.size() == 0:

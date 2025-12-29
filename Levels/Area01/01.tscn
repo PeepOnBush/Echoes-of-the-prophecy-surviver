@@ -31,7 +31,7 @@ position = Vector2(2, 9)
 isEnabled = true
 slime_scene = ExtResource("6_th3kk")
 goblin_scene = ExtResource("7_b60gt")
-boss_scene = ExtResource("8_f2d14")
+boss_list = Array[PackedScene]([ExtResource("8_f2d14")])
 
 [node name="ExplosiveBarrel" parent="." instance=ExtResource("13_uv5ft")]
 position = Vector2(197, 17)

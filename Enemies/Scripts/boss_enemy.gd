@@ -1,6 +1,6 @@
 class_name BossEnemy extends Enemy # Inherits all your movement/damage logic
 
-
+@export var is_final_boss : bool = false
 @export var boss_name: String = "King Goblin"
 @export var portal_scene: PackedScene 
 @export_file("*.tscn") var return_to_camp_scene : String 
@@ -23,7 +23,14 @@ func _ready() -> void:
 func _take_damage(hurt_box: HurtBox) -> void:
 	# 1. Do normal damage logic
 	super(hurt_box) 
-	
+	if hp < 0:
+		# Check if this is the final boss
+		if is_final_boss:
+			# Trigger Victory Sequence via PlayerManager or direct call
+				PlayerHud.showVictoryScreen()
+				AudioManager.playMusic(null)
+			# We might need to add a short delay for the death animation/particles
+			# If victory doesn't appear immediately after, await get_tree().create_timer(0.5).timeout
 	# 2. Update the UI Bar
 	PlayerHud.updateBossHealth(hp, 10)
 
