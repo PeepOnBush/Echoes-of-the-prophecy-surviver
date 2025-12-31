@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhgak21xumlk1"]
+[gd_scene load_steps=4 format=3 uid="uid://bhgak21xumlk1"]
 
 [ext_resource type="Texture2D" uid="uid://cdjkakw3sn5lq" path="res://Props/Sprites/TX Props with Shadow.png" id="1_gry6s"]
 
@@ -6,7 +6,15 @@
 atlas = ExtResource("1_gry6s")
 region = Rect2(128, 480, 32, 32)
 
-[node name="Boulder03" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gry6s"]
+size = Vector2(16, 12)
+
+[node name="Boulder03" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_eakh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gry6s")

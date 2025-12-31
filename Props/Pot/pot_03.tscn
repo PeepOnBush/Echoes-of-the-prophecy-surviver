@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3k1cfjyvr8jb"]
+[gd_scene load_steps=4 format=3 uid="uid://c3k1cfjyvr8jb"]
 
 [ext_resource type="Texture2D" uid="uid://cdjkakw3sn5lq" path="res://Props/Sprites/TX Props with Shadow.png" id="1_ltlmw"]
 
@@ -6,7 +6,16 @@
 atlas = ExtResource("1_ltlmw")
 region = Rect2(164, 348, 24, 36)
 
-[node name="Pot03" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlmw"]
+size = Vector2(19, 8)
+
+[node name="Pot03" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_pmroy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ltlmw")

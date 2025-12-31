@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2b65hqqs6m0"]
+[gd_scene load_steps=4 format=3 uid="uid://c2b65hqqs6m0"]
 
 [ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_ik7ci"]
 
@@ -6,7 +6,16 @@
 atlas = ExtResource("1_ik7ci")
 region = Rect2(248, 608, 36, 24)
 
-[node name="Rock09" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsys"]
+size = Vector2(14, 12.5)
+
+[node name="Rock09" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_bmitp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.25)
+shape = SubResource("RectangleShape2D_rmsys")

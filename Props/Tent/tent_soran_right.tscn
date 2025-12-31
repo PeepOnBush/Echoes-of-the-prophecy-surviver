@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpa153288yir4"]
+[gd_scene load_steps=4 format=3 uid="uid://bpa153288yir4"]
 
 [ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_7j8ls"]
 
@@ -6,7 +6,16 @@
 atlas = ExtResource("1_7j8ls")
 region = Rect2(112, 848, 88, 72)
 
-[node name="TentSoranRight" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j8ls"]
+size = Vector2(46, 21)
+
+[node name="TentSoranRight" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_5lhq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_7j8ls")

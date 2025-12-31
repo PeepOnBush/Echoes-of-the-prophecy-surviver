@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=42 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -33,8 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://dk05uks27rjfv" path="res://Props/Plants/Bushes/bushes_02.tscn" id="34_2ts1t"]
 [ext_resource type="PackedScene" uid="uid://b16s4x7sue8y1" path="res://Props/Plants/Bushes/bushes_03.tscn" id="35_bixrs"]
 [ext_resource type="PackedScene" uid="uid://8jch38smaquw" path="res://Props/Bridges/bridge_01.tscn" id="38_dedri"]
+[ext_resource type="PackedScene" uid="uid://8n638p22m4td" path="res://Props/Crate/chest_02.tscn" id="38_qay8i"]
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="39_ohoch"]
-[ext_resource type="PackedScene" uid="uid://ccl8gsyr204o7" path="res://Props/Signs/sign_02.tscn" id="39_shx74"]
+[ext_resource type="PackedScene" uid="uid://d313xig07le5v" path="res://Props/Signs/sign_02.tscn" id="39_shx74"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="40_qay8i"]
 [ext_resource type="PackedScene" uid="uid://cesqg1j7vncmp" path="res://Props/Plants/Bushes/bushes_04.tscn" id="40_sdoba"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="41_0vr2m"]
@@ -285,6 +286,9 @@ position = Vector2(-470, -75)
 
 [node name="Tree13" parent="Props/Tree" instance=ExtResource("41_dpl2s")]
 position = Vector2(-550, -123)
+
+[node name="Chest02" parent="Props" instance=ExtResource("38_qay8i")]
+position = Vector2(317, 71)
 
 [node name="Fireflies" type="CPUParticles2D" parent="."]
 position = Vector2(306, 678)

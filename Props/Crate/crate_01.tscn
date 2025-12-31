@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6jknrhflvq2p"]
+[gd_scene load_steps=5 format=3 uid="uid://c6jknrhflvq2p"]
 
 [ext_resource type="Texture2D" uid="uid://cdjkakw3sn5lq" path="res://Props/Sprites/TX Props with Shadow.png" id="1_gjcbw"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="2_wkppj"]
@@ -7,7 +7,12 @@
 atlas = ExtResource("1_gjcbw")
 region = Rect2(160, 152, 32, 40)
 
-[node name="Crate01" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjcbw"]
+size = Vector2(20, 15)
+
+[node name="Crate01" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_lshgy")
@@ -18,3 +23,7 @@ show_behind_parent = true
 position = Vector2(0, 13)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_wkppj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gjcbw")
