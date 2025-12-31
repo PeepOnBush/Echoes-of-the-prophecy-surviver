@@ -17,7 +17,7 @@ var hit_history : Array[Node] = [] # Stores Enemies we've already hit
  
 func _ready() -> void:
 	hurt_box.did_damage.connect(onDidDamage)
-	get_tree().create_timer(10.0).timeout.connect(onTimeOut)
+	get_tree().create_timer(5.0).timeout.connect(onTimeOut)
 	if fire_audio:
 		audio_stream_player_2d.stream = fire_audio
 		audio_stream_player_2d.play()
@@ -42,59 +42,74 @@ func rotateNode() -> void:
 
 # --- MODIFIED HIT LOGIC ---
 func onDidDamage(victim_hitbox: HitBox) -> void:
-	# 1. Identify the victim (Assuming HitBox is a child of the Enemy Node)
-	var enemy = victim_hitbox.owner 
-	# If 'owner' is not the enemy root, use victim_hitbox.get_parent()
+	# SAFETY CHECK: If the thing we hit isn't a HitBox (rare but possible), stop.
+	if victim_hitbox == null:
+		queue_free()
+		return
+
+	# 1. Identify who we hit
+	var victim_enemy = victim_hitbox.owner 
 	
 	# 2. Add to history
-	if enemy:
-		hit_history.append(enemy)
+	if victim_enemy:
+		hit_history.append(victim_enemy)
 	
-	# 3. CHECK BOUNCE
+	# 3. Check Bounce Count
 	if current_bounces < max_bounces:
 		var next_target = find_nearest_enemy(global_position)
 		
 		if next_target:
-			# Target Found: Rotate arrow towards it
+			# SUCCESS: Found a new target!
 			current_bounces += 1
 			
-			# Point the arrow at the new target
+			# 4. Turn towards new target
 			var direction_to_target = (next_target.global_position - global_position).normalized()
+			
+			# FORCE ROTATION UPDATE IMMEDIATELY
 			rotation = direction_to_target.angle()
 			
-			# (Optional) Play sound? Speed up? Decrease Damage?
 			return # KEEP FLYING!
 	
-	# No bounce left, or no targets found
+	# 4. No bounces left OR no targets nearby -> Die
 	queue_free()
 
 # --- TARGET SCANNING ---
 func find_nearest_enemy(current_pos: Vector2) -> Node2D:
-	var nearest_dist = 500.0 * 500.0 # Range limit (squared)
+	var enemies = get_tree().get_nodes_in_group("Enemies")
+	print("Ricochet Scan: Scanning ", enemies.size(), " total enemies.")
+	
+	var nearest_dist = 1000.0 * 1000.0 # Increase range temporarily to test
 	var nearest_enemy = null
 	
-	# 1. Get the Main Scene Root (The Level)
-	var main_scene = get_tree().current_scene
-	
-	# 2. Iterate through ALL children of the level
-	# This avoids "Group" typos entirely.
-	for node in main_scene.get_children():
+	for enemy in enemies:
+		# 1. Skip self (Already hit)
+		if enemy in hit_history:
+			print(" - Skipped: Already hit")
+			continue
 		
-		# 3. CLASS CHECK: Is this node an Enemy?
-		if node is Enemy:
-			var enemy = node
+		# 2. Skip dead
+		if "hp" in enemy and enemy.hp <= 0:
+			print(" - Skipped: Dead")
+			continue
 			
-			# Validation Checks (Dead? Already hit?)
-			if enemy in hit_history: continue
-			if enemy.hp <= 0: continue
+		# 3. Check Distance
+		var dist = current_pos.distance_squared_to(enemy.global_position)
+		var pixel_dist = sqrt(dist)
+		
+		print(" - Checking Enemy: ", enemy.name, " | Distance: ", int(pixel_dist))
+		
+		if dist < nearest_dist:
+			nearest_dist = dist
+			nearest_enemy = enemy
+			print("   -> NEW CANDIDATE!")
+		else:
+			print("   -> Too far / Not closer")
 			
-			# Distance Check
-			var dist = current_pos.distance_squared_to(enemy.global_position)
-			
-			if dist < nearest_dist:
-				nearest_dist = dist
-				nearest_enemy = enemy
-				
+	if nearest_enemy:
+		print(">> SELECTED TARGET: ", nearest_enemy.name)
+	else:
+		print(">> FAILURE: No valid target found.")
+		
 	return nearest_enemy
 
 func onTimeOut() -> void:

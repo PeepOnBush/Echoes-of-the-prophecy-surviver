@@ -31,9 +31,9 @@ func shoot():
 	if arrow_scene:
 		var arrow = arrow_scene.instantiate()
 		# Add arrow to the main world (root), not the player!
-		get_tree().root.add_child(arrow)
+		get_tree().current_scene.add_child(arrow)
 		
 		# Set Position and Rotation matching the Muzzle
 		arrow.global_position = $Muzzle.global_position
 		arrow.rotation = global_rotation
-		arrow.max_bounces = PlayerManager.player.ricochet_amount
+		arrow.max_bounces = PlayerManager.player.arrow_ricochet_amount

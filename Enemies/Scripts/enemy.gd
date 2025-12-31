@@ -24,6 +24,7 @@ func _ready():
 	state_Machine.initialize(self)
 	player = PlayerManager.player
 	hit_box.Damaged.connect(_take_damage)
+	add_to_group("Enemies")
 	pass # Replace with function body.
 
 

@@ -7,7 +7,7 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-var ricochet_amount : int = 0
+var arrow_ricochet_amount  : int = 0
 var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
@@ -130,7 +130,7 @@ func _take_damage(_hurt_box : HurtBox) -> void:
 		PlayerDamaged.emit(_hurt_box)
 		EffectManager.damageText(_hurt_box.damage, global_position + Vector2(0,-36))
 
-	pass
+	pass	
 
 func update_hp( _delta : int ) -> void:
 	hp = clampi(hp + _delta, 0, max_hp)
