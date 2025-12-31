@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://pm8hmceeo3q5"]
+[gd_scene load_steps=13 format=4 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_747no"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="3_c2gse"]
@@ -12,13 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://lko0bl6ujnky" path="res://Props/Plants/Bushes/bushes_01.tscn" id="7_vg1n0"]
 [ext_resource type="PackedScene" uid="uid://ddaiy04uk27fm" path="res://Enemies/goblin_boss/goblin_boss.tscn" id="8_f2d14"]
 [ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
-[ext_resource type="PackedScene" uid="uid://bjsiwkhffp8h1" path="res://Props/ExplosiveBarrel/explosive_barrel.tscn" id="13_uv5ft"]
 
 [node name="01" type="Node2D"]
 position = Vector2(14, -9)
 script = ExtResource("1_747no")
 music = ExtResource("12_36ld3")
-generate_props = true
 prop_scenes = Array[PackedScene]([ExtResource("3_c2gse"), ExtResource("4_uv5ft"), ExtResource("5_ay7cg"), ExtResource("7_vg1n0")])
 
 [node name="Grass-01-layer" parent="." instance=ExtResource("3_g1smm")]
@@ -28,10 +26,39 @@ tile_map_data = PackedByteArray("AAD9//3/AAABAAIAAAD9//7/AAABAAMAAAD9////AAABAAI
 position = Vector2(2, 9)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_pwydo")]
-isEnabled = true
 slime_scene = ExtResource("6_th3kk")
 goblin_scene = ExtResource("7_b60gt")
 boss_list = Array[PackedScene]([ExtResource("8_f2d14")])
 
-[node name="ExplosiveBarrel" parent="." instance=ExtResource("13_uv5ft")]
-position = Vector2(197, 17)
+[node name="goblin" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(391, -15)
+
+[node name="goblin6" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(-785, 6)
+
+[node name="goblin7" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(-602, 46)
+
+[node name="goblin8" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(-983, 50)
+
+[node name="goblin9" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(-1087, 16)
+
+[node name="goblin10" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(-1261, 76)
+
+[node name="goblin11" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(-1387, -3)
+
+[node name="goblin2" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(535, 31)
+
+[node name="goblin3" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(662, -6)
+
+[node name="goblin4" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(662, -6)
+
+[node name="goblin5" parent="." instance=ExtResource("7_b60gt")]
+position = Vector2(662, -6)

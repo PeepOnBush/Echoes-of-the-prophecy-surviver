@@ -26,17 +26,17 @@ var active_enemy_pool: Array[PackedScene] = []
 #waves Dictionary
 var waves : Array = [
 	# 0 to 10 seconds: Just Slimes, slow spawn
-	{ "time": 0, "rate": 2.0, "types": ["slime"] },
+	{ "time": 0, "rate": 1.0, "types": ["slime"] },
 	
 	# 10 to 30 seconds: Add Goblins, faster spawn
-	{ "time": 5, "rate": 1.0, "types": ["slime", "slime", "goblin"] },
+	{ "time": 50, "rate": 1.0, "types": ["slime", "slime", "goblin"] },
 	
 	# 30 to 60 seconds: Goblin Horde
-	{ "time": 10, "rate": 0.5, "types": ["goblin"] },
+	{ "time": 75, "rate": 0.5, "types": ["goblin"] },
 	
 	# THE BOSS WAVE (e.g., at 60 seconds)
 	{ 
-		"time": 15, 
+		"time": 100, 
 		"rate": 0.5, # Stop spawning other enemies (or keep them slow)
 		"types": ["boss"], # Special tag
 		"is_boss_wave": true

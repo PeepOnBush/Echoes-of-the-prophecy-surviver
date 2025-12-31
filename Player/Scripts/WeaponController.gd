@@ -36,3 +36,4 @@ func shoot():
 		# Set Position and Rotation matching the Muzzle
 		arrow.global_position = $Muzzle.global_position
 		arrow.rotation = global_rotation
+		arrow.max_bounces = PlayerManager.player.ricochet_amount

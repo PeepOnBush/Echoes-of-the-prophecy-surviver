@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://cm0e0w3qkebcf"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_m2ji0"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_w8t62"]
+[ext_resource type="Texture2D" uid="uid://wglvfygofx7y" path="res://GUI/Upgrades/Icons/ricochet.png" id="3_rs51l"]
+[ext_resource type="Resource" uid="uid://b6t7hno4f4hv6" path="res://GUI/Upgrades/skill_resources/ricochet.tres" id="3_w8t62"]
+
+[resource]
+script = ExtResource("2_w8t62")
+upgrade_to_unlock = ExtResource("3_w8t62")
+name = "ricochet_arrow"
+description = "An arrow that can hit multiple targets"
+texture = ExtResource("3_rs51l")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

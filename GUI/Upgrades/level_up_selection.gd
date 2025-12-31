@@ -69,6 +69,8 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			player.attack += int(upgrade.value)
 			player.stamina += int(upgrade.value)
 			print(player.attack + " attack " + player.stamina + " stamina")
+		UpgradeData.UpgradeType.RICOCHET:
+			PlayerManager.player.ricochet_amount += int(upgrade.value)
 			pass
 	
 	# Close Menu

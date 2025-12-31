@@ -7,7 +7,7 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-
+var ricochet_amount : int = 0
 var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
