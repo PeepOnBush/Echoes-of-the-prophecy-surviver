@@ -58,6 +58,7 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			player.defense += int(upgrade.value)
 		UpgradeData.UpgradeType.SPEED:
 			# You assume you have a move_speed variable on player state
+			
 			pass 
 		UpgradeData.UpgradeType.ARROW:
 			player.arrow_count += int(upgrade.value)

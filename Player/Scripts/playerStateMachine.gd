@@ -57,4 +57,3 @@ func changeState(newState : State) -> void:
 	prevState = currentState
 	currentState = newState
 	currentState.Enter()
-	

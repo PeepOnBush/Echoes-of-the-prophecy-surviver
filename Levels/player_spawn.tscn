@@ -9,6 +9,7 @@ script = ExtResource("1_7w6th")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.541176, 0.945098, 0.584314, 0.870588)
 position = Vector2(0, -17)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_lyuil")
 hframes = 8
 vframes = 5

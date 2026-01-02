@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=44 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://8n638p22m4td" path="res://Props/Crate/chest_02.tscn" id="38_qay8i"]
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="39_ohoch"]
 [ext_resource type="PackedScene" uid="uid://d313xig07le5v" path="res://Props/Signs/sign_02.tscn" id="39_shx74"]
+[ext_resource type="PackedScene" uid="uid://c41rob66u2vrw" path="res://Props/Crate/crate_02.tscn" id="40_0vr2m"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="40_qay8i"]
 [ext_resource type="PackedScene" uid="uid://cesqg1j7vncmp" path="res://Props/Plants/Bushes/bushes_04.tscn" id="40_sdoba"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="41_0vr2m"]
@@ -63,7 +64,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Soran" parent="." instance=ExtResource("33_7vfp2")]
 top_level = true
-position = Vector2(752, 456)
+position = Vector2(859, 533)
 shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("6_dedri")])
 
 [node name="Illyana" parent="." instance=ExtResource("5_7vfp2")]
@@ -290,7 +291,10 @@ position = Vector2(-470, -75)
 position = Vector2(-550, -123)
 
 [node name="Chest02" parent="Props" instance=ExtResource("38_qay8i")]
-position = Vector2(317, 71)
+position = Vector2(853, 451)
+
+[node name="Crate03" parent="Props" instance=ExtResource("40_0vr2m")]
+position = Vector2(888, 526)
 
 [node name="Fireflies" type="CPUParticles2D" parent="."]
 position = Vector2(306, 678)

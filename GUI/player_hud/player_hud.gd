@@ -5,6 +5,7 @@ extends CanvasLayer
 
 var hearts : Array[HeartGui] = []
 var bars_original_pos: Vector2
+@onready var fishing_minigame: FishingMinigame = $Control/FishingMinigame
 @onready var victory_screen: Control = $Control/VictoryScreen
 @onready var game_over: Control = $Control/GameOver
 @onready var title_button: Button = $Control/GameOver/VBoxContainer/TitleButton
@@ -337,4 +338,7 @@ func reset_combo() -> void:
 		combo_container.visible = false
 		combo_container.modulate.a = 1.0 # Reset for next time
 	)
+	pass
+func start_fishing_minigame() -> void:
+	fishing_minigame.start_fishing()
 	pass
