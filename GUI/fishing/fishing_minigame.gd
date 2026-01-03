@@ -9,7 +9,7 @@ signal fishing_finished(success : bool, fish : FishData)
 
 @onready var shaker_container: Control = $shakerContainer
 @onready var tension_bar: TextureProgressBar = $shakerContainer/TensionBar
-@onready var fish_icon: TextureRect = $shakerContainer/FishIcon
+@onready var fish_icon: TextureRect = $FishIcon
 
 var current_fish : FishData
 var current_progress : float = 0.0

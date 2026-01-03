@@ -1,17 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://clk0bf48eam8x"]
 
 [ext_resource type="Script" uid="uid://cx2g7w5em71oh" path="res://GUI/fishing/fishing_minigame.gd" id="1_e7cy5"]
-
-[sub_resource type="Gradient" id="Gradient_gas1a"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_e7cy5"]
-gradient = SubResource("Gradient_gas1a")
+[ext_resource type="Texture2D" uid="uid://cubqbyr7iwgi5" path="res://GUI/fishing/fishes_icon/Rainbowfish.png" id="2_0pyxd"]
+[ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="3_f7ewo"]
 
 [sub_resource type="Gradient" id="Gradient_e7cy5"]
-offsets = PackedFloat32Array(0.006451613, 1)
-colors = PackedColorArray(0, 0.76475775, 0.099835955, 1, 1, 0.16459775, 0.16459775, 1)
+offsets = PackedFloat32Array(0.006451613)
+colors = PackedColorArray(0, 0.4160487, 0.8530103, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0pyxd"]
 gradient = SubResource("Gradient_e7cy5")
@@ -25,38 +20,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e7cy5")
 
-[node name="shakerContainer" type="Control" parent="."]
+[node name="FishIcon" type="TextureRect" parent="."]
 layout_mode = 1
-anchor_left = 0.47000003
-anchor_top = 0.44400004
-anchor_right = 0.57000005
-anchor_bottom = 0.62200004
-offset_left = 0.19998169
-offset_top = 0.1599884
-offset_right = 0.19995117
-offset_bottom = 0.07998657
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.483
+anchor_right = 0.38000003
+anchor_bottom = 0.558
+offset_left = -0.040008545
+offset_top = 0.11999512
+offset_right = -0.2000122
+offset_bottom = 0.11999512
+texture = ExtResource("2_0pyxd")
+
+[node name="shakerContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 250.895)
+layout_mode = 1
+anchor_left = 0.39400002
+anchor_top = 0.18800001
+anchor_right = 0.45600003
+anchor_bottom = 0.883
+offset_left = -0.16001892
+offset_top = -0.12750244
+offset_right = 8.159973
+offset_bottom = 0.5675049
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TensionBar" type="TextureProgressBar" parent="shakerContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -24.0
-offset_bottom = -24.0
-fill_mode = 3
-texture_under = SubResource("GradientTexture2D_e7cy5")
-texture_progress = SubResource("GradientTexture2D_0pyxd")
-
-[node name="FishIcon" type="TextureRect" parent="shakerContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="shakerContainer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.84400004
-anchor_top = 0.109000005
-anchor_right = -0.21900001
-anchor_bottom = 0.734
-offset_left = 0.016002655
-offset_top = 0.023999691
-offset_right = 0.016000748
-offset_bottom = 0.02399826
+anchor_right = 0.83300006
+anchor_bottom = 1.0220001
+offset_right = 0.01599884
+offset_bottom = 0.03277588
+texture = ExtResource("3_f7ewo")
+region_rect = Rect2(0, 32, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TensionBar" type="TextureProgressBar" parent="shakerContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.042000003
+anchor_right = 0.646
+anchor_bottom = 0.98600006
+offset_left = 0.024000168
+offset_top = -0.0900898
+offset_right = -0.0080013275
+offset_bottom = 0.06500244
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 11
+stretch_margin_top = 11
+stretch_margin_right = 11
+stretch_margin_bottom = 11
+texture_progress = SubResource("GradientTexture2D_0pyxd")

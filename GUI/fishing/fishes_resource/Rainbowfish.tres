@@ -7,5 +7,5 @@
 script = ExtResource("1_prkn8")
 name = "Rainbowfish"
 icon = ExtResource("1_cjxco")
-weight_difficulty = 0.5
+weight_difficulty = 5.0
 metadata/_custom_type_script = "uid://001da1n137c6"
