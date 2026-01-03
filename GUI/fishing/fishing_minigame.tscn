@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://clk0bf48eam8x"]
+[gd_scene load_steps=10 format=3 uid="uid://clk0bf48eam8x"]
 
 [ext_resource type="Script" uid="uid://cx2g7w5em71oh" path="res://GUI/fishing/fishing_minigame.gd" id="1_e7cy5"]
 [ext_resource type="Texture2D" uid="uid://cubqbyr7iwgi5" path="res://GUI/fishing/fishes_icon/Rainbowfish.png" id="2_0pyxd"]
+[ext_resource type="AudioStream" uid="uid://cjbybfnw3ovgs" path="res://GUI/fishing/reeling_2.wav" id="2_4n325"]
+[ext_resource type="AudioStream" uid="uid://dx4va16e2gnq1" path="res://GUI/fishing/hooked.mp3" id="3_4n325"]
 [ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="3_f7ewo"]
+[ext_resource type="AudioStream" uid="uid://cvw60fwgbt0h7" path="res://GUI/fishing/finished_hooking.mp3" id="4_4n325"]
+[ext_resource type="AudioStream" uid="uid://bfd40ny4p1cmb" path="res://GUI/fishing/snapped.mp3" id="5_d5s0h"]
 
 [sub_resource type="Gradient" id="Gradient_e7cy5"]
 offsets = PackedFloat32Array(0.006451613)
@@ -19,6 +23,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e7cy5")
+reeling_audio = ExtResource("2_4n325")
+finished_catching_audio = ExtResource("3_4n325")
+fish_out_of_the_water_audio = ExtResource("4_4n325")
+rope_snapped = ExtResource("5_d5s0h")
 
 [node name="FishIcon" type="TextureRect" parent="."]
 layout_mode = 1

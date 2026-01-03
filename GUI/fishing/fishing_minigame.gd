@@ -6,6 +6,10 @@ signal fishing_finished(success : bool, fish : FishData)
 @export var fish_pool : Array[FishData] # Drag your fish resources here!
 @export var base_decay_rate : float = 15.0 # How fast bar falls by default
 @export var click_power : float = 10.0 # How much it goes up per click
+@export var reeling_audio : AudioStream # reeling sound
+@export var finished_catching_audio : AudioStream # reeling sound
+@export var fish_out_of_the_water_audio : AudioStream # reeling sound
+@export var rope_snapped : AudioStream # reeling sound
 
 @onready var shaker_container: Control = $shakerContainer
 @onready var tension_bar: TextureProgressBar = $shakerContainer/TensionBar
@@ -59,7 +63,7 @@ func _process(delta: float) -> void:
 		current_progress += click_power
 		juice_shake_bar()
 		# Optional: Play "Click/Reel" sound
-	
+		AudioManager.play_sfx(reeling_audio)
 	# 3. Update Visuals
 	tension_bar.value = current_progress
 	
@@ -74,10 +78,13 @@ func game_over(win : bool) -> void:
 	
 	if win:
 		print("Caught: ", current_fish.name)
+		AudioManager.play_sfx(finished_catching_audio)
+		AudioManager.play_sfx(fish_out_of_the_water_audio)
 		# Flash bar green or play victory sound
 		# Give Fish (Item) to inventory logic here later
 	else:
 		print("Line snapped!")
+		AudioManager.play_sfx(rope_snapped)
 		# Flash bar red or play snap sound
 	
 	# Small delay before closing so player sees the result
@@ -88,6 +95,7 @@ func game_over(win : bool) -> void:
 func close_minigame() -> void:
 	visible = false
 	get_tree().paused = false # Resume Game
+	
 
 # --- JUICE: THE STRENGTH SHAKE ---
 func juice_shake_bar() -> void:
