@@ -14,14 +14,15 @@ signal fishing_finished(success : bool, fish : FishData)
 var current_fish : FishData
 var current_progress : float = 0.0
 var is_active : bool = false
-
+var original_shaker_pos : Vector2
 func _ready() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS # Runs while game paused
-
+	await get_tree().process_frame
+	original_shaker_pos = shaker_container.position 
 func start_fishing() -> void:
 	if fish_pool.size() == 0:
-		print("No fish in the pool!")
+		print("No fish in the lake!")
 		close_minigame()
 		return
 
@@ -32,7 +33,8 @@ func start_fishing() -> void:
 	# 2. Reset Bar
 	current_progress = 20.0 # Give player a head start
 	tension_bar.value = current_progress
-	
+	original_shaker_pos = shaker_container.position 
+
 	# 3. Pause Game / Show UI
 	get_tree().paused = true
 	visible = true
@@ -90,14 +92,18 @@ func close_minigame() -> void:
 # --- JUICE: THE STRENGTH SHAKE ---
 func juice_shake_bar() -> void:
 	var tween = create_tween()
-	var shake_strength = 5.0 * current_fish.weight_difficulty # Heavier fish shake harder
+	var shake_strength = 5.0 * current_fish.weight_difficulty
 	
-	# Shake X and Y randomly for a "Struggle" feel
-	tween.tween_property(shaker_container, "position", 
-		shaker_container.position + Vector2(randf_range(-shake_strength, shake_strength), randf_range(-2, 2)), 
-		0.05
+	# Shake relative to the ORIGINAL position
+	var shake_offset = Vector2(
+		randf_range(-shake_strength, shake_strength),randf_range(-2, 2)
 	)
-	# Return to center
-	# Note: This assumes shaker_container is centered via anchors usually.
-	# To be safe, rely on Anchors or capture original pos in _ready.
-	tween.tween_property(shaker_container, "position", Vector2.ZERO, 0.05) # Adjust Vector2.ZERO if you offset it manually
+	
+	# Tween OUT
+	tween.tween_property(shaker_container, "position", 
+		original_shaker_pos + shake_offset, 0.05
+	)
+	
+	# Tween BACK (To Original, NOT Vector2.ZERO)
+	tween.tween_property(shaker_container, "position", original_shaker_pos, 0.05
+	)

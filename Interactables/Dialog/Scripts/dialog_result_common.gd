@@ -8,7 +8,9 @@ enum ActionType {
 	GIVE_ITEM, 
 	PLAY_SOUND, 
 	MODIFY_QUEST,
+	START_FISHING,
 	REMOVE_PARENT_NPC
+	
 }
 
 @export_category("Action Settings")
@@ -61,7 +63,9 @@ func _on_execute() -> void:
 					p.queue_free()
 					break
 				p = p.get_parent()
-
+		ActionType.START_FISHING:
+			await get_tree().process_frame
+			PlayerHud.start_fishing_minigame()
 # --- EDITOR VISUALIZATION (Optional) ---
 # This changes the node name in the tree so you can read what it does!
 func set_type(value):

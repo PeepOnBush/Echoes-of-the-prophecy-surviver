@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d3u0chmjjfa7s"]
+[gd_scene load_steps=52 format=3 uid="uid://d3u0chmjjfa7s"]
 
 [ext_resource type="Script" uid="uid://nwqx8s3opd8m" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
 [ext_resource type="Texture2D" uid="uid://bylxkhahjdvm8" path="res://GUI/player_hud/HealthBar DARK.png" id="2_5nb4v"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://dtaff2qqtw33y" path="res://GUI/Upgrades/LevelUpSelection.tscn" id="12_3m3x0"]
 [ext_resource type="FontFile" uid="uid://by81ot4ikjj0s" path="res://GUI/Fonts/Abaddon Light.ttf" id="13_e1kye"]
 [ext_resource type="PackedScene" uid="uid://clk0bf48eam8x" path="res://GUI/fishing/fishing_minigame.tscn" id="22_fcxvu"]
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="23_w2qg4"]
+[ext_resource type="Resource" uid="uid://bih0gg4wtmqgi" path="res://GUI/fishing/fishes_resource/Rainbowfish.tres" id="24_c8yyi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdg2b"]
 atlas = ExtResource("2_5nb4v")
@@ -1189,6 +1191,7 @@ text = "x1"
 
 [node name="FishingMinigame" parent="Control" instance=ExtResource("22_fcxvu")]
 layout_mode = 1
+fish_pool = Array[ExtResource("23_w2qg4")]([ExtResource("24_c8yyi")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

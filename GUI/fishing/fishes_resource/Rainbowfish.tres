@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://bih0gg4wtmqgi"]
+
+[ext_resource type="Texture2D" uid="uid://cubqbyr7iwgi5" path="res://GUI/fishing/fishes_icon/Rainbowfish.png" id="1_cjxco"]
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="1_prkn8"]
+
+[resource]
+script = ExtResource("1_prkn8")
+name = "Rainbowfish"
+icon = ExtResource("1_cjxco")
+weight_difficulty = 0.5
+metadata/_custom_type_script = "uid://001da1n137c6"

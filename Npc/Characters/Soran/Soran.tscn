@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmxeuttt3v4s4"]
+[gd_scene load_steps=27 format=3 uid="uid://bmxeuttt3v4s4"]
 
 [ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/shopkeeper.gd" id="1_dxl8s"]
 [ext_resource type="Script" uid="uid://px3onqgseddq" path="res://Npc/Scripts/npc.gd" id="2_q6d23"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dh6vtewwh8j5o" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="6_1uswu"]
 [ext_resource type="Script" uid="uid://hflhtv60v71f" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="7_d16rb"]
 [ext_resource type="Script" uid="uid://b81no7fe2rkd6" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="8_8kldc"]
+[ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="11_35v0d"]
 
 [sub_resource type="Animation" id="Animation_eeikk"]
 length = 0.001
@@ -340,6 +341,40 @@ metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
 [node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2"]
 script = ExtResource("6_1uswu")
-text = "Stop wasting my time."
+text = "Then what do you want ?"
+npc_info = ExtResource("3_ftss7")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("7_d16rb")
+npc_info = ExtResource("3_ftss7")
+metadata/_custom_type_script = "uid://hflhtv60v71f"
+
+[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice"]
+script = ExtResource("8_8kldc")
+text = "I saw you fishing ealier, can you teach me how to ?"
+npc_info = ExtResource("3_ftss7")
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1uswu")
+text = "Alright, here's the rod, show me what you got"
+npc_info = ExtResource("3_ftss7")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="Do_ START_FISHING" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch"]
+script = ExtResource("11_35v0d")
+action_type = 5
+metadata/_custom_type_script = "uid://bxrgtrafvhmem"
+
+[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice"]
+script = ExtResource("8_8kldc")
+text = "Nothing, sorry to bother you"
+npc_info = ExtResource("3_ftss7")
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch2"]
+script = ExtResource("6_1uswu")
+text = "GET OUT!!"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
