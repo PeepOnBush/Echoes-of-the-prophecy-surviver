@@ -17,6 +17,8 @@ signal preview_stats_change( item : ItemData )
 @onready var master_slider: HSlider = %MasterSlider
 @onready var music_slider: HSlider = %MusicSlider
 @onready var sfx_slider: HSlider = %SfxSlider
+@onready var window_mode_btn: OptionButton = %WindowModeBtn
+@onready var vsync_btn: CheckBox = %VsyncBtn
 
 var is_paused : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +34,7 @@ func _ready():
 	btn_menu.pressed.connect(onMenuPressed)
 	btn_quit.pressed.connect(onQuitPressed)
 	setup_audio_ui()
+	setup_video_ui()
 	pass # Replace with function body.
 
 func _unhandled_input(event : InputEvent) -> void:
@@ -171,4 +174,44 @@ func set_bus_volume(bus_name : String, value : float) -> void:
 		AudioServer.set_bus_mute(bus_index, false)
 		# linear_to_db converts (0.5) -> (-6dB)
 		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	pass
+
+func setup_video_ui() -> void:
+	# 1. SETUP WINDOW MODE DROPDOWN
+	window_mode_btn.clear()
+	window_mode_btn.add_item("Windowed", 0)
+	window_mode_btn.add_item("Fullscreen", 1)
+	
+	# Check current mode to select the right option
+	var current_mode = DisplayServer.window_get_mode()
+	if current_mode == DisplayServer.WINDOW_MODE_WINDOWED:
+		window_mode_btn.selected = 0
+	else:
+		window_mode_btn.selected = 1
+		
+	window_mode_btn.item_selected.connect(on_window_mode_selected)
+	
+	# 2. SETUP V-SYNC CHECKBOX
+	# Check current status
+	var current_vsync = DisplayServer.window_get_vsync_mode()
+	vsync_btn.button_pressed = (current_vsync == DisplayServer.VSYNC_ENABLED)
+	
+	vsync_btn.toggled.connect(on_vsync_toggled)
+
+# --- VIDEO CALLBACKS ---
+
+func on_window_mode_selected(index: int) -> void:
+	match index:
+		0: # Windowed
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			# Optional: Center the window after switching back to windowed
+			# DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		1: # Fullscreen
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func on_vsync_toggled(is_on: bool) -> void:
+	if is_on:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	pass
