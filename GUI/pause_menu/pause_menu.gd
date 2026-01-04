@@ -14,6 +14,9 @@ signal preview_stats_change( item : ItemData )
 @onready var btn_menu: Button = $Control/TabContainer/System/VBoxContainer/btn_menu
 @onready var item_description : Label = $Control/TabContainer/Inventory/ItemDescription
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var master_slider: HSlider = %MasterSlider
+@onready var music_slider: HSlider = %MusicSlider
+@onready var sfx_slider: HSlider = %SfxSlider
 
 var is_paused : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +31,7 @@ func _ready():
 	btn_load.pressed.connect(onLoadPressed)
 	btn_menu.pressed.connect(onMenuPressed)
 	btn_quit.pressed.connect(onQuitPressed)
+	setup_audio_ui()
 	pass # Replace with function body.
 
 func _unhandled_input(event : InputEvent) -> void:
@@ -130,4 +134,41 @@ func updateAbilityItems( items : Array[String] ) -> void :
 			item_buttons[i].visible = false
 		else:
 			item_buttons[i].visible = true 
+	pass
+
+func setup_audio_ui() -> void:
+	# 1. Get current values from the AudioServer so sliders match reality
+	# db_to_linear converts (-db) back to (0.0 - 1.0)
+	master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(0)) # 0 is Master
+	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1))  # 1 is Music (usually)
+	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))    # 2 is SFX
+	
+	# 2. Connect Signals
+	master_slider.value_changed.connect(on_master_changed)
+	music_slider.value_changed.connect(on_music_changed)
+	sfx_slider.value_changed.connect(on_sfx_changed)
+	pass
+# --- SIGNAL CALLBACKS ---
+
+func on_master_changed(value : float) -> void:
+	set_bus_volume("Master", value)
+	pass
+func on_music_changed(value : float) -> void:
+	set_bus_volume("Music", value)
+	pass
+func on_sfx_changed(value : float) -> void:
+	set_bus_volume("SFX", value)
+	# Optional: Play a test sound only when releasing the mouse?
+	# Or just rely on button hovers to hear the volume change.
+	pass
+func set_bus_volume(bus_name : String, value : float) -> void:
+	var bus_index = AudioServer.get_bus_index(bus_name)
+	
+	# Check if value is near 0 to mute completely
+	if value < 0.05:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)
+		# linear_to_db converts (0.5) -> (-6dB)
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 	pass

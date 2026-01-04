@@ -159,10 +159,11 @@ grow_vertical = 2
 theme = SubResource("Theme_1oddi")
 theme_override_fonts/font = ExtResource("2_cvrss")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 tab_focus_mode = 1
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_syaa3")
 metadata/_tab_index = 0
@@ -566,10 +567,75 @@ layout_mode = 2
 [node name="QuestStepItem3" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("9_ostkv")]
 layout_mode = 2
 
+[node name="Audio" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Audio"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45900002
+anchor_right = 0.5
+anchor_bottom = 0.45900002
+offset_left = -65.0
+offset_top = -84.37201
+offset_right = 130.0
+offset_bottom = 198.62799
+grow_horizontal = 2
+scale = Vector2(0.667178, 0.596362)
+theme_override_constants/separation = 25
+
+[node name="MasterVolume" type="Label" parent="Control/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="Control/TabContainer/Audio/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 8
+ticks_position = 3
+
+[node name="MusicVolume" type="Label" parent="Control/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Control/TabContainer/Audio/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 8
+ticks_position = 3
+
+[node name="SFXVolume" type="Label" parent="Control/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="Control/TabContainer/Audio/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 8
+ticks_position = 3
+
 [node name="System" type="Control" parent="Control/TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/System"]
 texture_filter = 2

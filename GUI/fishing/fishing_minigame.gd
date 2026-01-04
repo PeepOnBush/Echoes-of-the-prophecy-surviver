@@ -35,7 +35,7 @@ func start_fishing() -> void:
 	fish_icon.texture = current_fish.icon
 	
 	# 2. Reset Bar
-	current_progress = 20.0 # Give player a head start
+	current_progress = 40.0 # Give player a head start
 	tension_bar.value = current_progress
 	original_shaker_pos = shaker_container.position 
 
