@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://coc2sqskt4ru6"]
+
+[ext_resource type="Script" uid="uid://buboql1n8k02i" path="res://GUI/pause_menu/remap_button.gd" id="1_64465"]
+
+[node name="RemapButton" type="HBoxContainer"]
+anchors_preset = -1
+offset_right = 330.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64465")
+
+[node name="ActionName" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Action name"
+
+[node name="KeyButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+toggle_mode = true
+text = "key"
