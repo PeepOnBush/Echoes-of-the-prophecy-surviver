@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://ciwnt4irdoji7"]
+
+[ext_resource type="Texture2D" uid="uid://csgxfi3jxkq3f" path="res://GUI/fishing/fishes_icon/catfish.png" id="1_s4dpa"]
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="2_2k06j"]
+
+[resource]
+script = ExtResource("2_2k06j")
+name = "Catfish"
+icon = ExtResource("1_s4dpa")
+rarity = 1
+weight_difficulty = 2.5
+metadata/_custom_type_script = "uid://001da1n137c6"

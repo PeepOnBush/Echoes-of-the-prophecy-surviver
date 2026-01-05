@@ -16,28 +16,13 @@
 resource_name = "SoundTrack"
 length = 150.0
 loop_mode = 1
-tracks/0/type = "audio"
+tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("For1000Years-FrierenBeyondJourney\'sEndOstDisc1-5")
+tracks/0/path = NodePath("Sprite2D/AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0945578,
-"start_offset": 0.0,
-"stream": ExtResource("6_h2y4e")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "clips": PackedStringArray("Menu"),
 "times": PackedFloat32Array(0)
 }
@@ -88,6 +73,7 @@ _data = {
 
 [node name="FrierenTheJourneyBeyondMenu" type="Node2D"]
 script = ExtResource("1_4vkhu")
+music = ExtResource("6_h2y4e")
 button_focus_audio = ExtResource("2_nqry0")
 button_press_audio = ExtResource("3_s0ef5")
 
@@ -118,9 +104,9 @@ offset_top = 148.0
 offset_right = 327.0
 offset_bottom = 173.0
 scale = Vector2(1.67653, 1.50818)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aldl8")
 text = "New Game
 "
@@ -140,9 +126,9 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.67653, 1.50818)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wa0g1")
 text = "Continue
 "
@@ -150,10 +136,6 @@ text = "Continue
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_clnpg")]
 z_index = -2
 position = Vector2(314, 176)
-
-[node name="For1000Years-FrierenBeyondJourney\'sEndOstDisc1-5" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-playback_type = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 max_polyphony = 6

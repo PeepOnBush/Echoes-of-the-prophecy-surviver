@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://bkptwnaamo17w"]
+
+[ext_resource type="Texture2D" uid="uid://dlkw3bkxdlgxi" path="res://GUI/fishing/fishes_icon/salmon.png" id="1_ha52t"]
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="2_wsv0h"]
+
+[resource]
+script = ExtResource("2_wsv0h")
+name = "Salmonfish"
+icon = ExtResource("1_ha52t")
+weight_difficulty = 3.0
+metadata/_custom_type_script = "uid://001da1n137c6"
