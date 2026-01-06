@@ -60,6 +60,6 @@ func remap_action_to(event : InputEvent) -> void:
 	
 	# Update the Button Text immediately
 	update_key_text()
-	
+	GlobalManager.save_settings()
 	# Optional: Play a "Confirm" sound here
 	# GlobalAudioManager.play_sfx(...)

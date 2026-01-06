@@ -155,6 +155,7 @@ func setup_audio_ui() -> void:
 
 func on_master_changed(value : float) -> void:
 	set_bus_volume("Master", value)
+	GlobalManager.save_settings()
 	pass
 func on_music_changed(value : float) -> void:
 	set_bus_volume("Music", value)
@@ -208,7 +209,8 @@ func on_window_mode_selected(index: int) -> void:
 			# DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		1: # Fullscreen
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-
+	GlobalManager.save_settings()
+	pass
 func on_vsync_toggled(is_on: bool) -> void:
 	if is_on:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
