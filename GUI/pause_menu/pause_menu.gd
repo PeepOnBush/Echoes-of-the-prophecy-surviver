@@ -159,9 +159,11 @@ func on_master_changed(value : float) -> void:
 	pass
 func on_music_changed(value : float) -> void:
 	set_bus_volume("Music", value)
+	GlobalManager.save_settings()
 	pass
 func on_sfx_changed(value : float) -> void:
 	set_bus_volume("SFX", value)
+	GlobalManager.save_settings()
 	# Optional: Play a test sound only when releasing the mouse?
 	# Or just rely on button hovers to hear the volume change.
 	pass
@@ -216,4 +218,5 @@ func on_vsync_toggled(is_on: bool) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	GlobalManager.save_settings()
 	pass

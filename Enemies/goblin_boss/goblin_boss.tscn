@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ddaiy04uk27fm"]
+[gd_scene load_steps=38 format=3 uid="uid://ddaiy04uk27fm"]
 
 [ext_resource type="Script" uid="uid://cnxh82kgpqrit" path="res://Enemies/Scripts/boss_enemy.gd" id="1_x6yc4"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_baylh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_fxg8s"]
 [ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="14_72ngr"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="15_87odn"]
+[ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="17_phxrf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -548,3 +549,6 @@ drops = Array[ExtResource("12_fg6bb")]([SubResource("Resource_k17h7"), SubResour
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
+
+[node name="StatusHandler" type="Node" parent="."]
+script = ExtResource("17_phxrf")

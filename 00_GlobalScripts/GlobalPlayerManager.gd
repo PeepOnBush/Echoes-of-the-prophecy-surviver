@@ -112,6 +112,13 @@ func get_battle_upgrade_pool() -> Array[UpgradeData]:
 	return total_pool
 
 func getDefaultBuff() -> void:
-	default_upgrades.append(preload("res://GUI/Upgrades/skill_resources/Iron Skin.tres"))
-	default_upgrades.append(preload("res://GUI/Upgrades/skill_resources/Muscle.tres"))
+	# CRITICAL CHANGE: Use 'load()' instead of 'preload()'
+	# preload() locks the asset at compile time, which causes the type mismatch.
+	# load() grabs it fresh when the game actually runs.
+	
+	var muscle = load("res://GUI/Upgrades/skill_resources/Muscle.tres")
+	if muscle: default_upgrades.append(muscle)
+	
+	var iron = load("res://GUI/Upgrades/skill_resources/Iron Skin.tres")
+	if iron: default_upgrades.append(iron)
 	pass

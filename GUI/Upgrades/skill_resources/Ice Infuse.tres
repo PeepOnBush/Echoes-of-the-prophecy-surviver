@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://dco7ths4qd5i"]
+
+[ext_resource type="Texture2D" uid="uid://badg3v4folkmq" path="res://GUI/Upgrades/Icons/ice_arrow.png" id="1_skgnh"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_vg3ty"]
+
+[resource]
+script = ExtResource("1_vg3ty")
+title = "Ice Infuse"
+description = "Chances to infuse ice to your arrow"
+icon = ExtResource("1_skgnh")
+buff = 10
+value = 0.9
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

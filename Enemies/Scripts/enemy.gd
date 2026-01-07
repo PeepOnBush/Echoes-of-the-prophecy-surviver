@@ -69,6 +69,10 @@ func AnimDirection() -> String:
 		return "side"
 
 func _take_damage(hurt_box : HurtBox) -> void:
+	var killer_name = "Unknown"
+	if hurt_box.owner:
+		killer_name = hurt_box.owner.name
+	print(name, " took damage from: ", killer_name)
 	if invulnerable == true :
 		return 
 	hp -= hurt_box.damage

@@ -46,9 +46,16 @@ func Physics(_delta : float) -> EnemyState:
 	return null
 
 func _on_enemy_destroyed(hurt_box : HurtBox) -> void:
-	_damage_position = hurt_box.global_position
+	if hurt_box:
+		# Normal Hit: Knockback away from the sword/arrow
+		_damage_position = hurt_box.global_position
+	else:
+		# Status Effect Death (Fire/Poison):
+		# No knockback direction, so we set it to the enemy's own center.
+		_damage_position = enemy.global_position
+		
 	state_machine.changeState(self)
-	
+	pass
 func _on_animation_finished( _a : String ) -> void:
 	# Check if the specific enemy (like a Boss) has custom death logic
 	if enemy.has_method("on_death_complete"):

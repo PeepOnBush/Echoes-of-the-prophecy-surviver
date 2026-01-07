@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://blm3ifei3xdrg"]
+[gd_scene load_steps=40 format=3 uid="uid://blm3ifei3xdrg"]
 
 [ext_resource type="Script" uid="uid://caqc5162cs7yv" path="res://Enemies/Scripts/enemy.gd" id="1_qevxw"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_gsauw"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="15_p23qc"]
 [ext_resource type="Script" uid="uid://bsj2a3gxt2gen" path="res://Enemies/Scripts/states/enemy_state_charge.gd" id="16_xrpjy"]
 [ext_resource type="PackedScene" uid="uid://d1atxf435b578" path="res://GeneralNodes/AttackRange/AttackRange.tscn" id="17_u4aci"]
+[ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="18_v4ujj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -603,3 +604,6 @@ autostart = true
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_v4ujj")
 debug_color = Color(0.69, 0, 0.16099985, 0.011764706)
+
+[node name="StatusHandler" type="Node" parent="."]
+script = ExtResource("18_v4ujj")

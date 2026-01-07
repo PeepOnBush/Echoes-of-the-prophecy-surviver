@@ -15,6 +15,8 @@ var xp : int = 0
 var level : int = 1
 var defense : int = 1
 var defense_bonus  : int = 0
+var chance_to_burn: float = 0.0 # 0.0 to 1.0
+var chance_to_freeze: float = 0.0
 var attack : int = 1 :
 	set(v) :
 		attack = v

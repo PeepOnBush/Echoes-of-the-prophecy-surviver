@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://bckf6p0b5mgms"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_ljlvw"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_kim0t"]
+[ext_resource type="Texture2D" uid="uid://c7ednx0tvwvn2" path="res://GUI/Upgrades/Icons/fire_arrow.png" id="3_75vrv"]
+[ext_resource type="Resource" uid="uid://desv08jtoapnf" path="res://GUI/Upgrades/skill_resources/Fire Infuse.tres" id="4_g71bg"]
+
+[resource]
+script = ExtResource("2_kim0t")
+upgrade_to_unlock = ExtResource("4_g71bg")
+name = "Scroll_fire"
+description = "Help sylvana learn how to use fire element"
+texture = ExtResource("3_75vrv")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

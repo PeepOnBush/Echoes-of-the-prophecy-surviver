@@ -53,6 +53,16 @@ func onDidDamage(victim_hitbox: HitBox) -> void:
 	# 2. Add to history
 	if victim_enemy:
 		hit_history.append(victim_enemy)
+		var status = victim_enemy.get_node_or_null("StatusHandler") 
+		
+		if status:
+			# Check Fire
+			if PlayerManager.player.chance_to_burn > 0 and randf() < PlayerManager.player.chance_to_burn:
+				status.apply_burn(3.0, 2)
+			
+			# Check Ice
+			if PlayerManager.player.chance_to_freeze > 0 and randf() < PlayerManager.player.chance_to_freeze:
+				status.apply_freeze(5.0, 0.5)
 	
 	# 3. Check Bounce Count
 	if current_bounces < max_bounces:

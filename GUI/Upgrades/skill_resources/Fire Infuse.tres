@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://desv08jtoapnf"]
+
+[ext_resource type="Texture2D" uid="uid://c7ednx0tvwvn2" path="res://GUI/Upgrades/Icons/fire_arrow.png" id="1_h4cis"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_n3jk2"]
+
+[resource]
+script = ExtResource("1_n3jk2")
+title = "Fire Infuse"
+description = "Chances to infuse fire to your arrow"
+icon = ExtResource("1_h4cis")
+buff = 9
+value = 0.9
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

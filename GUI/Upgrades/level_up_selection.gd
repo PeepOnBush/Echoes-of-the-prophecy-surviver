@@ -52,26 +52,39 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 	match upgrade.buff:
 		UpgradeData.UpgradeType.HEAL:
 			player.update_hp(int(upgrade.value))
+			pass
 		UpgradeData.UpgradeType.ATTACK:
 			player.attack += int(upgrade.value)
+			pass
 		UpgradeData.UpgradeType.DEFENSE:
 			player.defense += int(upgrade.value)
+			pass
 		UpgradeData.UpgradeType.SPEED:
 			# You assume you have a move_speed variable on player state
 			
 			pass 
 		UpgradeData.UpgradeType.ARROW:
 			player.arrow_count += int(upgrade.value)
+			pass
 		UpgradeData.UpgradeType.BOMB:
 			player.bomb_count += int(upgrade.value)
+			pass
 		UpgradeData.UpgradeType.ORBIT:
 			player.enableOrbitDarkGemController()
+			pass
 		UpgradeData.UpgradeType.RAGE:
 			player.attack += int(upgrade.value)
 			player.stamina += int(upgrade.value)
 			print(player.attack + " attack " + player.stamina + " stamina")
+			pass
 		UpgradeData.UpgradeType.RICOCHET:
 			PlayerManager.player.arrow_ricochet_amount += int(upgrade.value)
+			pass
+		UpgradeData.UpgradeType.ELEMENT_FIRE:
+			PlayerManager.player.chance_to_burn += upgrade.value
+			pass
+		UpgradeData.UpgradeType.ELEMENT_ICE:
+			PlayerManager.player.chance_to_freeze += upgrade.value
 			pass
 	
 	# Close Menu

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d03ocog1h40dv"]
+[gd_scene load_steps=37 format=3 uid="uid://d03ocog1h40dv"]
 
 [ext_resource type="Script" uid="uid://caqc5162cs7yv" path="res://Enemies/Scripts/enemy.gd" id="1_8sl34"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="2_4nwja"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_oc08r"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_2hogj"]
 [ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="14_os3db"]
+[ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="16_cxyyl"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_pj30j"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="16_xubuf"]
 [ext_resource type="Script" uid="uid://cmedoimntypgj" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="17_0qxhq"]
@@ -519,7 +520,6 @@ position = Vector2(0, 10)
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_8sl34")
-hp = 1
 xp_reward = 0
 
 [node name="HitBox" parent="." instance=ExtResource("3_46hwl")]
@@ -581,3 +581,6 @@ drops = Array[ExtResource("14_2hogj")]([SubResource("Resource_k17h7"), SubResour
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
+
+[node name="StatusHandler" type="Node" parent="."]
+script = ExtResource("16_cxyyl")
