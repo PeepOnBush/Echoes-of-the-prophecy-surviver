@@ -8,19 +8,23 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 @export var hp : int = 10
 @export var xp_reward : int = 1
+@export var base_chase_speed: float = 40.0 # Set this in Inspector
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var player : Player 
 var invulnerable : bool = false
+var current_chase_speed: float = 40.0      # This changes when Frozen
 
 @onready var hit_box : HitBox = $HitBox
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
 @onready var state_Machine : EnemyStateMachine = $EnemyStateMachine
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var status_handler: StatusHandler = $StatusHandler
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_chase_speed = base_chase_speed
 	state_Machine.initialize(self)
 	player = PlayerManager.player
 	hit_box.Damaged.connect(_take_damage)

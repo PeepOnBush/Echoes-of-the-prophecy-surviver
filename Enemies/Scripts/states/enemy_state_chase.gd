@@ -1,7 +1,6 @@
 class_name EnemyStateChase extends EnemyState
 
 @export var animName : String = "walk"
-@export var chase_speed : float = 40.0
 @export var turn_rate : float = 0.25
 var _direction : Vector2
 
@@ -26,7 +25,7 @@ func Process(_delta : float) -> EnemyState:
 	_direction = lerp(_direction, new_direction, turn_rate)
 	
 	# 4. Apply Movement
-	enemy.velocity = _direction * chase_speed
+	enemy.velocity = _direction * enemy.current_chase_speed
 	
 	# 5. Update Sprite Direction and Animation
 	if enemy.SetDirection(_direction):

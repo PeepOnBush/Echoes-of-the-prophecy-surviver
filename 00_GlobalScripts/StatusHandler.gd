@@ -53,15 +53,17 @@ func handle_burn(delta: float) -> void:
 
 # --- 2. FREEZE LOGIC (Slow Down) ---
 func apply_freeze(duration: float, slow_factor: float) -> void:
-	# If not already frozen, save the original speed
 	if not is_frozen:
-		if "move_speed" in parent_body: # Assuming Enemy.gd has move_speed or chase_speed
-			original_speed = parent_body.chase_speed # Adjust variable name based on your script
-			parent_body.chase_speed = original_speed * slow_factor
+		# Save the original speed from the PARENT
+		if "current_chase_speed" in parent_body:
+			original_speed = parent_body.base_chase_speed 
+			
+			# Apply slow
+			parent_body.current_chase_speed = parent_body.base_chase_speed * slow_factor
 			is_frozen = true
 	
 	freeze_duration = duration
-	if sprite: sprite.modulate = Color(0.5, 0.5, 3) # Blue
+	if sprite: sprite.modulate = Color(0.5, 0.5, 3) 
 
 func handle_freeze(delta: float) -> void:
 	if freeze_duration > 0:
@@ -70,7 +72,7 @@ func handle_freeze(delta: float) -> void:
 		if freeze_duration <= 0:
 			# Thaw out
 			if is_frozen:
-				if "chase_speed" in parent_body:
-					parent_body.chase_speed = original_speed
+				if "current_chase_speed" in parent_body:
+					parent_body.current_chase_speed = parent_body.base_chase_speed
 				is_frozen = false
 				if sprite: sprite.modulate = Color.WHITE
