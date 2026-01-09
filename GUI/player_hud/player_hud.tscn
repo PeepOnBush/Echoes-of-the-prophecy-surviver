@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://d3u0chmjjfa7s"]
+[gd_scene load_steps=56 format=3 uid="uid://d3u0chmjjfa7s"]
 
 [ext_resource type="Script" uid="uid://nwqx8s3opd8m" path="res://GUI/player_hud/player_hud.gd" id="1_loiu6"]
 [ext_resource type="Texture2D" uid="uid://bylxkhahjdvm8" path="res://GUI/player_hud/HealthBar DARK.png" id="2_5nb4v"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://bkptwnaamo17w" path="res://GUI/fishing/fishes_resource/Salmonfish.tres" id="25_cxlay"]
 [ext_resource type="Resource" uid="uid://clkbkyg54840t" path="res://GUI/fishing/fishes_resource/Codfish.tres" id="26_116kx"]
 [ext_resource type="Resource" uid="uid://ciwnt4irdoji7" path="res://GUI/fishing/fishes_resource/Catfish.tres" id="27_4q2gv"]
+[ext_resource type="PackedScene" uid="uid://cckku3mpxocx3" path="res://GUI/cooking/cooking_minigame.tscn" id="28_ac11f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdg2b"]
 atlas = ExtResource("2_5nb4v")
@@ -682,8 +683,11 @@ _data = {
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_loiu6")
+button_focus_audio = null
+button_select_audio = null
 restart_to_scene = "uid://pm8hmceeo3q5"
 combo_sounds = Array[AudioStream]([ExtResource("2_vtnyi"), ExtResource("3_fcxvu"), ExtResource("4_w2qg4"), ExtResource("5_c8yyi"), ExtResource("6_cxlay"), ExtResource("7_116kx"), ExtResource("8_4q2gv"), ExtResource("9_ac11f")])
+combo_timeout = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -1193,8 +1197,13 @@ theme_override_font_sizes/font_size = 24
 text = "x1"
 
 [node name="FishingMinigame" parent="Control" instance=ExtResource("22_fcxvu")]
+visible = false
 layout_mode = 1
 fish_pool = Array[ExtResource("23_w2qg4")]([ExtResource("24_c8yyi"), ExtResource("25_cxlay"), ExtResource("26_116kx"), ExtResource("27_4q2gv")])
+
+[node name="CookingMinigame" parent="Control" instance=ExtResource("28_ac11f")]
+visible = false
+layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

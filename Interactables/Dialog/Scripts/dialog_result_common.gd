@@ -9,8 +9,9 @@ enum ActionType {
 	PLAY_SOUND, 
 	MODIFY_QUEST,
 	START_FISHING,
+	OPEN_SHOP,
+	OPEN_RECIPE_MENU,
 	REMOVE_PARENT_NPC
-	
 }
 
 @export_category("Action Settings")
@@ -66,6 +67,21 @@ func _on_execute() -> void:
 		ActionType.START_FISHING:
 			await get_tree().process_frame
 			PlayerHud.start_fishing_minigame()
+		ActionType.OPEN_SHOP:
+			# Look for a ShopKeeper script on the NPC parent
+			var npc = get_npc_parent()
+			if npc and npc.has_method("open_shop_ui"):
+				npc.open_shop_ui()
+			else:
+				printerr("Dialog Result: Parent NPC is not a ShopKeeper!")
+
+		ActionType.OPEN_RECIPE_MENU:
+			# Look for a KitchenShopKeeper script
+			var npc = get_npc_parent()
+			if npc and npc.has_method("open_kitchen_ui"):
+				npc.open_kitchen_ui()
+			else:
+				printerr("Dialog Result: Parent NPC does not have a Kitchen!")
 # --- EDITOR VISUALIZATION (Optional) ---
 # This changes the node name in the tree so you can read what it does!
 func set_type(value):
@@ -76,3 +92,12 @@ func set_type(value):
 func update_name():
 	if Engine.is_editor_hint():
 		name = "Do: " + ActionType.keys()[action_type]
+
+func get_npc_parent() -> Node:
+	var p = get_parent()
+	while p != null:
+		# Check if it has the script methods we need
+		if p.has_method("open_shop_ui") or p.has_method("open_kitchen_ui"):
+			return p
+		p = p.get_parent()
+	return null

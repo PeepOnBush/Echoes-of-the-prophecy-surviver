@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://jcn4g08rs8i1"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_csky5"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_4idfs"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_cufpc"]
+[ext_resource type="Script" uid="uid://ce3hwjec8uxsu" path="res://Items/item_effects/item_effect_buff.gd" id="3_4s1en"]
+[ext_resource type="Texture2D" uid="uid://50fded6imrrg" path="res://GUI/fishing/fishes_icon/cod.png" id="5_o4cfi"]
+
+[sub_resource type="Resource" id="Resource_vynth"]
+script = ExtResource("3_4s1en")
+amount = 10.0
+audio = ExtResource("2_4idfs")
+use_description = "increase health"
+metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
+
+[resource]
+script = ExtResource("2_cufpc")
+name = "Fish stew"
+description = "Tastes fishy +10 HP next run"
+texture = ExtResource("5_o4cfi")
+effects = Array[ExtResource("1_csky5")]([SubResource("Resource_vynth")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

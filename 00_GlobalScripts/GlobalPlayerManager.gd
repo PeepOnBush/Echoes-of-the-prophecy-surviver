@@ -17,6 +17,12 @@ var interact_handled : bool = true
 var unlocked_upgrades: Array[UpgradeData] = [] 
 #var level_requirements = [ 0, 50, 100, 200, 400, 800, 1500, 3000, 4500, 6000, 8500, 12000 ]
 var level_requirements = [0 , 5 , 10 , 20 , 25 ]
+var current_run_buffs : Dictionary = {
+	"MAX_HP": 0,
+	"ATTACK": 0,
+	"DEFENSE": 0
+}
+
 func _ready() -> void:
 	getDefaultBuff()
 	add_player_instance()
@@ -122,3 +128,35 @@ func getDefaultBuff() -> void:
 	var iron = load("res://GUI/Upgrades/skill_resources/Iron Skin.tres")
 	if iron: default_upgrades.append(iron)
 	pass
+# 1. Called by the Item Effect when eating
+func add_run_buff(stat_name: String, amount: float) -> void:
+	if current_run_buffs.has(stat_name):
+		current_run_buffs[stat_name] += amount
+		print("Meal Eaten! Run Buff added: ", stat_name, " +", amount)
+		# Optional: Play "Burp" sound?
+
+# 2. Called when Spawning the Player in the Arena
+# (Add this call inside your add_player_instance or _ready)
+func apply_buffs_to_player_instance() -> void:
+	if not player: return
+	
+	# Apply HP
+	if current_run_buffs["MAX_HP"] > 0:
+		player.max_hp += int(current_run_buffs["MAX_HP"])
+		player.hp += int(current_run_buffs["MAX_HP"]) # Heal the difference
+		player.update_hp(0) # Refresh UI
+	
+	# Apply Attack (Needs player variable support)
+	# Assuming player.attack is a variable you can modify:
+	if current_run_buffs["ATTACK"] > 0:
+		player.attack += int(current_run_buffs["ATTACK"])
+		
+	# Apply Defense
+	if current_run_buffs["DEFENSE"] > 0:
+		player.defense += int(current_run_buffs["DEFENSE"])
+
+# 3. Cleanup (Call this when returning to Camp or Dying)
+func reset_run_buffs() -> void:
+	current_run_buffs["MAX_HP"] = 0
+	current_run_buffs["ATTACK"] = 0
+	current_run_buffs["DEFENSE"] = 0

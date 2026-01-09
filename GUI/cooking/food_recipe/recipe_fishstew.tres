@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=5 format=3 uid="uid://br7wo4gvcytrn"]
+
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="1_opstw"]
+[ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="2_6foby"]
+[ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="2_61aks"]
+[ext_resource type="Resource" uid="uid://jcn4g08rs8i1" path="res://Items/Food/FishStew.tres" id="3_ne0io"]
+
+[resource]
+script = ExtResource("2_6foby")
+recipe_name = "Recipe_FishStew"
+result_item = ExtResource("3_ne0io")
+ingredients = Array[ExtResource("1_opstw")]([ExtResource("2_61aks")])
+metadata/_custom_type_script = "uid://dq8vhusju318p"

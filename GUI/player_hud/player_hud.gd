@@ -23,7 +23,7 @@ var bars_original_pos: Vector2
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
 @onready var boss_label: Label = $Control/BossUI/Label
 @onready var notifcation: NotificationUI = $Control/Notifcation
-
+@onready var cooking_minigame: CookingMinigame = $Control/CookingMinigame
 @onready var abilities: Control = $Control/Abilities
 @onready var ability_items : HBoxContainer = $Control/Abilities/HBoxContainer
 @onready var arrow_count_label: Label = %ArrowCountLabel
@@ -341,4 +341,7 @@ func reset_combo() -> void:
 	pass
 func start_fishing_minigame() -> void:
 	fishing_minigame.start_fishing()
+	pass
+func start_cooking(recipe : RecipeData) -> void:
+	cooking_minigame.start_cooking(recipe)
 	pass

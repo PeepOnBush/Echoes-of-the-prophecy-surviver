@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://de7bke6q6b8a1" path="res://Enemies/Slime/DestroySmoke.png" id="9_trvce"]
 [ext_resource type="Script" uid="uid://d3t7ymtwqy1lf" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="10_pbf3n"]
 [ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="12_0dw7i"]
-[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_2m0ya"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="14_h0n5y"]
+[ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="15_gorp7"]
 [ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="16_2vvwu"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_ts4pi"]
 [ext_resource type="Script" uid="uid://cmedoimntypgj" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="17_2vvwu"]
@@ -715,8 +715,9 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_k17h7"]
 script = ExtResource("14_h0n5y")
-item = ExtResource("13_2m0ya")
-max_amount = 2
+item = ExtResource("15_gorp7")
+min_amount = 5
+max_amount = 5
 
 [sub_resource type="Resource" id="Resource_uo7u8"]
 script = ExtResource("14_h0n5y")
@@ -792,6 +793,7 @@ _data = {
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_c31tp")
+hp = 5
 xp_reward = 0
 
 [node name="HurtBox" parent="." instance=ExtResource("7_4prkb")]
