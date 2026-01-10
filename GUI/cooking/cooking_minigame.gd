@@ -11,39 +11,45 @@ signal cooking_finished(success: bool)
 # Defined as 0.0 to 100.0
 @export var zone_min : float = 40.0 
 @export var zone_max : float = 60.0
-
-@onready var heat_bar: TextureProgressBar = $shakerContainer/HeatBar
-@onready var zone_indicator: ColorRect = $shakerContainer/HeatBar/ZoneIndicator
+@onready var shaker_container: Control = $ShakeContainer
 @onready var cauldron_visuals: Control = $Cauldron
-
+@onready var color_rect: ColorRect = $ColorRect
 @onready var progress_label: Label = $Label
 @onready var progress_bar: TextureProgressBar = $Progress
+
+@onready var border: NinePatchRect = $ShakeContainer/Border
+@onready var heat_bar: TextureProgressBar = $ShakeContainer/HeatBar
+@onready var zone_indicator: ColorRect = $ShakeContainer/ZoneIndicator
 
 var current_heat : float = 0.0
 var current_cook_progress : float = 0.0 # 0 to target_cook_time
 var is_active : bool = false
 var active_recipe : RecipeData
 func _ready() -> void:
+	color_rect.visible = false
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS # Run while game is paused
 	setup_zone_visuals()
 
 func setup_zone_visuals() -> void:
-	var full_width = heat_bar.size.x # Use Width (X) for horizontal bar
+	# Use the PARENT container size, because that is the "Source of Truth"
+	var container_width = shaker_container.custom_minimum_size.x
+	#var container_height = shaker_container.custom_minimum_size.y
 	
+	# 1. Calculate Width (Zone Span)
 	var width_ratio = (zone_max - zone_min) / 100.0
+	zone_indicator.size.x = container_width * width_ratio
 	
-	# Set Width
-	zone_indicator.size.x = full_width * width_ratio
+	# 2. Force Full Height
+	zone_indicator.size.y = 24.0
 	
-	# Set Position (Start from Left)
-	zone_indicator.position.x = full_width * (zone_min / 100.0)
-	
-	# Ensure Y position centers it vertically on the bar
-	zone_indicator.position.y = 0 
-	zone_indicator.size.y = heat_bar.size.y
-
+	# 3. Position (Horizontal Offset)
+	# e.g. If zone_min is 40%, we start at 40% of the container width
+	zone_indicator.position.x = container_width * (zone_min / 100.0)
+	zone_indicator.position.y = 8.0
+	pass
 func start_cooking(recipe : RecipeData) -> void: 
+	color_rect.visible = true
 	active_recipe = recipe # <--- Store it for later
 	
 	is_active = true
@@ -123,7 +129,7 @@ func end_game(win : bool) -> void:
 	await get_tree().create_timer(1.0).timeout
 	visible = false
 	get_tree().paused = false
-	
+	color_rect.visible = false
 	# Pass the result item in the signal too, just in case HUD wants to show it
 	cooking_finished.emit(win) # You might want to update the signal definition if you want to pass data back
 

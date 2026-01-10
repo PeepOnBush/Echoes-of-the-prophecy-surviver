@@ -1,15 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://cckku3mpxocx3"]
+[gd_scene load_steps=11 format=3 uid="uid://cckku3mpxocx3"]
 
 [ext_resource type="Texture2D" uid="uid://5hpdbvnk6hwu" path="res://GUI/cooking/cauldron.png" id="1_du8hb"]
 [ext_resource type="Script" uid="uid://c8882er8imv4n" path="res://GUI/cooking/cooking_minigame.gd" id="1_mh0ly"]
 [ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="2_bq7eh"]
 
-[sub_resource type="Gradient" id="Gradient_e7cy5"]
-offsets = PackedFloat32Array(0.006451613)
-colors = PackedColorArray(0, 0.4160487, 0.8530103, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh0ly"]
+atlas = ExtResource("2_bq7eh")
+region = Rect2(0, 32, 48, 48)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mh0ly"]
-gradient = SubResource("Gradient_e7cy5")
+[sub_resource type="Gradient" id="Gradient_8xoxp"]
+offsets = PackedFloat32Array(0.038610037)
+colors = PackedColorArray(0.99999994, 0.4019326, 0.134271, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_srwtt"]
+gradient = SubResource("Gradient_8xoxp")
 
 [sub_resource type="Gradient" id="Gradient_ybcig"]
 offsets = PackedFloat32Array(0.1003861)
@@ -26,6 +30,7 @@ colors = PackedColorArray(0.286578, 0.66705483, 1.92523e-07, 1)
 gradient = SubResource("Gradient_srwtt")
 
 [node name="CookingMinigame" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +38,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mh0ly")
+zone_min = 27.734
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_right = -4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
 
 [node name="Cauldron" type="Control" parent="."]
 layout_mode = 1
@@ -53,80 +71,63 @@ pivot_offset = Vector2(20, 20)
 position = Vector2(21, 19)
 texture = ExtResource("1_du8hb")
 
-[node name="shakerContainer" type="Control" parent="."]
-custom_minimum_size = Vector2(0, 250.895)
+[node name="ShakeContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 32)
+anchors_preset = 0
+offset_left = 241.0
+offset_top = 126.0
+offset_right = 441.0
+offset_bottom = 166.0
+pivot_offset = Vector2(100, 16)
+
+[node name="Border" type="NinePatchRect" parent="ShakeContainer"]
 layout_mode = 1
-anchor_left = 0.39400002
-anchor_top = 0.18800001
-anchor_right = 0.45600003
-anchor_bottom = 0.883
-offset_left = 210.83998
-offset_top = 53.872498
-offset_right = 219.15997
-offset_bottom = 54.567505
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 1.5707964
-
-[node name="NinePatchRect" type="NinePatchRect" parent="shakerContainer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.83300006
-anchor_bottom = 1.0220001
-offset_right = 0.01599884
-offset_bottom = 0.03277588
-texture = ExtResource("2_bq7eh")
-region_rect = Rect2(0, 32, 48, 48)
+texture = SubResource("AtlasTexture_mh0ly")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="HeatBar" type="TextureProgressBar" parent="shakerContainer"]
+[node name="HeatBar" type="TextureProgressBar" parent="ShakeContainer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.187
-anchor_top = 0.042000003
-anchor_right = 0.646
-anchor_bottom = 0.98600006
-offset_left = 0.024000168
-offset_top = -0.0900898
-offset_right = -0.0080013275
-offset_bottom = 0.06500244
+anchor_left = 0.045
+anchor_top = 0.2
+anchor_right = 0.95000005
+anchor_bottom = 0.8
+offset_right = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
-fill_mode = 3
 nine_patch_stretch = true
-stretch_margin_left = 11
-stretch_margin_top = 11
-stretch_margin_right = 11
-stretch_margin_bottom = 11
-texture_progress = SubResource("GradientTexture2D_mh0ly")
+texture_progress = SubResource("GradientTexture2D_srwtt")
 
-[node name="ZoneIndicator" type="ColorRect" parent="shakerContainer/HeatBar"]
-custom_minimum_size = Vector2(0, 70.12)
-layout_mode = 0
-offset_left = -8.552486
-offset_top = 80.55249
-offset_right = 31.447514
-offset_bottom = 150.67249
-mouse_filter = 2
-color = Color(0.40819997, 0.78, 0.273, 0.74509805)
+[node name="ZoneIndicator" type="ColorRect" parent="ShakeContainer"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 11.0
+offset_bottom = 32.0
+color = Color(0, 0.7200002, 0.20285092, 0.5)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 313.0
-offset_top = 81.0
+offset_top = 65.0
 offset_right = 360.0
-offset_bottom = 98.0
+offset_bottom = 82.0
 text = "Cooking"
 
 [node name="Progress" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 269.0
-offset_top = 99.0
+offset_top = 93.0
 offset_right = 333.0
-offset_bottom = 163.0
+offset_bottom = 157.0
 scale = Vector2(2.1505017, 0.3145809)
 texture_under = SubResource("GradientTexture2D_8xoxp")
 texture_progress = SubResource("GradientTexture2D_rxutk")

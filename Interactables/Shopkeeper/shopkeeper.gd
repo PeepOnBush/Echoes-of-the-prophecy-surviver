@@ -7,10 +7,6 @@ class_name ShopKeeper extends Node2D
 func _ready() -> void:
 	pass
 
-func showShopMenu() -> void:
-	print("show shop")
-	ShopMenu.showMenu(shop_inventory)
-	pass
 func open_shop_ui() -> void:
 	print("Opening Shop...")
 	# We assume ShopMenu is an Autoload or accessible via Global

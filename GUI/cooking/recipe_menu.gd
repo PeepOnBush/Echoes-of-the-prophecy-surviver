@@ -7,15 +7,20 @@ const RECIPE_BUTTON_PATH = "res://GUI/cooking/shop_recipe_button.tscn"
 var current_npc_recipes : Array[RecipeData]
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	close_btn.pressed.connect(close_menu)
 
 func open_menu(recipes : Array[RecipeData]) -> void:
-	get_tree().paused = true
-	visible = true
 	current_npc_recipes = recipes
-	
 	populate_list()
+	
+	# If the dialog system is open, wait for it to close before we pause
+	if DialogSystem.isActive:
+		await DialogSystem.finished
+	
+	visible = true
+	get_tree().paused = true
 
 func populate_list() -> void:
 	# Clear old list
