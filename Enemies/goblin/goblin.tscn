@@ -582,6 +582,7 @@ drops = Array[ExtResource("14_2hogj")]([SubResource("Resource_k17h7"), SubResour
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="StatusHandler" type="Node" parent="."]
 script = ExtResource("16_cxyyl")

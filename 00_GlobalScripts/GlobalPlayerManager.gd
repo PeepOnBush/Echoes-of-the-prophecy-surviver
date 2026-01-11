@@ -63,6 +63,12 @@ func set_player_position( _new_pos : Vector2 ) -> void:
 	pass
 	
 func set_as_parent( _p : Node2D) -> void:
+	# 1. Safety Check: Is the player dead/freed?
+	if not is_instance_valid(player):
+		print("Player was freed! Spawning a new instance.")
+		add_player_instance() # Create a fresh player
+	
+	# 2. Existing Logic
 	if player.get_parent():
 		player.get_parent().remove_child(player)
 	_p.add_child( player )

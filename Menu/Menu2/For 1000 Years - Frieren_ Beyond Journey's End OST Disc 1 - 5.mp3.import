@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/For 1000 Years - Frieren_ Beyond Journey's En
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

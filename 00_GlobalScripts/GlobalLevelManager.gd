@@ -39,6 +39,7 @@ func load_new_level(
 	
 	get_tree().change_scene_to_file( level_path )
 	
+	@warning_ignore("redundant_await")
 	await SceneTransition.fade_in()
 	
 	get_tree().paused = false

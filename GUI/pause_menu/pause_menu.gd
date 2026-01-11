@@ -93,7 +93,7 @@ func onQuitPressed() -> void:
 func onMenuPressed() -> void:
 	playAudio(button_select_audio)
 	hidePauseMenu()
-	LevelManager.load_new_level("res://Menu/Menu2/FrierenTheJourneyBeyondMenu.tscn","",Vector2.ZERO)
+	LevelManager.load_new_level("res://Menu/Menu2/echoes_of_the_prophecy.gd.tscn","",Vector2(22.0,45.0))
 	pass
 
 func updateItemDescription( newText : String ) -> void:

@@ -319,7 +319,6 @@ _data = {
 }
 
 [node name="Menu" type="Node2D"]
-position = Vector2(274, 14)
 script = ExtResource("1_edks3")
 
 [node name="FrierenMenu" type="Sprite2D" parent="."]
@@ -331,7 +330,7 @@ vframes = 18
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FrierenMenu"]
 libraries = {
-"": SubResource("AnimationLibrary_se0qq")
+&"": SubResource("AnimationLibrary_se0qq")
 }
 
 [node name="ShadowSprite" type="Sprite2D" parent="FrierenMenu"]
@@ -342,7 +341,7 @@ scale = Vector2(0.991719, 1.01879)
 texture = ExtResource("3_wlpcn")
 
 [node name="Camera2D" type="Camera2D" parent="FrierenMenu"]
-position = Vector2(6.33803, -38.7324)
+position = Vector2(7.0422554, -39.436623)
 
 [node name="Aura" type="Sprite2D" parent="FrierenMenu"]
 z_index = -1
@@ -355,7 +354,7 @@ vframes = 11
 
 [node name="Layer1" type="AnimationPlayer" parent="FrierenMenu/Aura"]
 libraries = {
-"": SubResource("AnimationLibrary_fmgky")
+&"": SubResource("AnimationLibrary_fmgky")
 }
 
 [node name="Aura2" type="Sprite2D" parent="FrierenMenu"]
@@ -368,7 +367,7 @@ vframes = 11
 
 [node name="Layer2" type="AnimationPlayer" parent="FrierenMenu/Aura2"]
 libraries = {
-"": SubResource("AnimationLibrary_530bm")
+&"": SubResource("AnimationLibrary_530bm")
 }
 
 [node name="SoundEffect" type="AudioStreamPlayer" parent="FrierenMenu"]
@@ -385,7 +384,7 @@ vframes = 18
 [node name="Floating" type="AnimationPlayer" parent="FloatingSprite"]
 root_node = NodePath("../../FrierenMenu")
 libraries = {
-"": SubResource("AnimationLibrary_fyd25")
+&"": SubResource("AnimationLibrary_fyd25")
 }
 
 [node name="ShadowSprite" type="Sprite2D" parent="FloatingSprite"]

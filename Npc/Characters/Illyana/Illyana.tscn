@@ -331,9 +331,9 @@ text = "Yes"
 npc_info = ExtResource("3_sbxra")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="Do_ OPEN_RECIPE_MENU" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch"]
+[node name="Do_ OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_lp6xb")
-action_type = 7
+action_type = 6
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
 [node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
@@ -364,6 +364,11 @@ script = ExtResource("6_kovjw")
 text = "Um sure!!"
 npc_info = ExtResource("3_sbxra")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="Do_ OPEN_RECIPE_MENU" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch"]
+script = ExtResource("11_lp6xb")
+action_type = 7
+metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
 [node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice"]
 script = ExtResource("8_d2bld")

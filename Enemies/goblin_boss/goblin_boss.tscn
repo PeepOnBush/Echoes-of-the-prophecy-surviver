@@ -535,7 +535,6 @@ script = ExtResource("8_3e8br")
 
 [node name="Chase" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("9_a2v1p")
-chase_speed = 35.0
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
 script = ExtResource("10_s3p6t")
@@ -549,6 +548,7 @@ drops = Array[ExtResource("12_fg6bb")]([SubResource("Resource_k17h7"), SubResour
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="StatusHandler" type="Node" parent="."]
 script = ExtResource("17_phxrf")

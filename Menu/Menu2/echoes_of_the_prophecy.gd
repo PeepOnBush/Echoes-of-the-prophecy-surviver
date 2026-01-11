@@ -9,8 +9,13 @@ const START_LEVEL : String = "res://Levels/Area01/01.tscn"
 @onready var button_new: Button = $CanvasLayer/Control/ButtonNew
 @onready var button_continue: Button = $CanvasLayer/Control/ButtonContinue
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 
 func _ready() -> void:
+	animation_player.play("Menu")
+	self.y_sort_enabled = true
+	PlayerManager.set_as_parent(self)
+	AudioManager.playMusic(music)
 	get_tree().paused = true
 	PlayerManager.player.visible = false
 	PlayerHud.visible = false
@@ -51,9 +56,14 @@ func exitTitleScreen() -> void:
 	PlayerManager.player.visible = true
 	PlayerHud.visible = true
 	PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	# We must remove the player from this scene tree BEFORE queue_free.
+	# Otherwise, the player gets deleted along with the menu.
+	if PlayerManager.player.get_parent() == self:
+		PlayerManager.unparent_player(self)
+	
 	self.queue_free()
 	pass
-
 func playAudio(_a : AudioStream) -> void:
 	audio_stream_player.stream = _a
 	audio_stream_player.play()

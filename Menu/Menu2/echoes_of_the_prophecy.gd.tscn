@@ -1,36 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxpnsixa42cqb"]
+[gd_scene load_steps=13 format=3 uid="uid://cxpnsixa42cqb"]
 
-[ext_resource type="Script" uid="uid://d2o7g4e84f8tn" path="res://Menu/Menu2/frieren_the_journey_beyond_menu.gd" id="1_4vkhu"]
-[ext_resource type="Texture2D" uid="uid://cqvtxv400x88e" path="res://Menu/Menu2/MenuAnimated.png" id="1_ebp7t"]
-[ext_resource type="Texture2D" uid="uid://cni0e42gxmijv" path="res://Menu/Menu2/MenuLogo.png" id="2_mnj30"]
-[ext_resource type="AudioStream" uid="uid://dx3vr6dacxmh6" path="res://Menu/menu_focus.wav" id="2_nqry0"]
-[ext_resource type="AudioStream" uid="uid://dq2ggomr5nphp" path="res://Menu/menu_select.wav" id="3_s0ef5"]
-[ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="4_clnpg"]
-[ext_resource type="AudioStream" uid="uid://b8aa2i8gsuktl" path="res://Menu/Menu2/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3" id="6_h2y4e"]
+[ext_resource type="Script" uid="uid://d2o7g4e84f8tn" path="res://Menu/Menu2/echoes_of_the_prophecy.gd" id="1_j0wh5"]
+[ext_resource type="AudioStream" uid="uid://b8aa2i8gsuktl" path="res://Menu/Menu2/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3" id="2_yfo08"]
+[ext_resource type="AudioStream" uid="uid://dx3vr6dacxmh6" path="res://Menu/menu_focus.wav" id="3_1duhk"]
+[ext_resource type="AudioStream" uid="uid://dq2ggomr5nphp" path="res://Menu/menu_select.wav" id="4_fldkk"]
+[ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="5_6oald"]
+[ext_resource type="Texture2D" uid="uid://cni0e42gxmijv" path="res://Menu/Menu2/MenuLogo.png" id="6_1vr6k"]
+[ext_resource type="Texture2D" uid="uid://53sej8x2vk3t" path="res://Menu/Menu2/Gaymapreworkin-Sheet.png" id="7_suru8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aldl8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa0g1"]
-
-[sub_resource type="Animation" id="Animation_6spjk"]
-resource_name = "SoundTrack"
-length = 150.0
-loop_mode = 1
-tracks/0/type = "animation"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/AnimationPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": PackedStringArray("Menu"),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_18fcv"]
-_data = {
-&"SoundTrack": SubResource("Animation_6spjk")
-}
 
 [sub_resource type="Animation" id="Animation_xw8xv"]
 resource_name = "Menu"
@@ -44,10 +24,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.715, 1.45, 2.31, 2.99),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.76, 1.53, 2.26),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_knfa3"]
@@ -62,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [11]
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0gk45"]
@@ -71,14 +51,20 @@ _data = {
 &"RESET": SubResource("Animation_knfa3")
 }
 
-[node name="FrierenTheJourneyBeyondMenu" type="Node2D"]
-script = ExtResource("1_4vkhu")
-music = ExtResource("6_h2y4e")
-button_focus_audio = ExtResource("2_nqry0")
-button_press_audio = ExtResource("3_s0ef5")
+[node name="EchoesOfTheProphecy" type="Node2D"]
+position = Vector2(315, 155)
+script = ExtResource("1_j0wh5")
+music = ExtResource("2_yfo08")
+button_focus_audio = ExtResource("3_1duhk")
+button_press_audio = ExtResource("4_fldkk")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("5_6oald")]
+z_index = -2
+position = Vector2(22, 49)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 5
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 z_index = 2
@@ -86,6 +72,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -2.0
+offset_right = -5.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -94,7 +84,7 @@ metadata/_edit_use_anchors_ = true
 z_index = 2
 position = Vector2(363.4, 110.54)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_mnj30")
+texture = ExtResource("6_1vr6k")
 
 [node name="ButtonNew" type="Button" parent="CanvasLayer/Control"]
 texture_filter = 1
@@ -133,28 +123,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wa0g1")
 text = "Continue
 "
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("4_clnpg")]
-z_index = -2
-position = Vector2(314, 176)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 max_polyphony = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 process_mode = 3
 z_index = -1
-position = Vector2(319, 176)
-scale = Vector2(1.02656, 1.03025)
-texture = ExtResource("1_ebp7t")
-hframes = 17
-frame = 11
-
-[node name="SoundTrack" type="AnimationPlayer" parent="Sprite2D"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_18fcv")
-}
-autoplay = "SoundTrack"
+position = Vector2(5, 49)
+texture = ExtResource("7_suru8")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {

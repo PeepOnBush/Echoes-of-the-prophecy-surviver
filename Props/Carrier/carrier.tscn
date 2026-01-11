@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7nifsv3lduwo"]
+
+[ext_resource type="Texture2D" uid="uid://dftp0ml08rhka" path="res://Props/Sprites/TX Village Props.png" id="1_7ye13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaxu5"]
+atlas = ExtResource("1_7ye13")
+region = Rect2(32, 304, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ye13"]
+atlas = ExtResource("1_7ye13")
+region = Rect2(128, 288, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ye13"]
+size = Vector2(44.5, 14)
+
+[node name="Carrier" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CarrierSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_jaxu5")
+
+[node name="Wheel" type="Sprite2D" parent="."]
+position = Vector2(-24, 5)
+texture = SubResource("AtlasTexture_7ye13")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -1)
+shape = SubResource("RectangleShape2D_7ye13")

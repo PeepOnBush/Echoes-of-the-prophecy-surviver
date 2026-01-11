@@ -23,16 +23,16 @@ func check_ingredients_logic() -> void:
 	# 2. Check each ingredient
 	for ingredient in recipe.ingredients:
 		# Create a visual icon for the ingredient
-		var icon = TextureRect.new()
-		icon.texture = ingredient.texture
-		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		icon.custom_minimum_size = Vector2(24, 24)
-		ingredients_container.add_child(icon)
+		var ingredient_icon = TextureRect.new()
+		ingredient_icon.texture = ingredient.texture
+		ingredient_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		ingredient_icon.custom_minimum_size = Vector2(24, 24)
+		ingredients_container.add_child(ingredient_icon)
 		
 		# LOGIC CHECK
 		if PlayerManager.INVENTORY_DATA.getItemHeldCount(ingredient) < 1:
 			has_ingredients = false
-			icon.modulate = Color(1, 0, 0, 0.5) # Turn icon Red/Transparent if missing
+			ingredient_icon.modulate = Color(1, 0, 0, 0.5) # Turn icon Red/Transparent if missing
 	
 	# 3. Disable button if missing items
 	disabled = not has_ingredients

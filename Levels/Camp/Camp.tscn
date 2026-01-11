@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=51 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://yhsygb7ab6mc" path="res://Props/Campfire/campfire.tscn" id="2_yfvmv"]
 [ext_resource type="PackedScene" uid="uid://3j1go2ri4mun" path="res://Props/Plants/Trees/tree_01.tscn" id="3_6o8vo"]
 [ext_resource type="PackedScene" uid="uid://d0086hsi24wdm" path="res://Tile Maps/Camp-01-layer.tscn" id="3_dplml"]
+[ext_resource type="PackedScene" uid="uid://d1asn4w6xg5e8" path="res://Npc/Characters/MyDoggo/my_doggo.tscn" id="4_72ju4"]
 [ext_resource type="PackedScene" uid="uid://c5g10j8utix16" path="res://Props/Plants/Trees/tree_02.tscn" id="4_dplml"]
 [ext_resource type="PackedScene" uid="uid://cxumtslk1jnt0" path="res://Props/Plants/Trees/tree_03.tscn" id="5_0tivk"]
 [ext_resource type="PackedScene" uid="uid://hdgop2qhg4cd" path="res://Npc/Characters/Illyana/Illyana.tscn" id="5_7vfp2"]
@@ -47,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="41_0vr2m"]
 [ext_resource type="PackedScene" uid="uid://b5kbwd58v2i6k" path="res://Props/Plants/Trees/tree_06.tscn" id="41_dpl2s"]
 [ext_resource type="PackedScene" uid="uid://ceqx31tbb8qlq" path="res://Props/Pot/cauldron.tscn" id="45_msisa"]
+[ext_resource type="PackedScene" uid="uid://c7nifsv3lduwo" path="res://Props/Carrier/carrier.tscn" id="46_m8h0l"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -58,6 +60,9 @@ music = ExtResource("2_ohoch")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_6o8vo")]
 position = Vector2(315, 208)
+
+[node name="MyDoggo" parent="." instance=ExtResource("4_72ju4")]
+position = Vector2(279, 158)
 
 [node name="Campfire" parent="." instance=ExtResource("2_yfvmv")]
 top_level = true
@@ -304,6 +309,9 @@ position = Vector2(888, 526)
 
 [node name="Cauldron" parent="Props" instance=ExtResource("45_msisa")]
 position = Vector2(179, 308)
+
+[node name="Carrier" parent="Props" instance=ExtResource("46_m8h0l")]
+position = Vector2(298, -135)
 
 [node name="Fireflies" type="CPUParticles2D" parent="."]
 position = Vector2(306, 678)
