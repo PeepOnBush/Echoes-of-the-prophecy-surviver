@@ -160,7 +160,7 @@ grow_vertical = 2
 theme = SubResource("Theme_1oddi")
 theme_override_fonts/font = ExtResource("2_cvrss")
 tab_alignment = 1
-current_tab = 4
+current_tab = 1
 tab_focus_mode = 1
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
@@ -494,7 +494,6 @@ theme_override_font_sizes/font_size = 25
 text = "Backpack"
 
 [node name="Quests" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("6_7er1a")
 metadata/_tab_index = 1
@@ -690,6 +689,7 @@ alignment = 1
 icon_alignment = 1
 
 [node name="Controls" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 

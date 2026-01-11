@@ -26,7 +26,7 @@ func check_ingredients_logic() -> void:
 		var icon = TextureRect.new()
 		icon.texture = ingredient.texture
 		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		icon.custom_minimum_size = Vector2(16, 16)
+		icon.custom_minimum_size = Vector2(24, 24)
 		ingredients_container.add_child(icon)
 		
 		# LOGIC CHECK

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=49 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://cesqg1j7vncmp" path="res://Props/Plants/Bushes/bushes_04.tscn" id="40_sdoba"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="41_0vr2m"]
 [ext_resource type="PackedScene" uid="uid://b5kbwd58v2i6k" path="res://Props/Plants/Trees/tree_06.tscn" id="41_dpl2s"]
+[ext_resource type="PackedScene" uid="uid://ceqx31tbb8qlq" path="res://Props/Pot/cauldron.tscn" id="45_msisa"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -300,6 +301,9 @@ position = Vector2(853, 451)
 
 [node name="Crate03" parent="Props" instance=ExtResource("40_0vr2m")]
 position = Vector2(888, 526)
+
+[node name="Cauldron" parent="Props" instance=ExtResource("45_msisa")]
+position = Vector2(179, 308)
 
 [node name="Fireflies" type="CPUParticles2D" parent="."]
 position = Vector2(306, 678)
