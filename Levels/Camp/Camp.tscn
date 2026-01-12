@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=53 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -20,9 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://k1bglfe87cx7" path="res://Npc/Characters/Zax/Zax.tscn" id="7_vmu3g"]
 [ext_resource type="PackedScene" uid="uid://c6jknrhflvq2p" path="res://Props/Crate/crate_01.tscn" id="8_6o7iy"]
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
+[ext_resource type="Resource" uid="uid://drv12m442nhb" path="res://Items/buff_items/Scroll_Orcish_Vitality.tres" id="9_lsues"]
 [ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="9_m53jy"]
 [ext_resource type="Resource" uid="uid://br7wo4gvcytrn" path="res://GUI/cooking/food_recipe/recipe_fishstew.tres" id="10_msisa"]
 [ext_resource type="Resource" uid="uid://cfbw1no3bccv3" path="res://Items/buff_items/Scroll_orbitgem.tres" id="10_ohoch"]
+[ext_resource type="Resource" uid="uid://c3vh1hs8pyl0q" path="res://Items/buff_items/Scroll_heavy_hand.tres" id="10_yc37q"]
 [ext_resource type="Resource" uid="uid://b65bf4qj8v2sj" path="res://Items/buff_items/Scroll_ice.tres" id="11_dpl2s"]
 [ext_resource type="Resource" uid="uid://bckf6p0b5mgms" path="res://Items/buff_items/Scroll_fire.tres" id="12_ejbmr"]
 [ext_resource type="Resource" uid="uid://cm0e0w3qkebcf" path="res://Items/buff_items/ricochet_arrow.tres" id="12_shx74"]
@@ -62,7 +64,8 @@ music = ExtResource("2_ohoch")
 position = Vector2(315, 208)
 
 [node name="MyDoggo" parent="." instance=ExtResource("4_72ju4")]
-position = Vector2(279, 158)
+top_level = true
+position = Vector2(692, 492)
 
 [node name="Campfire" parent="." instance=ExtResource("2_yfvmv")]
 top_level = true
@@ -75,7 +78,7 @@ scale = Vector2(0.5, 0.5)
 [node name="Soran" parent="." instance=ExtResource("33_7vfp2")]
 top_level = true
 position = Vector2(859, 533)
-shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("6_dedri")])
+shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("6_dedri"), ExtResource("9_lsues"), ExtResource("10_yc37q")])
 
 [node name="Illyana" parent="." instance=ExtResource("5_7vfp2")]
 top_level = true

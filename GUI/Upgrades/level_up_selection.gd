@@ -56,12 +56,21 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 		UpgradeData.UpgradeType.ATTACK:
 			player.attack += int(upgrade.value)
 			pass
+		UpgradeData.UpgradeType.ORCISH_VITALITY:
+			var bonus = int(upgrade.value)
+			PlayerManager.player.max_hp += bonus
+			PlayerManager.player.hp += bonus # Heal the amount we gained so the bar fills
+			PlayerManager.player.update_hp(0) # Force UI refresh
+			print("Max HP Increased to: ", PlayerManager.player.max_hp)
+			pass
+		UpgradeData.UpgradeType.KNOCKBACK_FORCE: # Add enum
+			PlayerManager.player.knockback_multiplier += upgrade.value # e.g. 0.2
+			pass
 		UpgradeData.UpgradeType.DEFENSE:
 			player.defense += int(upgrade.value)
 			pass
 		UpgradeData.UpgradeType.SPEED:
 			# You assume you have a move_speed variable on player state
-			
 			pass 
 		UpgradeData.UpgradeType.ARROW:
 			player.arrow_count += int(upgrade.value)
@@ -85,6 +94,7 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			pass
 		UpgradeData.UpgradeType.ELEMENT_ICE:
 			PlayerManager.player.chance_to_freeze += upgrade.value
+
 			pass
 	
 	# Close Menu

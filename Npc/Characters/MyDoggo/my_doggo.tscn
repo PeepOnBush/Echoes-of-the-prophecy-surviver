@@ -1,9 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1asn4w6xg5e8"]
+[gd_scene load_steps=8 format=3 uid="uid://d1asn4w6xg5e8"]
 
 [ext_resource type="Script" uid="uid://pmm6yimr5cow" path="res://Npc/Characters/MyDoggo/my_doggo.gd" id="1_m7yu5"]
 [ext_resource type="Texture2D" uid="uid://xpmvppsqgfpt" path="res://Npc/Characters/MyDoggo/zEdoggo.png" id="1_vqoot"]
+[ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_efe1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqoot"]
+
+[sub_resource type="Animation" id="Animation_m7yu5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_vqoot"]
 resource_name = "idle"
@@ -19,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_m7yu5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efe1y"]
@@ -63,3 +64,10 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
+show_behind_parent = true
+position = Vector2(-3, 36)
+scale = Vector2(2.081, 2.137)
+texture = ExtResource("3_efe1y")

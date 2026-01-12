@@ -1,7 +1,7 @@
 class_name EnemyStateStun extends EnemyState
 
 @export var animName : String = "stun"
-@export var knockback_speed : float = 350.0
+@export var knockback_speed : float = 200 
 @export var decelerate_speed : float = 10.0
 
 @export_category("AI")
@@ -22,7 +22,7 @@ func Enter() -> void:
 	_direction = enemy.global_position.direction_to(_damage_position)
 	
 	enemy.SetDirection(_direction)
-	enemy.velocity = _direction * -knockback_speed
+	enemy.velocity = _direction * (-knockback_speed * PlayerManager.player.knockback_multiplier)
 	enemy.UpdateAnimation( animName )
 	enemy.animationPlayer.animation_finished.connect(_on_animation_finished)
 	pass

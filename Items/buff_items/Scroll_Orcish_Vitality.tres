@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://drv12m442nhb"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_q0mta"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_vw2vq"]
+[ext_resource type="Texture2D" uid="uid://bn43wccngfsos" path="res://GUI/Upgrades/Icons/Health_Increase.png" id="3_mj7j1"]
+[ext_resource type="Resource" uid="uid://dx3wms6nccb18" path="res://GUI/Upgrades/skill_resources/Orcish Vitality.tres" id="4_drba8"]
+
+[resource]
+script = ExtResource("2_vw2vq")
+upgrade_to_unlock = ExtResource("4_drba8")
+name = "Scroll Orcish Vitality"
+description = "Increases player vitality "
+texture = ExtResource("3_mj7j1")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

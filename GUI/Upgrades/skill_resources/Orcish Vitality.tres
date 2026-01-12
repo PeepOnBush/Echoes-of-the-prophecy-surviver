@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://dx3wms6nccb18"]
+
+[ext_resource type="Texture2D" uid="uid://bn43wccngfsos" path="res://GUI/Upgrades/Icons/Health_Increase.png" id="1_5rkb5"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_pxmkc"]
+
+[resource]
+script = ExtResource("1_pxmkc")
+title = "Orcish Vitality"
+description = "Increase player health"
+icon = ExtResource("1_5rkb5")
+buff = 11
+value = 10.0
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

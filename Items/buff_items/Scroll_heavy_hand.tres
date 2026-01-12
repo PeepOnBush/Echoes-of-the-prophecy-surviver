@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://c3vh1hs8pyl0q"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_j5j8y"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_bdw3p"]
+[ext_resource type="Texture2D" uid="uid://cfv6fd5uxhmrw" path="res://GUI/Upgrades/Icons/knockback.png" id="3_t7srs"]
+[ext_resource type="Resource" uid="uid://dc87632rrqxss" path="res://GUI/Upgrades/skill_resources/Heavy Hand.tres" id="4_cdblh"]
+
+[resource]
+script = ExtResource("2_bdw3p")
+upgrade_to_unlock = ExtResource("4_cdblh")
+name = "Scroll_heavy_hand"
+description = "Increases knockback force"
+texture = ExtResource("3_t7srs")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

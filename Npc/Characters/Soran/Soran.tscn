@@ -293,19 +293,20 @@ debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
 [node name="DialogInteraction" type="Area2D" parent="Npc"]
 process_mode = 3
-position = Vector2(0, 10)
+position = Vector2(-1, -14)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("4_8y64o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/DialogInteraction"]
-position = Vector2(0, 9.5)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_jtybw")
 debug_color = Color(0, 0.815, 0.198, 0.097)
 
 [node name="Sprite2D" type="Sprite2D" parent="Npc/DialogInteraction"]
 position = Vector2(2, -52)
+scale = Vector2(1.595, 1.595)
 texture = ExtResource("5_qdrho")
 hframes = 2
 

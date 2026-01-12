@@ -17,6 +17,7 @@ var defense : int = 1
 var defense_bonus  : int = 0
 var chance_to_burn: float = 0.0 # 0.0 to 1.0
 var chance_to_freeze: float = 0.0
+var knockback_multiplier : float = 1.0
 var attack : int = 1 :
 	set(v) :
 		attack = v
@@ -45,7 +46,7 @@ func _ready() -> void:
 	PlayerManager.player = self
 	state_Machine.Initialize(self)
 	hit_box.Damaged.connect(_take_damage)
-	update_hp(99)
+	update_hp(999)
 	updateDamageValue()
 	PlayerManager.leveled_up.connect(onPlayerLevelUp)
 	PlayerManager.INVENTORY_DATA.equipment_changed.connect(onEquipmentChanged)
@@ -70,7 +71,6 @@ func _process( _delta ):
 	var current_state_name = state_Machine.currentState.name if state_Machine.currentState else ""
 	if current_state_name != "Stun" and current_state_name != "Death":
 		update_facing_direction()
-
 	pass 
 
 
