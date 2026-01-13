@@ -12,6 +12,9 @@ var attacking : bool = false
 @onready var hurt_box : HurtBox = %AttackHurtBox
 
 
+
+
+
 ## What happen when the player enter this state ?
 func Enter() -> void:
 	player.UpdateAnimation("attack")

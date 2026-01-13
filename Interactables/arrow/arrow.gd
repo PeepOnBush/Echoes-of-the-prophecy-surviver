@@ -23,6 +23,7 @@ func _ready() -> void:
 		audio_stream_player_2d.play()
 	
 	# Rotate initially
+	updateDamageValue()
 	rotateNode()
 
 func _process(delta: float) -> void:
@@ -39,7 +40,11 @@ func rotateNode() -> void:
 	rotation = angle 
 	# Note: Since Arrow is the parent Node2D, changing 'rotation' rotates all children.
 	# We don't strictly need to rotate sprite_2d/hurt_box individually unless they are unlinked.
-
+func updateDamageValue() -> void:
+	if PlayerManager.player.berserker_mode:
+		var missing_hp = PlayerManager.player.max_hp - PlayerManager.player.hp
+		hurt_box.damage += int(missing_hp * 0.5) # +1 dmg per 2 missing HP
+	pass
 # --- MODIFIED HIT LOGIC ---
 func onDidDamage(victim_hitbox: HitBox) -> void:
 	# SAFETY CHECK: If the thing we hit isn't a HitBox (rare but possible), stop.

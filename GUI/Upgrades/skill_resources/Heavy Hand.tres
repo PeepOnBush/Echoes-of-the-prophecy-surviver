@@ -9,5 +9,5 @@ title = "Heavy Hand"
 description = "Increae knockback power"
 icon = ExtResource("1_bwjjd")
 buff = 12
-value = 1.5
+value = 1.25
 metadata/_custom_type_script = "uid://cge86fu8ylc1q"

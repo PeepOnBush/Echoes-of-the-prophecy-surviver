@@ -94,9 +94,13 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			pass
 		UpgradeData.UpgradeType.ELEMENT_ICE:
 			PlayerManager.player.chance_to_freeze += upgrade.value
-
+		UpgradeData.UpgradeType.BERSERK:
+			PlayerManager.player.berserker_mode = true
+			PlayerManager.player.updateDamageValue() # Recalculate immediately
 			pass
-	
+		UpgradeData.UpgradeType.INVINCIBILITY_UP: # Add enum
+			PlayerManager.player.invincibility_duration += upgrade.value # +0.5
+			pass
 	# Close Menu
 	visible = false
 	get_tree().paused = false

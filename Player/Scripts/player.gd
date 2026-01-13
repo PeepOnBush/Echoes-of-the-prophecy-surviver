@@ -18,6 +18,8 @@ var defense_bonus  : int = 0
 var chance_to_burn: float = 0.0 # 0.0 to 1.0
 var chance_to_freeze: float = 0.0
 var knockback_multiplier : float = 1.0
+var berserker_mode : bool = false
+var invincibility_duration : float = 1.5
 var attack : int = 1 :
 	set(v) :
 		attack = v
@@ -38,6 +40,8 @@ var stamina_regen : float = 20.0 # How much per second
 @onready var held_item: Node2D = $Sprite2D/HeldItem
 @onready var carry: StateCarry = $StateMachine/Carry
 @onready var player_abilities: PlayerAbilities = $Abilities
+@onready var attack_hurt_box: HurtBox = %AttackHurtBox
+@onready var charge_hurt_box: HurtBox = %ChargeHurtBox
 
 @export var max_stamina : float = 100.0
 
@@ -55,7 +59,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process( _delta ):
-	
 	direction = Vector2(
 		Input.get_axis("left","right"),
 		Input.get_axis("up", "down")
@@ -137,6 +140,9 @@ func _take_damage(_hurt_box : HurtBox) -> void:
 func update_hp( _delta : int ) -> void:
 	hp = clampi(hp + _delta, 0, max_hp)
 	PlayerHud.updateHp(hp,max_hp)
+	# NEW: Recalculate Berserker damage whenever health changes
+	if berserker_mode:
+		updateDamageValue()
 	pass
 	
 func make_invulnerable( _duration : float = 1.5) -> void:
@@ -165,10 +171,18 @@ func onPlayerLevelUp() -> void:
 	pass
 
 func updateDamageValue() -> void:
-	var damageValue : int = attack + PlayerManager.INVENTORY_DATA.getAttackBonus()
-	%AttackHurtBox.damage = damageValue 
-	%ChargeSpinHurtBox.damage = damageValue * 2
-	pass
+	var base_dmg = attack + PlayerManager.INVENTORY_DATA.getAttackBonus()
+	
+	if berserker_mode:
+		var missing_hp = max_hp - hp
+		# Example: If missing 4 HP, add +2 Damage
+		base_dmg += int(missing_hp * 0.5) 
+		
+	# Apply to the SWORD (Melee)
+	%AttackHurtBox.damage = base_dmg
+		
+	# Charge Spin (Secondary)
+	%ChargeSpinHurtBox.damage = base_dmg * 2
 
 func onEquipmentChanged() -> void:
 	updateDamageValue()

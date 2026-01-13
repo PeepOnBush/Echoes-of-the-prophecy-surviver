@@ -1,7 +1,6 @@
-class_name my_doggo extends CharacterBody2D
+class_name my_doggo extends Node2D
 
-@onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var animation_player : AnimationPlayer = $Doggo/AnimationPlayer
 
 func _ready() -> void:
-	animation_player.play("idle")
 	pass

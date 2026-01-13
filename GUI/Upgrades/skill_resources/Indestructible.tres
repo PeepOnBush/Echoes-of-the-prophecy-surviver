@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://dv0joe1ba7bg4"]
+
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_6w54k"]
+[ext_resource type="Texture2D" uid="uid://bdqak2cmosmdp" path="res://GUI/Upgrades/Icons/Indestructible.png" id="1_s4k4r"]
+
+[resource]
+script = ExtResource("1_6w54k")
+title = "Indestructible "
+description = "Increases invulnerable duration"
+icon = ExtResource("1_s4k4r")
+buff = 14
+value = 0.5
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

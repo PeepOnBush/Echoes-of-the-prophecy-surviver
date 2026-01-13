@@ -10,11 +10,12 @@ var directionName : String = "down"
 var doBehavior : bool = true
 
 @export var npc_resource : NPCResource : set = setNpcResource
-
+@export var starting_idle_side : String = "idle_down"
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation : AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	animation.play(starting_idle_side)
 	setupNpc()
 	if Engine.is_editor_hint():
 		return 
