@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://dkbykfive0b1t"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_vv3n2"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_w2erg"]
+[ext_resource type="Texture2D" uid="uid://2kh1ghsyanm2" path="res://GUI/Upgrades/Icons/OrbitSpeed.png" id="3_dmk4x"]
+[ext_resource type="Resource" uid="uid://dr7ahxc8kyien" path="res://GUI/Upgrades/skill_resources/Orbit Speed.tres" id="4_y8iok"]
+
+[resource]
+script = ExtResource("2_w2erg")
+upgrade_to_unlock = ExtResource("4_y8iok")
+name = "Scroll orbit speed"
+description = "Increases orbit speed by a little"
+texture = ExtResource("3_dmk4x")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

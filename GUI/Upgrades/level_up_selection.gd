@@ -81,6 +81,9 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 		UpgradeData.UpgradeType.ORBIT:
 			player.enableOrbitDarkGemController()
 			pass
+		UpgradeData.UpgradeType.ORBIT_SPEED:
+			var controller = player.get_node("OrbitController")
+			controller.rotation_speed += upgrade.value
 		UpgradeData.UpgradeType.RAGE:
 			player.attack += int(upgrade.value)
 			player.stamina += int(upgrade.value)

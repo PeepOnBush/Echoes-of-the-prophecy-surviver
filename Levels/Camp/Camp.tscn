@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://dwrr28hbrgy8g"]
+[gd_scene load_steps=56 format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
 [ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="16_5asfd"]
 [ext_resource type="PackedScene" uid="uid://h3jgfy06igs1" path="res://Props/Tent/tent_zax_left.tscn" id="16_wxkw2"]
+[ext_resource type="Resource" uid="uid://dkbykfive0b1t" path="res://Items/buff_items/Scroll_orbit_speed.tres" id="20_t6xgc"]
 [ext_resource type="PackedScene" uid="uid://bpa153288yir4" path="res://Props/Tent/tent_soran_right.tscn" id="25_dsofs"]
 [ext_resource type="PackedScene" uid="uid://cwi0bbkupk0nt" path="res://Props/Boulders/boulder_05.tscn" id="26_8dm5i"]
 [ext_resource type="PackedScene" uid="uid://cq2ttc25ota37" path="res://Props/Plants/Water_plants/lilly_pad_01.tscn" id="27_cmse6"]
@@ -89,7 +90,7 @@ my_recipes = Array[ExtResource("9_m53jy")]([ExtResource("10_msisa")])
 [node name="Sylvana" parent="." instance=ExtResource("6_bixrs")]
 top_level = true
 position = Vector2(220, 210)
-shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("10_ohoch"), ExtResource("11_dpl2s"), ExtResource("12_ejbmr")])
+shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("10_ohoch"), ExtResource("11_dpl2s"), ExtResource("12_ejbmr"), ExtResource("20_t6xgc")])
 
 [node name="Zax" parent="." instance=ExtResource("7_vmu3g")]
 top_level = true
