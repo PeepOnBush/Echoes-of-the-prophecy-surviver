@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://if8r8fbu6ma1"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_glmma"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_3kcqw"]
+[ext_resource type="Texture2D" uid="uid://d1lrp52vrg0wa" path="res://GUI/Upgrades/Icons/OrbitRange.png" id="3_vr233"]
+[ext_resource type="Resource" uid="uid://c4xybg0xochgt" path="res://GUI/Upgrades/skill_resources/Orbit Range.tres" id="4_ajenr"]
+
+[resource]
+script = ExtResource("2_3kcqw")
+upgrade_to_unlock = ExtResource("4_ajenr")
+name = "Scroll_orbit_range"
+description = "Increase orbit range"
+texture = ExtResource("3_vr233")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

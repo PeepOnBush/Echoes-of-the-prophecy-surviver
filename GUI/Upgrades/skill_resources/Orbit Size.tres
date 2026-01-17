@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://dc8cx76rmu1a"]
+
+[ext_resource type="Texture2D" uid="uid://ywoxywaa67wq" path="res://GUI/Upgrades/Icons/OrbitSize.png" id="1_b7x5i"]
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_fmn05"]
+
+[resource]
+script = ExtResource("1_fmn05")
+title = "Orbit Size"
+description = "increases Orbit Size"
+icon = ExtResource("1_b7x5i")
+buff = 16
+value = 2.5
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

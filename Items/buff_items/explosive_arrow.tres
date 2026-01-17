@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://y0egykqla3tq"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_c2rns"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_q640c"]
+[ext_resource type="Texture2D" uid="uid://bncqkn5r0vk5e" path="res://GUI/Upgrades/Icons/explosive_arrow.png" id="3_plaj1"]
+[ext_resource type="Resource" uid="uid://d0meujqynexhy" path="res://GUI/Upgrades/skill_resources/Explosive Arrow.tres" id="4_2vlki"]
+
+[resource]
+script = ExtResource("2_q640c")
+upgrade_to_unlock = ExtResource("4_2vlki")
+name = "Explosive_arrow"
+description = "An arrow that can explode on impact, careful buddy"
+texture = ExtResource("3_plaj1")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

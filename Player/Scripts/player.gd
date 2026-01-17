@@ -29,6 +29,7 @@ var arrow_count : int = 5 : set = _setArrowCount
 var bomb_count : int = 10 : set = _setBombCount
 var stamina : float = 100.0
 var stamina_regen : float = 20.0 # How much per second
+var explosive_arrows_unlocked : bool = true
 
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer

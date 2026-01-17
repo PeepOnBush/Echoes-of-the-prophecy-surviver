@@ -1,5 +1,9 @@
 class_name Arrow extends Node2D
 
+
+
+const EXPLOSION_SCENE = preload("res://GUI/Upgrades/skill_scene/Explosion.tscn")
+
 @export var move_speed : float = 300
 @export var fire_audio : AudioStream
 
@@ -59,7 +63,7 @@ func onDidDamage(victim_hitbox: HitBox) -> void:
 	if victim_enemy:
 		hit_history.append(victim_enemy)
 		var status = victim_enemy.get_node_or_null("StatusHandler") 
-		
+
 		if status:
 			# Check Fire
 			if PlayerManager.player.chance_to_burn > 0 and randf() < PlayerManager.player.chance_to_burn:
@@ -68,7 +72,11 @@ func onDidDamage(victim_hitbox: HitBox) -> void:
 			# Check Ice
 			if PlayerManager.player.chance_to_freeze > 0 and randf() < PlayerManager.player.chance_to_freeze:
 				status.apply_freeze(5.0, 0.5)
-	
+		if PlayerManager.player.explosive_arrows_unlocked:
+			print("Spawning Explosion!") # DEBUG PRINT
+			spawn_explosion()
+		else:
+			print("Explosion locked.")
 	# 3. Check Bounce Count
 	if current_bounces < max_bounces:
 		var next_target = find_nearest_enemy(global_position)
@@ -84,7 +92,7 @@ func onDidDamage(victim_hitbox: HitBox) -> void:
 			rotation = direction_to_target.angle()
 			
 			return # KEEP FLYING!
-	
+
 	# 4. No bounces left OR no targets nearby -> Die
 	queue_free()
 
@@ -127,5 +135,12 @@ func find_nearest_enemy(current_pos: Vector2) -> Node2D:
 		
 	return nearest_enemy
 
+func spawn_explosion() -> void:
+	var boom = EXPLOSION_SCENE.instantiate()
+	
+	# Spawn it in the world, not on the arrow (since arrow moves/dies)
+	get_tree().current_scene.call_deferred("add_child", boom)
+	
+	boom.global_position = global_position
 func onTimeOut() -> void:
 	queue_free()

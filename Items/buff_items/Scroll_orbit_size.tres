@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffUnlockItemData" load_steps=5 format=3 uid="uid://cywk37cg6q16a"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_krfhc"]
+[ext_resource type="Script" uid="uid://dkron3pkfmmyq" path="res://Items/Scripts/buff_unlock_item_data.gd" id="2_3d1ih"]
+[ext_resource type="Texture2D" uid="uid://ywoxywaa67wq" path="res://GUI/Upgrades/Icons/OrbitSize.png" id="3_k6w41"]
+[ext_resource type="Resource" uid="uid://dc8cx76rmu1a" path="res://GUI/Upgrades/skill_resources/Orbit Size.tres" id="4_tc3yd"]
+
+[resource]
+script = ExtResource("2_3d1ih")
+upgrade_to_unlock = ExtResource("4_tc3yd")
+name = "Scroll_orbit_size"
+description = "increase orbit size"
+texture = ExtResource("3_k6w41")
+metadata/_custom_type_script = "uid://dkron3pkfmmyq"

@@ -48,7 +48,7 @@ func show_options() -> void:
 
 func apply_upgrade(upgrade : UpgradeData) -> void:
 	var player = PlayerManager.player
-	
+	var controller = PlayerManager.player.get_node("OrbitController")
 	match upgrade.buff:
 		UpgradeData.UpgradeType.HEAL:
 			player.update_hp(int(upgrade.value))
@@ -82,8 +82,14 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			player.enableOrbitDarkGemController()
 			pass
 		UpgradeData.UpgradeType.ORBIT_SPEED:
-			var controller = player.get_node("OrbitController")
-			controller.rotation_speed += upgrade.value
+			controller.upgrade_speed(upgrade.value)
+			pass
+		UpgradeData.UpgradeType.ORBIT_RANGE:
+			controller.upgrade_radius(upgrade.value) # e.g. +15.0
+			pass
+		UpgradeData.UpgradeType.ORBIT_SIZE:
+			controller.upgrade_size(upgrade.value) # e.g. +0.2
+			pass
 		UpgradeData.UpgradeType.RAGE:
 			player.attack += int(upgrade.value)
 			player.stamina += int(upgrade.value)
@@ -103,6 +109,9 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			pass
 		UpgradeData.UpgradeType.INVINCIBILITY_UP: # Add enum
 			PlayerManager.player.invincibility_duration += upgrade.value # +0.5
+			pass
+		UpgradeData.UpgradeType.EXPLOSIVE_ARROW:
+			PlayerManager.player.explosive_arrows_unlocked = true
 			pass
 	# Close Menu
 	visible = false

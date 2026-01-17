@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqskl3sw464pi"]
+
+[ext_resource type="Texture2D" uid="uid://bgck07eoh1aov" path="res://GUI/Upgrades/Icons/OrbitGem.png" id="1_4xbsh"]
+[ext_resource type="Texture2D" uid="uid://4pnraxbqmuuu" path="res://GUI/Upgrades/OrbitGem.png" id="2_l6n4w"]
+[ext_resource type="Script" uid="uid://cnpste1dhl3gp" path="res://GeneralNodes/HurtBoxes/hurt_box.gd" id="3_qjbwf"]
+
+[sub_resource type="Curve" id="Curve_u5wyd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_msahf"]
+offsets = PackedFloat32Array(0.012578616, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.47500002)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kmt7"]
+
+[node name="Visuals" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4xbsh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+amount = 15
+texture = ExtResource("2_l6n4w")
+lifetime = 0.5
+speed_scale = 1.5
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_u5wyd")
+color_ramp = SubResource("Gradient_msahf")
+
+[node name="HurtBox" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 258
+monitorable = false
+script = ExtResource("3_qjbwf")
+damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_1kmt7")
+debug_color = Color(0.99203986, 0.082086734, 0.055207677, 0.41960785)
