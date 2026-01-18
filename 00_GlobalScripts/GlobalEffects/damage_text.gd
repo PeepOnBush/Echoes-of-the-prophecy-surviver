@@ -3,10 +3,15 @@ class_name DamageText extends Node2D
 var travel_distance : Vector2 = Vector2( 10 , -20 )
 
 
-func start(_text : String , _pos : Vector2) -> void:
+func start(_text : String , _pos : Vector2, is_crit: bool) -> void:
 	$Label.text = _text
 	global_position = _pos  
-	
+	if is_crit:
+		scale = Vector2(1.5, 1.5) # Big!
+		$Label.modulate = Color.RED # RED!
+		# Tween it harder/faster
+
+		
 	travel_distance.y *= randf_range(0.5, 1.5 )
 	travel_distance.x *= randf_range( -1.5 , 1.5)
 	

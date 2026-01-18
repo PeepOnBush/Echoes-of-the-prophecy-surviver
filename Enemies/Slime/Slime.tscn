@@ -793,7 +793,7 @@ _data = {
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_c31tp")
-hp = 5
+hp = 15
 xp_reward = 0
 
 [node name="HurtBox" parent="." instance=ExtResource("7_4prkb")]

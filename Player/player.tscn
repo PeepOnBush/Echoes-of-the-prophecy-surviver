@@ -1938,6 +1938,8 @@ unique_name_in_owner = true
 position = Vector2(0, 33.6201)
 scale = Vector2(0.991719, 1.01879)
 collision_mask = 256
+monitoring = false
+damage = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
 position = Vector2(0, -16)

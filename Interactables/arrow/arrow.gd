@@ -51,51 +51,63 @@ func updateDamageValue() -> void:
 	pass
 # --- MODIFIED HIT LOGIC ---
 func onDidDamage(victim_hitbox: HitBox) -> void:
-	# SAFETY CHECK: If the thing we hit isn't a HitBox (rare but possible), stop.
 	if victim_hitbox == null:
 		queue_free()
 		return
 
-	# 1. Identify who we hit
 	var victim_enemy = victim_hitbox.owner 
 	
-	# 2. Add to history
 	if victim_enemy:
+		# 1. Add History First
 		hit_history.append(victim_enemy)
+		
+		# 2. STATUS EFFECTS
 		var status = victim_enemy.get_node_or_null("StatusHandler") 
-
 		if status:
-			# Check Fire
 			if PlayerManager.player.chance_to_burn > 0 and randf() < PlayerManager.player.chance_to_burn:
 				status.apply_burn(3.0, 2)
-			
-			# Check Ice
 			if PlayerManager.player.chance_to_freeze > 0 and randf() < PlayerManager.player.chance_to_freeze:
-				status.apply_freeze(5.0, 0.5)
+				status.apply_freeze(2.0, 0.5)
+		print("DEBUG: Crit Chance is: ", PlayerManager.player.crit_chance) # <--- CHECK THIS
+		# 3. CRITICAL HITS (Double Hit Mitigation)
+		# Since HurtBox already dealt Base Damage, we only want to add the BONUS.
+		if PlayerManager.player.crit_chance > 0.0:
+			
+			# Roll the Dice (0.0 to 1.0)
+			if randf() < PlayerManager.player.crit_chance:
+				
+				# 1. Calculate how much EXTRA damage to add
+				# Example: Dmg 10 * (2.0 - 1.0) = 10 Extra. Total 20.
+				var bonus = int(hurt_box.damage * (PlayerManager.player.crit_multiplier - 1.0))
+				
+				# Math Safety: Ensure we add at least 1 damage if math was tiny
+				if bonus < 1: bonus = 1
+				
+				# 2. Show BIG Text
+				var total = hurt_box.damage + bonus
+				EffectManager.damageText(total, victim_enemy.global_position + Vector2(0, -40), true)
+				
+				# 3. Apply Damage
+				var old_dmg = hurt_box.damage
+				hurt_box.damage = bonus
+				victim_enemy._take_damage(hurt_box) # Deal the extra hit
+				hurt_box.damage = old_dmg # Reset back to normal
+
+		# 4. EXPLOSIONS (Before Bounce!)
 		if PlayerManager.player.explosive_arrows_unlocked:
-			print("Spawning Explosion!") # DEBUG PRINT
 			spawn_explosion()
-		else:
-			print("Explosion locked.")
-	# 3. Check Bounce Count
-	if current_bounces < max_bounces:
-		var next_target = find_nearest_enemy(global_position)
-		
-		if next_target:
-			# SUCCESS: Found a new target!
-			current_bounces += 1
-			
-			# 4. Turn towards new target
-			var direction_to_target = (next_target.global_position - global_position).normalized()
-			
-			# FORCE ROTATION UPDATE IMMEDIATELY
-			rotation = direction_to_target.angle()
-			
-			return # KEEP FLYING!
 
-	# 4. No bounces left OR no targets nearby -> Die
+		# 5. RICOCHET LOGIC (Bounce check)
+		if current_bounces < max_bounces:
+			var next_target = find_nearest_enemy(global_position)
+			if next_target:
+				current_bounces += 1
+				var direction_to_target = (next_target.global_position - global_position).normalized()
+				rotation = direction_to_target.angle()
+				return # Fly to next target!
+
+	# 6. Death
 	queue_free()
-
 # --- TARGET SCANNING ---
 func find_nearest_enemy(current_pos: Vector2) -> Node2D:
 	var enemies = get_tree().get_nodes_in_group("Enemies")

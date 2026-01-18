@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://dn2p3osmyypyh"]
+
+[ext_resource type="Script" uid="uid://cge86fu8ylc1q" path="res://GUI/Upgrades/upgrade_data.gd" id="1_bi66d"]
+[ext_resource type="Texture2D" uid="uid://wlfy7sre5yau" path="res://GUI/Upgrades/Icons/Attack Speed.png" id="1_ocrxj"]
+
+[resource]
+script = ExtResource("1_bi66d")
+title = "Quick draw"
+description = "Increases fire rait"
+icon = ExtResource("1_ocrxj")
+buff = 18
+value = 1.5
+metadata/_custom_type_script = "uid://cge86fu8ylc1q"

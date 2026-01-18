@@ -488,6 +488,7 @@ collision_mask = 16
 script = ExtResource("1_x6yc4")
 portal_scene = ExtResource("2_xmqtq")
 return_to_camp_scene = "uid://dwrr28hbrgy8g"
+hp = 25
 
 [node name="HitBox" parent="." instance=ExtResource("2_baylh")]
 
@@ -538,7 +539,6 @@ script = ExtResource("9_a2v1p")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
 script = ExtResource("10_s3p6t")
-knockback_speed = 200.0
 decelerate_speed = 5.0
 nextState = NodePath("../Chase")
 

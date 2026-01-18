@@ -131,8 +131,17 @@ func getDefaultBuff() -> void:
 	var muscle = load("res://GUI/Upgrades/skill_resources/Muscle.tres")
 	if muscle: default_upgrades.append(muscle)
 	
-	var iron = load("res://GUI/Upgrades/skill_resources/Iron Skin.tres")
-	if iron: default_upgrades.append(iron)
+	#var iron = load("res://GUI/Upgrades/skill_resources/Iron Skin.tres")
+	#if iron: default_upgrades.append(iron)
+	#
+	#var quick_draw = load("res://GUI/Upgrades/skill_resources/Attack Speed.tres")
+	#if quick_draw : default_upgrades.append(quick_draw)
+	#
+	var crit_increase = load("res://GUI/Upgrades/skill_resources/Crit Increase.tres")
+	if  crit_increase : default_upgrades.append(crit_increase)
+	
+	var crit_chance = load("res://GUI/Upgrades/skill_resources/VitalPoint.tres")
+	if crit_chance : default_upgrades.append(crit_chance)
 	pass
 # 1. Called by the Item Effect when eating
 func add_run_buff(stat_name: String, amount: float) -> void:

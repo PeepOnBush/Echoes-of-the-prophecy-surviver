@@ -5,8 +5,8 @@ const DAMAGE_TEXT = preload("res://00_GlobalScripts/GlobalEffects/damage_text.ts
 func _ready() -> void:
 	pass # Replace with function body.
 
-func damageText(_damage : int , _pos : Vector2 ) -> void:
-	var _t : DamageText = DAMAGE_TEXT.instantiate()
+func damageText(_damage : int , _pos : Vector2, is_crit: bool = false) -> void:
+	var _t = DAMAGE_TEXT.instantiate()
 	add_child( _t )
-	_t.start(str(_damage), _pos)
+	_t.start(str(_damage), _pos, is_crit)
 	pass

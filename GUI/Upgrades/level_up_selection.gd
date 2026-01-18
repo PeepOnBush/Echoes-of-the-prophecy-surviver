@@ -58,9 +58,9 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			pass
 		UpgradeData.UpgradeType.ORCISH_VITALITY:
 			var bonus = int(upgrade.value)
-			PlayerManager.player.max_hp += bonus
-			PlayerManager.player.hp += bonus # Heal the amount we gained so the bar fills
-			PlayerManager.player.update_hp(0) # Force UI refresh
+			player.max_hp += bonus
+			player.hp += bonus # Heal the amount we gained so the bar fills
+			player.update_hp(0) # Force UI refresh
 			print("Max HP Increased to: ", PlayerManager.player.max_hp)
 			pass
 		UpgradeData.UpgradeType.KNOCKBACK_FORCE: # Add enum
@@ -74,6 +74,19 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			pass 
 		UpgradeData.UpgradeType.ARROW:
 			player.arrow_count += int(upgrade.value)
+			pass
+		UpgradeData.UpgradeType.ATTACK_SPEED:
+			# Reduce delay by 15% (Multiply by 0.85)
+			var weapon = player.find_child("WeaponPivot") # The floating bow
+			if weapon:
+				weapon.fire_rate *= (1.0 - upgrade.value) # e.g. 0.2 * 0.85 = 0.17
+			pass
+		UpgradeData.UpgradeType.CRIT_CHANCE:
+			PlayerManager.player.crit_chance += upgrade.value
+			print("Crit Chance is now: ", PlayerManager.player.crit_chance)
+			pass
+		UpgradeData.UpgradeType.CRIT_DAMAGE:
+			player.crit_multiplier += upgrade.value # e.g. +1.0
 			pass
 		UpgradeData.UpgradeType.BOMB:
 			player.bomb_count += int(upgrade.value)
@@ -96,22 +109,22 @@ func apply_upgrade(upgrade : UpgradeData) -> void:
 			print(player.attack + " attack " + player.stamina + " stamina")
 			pass
 		UpgradeData.UpgradeType.RICOCHET:
-			PlayerManager.player.arrow_ricochet_amount += int(upgrade.value)
+			player.arrow_ricochet_amount += int(upgrade.value)
 			pass
 		UpgradeData.UpgradeType.ELEMENT_FIRE:
-			PlayerManager.player.chance_to_burn += upgrade.value
+			player.chance_to_burn += upgrade.value
 			pass
 		UpgradeData.UpgradeType.ELEMENT_ICE:
-			PlayerManager.player.chance_to_freeze += upgrade.value
+			player.chance_to_freeze += upgrade.value
 		UpgradeData.UpgradeType.BERSERK:
-			PlayerManager.player.berserker_mode = true
-			PlayerManager.player.updateDamageValue() # Recalculate immediately
+			player.berserker_mode = true
+			player.updateDamageValue() # Recalculate immediately
 			pass
 		UpgradeData.UpgradeType.INVINCIBILITY_UP: # Add enum
-			PlayerManager.player.invincibility_duration += upgrade.value # +0.5
+			player.invincibility_duration += upgrade.value # +0.5
 			pass
 		UpgradeData.UpgradeType.EXPLOSIVE_ARROW:
-			PlayerManager.player.explosive_arrows_unlocked = true
+			player.explosive_arrows_unlocked = true
 			pass
 	# Close Menu
 	visible = false
