@@ -18,6 +18,7 @@ var defense_bonus  : int = 0
 var chance_to_burn: float = 0.0 # 0.0 to 1.0
 var chance_to_freeze: float = 0.0
 var knockback_multiplier : float = 1.0
+var recoil_velocity: Vector2 = Vector2.ZERO
 var berserker_mode : bool = false
 var invincibility_duration : float = 1.5
 var attack : int = 1 :
@@ -46,7 +47,7 @@ var crit_multiplier : float = 2.0 # Default 2x damage
 @onready var charge_hurt_box: HurtBox = %ChargeHurtBox
 
 @export var max_stamina : float = 100.0
-
+@export var recoil_friction: float = 15.0 # Higher = Stops faster
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.player = self
@@ -80,6 +81,20 @@ func _process( _delta ):
 
 
 func _physics_process(_delta):
+	# 1. Standard WASD Movement logic
+	# (Your existing direction/velocity code...)
+	var target_velocity = direction * 100.0 # Or moveSpeed
+	
+	# 2. Apply Recoil (Add it on top)
+	if recoil_velocity.length() > 5.0:
+		# Linearly decay the recoil to zero
+		recoil_velocity = recoil_velocity.lerp(Vector2.ZERO, recoil_friction * _delta)
+		
+		# Add recoil to your movement
+		# Using target_velocity + recoil allows you to "fight" the recoil with WASD
+		velocity = target_velocity + recoil_velocity
+	else:
+		velocity = target_velocity # Standard movement when recoil is done
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -204,3 +219,5 @@ func _setBombCount(value : int) -> void:
 func enableOrbitDarkGemController()-> void:
 	get_node("OrbitController").activate()
 	pass
+func apply_recoil(force_vector: Vector2) -> void:
+	recoil_velocity = force_vector

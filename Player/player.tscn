@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=118 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -48,6 +48,7 @@
 [ext_resource type="Script" uid="uid://cw37n3ky38bpf" path="res://Player/Scripts/WeaponController.gd" id="45_1l10g"]
 [ext_resource type="PackedScene" uid="uid://bcnwbocox5ubu" path="res://Interactables/arrow/arrow.tscn" id="46_6rl0i"]
 [ext_resource type="Texture2D" uid="uid://b0xkcd57b2dp3" path="res://Player/Sprites/hunterbow.png" id="47_6rl0i"]
+[ext_resource type="Texture2D" uid="uid://qrk4n012l3kt" path="res://Player/Sprites/BeHero.png" id="49_wvbyc"]
 [ext_resource type="PackedScene" uid="uid://4fh3c2uvc8bo" path="res://GUI/Upgrades/skill_scene/orbit_controller.tscn" id="52_1kmt7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsark"]
@@ -1876,12 +1877,16 @@ color_ramp = SubResource("GradientTexture1D_71t1b")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ie76m"]
 size = Vector2(14, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvbyc"]
+size = Vector2(29, 6)
+
 [node name="Player" type="CharacterBody2D"]
 top_level = true
 position = Vector2(0, -16)
 collision_mask = 24
 motion_mode = 1
 script = ExtResource("1_6e47k")
+recoil_friction = 9.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jsark")
@@ -2023,7 +2028,7 @@ attack_sound = ExtResource("8_dwu3j")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("11_oe0p3")
-knockback_speed = 3000.0
+knockback_speed = 30000.0
 
 [node name="ChargeAttack" type="Node" parent="StateMachine"]
 script = ExtResource("12_jnhl5")
@@ -2044,6 +2049,7 @@ exhaust_audio = ExtResource("22_5nomk")
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource("25_c6x0f")
+move_speed = 500.0
 effect_delay = 0.07
 dash_audio = ExtResource("18_532ee")
 
@@ -2188,18 +2194,45 @@ debug_color = Color(0.968627, 0.117647, 0.345098, 0.121569)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GrappleHook"]
 stream = ExtResource("43_ie76m")
 
-[node name="WeaponPivot" type="Node2D" parent="."]
+[node name="BowPivot" type="Node2D" parent="." node_paths=PackedStringArray("bow_node", "sword_node")]
 position = Vector2(0, -17)
 script = ExtResource("45_1l10g")
+bow_node = NodePath(".")
+sword_node = NodePath("../SwordPivot")
 arrow_scene = ExtResource("46_6rl0i")
+sword_recoil_force = 500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
+[node name="Sprite2D" type="Sprite2D" parent="BowPivot"]
 position = Vector2(9.000008, 3)
 rotation = 2.3561945
 scale = Vector2(0.445, 0.445)
 texture = ExtResource("47_6rl0i")
 
-[node name="Muzzle" type="Marker2D" parent="WeaponPivot"]
+[node name="Muzzle" type="Marker2D" parent="BowPivot"]
 position = Vector2(20, 2)
+
+[node name="SwordPivot" type="Node2D" parent="." node_paths=PackedStringArray("bow_node", "sword_node")]
+position = Vector2(0, -17)
+script = ExtResource("45_1l10g")
+bow_node = NodePath("../BowPivot")
+sword_node = NodePath(".")
+arrow_scene = ExtResource("46_6rl0i")
+sword_recoil_force = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="SwordPivot"]
+position = Vector2(35, 2)
+rotation = 0.7679449
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("49_wvbyc")
+
+[node name="Muzzle" type="Marker2D" parent="SwordPivot"]
+position = Vector2(20, 2)
+
+[node name="HurtBox" parent="SwordPivot" instance=ExtResource("10_gk32h")]
+collision_mask = 258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordPivot/HurtBox"]
+position = Vector2(42, 2)
+shape = SubResource("RectangleShape2D_wvbyc")
 
 [node name="OrbitController" parent="." instance=ExtResource("52_1kmt7")]
