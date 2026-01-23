@@ -39,6 +39,36 @@ func equip_weapon(type: WeaponType) -> void:
 	if type == WeaponType.BOW:
 		bow_node.visible = true
 		sword_node.visible = false
+		
+		# Sword is NOT in hand, so it SHOULD be on back
+		PlayerManager.player.show_sword_on_back = true
+		
+		# Logic cleanup
+		sword_node.process_mode = Node.PROCESS_MODE_INHERIT
+		disable_collision(sword_node, true)
+		
+	elif type == WeaponType.SWORD:
+		bow_node.visible = false
+		sword_node.visible = true
+		
+		# Sword IS in hand, so remove from back
+		PlayerManager.player.show_sword_on_back = false
+		
+		disable_collision(sword_node, false)
+	
+	# Refresh Animation instantly so the sprite updates right now
+	# (Access state machine current state to refresh correctly)
+	if PlayerManager.player and PlayerManager.player.state_Machine:
+		var machine = PlayerManager.player.state_Machine
+		if machine.currentState:
+			# If the machine is running, force an update
+			# We can usually infer the generic state ("idle" or "walk") via Velocity
+			# But honestly, we don't need to be precise here. Just re-triggering idle is fine for visual swap.
+			PlayerManager.player.UpdateAnimation("idle")
+	
+	if type == WeaponType.BOW:
+		bow_node.visible = true
+		sword_node.visible = false
 		# Disable Sword Physics so it doesn't kill while invisible
 		sword_node.process_mode = Node.PROCESS_MODE_INHERIT
 		disable_collision(sword_node, true)

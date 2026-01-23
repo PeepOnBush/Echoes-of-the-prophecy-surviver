@@ -31,8 +31,9 @@ var bomb_count : int = 10 : set = _setBombCount
 var stamina : float = 100.0
 var stamina_regen : float = 20.0 # How much per second
 var explosive_arrows_unlocked : bool = false
-var crit_chance : float = 1.0 # 0.0 to 1.0 (e.g. 0.1 = 10%)
+var crit_chance : float = 0.0 # 0.0 to 1.0 (e.g. 0.1 = 10%)
 var crit_multiplier : float = 2.0 # Default 2x damage
+var show_sword_on_back : bool = true
 @onready var audio : AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $newSprite2D
@@ -127,9 +128,21 @@ func update_facing_direction() -> void:
 		# And this should be Negative to flip it Right
 		sprite.scale.x = -current_scale
 
-func UpdateAnimation( state : String) -> void:
-	animationPlayer.play(state + "_" + AnimDirection())
-	pass
+func UpdateAnimation(state: String) -> void:
+	# 1. Build the standard name (e.g. "idle_down")
+	var anim_name = state + "_" + AnimDirection()
+	
+	# 2. Check for "No Sword" variation
+	if show_sword_on_back == false:
+		var no_sword_name = anim_name + "_nosword"
+		
+		# Safety Check: Only play it if you actually made this animation in Godot!
+		# If you haven't made "stun_down_nosword" yet, it defaults back to normal "stun_down".
+		if animationPlayer.has_animation(no_sword_name):
+			anim_name = no_sword_name
+	
+	# 3. Play
+	animationPlayer.play(anim_name)
 	
 func AnimDirection() -> String:
 	if cardinal_direction == Vector2.DOWN:

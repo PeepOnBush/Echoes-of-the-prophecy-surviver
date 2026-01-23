@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://tqooabe6ambg"]
+[gd_scene load_steps=124 format=3 uid="uid://tqooabe6ambg"]
 
 [ext_resource type="Script" uid="uid://dph4fdfane48q" path="res://Player/Scripts/player.gd" id="1_6e47k"]
 [ext_resource type="Texture2D" uid="uid://iud688adiw3n" path="res://Player/Sprites/newest_player_sprite.png" id="2_8f1sn"]
@@ -1589,6 +1589,154 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_wvbyc"]
+resource_name = "idle_down_nosword"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("newSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [64, 71]
+}
+
+[sub_resource type="Animation" id="Animation_gvnt1"]
+resource_name = "idle_side_nosword"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("newSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [64, 71]
+}
+
+[sub_resource type="Animation" id="Animation_1kmt7"]
+resource_name = "idle_up_nosword"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("newSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [72, 79]
+}
+
+[sub_resource type="Animation" id="Animation_c4i3b"]
+resource_name = "walk_up_nosword"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("newSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [56, 63]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FootstepAudio2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playFootstep"
+}, {
+"args": [],
+"method": &"playFootstep"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_uvbbp"]
+resource_name = "walk_side_nosword"
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FootstepAudio2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playFootstep"
+}, {
+"args": [],
+"method": &"playFootstep"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("newSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [48, 55]
+}
+
+[sub_resource type="Animation" id="Animation_7v2uk"]
+resource_name = "walk_down_nosword"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("newSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [48, 55]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FootstepAudio2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playFootstep"
+}, {
+"args": [],
+"method": &"playFootstep"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8n5a"]
 _data = {
 &"RESET": SubResource("Animation_pkufx"),
@@ -1616,8 +1764,11 @@ _data = {
 &"dash_up": SubResource("Animation_c6x0f"),
 &"death": SubResource("Animation_6mcxr"),
 &"idle_down": SubResource("Animation_ulpq3"),
+&"idle_down_nosword": SubResource("Animation_wvbyc"),
 &"idle_side": SubResource("Animation_r25xv"),
+&"idle_side_nosword": SubResource("Animation_gvnt1"),
 &"idle_up": SubResource("Animation_23n0r"),
+&"idle_up_nosword": SubResource("Animation_1kmt7"),
 &"lift_down": SubResource("Animation_bf68f"),
 &"lift_side": SubResource("Animation_h4ii2"),
 &"lift_up": SubResource("Animation_4nypg"),
@@ -1625,8 +1776,11 @@ _data = {
 &"stun_side": SubResource("Animation_5i4vp"),
 &"stun_up": SubResource("Animation_5253s"),
 &"walk_down": SubResource("Animation_2uojt"),
+&"walk_down_nosword": SubResource("Animation_7v2uk"),
 &"walk_side": SubResource("Animation_r6shg"),
-&"walk_up": SubResource("Animation_aevdq")
+&"walk_side_nosword": SubResource("Animation_uvbbp"),
+&"walk_up": SubResource("Animation_aevdq"),
+&"walk_up_nosword": SubResource("Animation_c4i3b")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3jwq"]
@@ -1896,7 +2050,7 @@ position = Vector2(0, -13)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_gvnt1")
 hframes = 8
-vframes = 5
+vframes = 10
 frame = 2
 
 [node name="ShadowSprite" type="Sprite2D" parent="newSprite2D"]
