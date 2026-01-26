@@ -48,7 +48,7 @@ func showMenu(items : Array[ItemData], dialog_triggered : bool = true) -> void:
 	if items.size() == 0:
 		return
 		
-	print(items, items.size())
+	#print(items, items.size())
 	if dialog_triggered:
 		await DialogSystem.finished
 	
@@ -139,29 +139,52 @@ func purchaseItem(item : ItemData ) -> void:
 		inventory.useItem(currency,item.cost)
 		updateCurrency()
 		updateItemDetail(item) # Update count in details panel
+		
 	else:
 		playAudio(ERROR)
 		animation_player.play("not_enough_currency")
 		animation_player.seek(0)
 	pass
 
-# Helper to remove the button you just clicked and update focus
 func refresh_shop_after_purchase() -> void:
-	# 1. Rebuild list (Owned buff disappears)
+	# 1. REMEMBER: Where was the cursor?
+	var previous_index = 0
+	
+	# Loop through to find focus (Works for both Mouse Hover and Keyboard Focus)
+	for i in range(shop_items_container.get_child_count()):
+		var btn = shop_items_container.get_child(i)
+		# We check both focus AND mouse hover to be safe
+		if btn.has_focus() or btn.is_hovered():
+			previous_index = i
+			break
+	
+	# 2. REBUILD LIST
+	# populateItemList() already calls clearItemList() inside it, so just call it directly.
+	# The old buttons are now marked for death (queue_free).
 	populateItemList()
 	
-	# 2. Handle Focus / Details Panel
-	if shop_items_container.get_child_count() > 0:
-		# Focus the first item available
-		var first_item_button = shop_items_container.get_child(0)
-		first_item_button.grab_focus()
-		# Update details to match new focus
-		updateItemDetail(first_item_button.item) 
+	# 3. THE FIX: DOUBLE WAIT
+	# Wait 1 frame for Godot to delete the old buttons.
+	await get_tree().process_frame
+	# Wait 1 more frame for Godot to register the NEW buttons in the physics/UI system.
+	await get_tree().process_frame
+	
+	# 4. RESTORE FOCUS
+	var new_count = shop_items_container.get_child_count()
+	
+	if new_count > 0:
+		# Clamp index logic (if we bought last item, go to the one above it)
+		var target_index = clamp(previous_index, 0, new_count - 1)
+		
+		var button_to_focus = shop_items_container.get_child(target_index)
+		
+		# Force focus immediately
+		button_to_focus.grab_focus()
+		
+		# Force update description
+		updateItemDetail(button_to_focus.item)
 	else:
-		# If shop is now empty, clear details
 		clearItemDetail()
-		# Optional: Auto-close shop?
-		# hideMenu()
 
 func updateItemDetail(item : ItemData ) -> void:
 	item_image.texture = item.texture

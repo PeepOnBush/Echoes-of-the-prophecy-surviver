@@ -6,6 +6,8 @@ extends Node2D
 @export var arrow_scene: PackedScene
 @export var fire_rate: float = 0.2 
 @export var sword_recoil_force: float = 250.0 
+@export var bow_audio : AudioStream # reeling sound
+@export var sword_audio : AudioStream # reeling sound
 
 enum WeaponType { BOW, SWORD }
 var current_weapon = WeaponType.BOW
@@ -24,8 +26,10 @@ func _process(delta: float) -> void:
 	# 1. Weapon Switching Input
 	if Input.is_action_just_pressed("weapon_1"): # Map Key '1'
 		equip_weapon(WeaponType.BOW)
+		AudioManager.play_sfx(bow_audio)
 	elif Input.is_action_just_pressed("weapon_2"): # Map Key '2'
 		equip_weapon(WeaponType.SWORD)
+		AudioManager.play_sfx(sword_audio)
 
 	# 2. Logic for Active Weapon
 	if current_weapon == WeaponType.BOW:

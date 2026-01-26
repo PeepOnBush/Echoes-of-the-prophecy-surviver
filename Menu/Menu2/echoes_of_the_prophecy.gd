@@ -9,7 +9,7 @@ const START_LEVEL : String = "res://Levels/Area01/01.tscn"
 @onready var button_new: Button = $CanvasLayer/Control/ButtonNew
 @onready var button_continue: Button = $CanvasLayer/Control/ButtonContinue
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $CanvasLayer/Sprite2D/AnimationPlayer
 
 func _ready() -> void:
 	animation_player.play("Menu")
@@ -43,6 +43,9 @@ func setupTileScreen() -> void:
 func startGame() -> void:
 	AudioManager.playMusic(music)
 	playAudio(button_press_audio)
+	if PlayerManager.player:
+		PlayerManager.player.visible = true
+		PlayerManager.player.process_mode = Node.PROCESS_MODE_INHERIT
 	LevelManager.load_new_level(START_LEVEL,"",Vector2.ZERO)
 	pass
 
