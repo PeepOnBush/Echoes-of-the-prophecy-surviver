@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r8m0eyfrv6ij"]
+[gd_scene format=3 uid="uid://r8m0eyfrv6ij"]
 
 [ext_resource type="Script" uid="uid://cecdu0vrdnl03" path="res://Menu/OpeningCutscene/OpeningCutscene.gd" id="1_1ldby"]
 [ext_resource type="Texture2D" uid="uid://cce2f5if7y83o" path="res://Menu/OpeningCutscene/image1.png" id="2_5efhi"]
@@ -163,7 +163,7 @@ _data = {
 &"RESET": SubResource("Animation_uujbg")
 }
 
-[node name="OpeningCutscene" type="Control"]
+[node name="OpeningCutscene" type="Control" unique_id=504450013]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,10 +171,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ldby")
+main_menu_scene = "uid://cxpnsixa42cqb"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1941144737]
 
-[node name="StoryImage" type="TextureRect" parent="CanvasLayer"]
+[node name="StoryImage" type="TextureRect" parent="CanvasLayer" unique_id=1328881744]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 360.0
@@ -182,7 +183,7 @@ grow_horizontal = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Background" type="ColorRect" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=2136633523]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -191,7 +192,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="StoryLabel" type="Label" parent="CanvasLayer"]
+[node name="StoryLabel" type="Label" parent="CanvasLayer" unique_id=493032602]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -206,7 +207,7 @@ text = "Hello player"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SkipLabel" type="Label" parent="CanvasLayer"]
+[node name="SkipLabel" type="Label" parent="CanvasLayer" unique_id=617051167]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -219,10 +220,8 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "press enter to skip"
 
-[node name="CutscenePlayer" type="AnimationPlayer" parent="CanvasLayer"]
+[node name="CutscenePlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1501735267]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_fi4ra")
-}
+libraries/ = SubResource("AnimationLibrary_fi4ra")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=1849420038]

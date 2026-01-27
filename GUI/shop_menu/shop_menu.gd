@@ -45,6 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		hideMenu()
 
 func showMenu(items : Array[ItemData], dialog_triggered : bool = true) -> void:
+
 	if items.size() == 0:
 		return
 		

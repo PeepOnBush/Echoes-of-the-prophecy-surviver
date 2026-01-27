@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://ch72nshll0vxq"]
+[gd_resource type="Resource" script_class="EquipableItemData" format=3 uid="uid://ch72nshll0vxq"]
 
 [ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_d3suw"]
 [ext_resource type="Script" uid="uid://smty8slelvf6" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_c6b2n"]

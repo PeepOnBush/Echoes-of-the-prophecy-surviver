@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://jcn4g08rs8i1"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jcn4g08rs8i1"]
 
 [ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_csky5"]
 [ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_4idfs"]

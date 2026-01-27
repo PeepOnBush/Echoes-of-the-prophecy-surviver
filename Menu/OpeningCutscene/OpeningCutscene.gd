@@ -13,7 +13,7 @@ func _ready() -> void:
 	if PlayerManager.player:
 		PlayerManager.player.visible = false
 		# Optional: Disable their physics so they don't fall/move
-		PlayerManager.player.process_mode = Node.PROCESS_MODE_DISABLED
+		PlayerHud.visible = false
 	
 	# 2. Start animation
 	anim_player.play("IntroSequence")
@@ -27,6 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "IntroSequence":
 		go_to_menu()
+		PlayerHud.visible = true
 
 func go_to_menu() -> void:
 	if transition_started: return

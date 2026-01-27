@@ -82,20 +82,20 @@ func _process( _delta ):
 
 
 func _physics_process(_delta):
-	# 1. Standard WASD Movement logic
-	# (Your existing direction/velocity code...)
-	var target_velocity = direction * 100.0 # Or moveSpeed
-	
-	# 2. Apply Recoil (Add it on top)
-	if recoil_velocity.length() > 5.0:
-		# Linearly decay the recoil to zero
-		recoil_velocity = recoil_velocity.lerp(Vector2.ZERO, recoil_friction * _delta)
-		
-		# Add recoil to your movement
-		# Using target_velocity + recoil allows you to "fight" the recoil with WASD
-		velocity = target_velocity + recoil_velocity
-	else:
-		velocity = target_velocity # Standard movement when recoil is done
+	## 1. Standard WASD Movement logic
+	## (Your existing direction/velocity code...)
+	#var target_velocity = direction * 100.0 # Or moveSpeed
+	#
+	## 2. Apply Recoil (Add it on top)
+	#if recoil_velocity.length() > 5.0:
+		## Linearly decay the recoil to zero
+		#recoil_velocity = recoil_velocity.lerp(Vector2.ZERO, recoil_friction * _delta)
+		#
+		## Add recoil to your movement
+		## Using target_velocity + recoil allows you to "fight" the recoil with WASD
+		#velocity = target_velocity + recoil_velocity
+	#else:
+		#velocity = target_velocity # Standard movement when recoil is done
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
