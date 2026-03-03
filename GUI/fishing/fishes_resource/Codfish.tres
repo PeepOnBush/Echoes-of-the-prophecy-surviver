@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://clkbkyg54840t"]
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://clkbkyg54840t"]
 
 [ext_resource type="Texture2D" uid="uid://50fded6imrrg" path="res://GUI/fishing/fishes_icon/cod.png" id="1_0icx2"]
+[ext_resource type="Resource" uid="uid://ded00fje2w842" path="res://Items/Fishes/Item_Cod.tres" id="2_2l25y"]
 [ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="2_ifom0"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("2_ifom0")
 name = "Codfish"
 icon = ExtResource("1_0icx2")
 weight_difficulty = 2.5
+item_reward = ExtResource("2_2l25y")
 metadata/_custom_type_script = "uid://001da1n137c6"

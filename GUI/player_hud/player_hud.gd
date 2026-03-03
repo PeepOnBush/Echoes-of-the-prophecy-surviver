@@ -209,7 +209,7 @@ func restartGame() -> void:
 func titleScreen() -> void:
 	playAudio(button_select_audio)
 	await gameOverFadeToBlack()
-	LevelManager.load_new_level("res://Menu/Menu2/FrierenTheJourneyBeyondMenu.tscn","",Vector2.ZERO)
+	LevelManager.load_new_level("res://Menu/Menu2/echoes_of_the_prophecy.gd.tscn","",Vector2.ZERO)
 	pass
 
 

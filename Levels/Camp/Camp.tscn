@@ -63,6 +63,7 @@ offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
 colors = PackedColorArray(0, 0, 0, 0, 1, 0.80994534, 0, 0.49685535, 1, 0.80994534, 0, 0.49685535)
 
 [node name="Camp" type="Node2D" unique_id=2005621237]
+y_sort_enabled = true
 script = ExtResource("1_cmse6")
 music = ExtResource("2_ohoch")
 
@@ -70,7 +71,6 @@ music = ExtResource("2_ohoch")
 position = Vector2(315, 208)
 
 [node name="Campfire" parent="." unique_id=530014401 instance=ExtResource("2_yfvmv")]
-top_level = true
 position = Vector2(321, 263)
 
 [node name="Campfire2" parent="." unique_id=2010012972 instance=ExtResource("2_yfvmv")]
@@ -81,22 +81,18 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(669, 523)
 
 [node name="Soran" parent="." unique_id=202921435 instance=ExtResource("33_7vfp2")]
-top_level = true
 position = Vector2(859, 533)
 shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("6_dedri"), ExtResource("9_lsues"), ExtResource("10_yc37q"), ExtResource("11_ropsb"), ExtResource("12_0r12w")])
 
 [node name="Illyana" parent="." unique_id=425915775 instance=ExtResource("5_7vfp2")]
-top_level = true
 position = Vector2(214, 279)
 my_recipes = Array[ExtResource("9_m53jy")]([ExtResource("10_msisa")])
 
 [node name="Sylvana" parent="." unique_id=1626896675 instance=ExtResource("6_bixrs")]
-top_level = true
 position = Vector2(220, 210)
 shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("10_ohoch"), ExtResource("11_dpl2s"), ExtResource("12_ejbmr"), ExtResource("20_t6xgc"), ExtResource("21_nl82m"), ExtResource("22_2yaqv")])
 
 [node name="Zax" parent="." unique_id=712570679 instance=ExtResource("7_vmu3g")]
-top_level = true
 position = Vector2(412, 282)
 shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("12_shx74"), ExtResource("25_2yaqv")])
 
@@ -116,6 +112,8 @@ energy = 0.65
 blend_mode = 2
 
 [node name="Props" type="Node2D" parent="." unique_id=1314239074]
+y_sort_enabled = true
+position = Vector2(2, -13)
 
 [node name="TentSylvanaRight" parent="Props" unique_id=1214103343 instance=ExtResource("6_vx0gi")]
 position = Vector2(173, 195)
@@ -219,15 +217,15 @@ position = Vector2(614, -117.00001)
 
 [node name="Bushes01" parent="Props" unique_id=1544980722 instance=ExtResource("33_2ts1t")]
 show_behind_parent = true
-position = Vector2(-129, 519)
+position = Vector2(-45, 535)
 
 [node name="Bushes02" parent="Props" unique_id=1104451704 instance=ExtResource("33_2ts1t")]
 show_behind_parent = true
-position = Vector2(-282, 446)
+position = Vector2(-285, 479)
 
 [node name="Bushes03" parent="Props" unique_id=1293201759 instance=ExtResource("33_2ts1t")]
 show_behind_parent = true
-position = Vector2(-71, 418)
+position = Vector2(-77, 513)
 
 [node name="Bushes04" parent="Props" unique_id=443994412 instance=ExtResource("34_2ts1t")]
 position = Vector2(130, 292)
@@ -257,7 +255,7 @@ show_behind_parent = true
 position = Vector2(-203, 36)
 
 [node name="Bushes12" parent="Props" unique_id=736726 instance=ExtResource("35_bixrs")]
-position = Vector2(-16, 436)
+position = Vector2(-25, 506)
 
 [node name="Bushes13" parent="Props" unique_id=1614699534 instance=ExtResource("35_bixrs")]
 position = Vector2(814, 395)
@@ -272,6 +270,7 @@ position = Vector2(-271, 167)
 position = Vector2(-205, 87)
 
 [node name="Tree" type="Node2D" parent="Props" unique_id=1907816932]
+y_sort_enabled = true
 
 [node name="Tree11" parent="Props/Tree" unique_id=107441673 instance=ExtResource("4_dplml")]
 position = Vector2(816, 331)
@@ -280,34 +279,34 @@ position = Vector2(816, 331)
 position = Vector2(887, 402)
 
 [node name="Tree08" parent="Props/Tree" unique_id=2010201663 instance=ExtResource("3_6o8vo")]
-position = Vector2(807, 124)
+position = Vector2(791, 97.00001)
 
 [node name="Tree02" parent="Props/Tree" unique_id=823457505 instance=ExtResource("4_dplml")]
 position = Vector2(-140, 535)
 
 [node name="Tree09" parent="Props/Tree" unique_id=1223110427 instance=ExtResource("4_dplml")]
-position = Vector2(767, 189)
+position = Vector2(668, 64)
 
 [node name="Tree06" parent="Props/Tree" unique_id=2104066959 instance=ExtResource("4_dplml")]
-position = Vector2(-106, 86)
+position = Vector2(-206, 28)
 
 [node name="Tree03" parent="Props/Tree" unique_id=841179281 instance=ExtResource("5_0tivk")]
 position = Vector2(-224, 529)
 
 [node name="Tree05" parent="Props/Tree" unique_id=964235162 instance=ExtResource("5_0tivk")]
-position = Vector2(-228, 58)
+position = Vector2(-120.00001, 78)
 
 [node name="Tree07" parent="Props/Tree" unique_id=1173600652 instance=ExtResource("5_0tivk")]
 position = Vector2(882, 179)
 
 [node name="Tree10" parent="Props/Tree" unique_id=303089017 instance=ExtResource("5_0tivk")]
-position = Vector2(882, 179)
+position = Vector2(704, 154)
 
 [node name="Tree04" parent="Props/Tree" unique_id=208741622 instance=ExtResource("41_0vr2m")]
 position = Vector2(-470, -75)
 
 [node name="Tree13" parent="Props/Tree" unique_id=359509869 instance=ExtResource("41_dpl2s")]
-position = Vector2(-550, -123)
+position = Vector2(-578, -124)
 
 [node name="Chest02" parent="Props" unique_id=645868340 instance=ExtResource("38_qay8i")]
 position = Vector2(853, 451)

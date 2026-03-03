@@ -9,3 +9,6 @@ enum Rarity { COMMON, UNCOMMON, RARE, MYTHICAL, LEGENDARY }
 # The "Weight" of the fish. 
 # 1.0 = Standard. 2.0 = Very Heavy (Hard to pull up, falls fast).
 @export_range(1.0, 5.0) var weight_difficulty : float = 1.0
+
+# --- NEW: Link to Inventory Item ---
+@export var item_reward : ItemData

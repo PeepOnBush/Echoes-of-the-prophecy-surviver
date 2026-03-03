@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxpnsixa42cqb"]
+[gd_scene format=3 uid="uid://cxpnsixa42cqb"]
 
 [ext_resource type="Script" uid="uid://d2o7g4e84f8tn" path="res://Menu/Menu2/echoes_of_the_prophecy.gd" id="1_j0wh5"]
 [ext_resource type="AudioStream" uid="uid://b8aa2i8gsuktl" path="res://Menu/Menu2/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3" id="2_yfo08"]
@@ -50,18 +50,18 @@ _data = {
 &"RESET": SubResource("Animation_knfa3")
 }
 
-[node name="EchoesOfTheProphecy" type="Node2D"]
+[node name="EchoesOfTheProphecy" type="Node2D" unique_id=1958245063]
 position = Vector2(315, 155)
 script = ExtResource("1_j0wh5")
 music = ExtResource("2_yfo08")
 button_focus_audio = ExtResource("3_1duhk")
 button_press_audio = ExtResource("4_fldkk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1059700323]
 process_mode = 3
 layer = 5
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=814708698]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -75,13 +75,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="MenuLogo" type="Sprite2D" parent="CanvasLayer/Control"]
+[node name="MenuLogo" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1172051309]
 z_index = 2
 position = Vector2(363.4, 110.54)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("6_1vr6k")
 
-[node name="ButtonNew" type="Button" parent="CanvasLayer/Control"]
+[node name="ButtonNew" type="Button" parent="CanvasLayer/Control" unique_id=877048974]
 texture_filter = 1
 layout_mode = 0
 offset_left = 255.0
@@ -96,7 +96,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_aldl8")
 text = "New Game
 "
 
-[node name="ButtonContinue" type="Button" parent="CanvasLayer/Control"]
+[node name="ButtonContinue" type="Button" parent="CanvasLayer/Control" unique_id=1287190252]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -118,17 +118,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wa0g1")
 text = "Continue
 "
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=232799035]
 process_mode = 3
 z_index = -1
 position = Vector2(320, 181)
 texture = ExtResource("7_suru8")
 hframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_0gk45")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D" unique_id=1594149759]
+libraries/ = SubResource("AnimationLibrary_0gk45")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2081888265]
 max_polyphony = 6

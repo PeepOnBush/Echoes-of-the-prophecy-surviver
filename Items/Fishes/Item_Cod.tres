@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ded00fje2w842"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_2lxgx"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_8pddp"]
+[ext_resource type="Texture2D" uid="uid://50fded6imrrg" path="res://GUI/fishing/fishes_icon/cod.png" id="3_k7uig"]
+
+[resource]
+script = ExtResource("2_8pddp")
+name = "Cod"
+description = "A common fish. Useful for cooking."
+texture = ExtResource("3_k7uig")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

@@ -52,7 +52,6 @@ func startGame() -> void:
 func loadGame() -> void:
 	SaveManager.loadGame()
 	playAudio(button_press_audio)
-	PlayerHud.boss_hp_bar.visible = false
 	pass
 
 func exitTitleScreen() -> void:

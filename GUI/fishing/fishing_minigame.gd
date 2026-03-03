@@ -77,9 +77,15 @@ func game_over(win : bool) -> void:
 	is_active = false
 	
 	if win:
-		print("Caught: ", current_fish.name)
-		AudioManager.play_sfx(finished_catching_audio)
-		AudioManager.play_sfx(fish_out_of_the_water_audio)
+		if current_fish.item_reward:
+			# Give the item to the player
+			PlayerManager.INVENTORY_DATA.add_item(current_fish.item_reward, 1)
+			AudioManager.play_sfx(finished_catching_audio)
+			AudioManager.play_sfx(fish_out_of_the_water_audio)
+			print("Caught: ", current_fish.name)
+		else:
+			print("Warning: This fish has no ItemData assigned!")
+
 		# Flash bar green or play victory sound
 		# Give Fish (Item) to inventory logic here later
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5g10j8utix16"]
+[gd_scene format=3 uid="uid://c5g10j8utix16"]
 
 [ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_m50d1"]
 
@@ -9,15 +9,16 @@ region = Rect2(176, 32, 160, 208)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siou2"]
 size = Vector2(20, 28.666668)
 
-[node name="Tree02" type="StaticBody2D"]
+[node name="Tree02" type="StaticBody2D" unique_id=1613718145]
+y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 collision_layer = 16
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=273287037]
 position = Vector2(0.6666665, -65.333336)
 texture = SubResource("AtlasTexture_fkfnr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1337456997]
 position = Vector2(-2, -8.333334)
 shape = SubResource("RectangleShape2D_siou2")

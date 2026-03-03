@@ -2037,8 +2037,7 @@ size = Vector2(14, 20)
 size = Vector2(29, 6)
 
 [node name="Player" type="CharacterBody2D" unique_id=664889012]
-top_level = true
-position = Vector2(0, -16)
+y_sort_enabled = true
 collision_mask = 24
 motion_mode = 1
 script = ExtResource("1_6e47k")
@@ -2343,6 +2342,7 @@ debug_color = Color(0.968627, 0.117647, 0.345098, 0.121569)
 stream = ExtResource("43_ie76m")
 
 [node name="BowPivot" type="Node2D" parent="." unique_id=617136731 node_paths=PackedStringArray("bow_node", "sword_node")]
+y_sort_enabled = true
 position = Vector2(0, -17)
 script = ExtResource("45_1l10g")
 bow_node = NodePath(".")
@@ -2362,6 +2362,7 @@ texture = ExtResource("47_6rl0i")
 position = Vector2(20, 2)
 
 [node name="SwordPivot" type="Node2D" parent="." unique_id=430455446 node_paths=PackedStringArray("bow_node", "sword_node")]
+y_sort_enabled = true
 position = Vector2(0, -17)
 script = ExtResource("45_1l10g")
 bow_node = NodePath("../BowPivot")

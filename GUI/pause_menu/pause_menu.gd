@@ -58,6 +58,7 @@ func _unhandled_input(event : InputEvent) -> void:
 		
 
 func showPauseMenu() -> void:
+	PlayerHud.hide()
 	get_tree().paused = true
 	visible = true
 	is_paused = true
@@ -65,6 +66,7 @@ func showPauseMenu() -> void:
 	%ArrowCountLabel.text = str(PlayerManager.player.arrow_count)
 	%BombCountLabel.text = str(PlayerManager.player.bomb_count)
 func hidePauseMenu() -> void:
+	PlayerHud.show()
 	get_tree().paused = false
 	visible = false
 	is_paused = false
