@@ -1,4 +1,4 @@
-class_name KitchenShopKeeper extends ShopKeeper
+class_name KitchenShopKeeper extends SpecialNpc
 
 @export_category("Cooking")
 @export var my_recipes : Array[RecipeData]

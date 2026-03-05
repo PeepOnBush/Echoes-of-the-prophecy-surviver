@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://blm3ifei3xdrg"]
+[gd_scene format=3 uid="uid://blm3ifei3xdrg"]
 
 [ext_resource type="Script" uid="uid://caqc5162cs7yv" path="res://Enemies/Scripts/enemy.gd" id="1_qevxw"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_gsauw"]
@@ -520,90 +520,87 @@ max_amount = 5
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4ujj"]
 radius = 150.0
 
-[node name="soldier" type="CharacterBody2D"]
+[node name="soldier" type="CharacterBody2D" unique_id=239379543]
 position = Vector2(0, 10)
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_qevxw")
 xp_reward = 0
 
-[node name="HitBox" parent="." instance=ExtResource("2_gsauw")]
+[node name="HitBox" parent="." unique_id=1124046651 instance=ExtResource("2_gsauw")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1034689686]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ksl0o")
 debug_color = Color(0.933333, 0, 0.509804, 0.419608)
 
-[node name="ShadowSprite2D" type="Sprite2D" parent="."]
+[node name="ShadowSprite2D" type="Sprite2D" parent="." unique_id=293832274]
 modulate = Color(0, 0, 0, 0.576471)
 position = Vector2(0.137, -5.417)
 scale = Vector2(0.62, 0.601)
 texture = ExtResource("3_e741f")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1596510182]
 process_mode = 3
 position = Vector2(0, -17)
 scale = Vector2(1.791, 1.737)
 texture = ExtResource("4_asskw")
 hframes = 34
 
-[node name="HurtBox" parent="Sprite2D" instance=ExtResource("5_1eqsx")]
+[node name="HurtBox" parent="Sprite2D" unique_id=1371592189 instance=ExtResource("5_1eqsx")]
 position = Vector2(0, 9.78699)
 scale = Vector2(0.558347, 0.575705)
 damage = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox" unique_id=1558330203]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ksl0o")
 debug_color = Color(0.933333, 0, 0.509804, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720343941]
 position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_onqxo")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_yfgs5")
-}
-autoplay = "idle_down"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=14049250]
+libraries/ = SubResource("AnimationLibrary_yfgs5")
+autoplay = &"idle_down"
 
-[node name="EnemyStateMachine" type="Node" parent="."]
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=423941557]
 script = ExtResource("8_8285m")
 
-[node name="Chase" type="Node" parent="EnemyStateMachine"]
+[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1793734608]
 script = ExtResource("9_luwxj")
 
-[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
+[node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=957717952 node_paths=PackedStringArray("nextState")]
 script = ExtResource("10_1rtit")
-knockback_speed = 200.0
 decelerate_speed = 5.0
 nextState = NodePath("../Chase")
 
-[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+[node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=1310372869]
 script = ExtResource("11_rpnmp")
 drops = Array[ExtResource("12_o6kb6")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
 
-[node name="Charge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+[node name="Charge" type="Node" parent="EnemyStateMachine" unique_id=775834159 node_paths=PackedStringArray("next_state")]
 script = ExtResource("16_xrpjy")
 dash_duration = 0.25
 dash_speed = 250.0
 next_state = NodePath("../Chase")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1282113194]
 max_polyphony = 4
 bus = &"SFX"
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="AttackTimer" type="Timer" parent="." unique_id=844342708]
 wait_time = 3.0
 autostart = true
 
-[node name="AttackRange" parent="." instance=ExtResource("17_u4aci")]
+[node name="AttackRange" parent="." unique_id=878747883 instance=ExtResource("17_u4aci")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=290306493]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_v4ujj")
 debug_color = Color(0.69, 0, 0.16099985, 0.011764706)
 
-[node name="StatusHandler" type="Node" parent="."]
+[node name="StatusHandler" type="Node" parent="." unique_id=1744080183]
 script = ExtResource("18_v4ujj")

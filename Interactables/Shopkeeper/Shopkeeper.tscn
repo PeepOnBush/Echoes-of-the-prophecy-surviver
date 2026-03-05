@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://rpldn435ahql"]
+[gd_scene format=3 uid="uid://rpldn435ahql"]
 
-[ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/shopkeeper.gd" id="1_3wpx6"]
+[ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/special_npc.gd" id="1_3wpx6"]
 [ext_resource type="PackedScene" uid="uid://pdb02vlsxpnk" path="res://Npc/npc.tscn" id="2_3i4a3"]
 [ext_resource type="Resource" uid="uid://bjnvm8f8m6ehf" path="res://Npc/00_Npcs/shopkeeper.tres" id="3_3i4a3"]
 [ext_resource type="Script" uid="uid://brx4clinsa661" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="4_d11tu"]

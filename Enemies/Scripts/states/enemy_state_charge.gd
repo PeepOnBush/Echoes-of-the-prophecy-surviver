@@ -16,7 +16,7 @@ func Enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	
 	# Visual Feedback: Turn RED
-	enemy.modulate = Color(9.688, 1.838, 1.838, 1.0) # Bright Red
+	#enemy.modulate = Color(9.688, 1.838, 1.838, 1.0) # Bright Red
 	enemy.UpdateAnimation("idle") # Or a "prepare" animation if you have one
 	
 	# Lock aim on player

@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmxeuttt3v4s4"]
+[gd_scene format=3 uid="uid://bmxeuttt3v4s4"]
 
-[ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/shopkeeper.gd" id="1_dxl8s"]
+[ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/special_npc.gd" id="1_dxl8s"]
 [ext_resource type="Script" uid="uid://px3onqgseddq" path="res://Npc/Scripts/npc.gd" id="2_q6d23"]
 [ext_resource type="Resource" uid="uid://bfeciwdsqvo4u" path="res://Npc/00_Npcs/Soran.tres" id="3_ftss7"]
 [ext_resource type="Script" uid="uid://brx4clinsa661" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="4_8y64o"]
@@ -223,39 +223,37 @@ _data = {
 &"show": SubResource("Animation_n0ghc")
 }
 
-[node name="Soran" type="Node2D"]
+[node name="Soran" type="Node2D" unique_id=1856962034]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_dxl8s")
 
-[node name="Npc" type="CharacterBody2D" parent="."]
+[node name="Npc" type="CharacterBody2D" parent="." unique_id=452453085]
 position = Vector2(1, 0)
-collision_layer = 0
+collision_layer = 16
 collision_mask = 16
 script = ExtResource("2_q6d23")
 npc_resource = ExtResource("3_ftss7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Npc"]
+[node name="Sprite2D" type="Sprite2D" parent="Npc" unique_id=1891510460]
 position = Vector2(0, -20)
 texture = ExtResource("4_35v0d")
 
-[node name="ShadowSprite" type="Sprite2D" parent="Npc/Sprite2D"]
+[node name="ShadowSprite" type="Sprite2D" parent="Npc/Sprite2D" unique_id=1934917214]
 modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
 show_behind_parent = true
 position = Vector2(0, 37)
 scale = Vector2(1, 1.027)
 texture = ExtResource("5_b8k61")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc"]
-libraries = {
-&"": SubResource("AnimationLibrary_egpr6")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc" unique_id=732797915]
+libraries/ = SubResource("AnimationLibrary_egpr6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc" unique_id=1808497217]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dbp7l")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
-[node name="DialogInteraction" type="Area2D" parent="Npc"]
+[node name="DialogInteraction" type="Area2D" parent="Npc" unique_id=538293024]
 process_mode = 3
 position = Vector2(-1, -14)
 collision_layer = 0
@@ -263,88 +261,89 @@ collision_mask = 4
 monitorable = false
 script = ExtResource("4_8y64o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/DialogInteraction"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/DialogInteraction" unique_id=561434045]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_jtybw")
 debug_color = Color(0, 0.815, 0.198, 0.097)
 
-[node name="Sprite2D" type="Sprite2D" parent="Npc/DialogInteraction"]
+[node name="Sprite2D" type="Sprite2D" parent="Npc/DialogInteraction" unique_id=2096820965]
 position = Vector2(2, -52)
 scale = Vector2(1.595, 1.595)
 texture = ExtResource("5_qdrho")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc/DialogInteraction"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc/DialogInteraction" unique_id=210964917]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_0lvyt")
-}
-autoplay = "default"
+libraries/ = SubResource("AnimationLibrary_0lvyt")
+autoplay = &"default"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction" unique_id=1595369130]
 script = ExtResource("6_1uswu")
 text = "So you wanna strengthen your body ?"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
-[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction"]
+[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction" unique_id=118977334]
 script = ExtResource("7_d16rb")
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://hflhtv60v71f"
 
-[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
+[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice" unique_id=450379094]
 script = ExtResource("8_8kldc")
 text = "Yes"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="Do_ OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch"]
+[node name="Do_ OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch" unique_id=1889069128]
 script = ExtResource("11_35v0d")
 action_type = 6
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
-[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
+[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice" unique_id=779385773]
 script = ExtResource("8_8kldc")
 text = "No"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2" unique_id=638477907]
 script = ExtResource("6_1uswu")
 text = "Then what do you want ?"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
-[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2"]
+[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2" unique_id=1953518148]
 script = ExtResource("7_d16rb")
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://hflhtv60v71f"
 
-[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice"]
+[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice" unique_id=1757192852]
 script = ExtResource("8_8kldc")
 text = "I saw you fishing ealier, can you teach me how to ?"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch" unique_id=1355518129]
 script = ExtResource("6_1uswu")
 text = "Alright, here's the rod, show me what you got"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
-[node name="Do_ START_FISHING" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch"]
+[node name="Do_ START_FISHING" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch" unique_id=1421135715]
 script = ExtResource("11_35v0d")
 action_type = 5
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
-[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice"]
+[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice" unique_id=738232324]
 script = ExtResource("8_8kldc")
 text = "Nothing, sorry to bother you"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch2"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2/DialogChoice/DialogBranch2" unique_id=1486233523]
 script = ExtResource("6_1uswu")
 text = "GET OUT!!"
 npc_info = ExtResource("3_ftss7")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=547902595]
+bus = &"SFX"

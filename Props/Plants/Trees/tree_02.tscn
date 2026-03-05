@@ -7,7 +7,7 @@ atlas = ExtResource("1_m50d1")
 region = Rect2(176, 32, 160, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siou2"]
-size = Vector2(20, 28.666668)
+size = Vector2(20, 19.666666)
 
 [node name="Tree02" type="StaticBody2D" unique_id=1613718145]
 y_sort_enabled = true
@@ -16,9 +16,9 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=273287037]
-position = Vector2(0.6666665, -65.333336)
+position = Vector2(1.3333334, -45.333336)
 texture = SubResource("AtlasTexture_fkfnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1337456997]
-position = Vector2(-2, -8.333334)
+position = Vector2(-3.3333335, 11.166667)
 shape = SubResource("RectangleShape2D_siou2")

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://pm8hmceeo3q5"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_747no"]
+[ext_resource type="AudioStream" uid="uid://esegad5074ob" path="res://Levels/music/Falcon_133 BPM_Full_Loop.wav" id="2_uv5ft"]
 [ext_resource type="PackedScene" uid="uid://bjr5s7xwv2o3v" path="res://Props/Plants/Trees/tree_04.tscn" id="3_c2gse"]
 [ext_resource type="PackedScene" uid="uid://b611m75cuixve" path="res://Tile Maps/Grass-01-layer.tscn" id="3_g1smm"]
 [ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="4_pwydo"]
@@ -11,12 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="7_b60gt"]
 [ext_resource type="PackedScene" uid="uid://lko0bl6ujnky" path="res://Props/Plants/Bushes/bushes_01.tscn" id="7_vg1n0"]
 [ext_resource type="PackedScene" uid="uid://ddaiy04uk27fm" path="res://Enemies/goblin_boss/goblin_boss.tscn" id="8_f2d14"]
-[ext_resource type="AudioStream" uid="uid://c6mrq43ikut14" path="res://Levels/music/example_music_01.ogg" id="12_36ld3"]
+[ext_resource type="PackedScene" uid="uid://blm3ifei3xdrg" path="res://Enemies/soldier/soldier.tscn" id="13_uv5ft"]
 
 [node name="01" type="Node2D" unique_id=1113108810]
 position = Vector2(14, -9)
 script = ExtResource("1_747no")
-music = ExtResource("12_36ld3")
+music = ExtResource("2_uv5ft")
 generate_props = true
 prop_scenes = Array[PackedScene]([ExtResource("3_c2gse"), ExtResource("4_uv5ft"), ExtResource("5_ay7cg"), ExtResource("7_vg1n0")])
 
@@ -33,3 +34,6 @@ isEnabled = true
 slime_scene = ExtResource("6_th3kk")
 goblin_scene = ExtResource("7_b60gt")
 boss_list = Array[PackedScene]([ExtResource("8_f2d14")])
+
+[node name="soldier" parent="." unique_id=1721881075 instance=ExtResource("13_uv5ft")]
+position = Vector2(-92, -2)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://g3gb1onhn72e"]
+[gd_scene format=3 uid="uid://g3gb1onhn72e"]
 
-[ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/shopkeeper.gd" id="1_vk8rj"]
+[ext_resource type="Script" uid="uid://pmm6yimr5cow" path="res://Npc/Characters/MyDoggo/my_doggo.gd" id="1_31h28"]
 [ext_resource type="Script" uid="uid://px3onqgseddq" path="res://Npc/Scripts/npc.gd" id="2_hb6kn"]
 [ext_resource type="Resource" uid="uid://cq0y7gy3oulmp" path="res://Npc/00_Npcs/Doggo.tres" id="3_k4gvo"]
 [ext_resource type="Texture2D" uid="uid://xpmvppsqgfpt" path="res://Npc/Characters/MyDoggo/zEdoggo.png" id="4_vy4bn"]
@@ -260,41 +260,39 @@ _data = {
 &"show": SubResource("Animation_n0ghc")
 }
 
-[node name="MyDoggo" type="Node2D"]
+[node name="MyDoggo" type="Node2D" unique_id=1504430728]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_vk8rj")
+script = ExtResource("1_31h28")
 
-[node name="Npc" type="CharacterBody2D" parent="."]
+[node name="Npc" type="CharacterBody2D" parent="." unique_id=1834956615]
 position = Vector2(10, -6)
-collision_layer = 0
+collision_layer = 16
 collision_mask = 16
 script = ExtResource("2_hb6kn")
 npc_resource = ExtResource("3_k4gvo")
 
-[node name="Sprite2D" type="Sprite2D" parent="Npc"]
+[node name="Sprite2D" type="Sprite2D" parent="Npc" unique_id=460943862]
 position = Vector2(10, -16)
 texture = ExtResource("4_vy4bn")
 hframes = 2
 
-[node name="ShadowSprite" type="Sprite2D" parent="Npc/Sprite2D"]
+[node name="ShadowSprite" type="Sprite2D" parent="Npc/Sprite2D" unique_id=1156614032]
 modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
 show_behind_parent = true
 position = Vector2(-26, 36.999996)
 scale = Vector2(1.975, 2.028)
 texture = ExtResource("5_21kqu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc"]
-libraries = {
-&"": SubResource("AnimationLibrary_egpr6")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc" unique_id=1516206450]
+libraries/ = SubResource("AnimationLibrary_egpr6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc" unique_id=371591147]
 position = Vector2(-11, 6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dbp7l")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
-[node name="DialogInteraction" type="Area2D" parent="Npc"]
+[node name="DialogInteraction" type="Area2D" parent="Npc" unique_id=1616312246]
 process_mode = 3
 position = Vector2(-13, -10)
 collision_layer = 0
@@ -302,55 +300,57 @@ collision_mask = 4
 monitorable = false
 script = ExtResource("6_yhwjy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/DialogInteraction"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/DialogInteraction" unique_id=1602080387]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_jtybw")
 debug_color = Color(0, 0.815, 0.198, 0.097)
 
-[node name="Sprite2D" type="Sprite2D" parent="Npc/DialogInteraction"]
+[node name="Sprite2D" type="Sprite2D" parent="Npc/DialogInteraction" unique_id=1787349003]
 position = Vector2(2, -52)
 scale = Vector2(1.595, 1.595)
 texture = ExtResource("7_spj35")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc/DialogInteraction"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Npc/DialogInteraction" unique_id=1854675267]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_0lvyt")
-}
-autoplay = "default"
+libraries/ = SubResource("AnimationLibrary_0lvyt")
+autoplay = &"default"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction" unique_id=988630398]
 script = ExtResource("8_s4ckk")
 text = "urf urf ?"
 npc_info = ExtResource("3_k4gvo")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
-[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction"]
+[node name="DialogChoice" type="Node" parent="Npc/DialogInteraction" unique_id=1166981710]
 script = ExtResource("10_5fdd0")
 npc_info = ExtResource("3_k4gvo")
 metadata/_custom_type_script = "uid://hflhtv60v71f"
 
-[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
+[node name="DialogBranch" type="Node" parent="Npc/DialogInteraction/DialogChoice" unique_id=66076311]
 script = ExtResource("11_jijn1")
 text = "Who's a good boy"
 npc_info = ExtResource("3_k4gvo")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch" unique_id=672559501]
 script = ExtResource("8_s4ckk")
 text = "* tail whiffing * urf urf !"
 npc_info = ExtResource("3_k4gvo")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
 
-[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice"]
+[node name="DialogBranch2" type="Node" parent="Npc/DialogInteraction/DialogChoice" unique_id=1066784581]
 script = ExtResource("11_jijn1")
 text = "No bad dog !"
 npc_info = ExtResource("3_k4gvo")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2"]
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch2" unique_id=1822874106]
 script = ExtResource("8_s4ckk")
 text = "*tail lowered down* whimming~~"
 npc_info = ExtResource("3_k4gvo")
 metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1610023878]
+volume_db = 10.0
+bus = &"SFX"
