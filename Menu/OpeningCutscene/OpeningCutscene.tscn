@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cce2f5if7y83o" path="res://Menu/OpeningCutscene/image1.png" id="2_5efhi"]
 [ext_resource type="Texture2D" uid="uid://c2rwsaeqwfa2h" path="res://Menu/OpeningCutscene/image2.png" id="3_gts7q"]
 [ext_resource type="Texture2D" uid="uid://bsfwtd80nf1w3" path="res://Menu/OpeningCutscene/image3.png" id="4_34qc6"]
+[ext_resource type="AudioStream" uid="uid://dk5b5kh68jte6" path="res://Menu/OpeningCutscene/arctsound-cinematic-intro-no-copyright-music-443069.mp3" id="5_gts7q"]
 
 [sub_resource type="Animation" id="Animation_fl8bl"]
 resource_name = "IntroSequence"
-length = 20.0
+length = 65.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/StoryLabel:text")
+tracks/1/path = NodePath("CanvasLayer/Background/StoryLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +41,7 @@ tracks/2/path = NodePath("CanvasLayer/StoryImage:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1333333, 4.9666667, 5.9666667, 6.5, 10.607211, 11.866667, 12.366667, 17.633333, 19.7),
+"times": PackedFloat32Array(0, 1.1333333, 4.9666667, 5.9666667, 6.5, 10.607211, 11.866667, 12.366667, 62.433334, 64.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
@@ -60,7 +61,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/StoryLabel:visible")
+tracks/4/path = NodePath("CanvasLayer/Background/StoryLabel:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -72,7 +73,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/SkipLabel:visible")
+tracks/5/path = NodePath("CanvasLayer/Background/SkipLabel:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -80,6 +81,42 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Background:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(18, 19.733334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Continue:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 24.933332),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Continue:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 24.933332, 25.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uujbg"]
@@ -99,7 +136,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/StoryLabel:text")
+tracks/1/path = NodePath("CanvasLayer/Background/StoryLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -135,7 +172,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/StoryLabel:visible")
+tracks/4/path = NodePath("CanvasLayer/Background/StoryLabel:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -147,7 +184,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/SkipLabel:visible")
+tracks/5/path = NodePath("CanvasLayer/Background/SkipLabel:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -155,6 +192,42 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Background:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Continue:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Continue:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fi4ra"]
@@ -172,6 +245,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ldby")
 main_menu_scene = "uid://cxpnsixa42cqb"
+music = ExtResource("5_gts7q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1941144737]
 
@@ -192,7 +266,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="StoryLabel" type="Label" parent="CanvasLayer" unique_id=493032602]
+[node name="StoryLabel" type="Label" parent="CanvasLayer/Background" unique_id=493032602]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -207,7 +282,8 @@ text = "Hello player"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SkipLabel" type="Label" parent="CanvasLayer" unique_id=617051167]
+[node name="SkipLabel" type="Label" parent="CanvasLayer/Background" unique_id=617051167]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -219,6 +295,15 @@ offset_right = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "press enter to skip"
+
+[node name="Continue" type="Label" parent="CanvasLayer" unique_id=633043771]
+modulate = Color(1, 1, 1, 0)
+offset_left = 241.0
+offset_top = 71.0
+offset_right = 414.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 20
+text = "Press enter to continue"
 
 [node name="CutscenePlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1501735267]
 root_node = NodePath("../..")

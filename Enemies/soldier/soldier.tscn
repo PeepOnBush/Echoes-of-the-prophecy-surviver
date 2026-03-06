@@ -523,13 +523,23 @@ radius = 150.0
 [node name="soldier" type="CharacterBody2D" unique_id=239379543]
 position = Vector2(0, 10)
 collision_layer = 256
-collision_mask = 16
+collision_mask = 272
 script = ExtResource("1_qevxw")
 xp_reward = 0
 
 [node name="HitBox" parent="." unique_id=1124046651 instance=ExtResource("2_gsauw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1034689686]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_ksl0o")
+debug_color = Color(0.933333, 0, 0.509804, 0.419608)
+
+[node name="HurtBox" parent="." unique_id=1371592189 instance=ExtResource("5_1eqsx")]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.99999946, 0.9999996)
+damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1558330203]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ksl0o")
 debug_color = Color(0.933333, 0, 0.509804, 0.419608)
@@ -546,16 +556,6 @@ position = Vector2(0, -17)
 scale = Vector2(1.791, 1.737)
 texture = ExtResource("4_asskw")
 hframes = 34
-
-[node name="HurtBox" parent="Sprite2D" unique_id=1371592189 instance=ExtResource("5_1eqsx")]
-position = Vector2(0, 9.78699)
-scale = Vector2(0.558347, 0.575705)
-damage = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox" unique_id=1558330203]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_ksl0o")
-debug_color = Color(0.933333, 0, 0.509804, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720343941]
 position = Vector2(0, -4)

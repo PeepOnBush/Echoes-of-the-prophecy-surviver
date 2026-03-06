@@ -89,7 +89,7 @@ position = Vector2(214, 279)
 my_recipes = Array[ExtResource("9_m53jy")]([ExtResource("10_msisa")])
 
 [node name="Sylvana" parent="." unique_id=1626896675 instance=ExtResource("6_bixrs")]
-position = Vector2(205, 183)
+position = Vector2(229, 184)
 shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("10_ohoch"), ExtResource("11_dpl2s"), ExtResource("12_ejbmr"), ExtResource("20_t6xgc"), ExtResource("21_nl82m"), ExtResource("22_2yaqv")])
 
 [node name="Zax" parent="." unique_id=712570679 instance=ExtResource("7_vmu3g")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ddaiy04uk27fm"]
+[gd_scene format=3 uid="uid://ddaiy04uk27fm"]
 
 [ext_resource type="Script" uid="uid://cnxh82kgpqrit" path="res://Enemies/Scripts/boss_enemy.gd" id="1_x6yc4"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_baylh"]
@@ -480,75 +480,73 @@ script = ExtResource("12_fg6bb")
 item = ExtResource("15_87odn")
 max_amount = 5
 
-[node name="goblin_boss" type="CharacterBody2D"]
+[node name="goblin_boss" type="CharacterBody2D" unique_id=1403205250]
 position = Vector2(0, 10)
 scale = Vector2(2.5, 2.5)
 collision_layer = 256
-collision_mask = 16
+collision_mask = 272
 script = ExtResource("1_x6yc4")
 portal_scene = ExtResource("2_xmqtq")
 return_to_camp_scene = "uid://dwrr28hbrgy8g"
 hp = 25
 
-[node name="HitBox" parent="." instance=ExtResource("2_baylh")]
+[node name="HitBox" parent="." unique_id=401115435 instance=ExtResource("2_baylh")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=747247450]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ksl0o")
 debug_color = Color(0.933333, 0, 0.509804, 0.419608)
 
-[node name="ShadowSprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.576471)
-position = Vector2(0.137, -5.417)
-scale = Vector2(0.62, 0.601)
-texture = ExtResource("3_neu5w")
+[node name="HurtBox" parent="." unique_id=373408941 instance=ExtResource("5_jmvwm")]
+position = Vector2(0, 1.66893e-06)
+scale = Vector2(0.99999934, 0.99999946)
+damage = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=950842252]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_ksl0o")
+debug_color = Color(0.933333, 0, 0.509804, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306554200]
 process_mode = 3
 position = Vector2(0, -17)
 scale = Vector2(1.791, 1.737)
 texture = ExtResource("4_x6yc4")
 hframes = 34
 
-[node name="HurtBox" parent="Sprite2D" instance=ExtResource("5_jmvwm")]
-position = Vector2(0, 9.78699)
-scale = Vector2(0.558347, 0.575705)
-damage = 2
+[node name="ShadowSprite2D" type="Sprite2D" parent="." unique_id=1528745986]
+modulate = Color(0, 0, 0, 0.576471)
+position = Vector2(0.13699998, -5.4169993)
+scale = Vector2(0.61999995, 0.601)
+texture = ExtResource("3_neu5w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_ksl0o")
-debug_color = Color(0.933333, 0, 0.509804, 0.419608)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=932343879]
 position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_onqxo")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_yfgs5")
-}
-autoplay = "idle_down"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=996548731]
+libraries/ = SubResource("AnimationLibrary_yfgs5")
+autoplay = &"idle_down"
 
-[node name="EnemyStateMachine" type="Node" parent="."]
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1945069701]
 script = ExtResource("8_3e8br")
 
-[node name="Chase" type="Node" parent="EnemyStateMachine"]
+[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1244992390]
 script = ExtResource("9_a2v1p")
 
-[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("nextState")]
+[node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=919242509 node_paths=PackedStringArray("nextState")]
 script = ExtResource("10_s3p6t")
 decelerate_speed = 5.0
 nextState = NodePath("../Chase")
 
-[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+[node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=975280989]
 script = ExtResource("11_rmwm4")
 drops = Array[ExtResource("12_fg6bb")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=31133832]
 max_polyphony = 4
 bus = &"SFX"
 
-[node name="StatusHandler" type="Node" parent="."]
+[node name="StatusHandler" type="Node" parent="." unique_id=1061278421]
 script = ExtResource("17_phxrf")

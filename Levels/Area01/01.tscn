@@ -37,3 +37,18 @@ boss_list = Array[PackedScene]([ExtResource("8_f2d14")])
 
 [node name="soldier" parent="." unique_id=1721881075 instance=ExtResource("13_uv5ft")]
 position = Vector2(-92, -2)
+
+[node name="soldier2" parent="." unique_id=239379543 instance=ExtResource("13_uv5ft")]
+position = Vector2(-150, 53)
+
+[node name="soldier3" parent="." unique_id=1458316105 instance=ExtResource("13_uv5ft")]
+position = Vector2(-39, 53)
+
+[node name="soldier4" parent="." unique_id=1212940335 instance=ExtResource("13_uv5ft")]
+position = Vector2(-121, 114)
+
+[node name="soldier5" parent="." unique_id=1521434416 instance=ExtResource("13_uv5ft")]
+position = Vector2(-197, 23)
+
+[node name="soldier6" parent="." unique_id=1169376901 instance=ExtResource("13_uv5ft")]
+position = Vector2(-147, -58)

@@ -4,10 +4,13 @@ extends Control
 @export_file("*.tscn") var main_menu_scene : String = "res://Menu/Menu2/echoes_of_the_prophecy.gd.tscn"
 
 @onready var anim_player : AnimationPlayer = $CanvasLayer/CutscenePlayer
+@onready var music_player: AudioStreamPlayer = $CanvasLayer/MusicPlayer
+@export var music : AudioStream
 
 var transition_started : bool = false
 
 func _ready() -> void:
+	AudioManager.playMusic(music)
 	# 1. HIDE THE PLAYER
 	# We assume PlayerManager exists.
 	if PlayerManager.player:

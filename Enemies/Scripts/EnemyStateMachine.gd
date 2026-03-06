@@ -55,12 +55,17 @@ func changeState(newState : EnemyState) -> void:
 	currentState.Enter()
 	
 func _on_attack_timer_timeout() -> void:
-	# Find the Charge state node by name
+	# 1. NEW: Check if we are dying. 
+	# If we are in the Destroy state (or Stunned, if you prefer), IGNORE the timer.
+	if currentState is EnemyStateDestroy:
+		return
+		
+	# 2. Check if already charging (Existing logic)
 	if currentState.name == "Charge":
-		return # Already charging
-	if attack_range_node:
-		if attack_range_node.player_in_range == false:
-			return # Player is too far, ignore the timer
+		return
+		
+	# 3. Switch logic
 	var charge_state = get_node_or_null("Charge")
 	if charge_state:
 		changeState(charge_state)
+	pass
