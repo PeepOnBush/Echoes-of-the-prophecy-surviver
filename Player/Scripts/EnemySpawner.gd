@@ -36,7 +36,7 @@ var waves : Array = [
 	
 	# THE BOSS WAVE (e.g., at 60 seconds)
 	{ 
-		"time": 20, 
+		"time": 15, 
 		"rate": 0.5, # Stop spawning other enemies (or keep them slow)
 		"types": ["boss"], # Special tag
 		"is_boss_wave": true
@@ -140,7 +140,10 @@ func _on_timer_timeout() -> void:
 	if random_enemy_scene == null: return
 
 	var enemy_instance = random_enemy_scene.instantiate()
-	
+	#Increase health
+	#var hp_mult = 1.0 + ((LevelManager.current_run_difficulty - 1) * 0.1)
+	#enemy_instance.max_hp = int(enemy_instance.max_hp * hp_mult)
+	#enemy_instance.hp = enemy_instance.max_hp
 	# --- POSITIONING FIX ---
 	var random_angle = randf() * TAU 
 	var spawn_vector = Vector2(spawn_radius, 0).rotated(random_angle)

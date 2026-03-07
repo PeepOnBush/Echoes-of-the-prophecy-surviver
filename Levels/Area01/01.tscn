@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://ckl8plhl1alqu" path="res://Enemies/Slime/Slime.tscn" id="6_th3kk"]
 [ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="7_b60gt"]
 [ext_resource type="PackedScene" uid="uid://lko0bl6ujnky" path="res://Props/Plants/Bushes/bushes_01.tscn" id="7_vg1n0"]
-[ext_resource type="PackedScene" uid="uid://ddaiy04uk27fm" path="res://Enemies/goblin_boss/goblin_boss.tscn" id="8_f2d14"]
+[ext_resource type="PackedScene" uid="uid://ddaiy04uk27fm" path="res://Enemies/Vigor/Vigor.tscn" id="8_f2d14"]
+[ext_resource type="PackedScene" uid="uid://cjla4g1grk7uo" path="res://Enemies/Vera/Vera.tscn" id="13_qqqph"]
 [ext_resource type="PackedScene" uid="uid://blm3ifei3xdrg" path="res://Enemies/soldier/soldier.tscn" id="13_uv5ft"]
+[ext_resource type="PackedScene" uid="uid://bjfldnlc21mh" path="res://Enemies/General_Brandy/General_Brandy.tscn" id="14_ay7cg"]
 
 [node name="01" type="Node2D" unique_id=1113108810]
 position = Vector2(14, -9)
@@ -33,7 +35,7 @@ position = Vector2(4, 1)
 isEnabled = true
 slime_scene = ExtResource("6_th3kk")
 goblin_scene = ExtResource("7_b60gt")
-boss_list = Array[PackedScene]([ExtResource("8_f2d14")])
+boss_list = Array[PackedScene]([ExtResource("8_f2d14"), ExtResource("13_qqqph"), ExtResource("14_ay7cg")])
 
 [node name="soldier" parent="." unique_id=1721881075 instance=ExtResource("13_uv5ft")]
 position = Vector2(-92, -2)
