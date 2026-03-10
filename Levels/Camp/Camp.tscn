@@ -48,7 +48,6 @@
 [ext_resource type="PackedScene" uid="uid://b16s4x7sue8y1" path="res://Props/Plants/Bushes/bushes_03.tscn" id="35_bixrs"]
 [ext_resource type="PackedScene" uid="uid://8jch38smaquw" path="res://Props/Bridges/bridge_01.tscn" id="38_dedri"]
 [ext_resource type="PackedScene" uid="uid://8n638p22m4td" path="res://Props/Crate/chest_02.tscn" id="38_qay8i"]
-[ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="39_ohoch"]
 [ext_resource type="PackedScene" uid="uid://c41rob66u2vrw" path="res://Props/Crate/crate_02.tscn" id="40_0vr2m"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="40_qay8i"]
 [ext_resource type="PackedScene" uid="uid://cesqg1j7vncmp" path="res://Props/Plants/Bushes/bushes_04.tscn" id="40_sdoba"]
@@ -57,6 +56,12 @@
 [ext_resource type="PackedScene" uid="uid://ceqx31tbb8qlq" path="res://Props/Pot/cauldron.tscn" id="45_msisa"]
 [ext_resource type="PackedScene" uid="uid://c7nifsv3lduwo" path="res://Props/Carrier/carrier.tscn" id="46_m8h0l"]
 [ext_resource type="PackedScene" uid="uid://ci70ko4sko51r" path="res://Props/Signs/sign_01.tscn" id="55_2yaqv"]
+[ext_resource type="PackedScene" uid="uid://b3iobd78lcjly" path="res://Interactables/Dialog/dialog_interaction.tscn" id="57_f3hoe"]
+[ext_resource type="Script" uid="uid://dh6vtewwh8j5o" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="58_sytg2"]
+[ext_resource type="Resource" uid="uid://dnte2s1otewlx" path="res://Npc/00_Npcs/Narrator.tres" id="59_glfj8"]
+[ext_resource type="Script" uid="uid://hflhtv60v71f" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="60_8viyp"]
+[ext_resource type="Script" uid="uid://b81no7fe2rkd6" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="61_y74nq"]
+[ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="62_1g3yh"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -389,15 +394,38 @@ scale_amount_max = 4.9
 color = Color(2.3298683, 2.0284631, 0, 1)
 color_ramp = SubResource("Gradient_dedri")
 
-[node name="LevelTransition_interact" parent="." unique_id=1202055521 instance=ExtResource("39_ohoch")]
-position = Vector2(288, -72)
-level = "uid://pm8hmceeo3q5"
-center_player = true
-side = 2
-
 [node name="LevelTransition" parent="." unique_id=441267135 instance=ExtResource("40_qay8i")]
 position = Vector2(288, -72)
 collision_mask = 0
 center_player = true
 size = 3
 side = 2
+
+[node name="Carrier" parent="." unique_id=1508524489 instance=ExtResource("57_f3hoe")]
+position = Vector2(288, -89)
+
+[node name="DialogText" type="Node" parent="Carrier" unique_id=1677654864]
+script = ExtResource("58_sytg2")
+text = "You wanna head out ?"
+npc_info = ExtResource("59_glfj8")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogChoice" type="Node" parent="Carrier" unique_id=70871489]
+script = ExtResource("60_8viyp")
+metadata/_custom_type_script = "uid://hflhtv60v71f"
+
+[node name="DialogBranch" type="Node" parent="Carrier/DialogChoice" unique_id=1409825093]
+script = ExtResource("61_y74nq")
+text = "Yes, let's head out"
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="Do_CHANGE_SCENE" type="Node" parent="Carrier/DialogChoice/DialogBranch" unique_id=592436922]
+script = ExtResource("62_1g3yh")
+action_type = 9
+target_scene = "uid://pm8hmceeo3q5"
+metadata/_custom_type_script = "uid://bxrgtrafvhmem"
+
+[node name="DialogBranch2" type="Node" parent="Carrier/DialogChoice" unique_id=433352886]
+script = ExtResource("61_y74nq")
+text = "Not not yet"
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
