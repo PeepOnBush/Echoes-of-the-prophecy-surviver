@@ -316,7 +316,7 @@ position = Vector2(888, 526)
 position = Vector2(179, 308)
 
 [node name="Carrier" parent="Props" unique_id=1876071236 instance=ExtResource("46_m8h0l")]
-position = Vector2(298, -135)
+position = Vector2(298, -112.00001)
 
 [node name="Sign01" parent="Props" unique_id=1814262405 instance=ExtResource("55_2yaqv")]
 position = Vector2(-265, 192)
@@ -390,13 +390,13 @@ color = Color(2.3298683, 2.0284631, 0, 1)
 color_ramp = SubResource("Gradient_dedri")
 
 [node name="LevelTransition_interact" parent="." unique_id=1202055521 instance=ExtResource("39_ohoch")]
-position = Vector2(288, -95)
+position = Vector2(288, -72)
 level = "uid://pm8hmceeo3q5"
 center_player = true
 side = 2
 
 [node name="LevelTransition" parent="." unique_id=441267135 instance=ExtResource("40_qay8i")]
-position = Vector2(288, -95)
+position = Vector2(288, -72)
 collision_mask = 0
 center_player = true
 size = 3

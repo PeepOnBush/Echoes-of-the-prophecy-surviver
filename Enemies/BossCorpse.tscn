@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cpffs5cufoda5"]
+
+[ext_resource type="PackedScene" uid="uid://b3iobd78lcjly" path="res://Interactables/Dialog/dialog_interaction.tscn" id="1_bku58"]
+[ext_resource type="Script" uid="uid://ctp4tk3bpi1gx" path="res://Enemies/Scripts/boss_corpse.gd" id="1_egshh"]
+[ext_resource type="Script" uid="uid://dh6vtewwh8j5o" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="2_76yu1"]
+[ext_resource type="Script" uid="uid://hflhtv60v71f" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="3_8gwvd"]
+[ext_resource type="Resource" uid="uid://dnte2s1otewlx" path="res://Npc/00_Npcs/Narrator.tres" id="3_76yu1"]
+[ext_resource type="Script" uid="uid://b81no7fe2rkd6" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="4_oft2c"]
+[ext_resource type="Resource" uid="uid://b3tprasevnjy" path="res://Npc/00_Npcs/00_hero.tres" id="6_8gwvd"]
+[ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="7_oft2c"]
+
+[node name="BossCorpse" type="Node2D" unique_id=165298679]
+script = ExtResource("1_egshh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1092179474]
+
+[node name="DialogInteraction" parent="." unique_id=1732093758 instance=ExtResource("1_bku58")]
+
+[node name="DialogText" type="Node" parent="DialogInteraction" unique_id=808253692]
+script = ExtResource("2_76yu1")
+text = "Go to camp ?"
+npc_info = ExtResource("3_76yu1")
+metadata/_custom_type_script = "uid://dh6vtewwh8j5o"
+
+[node name="DialogChoice" type="Node" parent="DialogInteraction" unique_id=592010874]
+script = ExtResource("3_8gwvd")
+metadata/_custom_type_script = "uid://hflhtv60v71f"
+
+[node name="DialogBranch" type="Node" parent="DialogInteraction/DialogChoice" unique_id=1131870490]
+script = ExtResource("4_oft2c")
+text = "Alright let's go back"
+npc_info = ExtResource("6_8gwvd")
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="Do_CHANGE_SCENE" type="Node" parent="DialogInteraction/DialogChoice/DialogBranch" unique_id=1660125838]
+script = ExtResource("7_oft2c")
+action_type = 9
+target_scene = "uid://dwrr28hbrgy8g"
+metadata/_custom_type_script = "uid://bxrgtrafvhmem"
+
+[node name="DialogBranch2" type="Node" parent="DialogInteraction/DialogChoice" unique_id=1968437899]
+script = ExtResource("4_oft2c")
+text = "Not yet"
+npc_info = ExtResource("6_8gwvd")
+metadata/_custom_type_script = "uid://b81no7fe2rkd6"

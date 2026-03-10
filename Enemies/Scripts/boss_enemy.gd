@@ -3,6 +3,8 @@ class_name BossEnemy extends Enemy # Inherits all your movement/damage logic
 @export var is_final_boss : bool = false
 @export var boss_name: String = "King Goblin"
 @export var portal_scene: PackedScene 
+@export var corpse_scene: PackedScene 
+
 @export_file("*.tscn") var return_to_camp_scene : String 
 
 func _ready() -> void:
@@ -45,22 +47,26 @@ func _exit_tree() -> void:
 		print("zoomed back in")
 
 func on_death_complete() -> void:
-	# 1. Spawn the Portal
-	if portal_scene:
-		var portal = portal_scene.instantiate()
+	if corpse_scene:
+		var corpse = corpse_scene.instantiate() as BossCorpse
 		
-		# Configure the Portal
-		portal.level = return_to_camp_scene
-		portal.target_transition_area = "LevelTransition" # Or wherever you want to land in Camp
-		portal.center_player = true
-		if "is_dynamic_spawn" in portal:
-			portal.is_dynamic_spawn = true
-		# Add to Scene Root (So it doesn't get deleted with the boss)
+		var my_sprite = $Sprite2D 
+		
+		# --- THE FIX ---
+		# Capture the scale BEFORE removing the child!
+		# global_scale captures the size whether you scaled the Sprite itself OR the Boss root.
+		var final_scale = my_sprite.global_scale 
+		
+		remove_child(my_sprite) 
+		
+		# Pass the scale as the 3rd argument
+		corpse.setup(my_sprite, return_to_camp_scene, final_scale)
+		# ---------------
+		
+		get_tree().current_scene.call_deferred("add_child", corpse)
+		corpse.global_position = global_position
+		
 		LevelManager.increment_difficulty()
-		get_tree().current_scene.call_deferred("add_child", portal)
-		portal.global_position = global_position
-		# 2. INCREASE DIFFICULTY FOR NEXT TIME
-		# Because we won, the next time we enter the arena, it should be harder.
-	# 2. NOW delete the boss
-	# This triggers 'tree_exited', which tells the Spawner to stop via the signal we set up earlier.
+	
 	queue_free()
+	pass

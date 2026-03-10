@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="2_6llqd"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_7mnsu"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="3_8errr"]
+[ext_resource type="PackedScene" uid="uid://cpffs5cufoda5" path="res://Enemies/BossCorpse.tscn" id="3_ryppc"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="4_sv00a"]
 [ext_resource type="Texture2D" uid="uid://d1y2ypnfieisx" path="res://Enemies/General_Brandy/General_Brandy.png" id="5_30exr"]
 [ext_resource type="AudioStream" uid="uid://b0eavgt8ts2im" path="res://Enemies/Slime/hit_00.wav" id="6_njhbm"]
@@ -529,6 +530,7 @@ script = ExtResource("1_6llqd")
 is_final_boss = true
 boss_name = "General Brandy"
 portal_scene = ExtResource("2_6llqd")
+corpse_scene = ExtResource("3_ryppc")
 return_to_camp_scene = "uid://dwrr28hbrgy8g"
 
 [node name="HitBox" parent="." unique_id=1124046651 instance=ExtResource("2_7mnsu")]

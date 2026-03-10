@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnxh82kgpqrit" path="res://Enemies/Scripts/boss_enemy.gd" id="1_1qm41"]
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="2_mbivr"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="3_nviws"]
+[ext_resource type="PackedScene" uid="uid://cpffs5cufoda5" path="res://Enemies/BossCorpse.tscn" id="3_ukw1y"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="4_krqhm"]
 [ext_resource type="Texture2D" uid="uid://0xrpo736ueck" path="res://Enemies/Vera/Vera.png" id="5_tane5"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="6_8fnpy"]
@@ -488,6 +489,7 @@ collision_mask = 272
 script = ExtResource("1_1qm41")
 boss_name = "Vera"
 portal_scene = ExtResource("2_mbivr")
+corpse_scene = ExtResource("3_ukw1y")
 return_to_camp_scene = "uid://dwrr28hbrgy8g"
 hp = 25
 

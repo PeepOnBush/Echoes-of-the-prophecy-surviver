@@ -11,7 +11,8 @@ enum ActionType {
 	START_FISHING,
 	OPEN_SHOP,
 	OPEN_RECIPE_MENU,
-	REMOVE_PARENT_NPC
+	REMOVE_PARENT_NPC,
+	CHANGE_SCENE
 }
 
 @export_category("Action Settings")
@@ -24,7 +25,8 @@ enum ActionType {
 @export var item_data : ItemData
 @export var audio_clip : AudioStream
 @export var string_data : String = "" # Quest Name or Tag
-
+@export_group("Scene Transition")
+@export_file("*.tscn") var target_scene : String = ""
 func _ready():
 	super()
 	if Engine.is_editor_hint():
@@ -67,6 +69,7 @@ func _on_execute() -> void:
 		ActionType.START_FISHING:
 			await get_tree().process_frame
 			PlayerHud.start_fishing_minigame()
+			pass
 		ActionType.OPEN_SHOP:
 			# Look for a ShopKeeper script on the NPC parent
 			var npc = get_npc_parent()
@@ -74,7 +77,7 @@ func _on_execute() -> void:
 				npc.open_shop_ui()
 			else:
 				printerr("Dialog Result: Parent NPC is not a ShopKeeper!")
-
+			pass
 		ActionType.OPEN_RECIPE_MENU:
 			# Look for a KitchenShopKeeper script
 			var npc = get_npc_parent()
@@ -82,6 +85,16 @@ func _on_execute() -> void:
 				npc.open_kitchen_ui()
 			else:
 				printerr("Dialog Result: Parent NPC does not have a Kitchen!")
+			pass
+		ActionType.CHANGE_SCENE:
+			if target_scene != "":
+				# Close dialog first
+				DialogSystem.hideDialog()
+				# Load the level (Assuming "PlayerSpawn" is your camp entry point)
+				LevelManager.load_new_level(target_scene, "PlayerSpawn", Vector2.ZERO)
+			else:
+				print("ERROR: No target scene set in DialogResult!")
+			pass
 # --- EDITOR VISUALIZATION (Optional) ---
 # This changes the node name in the tree so you can read what it does!
 func set_type(value):
@@ -91,7 +104,7 @@ func set_type(value):
 
 func update_name():
 	if Engine.is_editor_hint():
-		name = "Do: " + ActionType.keys()[action_type]
+		name = "Do:" + ActionType.keys()[action_type]
 
 func get_npc_parent() -> Node:
 	var p = get_parent()

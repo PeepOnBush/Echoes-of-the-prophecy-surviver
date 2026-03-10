@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnxh82kgpqrit" path="res://Enemies/Scripts/boss_enemy.gd" id="1_x6yc4"]
 [ext_resource type="PackedScene" uid="uid://28uab30ot80m" path="res://GeneralNodes/HitBoxes/hit_box.tscn" id="2_baylh"]
 [ext_resource type="PackedScene" uid="uid://gdb2tvqpytcm" path="res://Levels/level_transition_interact.tscn" id="2_xmqtq"]
+[ext_resource type="PackedScene" uid="uid://cpffs5cufoda5" path="res://Enemies/BossCorpse.tscn" id="3_7mdkq"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="3_neu5w"]
 [ext_resource type="Texture2D" uid="uid://bsme0mdjsidal" path="res://Enemies/Vigor/Vigor.png" id="4_x6yc4"]
 [ext_resource type="PackedScene" uid="uid://dpn8fhekpieam" path="res://GeneralNodes/HurtBoxes/hurt_box.tscn" id="5_jmvwm"]
@@ -488,6 +489,7 @@ collision_mask = 272
 script = ExtResource("1_x6yc4")
 boss_name = "Vigor"
 portal_scene = ExtResource("2_xmqtq")
+corpse_scene = ExtResource("3_7mdkq")
 return_to_camp_scene = "uid://dwrr28hbrgy8g"
 hp = 25
 

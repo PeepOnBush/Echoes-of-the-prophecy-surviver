@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPCResource" format=3 uid="uid://dnte2s1otewlx"]
+
+[ext_resource type="Texture2D" uid="uid://cr8r8cqg5bmqu" path="res://Npc/Sprites/portraits/portrait_placeholder.png" id="1_2pqyd"]
+[ext_resource type="Script" uid="uid://dsbhkj4kducq8" path="res://Npc/Scripts/npc_resource.gd" id="1_wt5sx"]
+
+[resource]
+script = ExtResource("1_wt5sx")
+npc_name = "Narrator"
+portrait = ExtResource("1_2pqyd")
+dialog_audio_pitch = 1.28
+metadata/_custom_type_script = "uid://dsbhkj4kducq8"

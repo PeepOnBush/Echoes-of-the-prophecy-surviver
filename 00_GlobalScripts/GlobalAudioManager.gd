@@ -7,6 +7,10 @@ var musicPlayer : Array[AudioStreamPlayer] = []
 var musicBus : String = "Music"
 var musicFadeDuration : float = 2.5
 var sfxBus : String = "SFX"
+
+# Track tweens so we can kill them 
+var player_tweens : Dictionary = {} 
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for i  in music_audio_player_count:
@@ -15,6 +19,7 @@ func _ready() -> void:
 		audioPlayer.bus = musicBus 
 		musicPlayer.append(audioPlayer)
 		audioPlayer.volume_db = -40
+		player_tweens[audioPlayer] = null
 
 func playMusic( _audio : AudioStream) -> void:
 	if _audio == musicPlayer[currentMusicPlayer].stream:
@@ -52,18 +57,35 @@ func play_sfx(_audio : AudioStream, _pitch_scale : float = 1.0) -> void:
 	await new_player.finished
 	new_player.queue_free()
 
-func playAndFadeIn( audioPlayer : AudioStreamPlayer) -> void:
+func playAndFadeIn(audioPlayer : AudioStreamPlayer) -> void:
+	# 1. KILL EXISTING TWEEN on this player
+	if player_tweens[audioPlayer] != null and player_tweens[audioPlayer].is_running():
+		player_tweens[audioPlayer].kill()
+
 	audioPlayer.play(0)
 	var tween : Tween = create_tween()
-	tween.tween_property(audioPlayer, 'volume_db',0,musicFadeDuration)
-	pass
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	
+	# 2. SAVE THE TWEEN
+	player_tweens[audioPlayer] = tween
+	
+	tween.tween_property(audioPlayer, 'volume_db', 0, musicFadeDuration)
 
-func fadeOutAndStop( audioPlayer : AudioStreamPlayer) -> void:
+func fadeOutAndStop(audioPlayer : AudioStreamPlayer) -> void:
+	# 1. KILL EXISTING TWEEN on this player (so it stops trying to fade IN)
+	if player_tweens[audioPlayer] != null and player_tweens[audioPlayer].is_running():
+		player_tweens[audioPlayer].kill()
+
 	var tween : Tween = create_tween()
-	tween.tween_property(audioPlayer,'volume_db',-40, musicFadeDuration)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	
+	# 2. SAVE THE TWEEN
+	player_tweens[audioPlayer] = tween
+	
+	tween.tween_property(audioPlayer, 'volume_db', -40, musicFadeDuration)
+	
 	await tween.finished
 	audioPlayer.stop()
-	pass
 
 func getCurrentTrack() -> AudioStream:
 	return musicPlayer[currentMusicPlayer].stream
