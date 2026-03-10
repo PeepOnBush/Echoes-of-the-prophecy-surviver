@@ -11,10 +11,15 @@ func _ready():
 	load_settings()
 
 func save_settings():
-	# 1. SAVE AUDIO (Assuming setup from Pause Menu)
-	config.set_value("Audio", "master", AudioServer.get_bus_volume_db(0))
-	config.set_value("Audio", "music", AudioServer.get_bus_volume_db(1))
-	config.set_value("Audio", "sfx", AudioServer.get_bus_volume_db(2))
+	# --- SAVE AUDIO (DB AND Mute status) ---
+	config.set_value("Audio", "master_db", AudioServer.get_bus_volume_db(0))
+	config.set_value("Audio", "master_mute", AudioServer.is_bus_mute(0))
+	
+	config.set_value("Audio", "music_db", AudioServer.get_bus_volume_db(1))
+	config.set_value("Audio", "music_mute", AudioServer.is_bus_mute(1))
+	
+	config.set_value("Audio", "sfx_db", AudioServer.get_bus_volume_db(2))
+	config.set_value("Audio", "sfx_mute", AudioServer.is_bus_mute(2))
 	
 	# 2. SAVE VIDEO
 	config.set_value("Video", "fullscreen", DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -38,9 +43,14 @@ func load_settings():
 		return # No file found (First run), skip loading
 	
 	# 1. LOAD AUDIO
-	AudioServer.set_bus_volume_db(0, config.get_value("Audio", "master", 0.0))
-	AudioServer.set_bus_volume_db(1, config.get_value("Audio", "music", 0.0))
-	AudioServer.set_bus_volume_db(2, config.get_value("Audio", "sfx", 0.0))
+	AudioServer.set_bus_volume_db(0, config.get_value("Audio", "master_db", 0.0))
+	AudioServer.set_bus_mute(0, config.get_value("Audio", "master_mute", false))
+	
+	AudioServer.set_bus_volume_db(1, config.get_value("Audio", "music_db", 0.0))
+	AudioServer.set_bus_mute(1, config.get_value("Audio", "music_mute", false))
+	
+	AudioServer.set_bus_volume_db(2, config.get_value("Audio", "sfx_db", 0.0))
+	AudioServer.set_bus_mute(2, config.get_value("Audio", "sfx_mute", false))
 	
 	# 2. LOAD VIDEO
 	var fullscreen = config.get_value("Video", "fullscreen", false)

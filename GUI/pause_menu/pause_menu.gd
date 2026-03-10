@@ -20,7 +20,10 @@ signal preview_stats_change( item : ItemData )
 @onready var window_mode_btn: OptionButton = %WindowModeBtn
 @onready var vsync_btn: CheckBox = %VsyncBtn
 
+
 var is_paused : bool = false
+var is_setting_up_ui : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hidePauseMenu()
@@ -142,17 +145,27 @@ func updateAbilityItems( items : Array[String] ) -> void :
 	pass
 
 func setup_audio_ui() -> void:
-	# 1. Get current values from the AudioServer so sliders match reality
-	# db_to_linear converts (-db) back to (0.0 - 1.0)
-	master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(0)) # 0 is Master
-	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1))  # 1 is Music (usually)
-	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))    # 2 is SFX
+	is_setting_up_ui = true # BLOCK SAVING
 	
-	# 2. Connect Signals
+	# Get linear values (0 to 1) from the db
+	var master_lin = db_to_linear(AudioServer.get_bus_volume_db(0))
+	var music_lin = db_to_linear(AudioServer.get_bus_volume_db(1))
+	var sfx_lin = db_to_linear(AudioServer.get_bus_volume_db(2))
+	
+	# If the bus is muted, force the slider to 0 visually
+	if AudioServer.is_bus_mute(0): master_lin = 0.0
+	if AudioServer.is_bus_mute(1): music_lin = 0.0
+	if AudioServer.is_bus_mute(2): sfx_lin = 0.0
+
+	master_slider.value = master_lin
+	music_slider.value = music_lin
+	sfx_slider.value = sfx_lin
+	
 	master_slider.value_changed.connect(on_master_changed)
 	music_slider.value_changed.connect(on_music_changed)
 	sfx_slider.value_changed.connect(on_sfx_changed)
-	pass
+	
+	is_setting_up_ui = false # ALLOW SAVING AGAIN
 # --- SIGNAL CALLBACKS ---
 
 func on_master_changed(value : float) -> void:
@@ -172,13 +185,15 @@ func on_sfx_changed(value : float) -> void:
 func set_bus_volume(bus_name : String, value : float) -> void:
 	var bus_index = AudioServer.get_bus_index(bus_name)
 	
-	# Check if value is near 0 to mute completely
 	if value < 0.05:
 		AudioServer.set_bus_mute(bus_index, true)
 	else:
 		AudioServer.set_bus_mute(bus_index, false)
-		# linear_to_db converts (0.5) -> (-6dB)
 		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	
+	# Only save if the player actually moved the slider, not during setup
+	if not is_setting_up_ui:
+		GlobalManager.save_settings()
 	pass
 
 func setup_video_ui() -> void:
