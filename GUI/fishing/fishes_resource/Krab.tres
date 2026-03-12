@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://dlt8rv4oq088c"]
+
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="1_ffvpk"]
+[ext_resource type="Texture2D" uid="uid://llysna4s8dno" path="res://GUI/fishing/fishes_icon/Krab.png" id="1_vqwbv"]
+[ext_resource type="Resource" uid="uid://dcchx2n7rjutm" path="res://Items/Fishes/Item_Krab.tres" id="2_cmoq3"]
+
+[resource]
+script = ExtResource("1_ffvpk")
+name = "Mud krab"
+icon = ExtResource("1_vqwbv")
+item_reward = ExtResource("2_cmoq3")
+metadata/_custom_type_script = "uid://001da1n137c6"

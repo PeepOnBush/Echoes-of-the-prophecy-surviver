@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://n5yct03ors4a"]
+
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="1_2mcni"]
+[ext_resource type="Texture2D" uid="uid://ctqsfyya5cvmd" path="res://GUI/fishing/fishes_icon/Pike.png" id="1_qr86l"]
+[ext_resource type="Resource" uid="uid://vf7rrxngrsvu" path="res://Items/Fishes/Item_Pike.tres" id="2_0v61d"]
+
+[resource]
+script = ExtResource("1_2mcni")
+name = "Pike"
+icon = ExtResource("1_qr86l")
+item_reward = ExtResource("2_0v61d")
+metadata/_custom_type_script = "uid://001da1n137c6"

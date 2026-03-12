@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b7raqtdv4bc5g"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_4ich7"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_1ux55"]
+[ext_resource type="Texture2D" uid="uid://dbqjmtqcpslmr" path="res://Items/Sprites/Ingredients/GrenOnion.png" id="3_1ux55"]
+
+[resource]
+script = ExtResource("2_1ux55")
+name = "Green onion"
+description = "A young, underdeveloped onion shoots with long green stalks and small, slender white bulbs."
+texture = ExtResource("3_1ux55")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

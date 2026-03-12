@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cj043jm3ui30y"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_kcism"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_ggsay"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_xrdl3"]
+[ext_resource type="Script" uid="uid://ce3hwjec8uxsu" path="res://Items/item_effects/item_effect_buff.gd" id="3_8jsuj"]
+[ext_resource type="Texture2D" uid="uid://bgcowm683d72n" path="res://Items/Sprites/Ediables/BeefStew.png" id="3_ggsay"]
+
+[sub_resource type="Resource" id="Resource_52tug"]
+script = ExtResource("3_8jsuj")
+amount = 20.0
+audio = ExtResource("2_xrdl3")
+use_description = "increase health greatly"
+metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
+
+[resource]
+script = ExtResource("2_ggsay")
+name = "Beef stew"
+description = "A bowl of beef stew."
+texture = ExtResource("3_ggsay")
+effects = Array[ExtResource("1_kcism")]([SubResource("Resource_52tug")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

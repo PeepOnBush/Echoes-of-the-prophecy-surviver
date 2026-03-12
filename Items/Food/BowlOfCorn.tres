@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://j26gwcx2dvpx"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_nugtt"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_e0411"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_rbxps"]
+[ext_resource type="Script" uid="uid://ce3hwjec8uxsu" path="res://Items/item_effects/item_effect_buff.gd" id="3_rxqt4"]
+[ext_resource type="Texture2D" uid="uid://q4u1pvoo477q" path="res://Items/Sprites/Ediables/Corns.png" id="5_aoy2c"]
+
+[sub_resource type="Resource" id="Resource_fyeyn"]
+script = ExtResource("3_rxqt4")
+audio = ExtResource("2_rbxps")
+use_description = "increase health"
+metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
+
+[resource]
+script = ExtResource("2_e0411")
+name = "Bowl of corn"
+description = "A bowl of fresh corn."
+texture = ExtResource("5_aoy2c")
+effects = Array[ExtResource("1_nugtt")]([SubResource("Resource_fyeyn")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

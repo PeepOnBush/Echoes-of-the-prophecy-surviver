@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c1eexp3k5l73p"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_rfk1p"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_gdgbi"]
+[ext_resource type="Texture2D" uid="uid://do7v0q54olrsr" path="res://Items/Sprites/Ingredients/Peaaaa.png" id="3_gdgbi"]
+
+[resource]
+script = ExtResource("2_gdgbi")
+name = "Peas"
+description = "Small, green edible seed produced in pods."
+texture = ExtResource("3_gdgbi")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

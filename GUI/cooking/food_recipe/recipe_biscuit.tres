@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://dw2l74u6ce5e8"]
+
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="1_m3e2t"]
+[ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="2_e8dtk"]
+[ext_resource type="Resource" uid="uid://d4a8xk4u31sib" path="res://Items/Ingredients_item/Flour.tres" id="2_fs5gw"]
+[ext_resource type="Resource" uid="uid://cbr437hpk4j77" path="res://Items/Ingredients_item/Butter.tres" id="3_iv6c6"]
+[ext_resource type="Resource" uid="uid://307ttijh0cja" path="res://Items/Food/Biscuit.tres" id="4_mhquu"]
+
+[resource]
+script = ExtResource("2_e8dtk")
+recipe_name = "Biscuit"
+result_item = ExtResource("4_mhquu")
+ingredients = Array[ExtResource("1_m3e2t")]([ExtResource("2_fs5gw"), ExtResource("3_iv6c6")])
+metadata/_custom_type_script = "uid://dq8vhusju318p"

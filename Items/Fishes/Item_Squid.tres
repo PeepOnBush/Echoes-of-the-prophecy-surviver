@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://com0pbvcyp4n2"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_syymu"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_qus7s"]
+[ext_resource type="Texture2D" uid="uid://clo04vfjb02kn" path="res://GUI/fishing/fishes_icon/Squid.png" id="3_qus7s"]
+
+[resource]
+script = ExtResource("2_qus7s")
+name = "River Squid"
+description = "A marine mollusk . Useful for cooking."
+texture = ExtResource("3_qus7s")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

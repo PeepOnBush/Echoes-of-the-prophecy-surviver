@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://cke45s61p24cu"]
+
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="1_y0qho"]
+[ext_resource type="Resource" uid="uid://vf7rrxngrsvu" path="res://Items/Fishes/Item_Pike.tres" id="2_irrx3"]
+[ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="2_ynpxu"]
+[ext_resource type="Resource" uid="uid://jcn4g08rs8i1" path="res://Items/Food/FishStew.tres" id="3_d3euc"]
+
+[resource]
+script = ExtResource("2_ynpxu")
+recipe_name = "recipe_PikeFishStew"
+result_item = ExtResource("3_d3euc")
+ingredients = Array[ExtResource("1_y0qho")]([ExtResource("2_irrx3")])
+metadata/_custom_type_script = "uid://dq8vhusju318p"

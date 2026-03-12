@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://rv4xckje3ful"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_3wd2w"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_5skvi"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_83nrp"]
+[ext_resource type="Script" uid="uid://2qbko5eushmx" path="res://Items/item_effects/item_effect_heal.gd" id="3_q51j2"]
+[ext_resource type="Texture2D" uid="uid://bviex3ixxsqkl" path="res://GUI/fishing/fishes_icon/Shrimp.png" id="5_rmg2x"]
+
+[sub_resource type="Resource" id="Resource_o1c4v"]
+script = ExtResource("3_q51j2")
+heal_amount = 2
+audio = ExtResource("2_83nrp")
+use_description = "regenerate health"
+metadata/_custom_type_script = "uid://2qbko5eushmx"
+
+[resource]
+script = ExtResource("2_5skvi")
+name = "CookedShrimp"
+description = "A single cooked shrimp."
+texture = ExtResource("5_rmg2x")
+effects = Array[ExtResource("1_3wd2w")]([SubResource("Resource_o1c4v")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://5kgvvr1dg3gq"]
+
+[ext_resource type="Texture2D" uid="uid://wuowog6vrsmv" path="res://GUI/fishing/fishes_icon/Sardine.png" id="1_2cbx6"]
+[ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="1_wf86o"]
+[ext_resource type="Resource" uid="uid://bkhqrw80v2p3p" path="res://Items/Fishes/Item_Sardine.tres" id="2_r1jh3"]
+
+[resource]
+script = ExtResource("1_wf86o")
+name = "Sardine"
+icon = ExtResource("1_2cbx6")
+item_reward = ExtResource("2_r1jh3")
+metadata/_custom_type_script = "uid://001da1n137c6"

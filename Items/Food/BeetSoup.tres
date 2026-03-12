@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c0hhictdn7opt"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_rxfry"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_1wwal"]
+[ext_resource type="Script" uid="uid://ce3hwjec8uxsu" path="res://Items/item_effects/item_effect_buff.gd" id="3_gshox"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="4_y0kyj"]
+[ext_resource type="Texture2D" uid="uid://wt400a4two7c" path="res://Items/Sprites/Ediables/BeetsSoup.png" id="5_eber3"]
+
+[sub_resource type="Resource" id="Resource_87ram"]
+script = ExtResource("3_gshox")
+amount = 15.0
+audio = ExtResource("2_1wwal")
+use_description = "increase health"
+metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
+
+[sub_resource type="Resource" id="Resource_rxfry"]
+script = ExtResource("3_gshox")
+stat_name = "DEFENSE"
+amount = 10.0
+audio = ExtResource("2_1wwal")
+use_description = "increase defense"
+metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
+
+[resource]
+script = ExtResource("4_y0kyj")
+name = "Beet Soup"
+description = "A bow of beet soup."
+texture = ExtResource("5_eber3")
+effects = Array[ExtResource("1_rxfry")]([SubResource("Resource_87ram"), SubResource("Resource_rxfry")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

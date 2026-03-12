@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d4a8xk4u31sib"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_2q2w7"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_2juvk"]
+[ext_resource type="Texture2D" uid="uid://duedjn30ts3rx" path="res://Items/Sprites/Ingredients/Flour.png" id="3_2juvk"]
+
+[resource]
+script = ExtResource("2_2juvk")
+name = "Flour"
+description = "A fine powder produced by milling or grinding raw grains, starchy roots, nuts, and seeds"
+texture = ExtResource("3_2juvk")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

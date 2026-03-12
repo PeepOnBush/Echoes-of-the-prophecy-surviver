@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://b2mr468jifwf3"]
+
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="1_b0l45"]
+[ext_resource type="Resource" uid="uid://wnqrvb4qjcuw" path="res://Items/Fishes/Item_Tench.tres" id="2_k6vsx"]
+[ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="2_k8djc"]
+[ext_resource type="Resource" uid="uid://jcn4g08rs8i1" path="res://Items/Food/FishStew.tres" id="3_ie3uw"]
+
+[resource]
+script = ExtResource("2_k8djc")
+recipe_name = "recipe_TenchFishStew"
+result_item = ExtResource("3_ie3uw")
+ingredients = Array[ExtResource("1_b0l45")]([ExtResource("2_k6vsx")])
+metadata/_custom_type_script = "uid://dq8vhusju318p"

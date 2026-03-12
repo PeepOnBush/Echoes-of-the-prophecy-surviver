@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://mmxnalfedhms"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_38p6j"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_rwmp6"]
+[ext_resource type="Texture2D" uid="uid://dno84n0wl6vdk" path="res://Items/Sprites/Ingredients/Potata.png" id="3_ku3j5"]
+
+[resource]
+script = ExtResource("2_rwmp6")
+name = "Potato"
+description = "A starchy, edible, underground tuber."
+texture = ExtResource("3_ku3j5")

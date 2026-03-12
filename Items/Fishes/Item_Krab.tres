@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dcchx2n7rjutm"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_abx1i"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_86jqw"]
+[ext_resource type="Texture2D" uid="uid://llysna4s8dno" path="res://GUI/fishing/fishes_icon/Krab.png" id="3_86jqw"]
+
+[resource]
+script = ExtResource("2_86jqw")
+name = "Mud krab"
+description = "A decapod crustacean, useful for cooking"
+texture = ExtResource("3_86jqw")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

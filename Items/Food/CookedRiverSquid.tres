@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dud7vjvo5jn4k"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_hugcf"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_7sy63"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_32p3k"]
+[ext_resource type="Script" uid="uid://2qbko5eushmx" path="res://Items/item_effects/item_effect_heal.gd" id="3_t6wpp"]
+[ext_resource type="Texture2D" uid="uid://clo04vfjb02kn" path="res://GUI/fishing/fishes_icon/Squid.png" id="5_g1t34"]
+
+[sub_resource type="Resource" id="Resource_6fa2r"]
+script = ExtResource("3_t6wpp")
+heal_amount = 8
+audio = ExtResource("2_7sy63")
+use_description = "regenerate health"
+metadata/_custom_type_script = "uid://2qbko5eushmx"
+
+[resource]
+script = ExtResource("2_32p3k")
+name = "Cooked river squid"
+description = "A single cooked river squid."
+texture = ExtResource("5_g1t34")
+effects = Array[ExtResource("1_hugcf")]([SubResource("Resource_6fa2r")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

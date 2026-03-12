@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://csv7mmuqw7n8u"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_t6dl5"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_abfl0"]
+[ext_resource type="Texture2D" uid="uid://fdjajy3a0lsi" path="res://Items/Sprites/Ingredients/Cornee.png" id="3_abfl0"]
+
+[resource]
+script = ExtResource("2_abfl0")
+name = "Corn"
+description = "A starchy vegetable."
+texture = ExtResource("3_abfl0")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

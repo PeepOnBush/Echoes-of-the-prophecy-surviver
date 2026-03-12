@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b5xagyxuylxjd"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_tefyn"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_6m31d"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_ua7tm"]
+[ext_resource type="Script" uid="uid://ce3hwjec8uxsu" path="res://Items/item_effects/item_effect_buff.gd" id="3_qlk2g"]
+[ext_resource type="Texture2D" uid="uid://d3nggwgsj3aey" path="res://Items/Sprites/Ediables/Peas.png" id="5_utlqy"]
+
+[sub_resource type="Resource" id="Resource_d7ura"]
+script = ExtResource("3_qlk2g")
+audio = ExtResource("2_ua7tm")
+use_description = "increase health"
+metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
+
+[resource]
+script = ExtResource("2_6m31d")
+name = "Bowl of pea"
+description = "A bowl of fresh pea."
+texture = ExtResource("5_utlqy")
+effects = Array[ExtResource("1_tefyn")]([SubResource("Resource_d7ura")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

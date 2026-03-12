@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://dkmhquid7byy2"]
+
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="1_kru5l"]
+[ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="2_gjnp5"]
+[ext_resource type="Resource" uid="uid://dlwuuqlc5ac5" path="res://Items/Ingredients_item/Beef.tres" id="2_xexie"]
+[ext_resource type="Resource" uid="uid://b7raqtdv4bc5g" path="res://Items/Ingredients_item/GreenOnion.tres" id="3_v1ny0"]
+[ext_resource type="Resource" uid="uid://mmxnalfedhms" path="res://Items/Ingredients_item/Potato.tres" id="4_7lbkm"]
+[ext_resource type="Resource" uid="uid://cj043jm3ui30y" path="res://Items/Food/BeefStew.tres" id="5_pjp3p"]
+
+[resource]
+script = ExtResource("2_gjnp5")
+recipe_name = "Bowl of beef stew"
+result_item = ExtResource("5_pjp3p")
+ingredients = Array[ExtResource("1_kru5l")]([ExtResource("2_xexie"), ExtResource("3_v1ny0"), ExtResource("4_7lbkm")])
+metadata/_custom_type_script = "uid://dq8vhusju318p"

@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_4idfs"]
 [ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_cufpc"]
 [ext_resource type="Script" uid="uid://ce3hwjec8uxsu" path="res://Items/item_effects/item_effect_buff.gd" id="3_4s1en"]
-[ext_resource type="Texture2D" uid="uid://50fded6imrrg" path="res://GUI/fishing/fishes_icon/cod.png" id="5_o4cfi"]
+[ext_resource type="Texture2D" uid="uid://cxush7jvcpc1j" path="res://Items/Sprites/Ediables/FishStew.png" id="5_4idfs"]
 
 [sub_resource type="Resource" id="Resource_vynth"]
 script = ExtResource("3_4s1en")
@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://ce3hwjec8uxsu"
 [resource]
 script = ExtResource("2_cufpc")
 name = "Fish stew"
-description = "Tastes fishy +10 HP next run"
-texture = ExtResource("5_o4cfi")
+description = "Tastes fishy +10 HP next run."
+texture = ExtResource("5_4idfs")
 effects = Array[ExtResource("1_csky5")]([SubResource("Resource_vynth")])
 metadata/_custom_type_script = "uid://cxeuif8amu71h"

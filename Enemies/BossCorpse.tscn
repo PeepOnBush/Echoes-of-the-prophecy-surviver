@@ -35,6 +35,7 @@ metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 [node name="Do_CHANGE_SCENE" type="Node" parent="DialogInteraction/DialogChoice/DialogBranch" unique_id=1660125838]
 script = ExtResource("7_oft2c")
 action_type = 9
+entry_node_name = "CampArrivalPoint"
 target_scene = "uid://dwrr28hbrgy8g"
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 

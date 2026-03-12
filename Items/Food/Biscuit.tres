@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://307ttijh0cja"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_bu7ro"]
+[ext_resource type="AudioStream" uid="uid://dhutaa1vf3bui" path="res://Items/item_effects/hp-up.wav" id="2_o661v"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_wgooy"]
+[ext_resource type="Script" uid="uid://2qbko5eushmx" path="res://Items/item_effects/item_effect_heal.gd" id="3_acwsr"]
+[ext_resource type="Texture2D" uid="uid://ojohxono7blb" path="res://Items/Sprites/Ediables/Hardtack.png" id="3_wgooy"]
+
+[sub_resource type="Resource" id="Resource_glufl"]
+script = ExtResource("3_acwsr")
+heal_amount = 5
+audio = ExtResource("2_o661v")
+use_description = "regenerate health"
+metadata/_custom_type_script = "uid://2qbko5eushmx"
+
+[resource]
+script = ExtResource("2_wgooy")
+name = "Biscuit"
+description = " A flour-based baked food."
+texture = ExtResource("3_wgooy")
+effects = Array[ExtResource("1_bu7ro")]([SubResource("Resource_glufl")])
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

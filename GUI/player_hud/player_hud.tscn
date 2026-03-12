@@ -24,8 +24,15 @@
 [ext_resource type="FontFile" uid="uid://by81ot4ikjj0s" path="res://GUI/Fonts/Abaddon Light.ttf" id="13_e1kye"]
 [ext_resource type="PackedScene" uid="uid://clk0bf48eam8x" path="res://GUI/fishing/fishing_minigame.tscn" id="22_fcxvu"]
 [ext_resource type="Script" uid="uid://001da1n137c6" path="res://GUI/fishing/fish_data.gd" id="23_w2qg4"]
+[ext_resource type="Resource" uid="uid://dlt8rv4oq088c" path="res://GUI/fishing/fishes_resource/Krab.tres" id="25_qxsqp"]
 [ext_resource type="Resource" uid="uid://clkbkyg54840t" path="res://GUI/fishing/fishes_resource/Codfish.tres" id="26_116kx"]
+[ext_resource type="Resource" uid="uid://bws2unpfrdtk3" path="res://GUI/fishing/fishes_resource/Squid.tres" id="26_ejt6k"]
+[ext_resource type="Resource" uid="uid://rpgeo5ce5q83" path="res://GUI/fishing/fishes_resource/Shrimp.tres" id="27_0858a"]
 [ext_resource type="PackedScene" uid="uid://cckku3mpxocx3" path="res://GUI/cooking/cooking_minigame.tscn" id="28_ac11f"]
+[ext_resource type="Resource" uid="uid://n5yct03ors4a" path="res://GUI/fishing/fishes_resource/Pikefish.tres" id="28_feh5r"]
+[ext_resource type="Resource" uid="uid://bkhusdm5nwpx" path="res://GUI/fishing/fishes_resource/Breamfish.tres" id="29_fhwuh"]
+[ext_resource type="Resource" uid="uid://5kgvvr1dg3gq" path="res://GUI/fishing/fishes_resource/Sardinefish.tres" id="30_ylahx"]
+[ext_resource type="Resource" uid="uid://cey6wv0v6u2vk" path="res://GUI/fishing/fishes_resource/Tenchfish.tres" id="31_k8kbe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdg2b"]
 atlas = ExtResource("2_5nb4v")
@@ -1191,7 +1198,7 @@ text = "x1"
 [node name="FishingMinigame" parent="Control" unique_id=374748383 instance=ExtResource("22_fcxvu")]
 visible = false
 layout_mode = 1
-fish_pool = Array[ExtResource("23_w2qg4")]([ExtResource("26_116kx")])
+fish_pool = Array[ExtResource("23_w2qg4")]([ExtResource("26_116kx"), ExtResource("25_qxsqp"), ExtResource("26_ejt6k"), ExtResource("27_0858a"), ExtResource("28_feh5r"), ExtResource("29_fhwuh"), ExtResource("30_ylahx"), ExtResource("31_k8kbe")])
 
 [node name="CookingMinigame" parent="Control" unique_id=556782229 instance=ExtResource("28_ac11f")]
 visible = false

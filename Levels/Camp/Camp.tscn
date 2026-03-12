@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cmkibo1h38jyc" path="res://Props/Boulders/boulder_04.tscn" id="8_hd6mj"]
 [ext_resource type="Resource" uid="uid://drv12m442nhb" path="res://Items/buff_items/Scroll_Orcish_Vitality.tres" id="9_lsues"]
 [ext_resource type="Script" uid="uid://dq8vhusju318p" path="res://GUI/cooking/recipe_data.gd" id="9_m53jy"]
-[ext_resource type="Resource" uid="uid://br7wo4gvcytrn" path="res://GUI/cooking/food_recipe/recipe_fishstew.tres" id="10_msisa"]
+[ext_resource type="Resource" uid="uid://br7wo4gvcytrn" path="res://GUI/cooking/food_recipe/recipe_BreamFishStew.tres" id="10_msisa"]
 [ext_resource type="Resource" uid="uid://cfbw1no3bccv3" path="res://Items/buff_items/Scroll_orbitgem.tres" id="10_ohoch"]
 [ext_resource type="Resource" uid="uid://c3vh1hs8pyl0q" path="res://Items/buff_items/Scroll_heavy_hand.tres" id="10_yc37q"]
 [ext_resource type="Resource" uid="uid://b65bf4qj8v2sj" path="res://Items/buff_items/Scroll_ice.tres" id="11_dpl2s"]
@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://cm0e0w3qkebcf" path="res://Items/buff_items/ricochet_arrow.tres" id="12_shx74"]
 [ext_resource type="PackedScene" uid="uid://c20udnnhgqe1v" path="res://Props/Tent/tent_illyana_right.tscn" id="15_wcx41"]
 [ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="16_5asfd"]
+[ext_resource type="Resource" uid="uid://d03s4gyf1ed8l" path="res://GUI/cooking/food_recipe/recipe_BowlOfPeas.tres" id="16_sytg2"]
 [ext_resource type="PackedScene" uid="uid://h3jgfy06igs1" path="res://Props/Tent/tent_zax_left.tscn" id="16_wxkw2"]
 [ext_resource type="Resource" uid="uid://dkbykfive0b1t" path="res://Items/buff_items/Scroll_orbit_speed.tres" id="20_t6xgc"]
 [ext_resource type="Resource" uid="uid://cywk37cg6q16a" path="res://Items/buff_items/Scroll_orbit_size.tres" id="21_nl82m"]
@@ -72,6 +73,9 @@ y_sort_enabled = true
 script = ExtResource("1_cmse6")
 music = ExtResource("2_ohoch")
 
+[node name="CampArrivalPoint" type="Marker2D" parent="." unique_id=2065158215]
+position = Vector2(288, -81)
+
 [node name="PlayerSpawn" parent="." unique_id=894478927 instance=ExtResource("2_6o8vo")]
 position = Vector2(315, 208)
 
@@ -91,7 +95,7 @@ shop_inventory = Array[ExtResource("7_8ahue")]([ExtResource("6_dedri"), ExtResou
 
 [node name="Illyana" parent="." unique_id=425915775 instance=ExtResource("5_7vfp2")]
 position = Vector2(214, 279)
-my_recipes = Array[ExtResource("9_m53jy")]([ExtResource("10_msisa")])
+my_recipes = Array[ExtResource("9_m53jy")]([ExtResource("10_msisa"), ExtResource("16_sytg2")])
 
 [node name="Sylvana" parent="." unique_id=1626896675 instance=ExtResource("6_bixrs")]
 position = Vector2(229, 184)

@@ -25,6 +25,8 @@ enum ActionType {
 @export var item_data : ItemData
 @export var audio_clip : AudioStream
 @export var string_data : String = "" # Quest Name or Tag
+@export var entry_node_name : String = "PlayerSpawn" 
+
 @export_group("Scene Transition")
 @export_file("*.tscn") var target_scene : String = ""
 func _ready():
@@ -88,13 +90,12 @@ func _on_execute() -> void:
 			pass
 		ActionType.CHANGE_SCENE:
 			if target_scene != "":
-				# Close dialog first
 				DialogSystem.hideDialog()
-				# Load the level (Assuming "PlayerSpawn" is your camp entry point)
-				LevelManager.load_new_level(target_scene, "PlayerSpawn", Vector2.ZERO)
+				# FIX: Pass the entry_node_name, not a hardcoded string
+				LevelManager.load_new_level(target_scene, entry_node_name, Vector2.ZERO)
 			else:
-				print("ERROR: No target scene set in DialogResult!")
-			pass
+				print("ERROR: No target scene set!")
+	
 # --- EDITOR VISUALIZATION (Optional) ---
 # This changes the node name in the tree so you can read what it does!
 func set_type(value):

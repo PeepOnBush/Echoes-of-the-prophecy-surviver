@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://b8aa2i8gsuktl" path="res://Menu/Menu2/For 1000 Years - Frieren_ Beyond Journey's End OST Disc 1 - 5.mp3" id="2_yfo08"]
 [ext_resource type="AudioStream" uid="uid://dx3vr6dacxmh6" path="res://Menu/menu_focus.wav" id="3_1duhk"]
 [ext_resource type="AudioStream" uid="uid://dq2ggomr5nphp" path="res://Menu/menu_select.wav" id="4_fldkk"]
-[ext_resource type="Texture2D" uid="uid://cni0e42gxmijv" path="res://Menu/Menu2/MenuLogo.png" id="6_1vr6k"]
+[ext_resource type="Texture2D" uid="uid://qee1bcdcnskw" path="res://Menu/Menu2/MenuLogo2.png" id="5_pn5ea"]
 [ext_resource type="Texture2D" uid="uid://53sej8x2vk3t" path="res://Menu/Menu2/Gaymapreworkin-Sheet.png" id="7_suru8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aldl8"]
@@ -51,7 +51,6 @@ _data = {
 }
 
 [node name="EchoesOfTheProphecy" type="Node2D" unique_id=1958245063]
-position = Vector2(315, 155)
 script = ExtResource("1_j0wh5")
 music = ExtResource("2_yfo08")
 button_focus_audio = ExtResource("3_1duhk")
@@ -77,9 +76,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MenuLogo" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1172051309]
 z_index = 2
-position = Vector2(363.4, 110.54)
+position = Vector2(335, 134)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("6_1vr6k")
+texture = ExtResource("5_pn5ea")
 
 [node name="ButtonNew" type="Button" parent="CanvasLayer/Control" unique_id=877048974]
 texture_filter = 1

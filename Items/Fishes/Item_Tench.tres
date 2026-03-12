@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://wnqrvb4qjcuw"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_o7nj0"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_8uf0p"]
+[ext_resource type="Texture2D" uid="uid://c20de308h7tre" path="res://GUI/fishing/fishes_icon/Tench.png" id="3_8uf0p"]
+
+[resource]
+script = ExtResource("2_8uf0p")
+name = "Tench"
+description = "A common normal size fish. Useful for cooking."
+texture = ExtResource("3_8uf0p")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"

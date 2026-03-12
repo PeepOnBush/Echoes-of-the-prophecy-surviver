@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://df8csqkm6k53u"]
+
+[ext_resource type="Script" uid="uid://bmyt7nvedu6nn" path="res://Items/item_effects/item_effect.gd" id="1_t2pht"]
+[ext_resource type="Script" uid="uid://cxeuif8amu71h" path="res://Items/Scripts/item_data.gd" id="2_67g7i"]
+[ext_resource type="Texture2D" uid="uid://dfqstn3chrs4b" path="res://GUI/fishing/fishes_icon/Bream.png" id="3_67g7i"]
+
+[resource]
+script = ExtResource("2_67g7i")
+name = "Bream"
+description = "A common large fish. Useful for cooking."
+texture = ExtResource("3_67g7i")
+metadata/_custom_type_script = "uid://cxeuif8amu71h"
