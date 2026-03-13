@@ -14,10 +14,13 @@
 [ext_resource type="Script" uid="uid://d3t7ymtwqy1lf" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="10_s3p6t"]
 [ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="11_rmwm4"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="12_fg6bb"]
-[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_fxg8s"]
 [ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="14_72ngr"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="15_87odn"]
+[ext_resource type="Resource" uid="uid://dlwuuqlc5ac5" path="res://Items/Ingredients_item/Beef.tres" id="17_da5qk"]
 [ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="17_phxrf"]
+[ext_resource type="Resource" uid="uid://cj043jm3ui30y" path="res://Items/Food/BeefStew.tres" id="18_1w71m"]
+[ext_resource type="Resource" uid="uid://mmxnalfedhms" path="res://Items/Ingredients_item/Potato.tres" id="19_vavrp"]
+[ext_resource type="Resource" uid="uid://c0hhictdn7opt" path="res://Items/Food/BeetSoup.tres" id="20_rs3yi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -466,20 +469,44 @@ _data = {
 &"walk_up": SubResource("Animation_ooy7o")
 }
 
-[sub_resource type="Resource" id="Resource_k17h7"]
-script = ExtResource("12_fg6bb")
-item = ExtResource("13_fxg8s")
-max_amount = 2
-
 [sub_resource type="Resource" id="Resource_uo7u8"]
 script = ExtResource("12_fg6bb")
 item = ExtResource("14_72ngr")
-max_amount = 2
+min_amount = 4
+max_amount = 5
 
 [sub_resource type="Resource" id="Resource_58ww5"]
 script = ExtResource("12_fg6bb")
 item = ExtResource("15_87odn")
-max_amount = 5
+min_amount = 2
+max_amount = 3
+
+[sub_resource type="Resource" id="Resource_ksfsy"]
+script = ExtResource("12_fg6bb")
+item = ExtResource("17_da5qk")
+probability = 85.0
+min_amount = 2
+max_amount = 2
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_rnn0j"]
+script = ExtResource("12_fg6bb")
+item = ExtResource("18_1w71m")
+probability = 50.0
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_k55ag"]
+script = ExtResource("12_fg6bb")
+item = ExtResource("19_vavrp")
+probability = 90.0
+min_amount = 2
+max_amount = 2
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_o4n2u"]
+script = ExtResource("12_fg6bb")
+item = ExtResource("20_rs3yi")
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
 
 [node name="Vigor" type="CharacterBody2D" unique_id=1403205250]
 position = Vector2(0, 10)
@@ -545,7 +572,7 @@ nextState = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=975280989]
 script = ExtResource("11_rmwm4")
-drops = Array[ExtResource("12_fg6bb")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
+drops = Array[ExtResource("12_fg6bb")]([SubResource("Resource_uo7u8"), SubResource("Resource_58ww5"), SubResource("Resource_ksfsy"), SubResource("Resource_rnn0j"), SubResource("Resource_k55ag"), SubResource("Resource_o4n2u")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=31133832]
 max_polyphony = 4

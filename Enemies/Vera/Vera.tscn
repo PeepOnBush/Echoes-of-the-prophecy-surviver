@@ -14,10 +14,12 @@
 [ext_resource type="Script" uid="uid://d3t7ymtwqy1lf" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="11_hi6bo"]
 [ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="12_uywfl"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="13_8t8fv"]
-[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="14_pjscj"]
 [ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="15_dvk63"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_qmm4f"]
+[ext_resource type="Resource" uid="uid://c1eexp3k5l73p" path="res://Items/Ingredients_item/Peas.tres" id="17_16bsp"]
 [ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="17_d4u70"]
+[ext_resource type="Resource" uid="uid://s341m7nu2dfa" path="res://Items/Ingredients_item/Beet.tres" id="18_ts5j4"]
+[ext_resource type="Resource" uid="uid://csv7mmuqw7n8u" path="res://Items/Ingredients_item/Corn.tres" id="19_1mvnk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -466,11 +468,6 @@ _data = {
 &"walk_up": SubResource("Animation_ooy7o")
 }
 
-[sub_resource type="Resource" id="Resource_k17h7"]
-script = ExtResource("13_8t8fv")
-item = ExtResource("14_pjscj")
-max_amount = 2
-
 [sub_resource type="Resource" id="Resource_uo7u8"]
 script = ExtResource("13_8t8fv")
 item = ExtResource("15_dvk63")
@@ -480,6 +477,29 @@ max_amount = 2
 script = ExtResource("13_8t8fv")
 item = ExtResource("16_qmm4f")
 max_amount = 5
+
+[sub_resource type="Resource" id="Resource_frrhh"]
+script = ExtResource("13_8t8fv")
+item = ExtResource("17_16bsp")
+probability = 80.0
+min_amount = 2
+max_amount = 2
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_6ldnv"]
+script = ExtResource("13_8t8fv")
+item = ExtResource("18_ts5j4")
+probability = 95.0
+min_amount = 2
+max_amount = 2
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_xej3o"]
+script = ExtResource("13_8t8fv")
+item = ExtResource("19_1mvnk")
+probability = 87.0
+max_amount = 3
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
 
 [node name="goblin_boss" type="CharacterBody2D" unique_id=1403205250]
 position = Vector2(0, 10)
@@ -545,7 +565,7 @@ nextState = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=975280989]
 script = ExtResource("12_uywfl")
-drops = Array[ExtResource("13_8t8fv")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
+drops = Array[ExtResource("13_8t8fv")]([SubResource("Resource_uo7u8"), SubResource("Resource_58ww5"), SubResource("Resource_frrhh"), SubResource("Resource_6ldnv"), SubResource("Resource_xej3o")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=31133832]
 max_polyphony = 4

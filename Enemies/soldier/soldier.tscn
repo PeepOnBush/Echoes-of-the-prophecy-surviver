@@ -12,9 +12,8 @@
 [ext_resource type="Script" uid="uid://d3t7ymtwqy1lf" path="res://Enemies/Scripts/states/enemy_state_stun.gd" id="10_1rtit"]
 [ext_resource type="Script" uid="uid://bshm5h0pekp8x" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="11_rpnmp"]
 [ext_resource type="Script" uid="uid://32bs8anx8e4n" path="res://Enemies/Scripts/drop_data.gd" id="12_o6kb6"]
-[ext_resource type="Resource" uid="uid://dwsg8np4nhiho" path="res://Items/apple.tres" id="13_3o23u"]
-[ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="14_pqksv"]
-[ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="15_p23qc"]
+[ext_resource type="Resource" uid="uid://c1eexp3k5l73p" path="res://Items/Ingredients_item/Peas.tres" id="13_xrpjy"]
+[ext_resource type="Resource" uid="uid://d4a8xk4u31sib" path="res://Items/Ingredients_item/Flour.tres" id="14_u4aci"]
 [ext_resource type="Script" uid="uid://bsj2a3gxt2gen" path="res://Enemies/Scripts/states/enemy_state_charge.gd" id="16_xrpjy"]
 [ext_resource type="PackedScene" uid="uid://d1atxf435b578" path="res://GeneralNodes/AttackRange/AttackRange.tscn" id="17_u4aci"]
 [ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="18_v4ujj"]
@@ -502,20 +501,18 @@ _data = {
 &"walk_up": SubResource("Animation_ooy7o")
 }
 
-[sub_resource type="Resource" id="Resource_k17h7"]
+[sub_resource type="Resource" id="Resource_u4aci"]
 script = ExtResource("12_o6kb6")
-item = ExtResource("13_3o23u")
+item = ExtResource("13_xrpjy")
+min_amount = 2
 max_amount = 2
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
 
-[sub_resource type="Resource" id="Resource_uo7u8"]
+[sub_resource type="Resource" id="Resource_v4ujj"]
 script = ExtResource("12_o6kb6")
-item = ExtResource("14_pqksv")
-max_amount = 2
-
-[sub_resource type="Resource" id="Resource_58ww5"]
-script = ExtResource("12_o6kb6")
-item = ExtResource("15_p23qc")
-max_amount = 5
+item = ExtResource("14_u4aci")
+probability = 90.0
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4ujj"]
 radius = 150.0
@@ -579,7 +576,7 @@ nextState = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=1310372869]
 script = ExtResource("11_rpnmp")
-drops = Array[ExtResource("12_o6kb6")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
+drops = Array[ExtResource("12_o6kb6")]([SubResource("Resource_u4aci"), SubResource("Resource_v4ujj")])
 
 [node name="Charge" type="Node" parent="EnemyStateMachine" unique_id=775834159 node_paths=PackedStringArray("next_state")]
 script = ExtResource("16_xrpjy")

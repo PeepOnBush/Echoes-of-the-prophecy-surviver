@@ -20,6 +20,9 @@
 [ext_resource type="Script" uid="uid://bsj2a3gxt2gen" path="res://Enemies/Scripts/states/enemy_state_charge.gd" id="16_xj8fw"]
 [ext_resource type="PackedScene" uid="uid://d1atxf435b578" path="res://GeneralNodes/AttackRange/AttackRange.tscn" id="17_kyi0x"]
 [ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="18_lok1k"]
+[ext_resource type="Resource" uid="uid://d4a8xk4u31sib" path="res://Items/Ingredients_item/Flour.tres" id="18_x5qf2"]
+[ext_resource type="Resource" uid="uid://307ttijh0cja" path="res://Items/Food/Biscuit.tres" id="19_15cxs"]
+[ext_resource type="Resource" uid="uid://cj043jm3ui30y" path="res://Items/Food/BeefStew.tres" id="20_15cxs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
 radius = 12.0
@@ -519,6 +522,23 @@ script = ExtResource("12_dkfeu")
 item = ExtResource("15_jnmci")
 max_amount = 5
 
+[sub_resource type="Resource" id="Resource_ibuuh"]
+script = ExtResource("12_dkfeu")
+item = ExtResource("18_x5qf2")
+probability = 92.0
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_6i8s2"]
+script = ExtResource("12_dkfeu")
+item = ExtResource("19_15cxs")
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
+[sub_resource type="Resource" id="Resource_t3g5k"]
+script = ExtResource("12_dkfeu")
+item = ExtResource("20_15cxs")
+probability = 90.0
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4ujj"]
 radius = 150.0
 
@@ -585,7 +605,7 @@ nextState = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=1310372869]
 script = ExtResource("11_o8iua")
-drops = Array[ExtResource("12_dkfeu")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
+drops = Array[ExtResource("12_dkfeu")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5"), SubResource("Resource_ibuuh"), SubResource("Resource_6i8s2"), SubResource("Resource_t3g5k")])
 
 [node name="Charge" type="Node" parent="EnemyStateMachine" unique_id=775834159 node_paths=PackedStringArray("next_state")]
 script = ExtResource("16_xj8fw")

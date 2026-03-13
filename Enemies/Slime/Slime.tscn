@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://cxhtbkhnvtxl2" path="res://Items/xp_star.tres" id="16_2vvwu"]
 [ext_resource type="Resource" uid="uid://cmx8a82ujv46g" path="res://Items/currency.tres" id="16_ts4pi"]
 [ext_resource type="Script" uid="uid://cmedoimntypgj" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="17_2vvwu"]
+[ext_resource type="Resource" uid="uid://cbr437hpk4j77" path="res://Items/Ingredients_item/Butter.tres" id="18_mmn81"]
 [ext_resource type="Script" uid="uid://bsfup0jxwidf0" path="res://00_GlobalScripts/StatusHandler.gd" id="19_gorp7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksl0o"]
@@ -716,18 +717,22 @@ _data = {
 [sub_resource type="Resource" id="Resource_k17h7"]
 script = ExtResource("14_h0n5y")
 item = ExtResource("15_gorp7")
-min_amount = 5
-max_amount = 5
+probability = 50.0
+max_amount = 3
 
 [sub_resource type="Resource" id="Resource_uo7u8"]
 script = ExtResource("14_h0n5y")
 item = ExtResource("16_2vvwu")
-max_amount = 2
 
 [sub_resource type="Resource" id="Resource_58ww5"]
 script = ExtResource("14_h0n5y")
 item = ExtResource("16_ts4pi")
-max_amount = 5
+
+[sub_resource type="Resource" id="Resource_ljnrh"]
+script = ExtResource("14_h0n5y")
+item = ExtResource("18_mmn81")
+probability = 75.0
+metadata/_custom_type_script = "uid://32bs8anx8e4n"
 
 [sub_resource type="Animation" id="Animation_0kc84"]
 length = 0.001
@@ -854,7 +859,7 @@ nextState = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=1865707623]
 script = ExtResource("12_0dw7i")
-drops = Array[ExtResource("14_h0n5y")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5")])
+drops = Array[ExtResource("14_h0n5y")]([SubResource("Resource_k17h7"), SubResource("Resource_uo7u8"), SubResource("Resource_58ww5"), SubResource("Resource_ljnrh")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1692678128]
 max_polyphony = 4

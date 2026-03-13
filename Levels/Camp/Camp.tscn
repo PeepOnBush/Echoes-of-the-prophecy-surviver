@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dwrr28hbrgy8g"]
 
 [ext_resource type="Script" uid="uid://chywaw500khll" path="res://Levels/Scripts/level.gd" id="1_cmse6"]
-[ext_resource type="PackedScene" uid="uid://dt1b3x65mntyw" path="res://Levels/player_spawn.tscn" id="2_6o8vo"]
 [ext_resource type="AudioStream" uid="uid://18ws2352lhb0" path="res://Levels/music/Song for the Beyond - Frieren_ Beyond Journey's End OST Disc 2 - 36.mp3" id="2_ohoch"]
 [ext_resource type="PackedScene" uid="uid://yhsygb7ab6mc" path="res://Props/Campfire/campfire.tscn" id="2_yfvmv"]
 [ext_resource type="PackedScene" uid="uid://3j1go2ri4mun" path="res://Props/Plants/Trees/tree_01.tscn" id="3_6o8vo"]
@@ -63,6 +62,7 @@
 [ext_resource type="Script" uid="uid://hflhtv60v71f" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="60_8viyp"]
 [ext_resource type="Script" uid="uid://b81no7fe2rkd6" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="61_y74nq"]
 [ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="62_1g3yh"]
+[ext_resource type="Script" uid="uid://b4gdj0uavsrrr" path="res://Levels/Scripts/player_spawn.gd" id="64_glfj8"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -73,11 +73,9 @@ y_sort_enabled = true
 script = ExtResource("1_cmse6")
 music = ExtResource("2_ohoch")
 
-[node name="CampArrivalPoint" type="Marker2D" parent="." unique_id=2065158215]
-position = Vector2(288, -81)
-
-[node name="PlayerSpawn" parent="." unique_id=894478927 instance=ExtResource("2_6o8vo")]
-position = Vector2(315, 208)
+[node name="CampArrivalPoint" type="Marker2D" parent="." unique_id=975296619]
+position = Vector2(289, -89)
+script = ExtResource("64_glfj8")
 
 [node name="Campfire" parent="." unique_id=530014401 instance=ExtResource("2_yfvmv")]
 position = Vector2(321, 263)
