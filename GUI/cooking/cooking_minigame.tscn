@@ -1,12 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://cckku3mpxocx3"]
+[gd_scene format=3 uid="uid://cckku3mpxocx3"]
 
 [ext_resource type="Texture2D" uid="uid://5hpdbvnk6hwu" path="res://GUI/cooking/cauldron.png" id="1_du8hb"]
 [ext_resource type="Script" uid="uid://c8882er8imv4n" path="res://GUI/cooking/cooking_minigame.gd" id="1_mh0ly"]
 [ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="2_bq7eh"]
+[ext_resource type="AudioStream" uid="uid://ck4g7bvntm37m" path="res://GUI/cooking/sizzle-100449.mp3" id="2_ybcig"]
+[ext_resource type="AudioStream" uid="uid://crmoon8e4dmi0" path="res://GUI/cooking/oxidvideos-ding-small-bell-sfx-411945.mp3" id="3_8xoxp"]
+[ext_resource type="AudioStream" uid="uid://loyq6opm3d03" path="res://GUI/cooking/u_ss015dykrt-timpani-boing-fail-146292.mp3" id="4_rxutk"]
+[ext_resource type="AudioStream" uid="uid://b0jl6c4iftgvv" path="res://GUI/cooking/u_8g40a9z0la-fail-234710.mp3" id="5_js6xf"]
+[ext_resource type="AudioStream" uid="uid://gbb8rkv3a7pt" path="res://GUI/cooking/freesound_community-boiling-water-69115.mp3" id="6_js6xf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mh0ly"]
 atlas = ExtResource("2_bq7eh")
-region = Rect2(0, 32, 48, 48)
+region = Rect2(80, 96, 32, 32)
 
 [sub_resource type="Gradient" id="Gradient_8xoxp"]
 offsets = PackedFloat32Array(0.038610037)
@@ -14,6 +19,10 @@ colors = PackedColorArray(0.99999994, 0.4019326, 0.134271, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_srwtt"]
 gradient = SubResource("Gradient_8xoxp")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybcig"]
+atlas = ExtResource("2_bq7eh")
+region = Rect2(0, 32, 48, 48)
 
 [sub_resource type="Gradient" id="Gradient_ybcig"]
 offsets = PackedFloat32Array(0.1003861)
@@ -29,7 +38,7 @@ colors = PackedColorArray(0.286578, 0.66705483, 1.92523e-07, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rxutk"]
 gradient = SubResource("Gradient_srwtt")
 
-[node name="CookingMinigame" type="Control"]
+[node name="CookingMinigame" type="Control" unique_id=1686258012]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -39,8 +48,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mh0ly")
 zone_min = 27.734
+sizzle = ExtResource("2_ybcig")
+ding = ExtResource("3_8xoxp")
+undercook = ExtResource("4_rxutk")
+overcook = ExtResource("5_js6xf")
+cooking = ExtResource("6_js6xf")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="NinePatchRect" parent="." unique_id=749265880]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 56.0
+offset_right = 356.0
+offset_bottom = 88.0
+texture = ExtResource("2_bq7eh")
+region_rect = Rect2(0, 96, 48, 32)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1183421785]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.4)
 
-[node name="Cauldron" type="Control" parent="."]
+[node name="Cauldron" type="Control" parent="." unique_id=488414004]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,11 +94,11 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(20, 20)
 
-[node name="CauldronSprite" type="Sprite2D" parent="Cauldron"]
+[node name="CauldronSprite" type="Sprite2D" parent="Cauldron" unique_id=2044275856]
 position = Vector2(21, 19)
 texture = ExtResource("1_du8hb")
 
-[node name="ShakeContainer" type="Control" parent="."]
+[node name="ShakeContainer" type="Control" parent="." unique_id=787724184]
 custom_minimum_size = Vector2(200, 32)
 anchors_preset = 0
 offset_left = 241.0
@@ -80,7 +107,7 @@ offset_right = 441.0
 offset_bottom = 166.0
 pivot_offset = Vector2(100, 16)
 
-[node name="Border" type="NinePatchRect" parent="ShakeContainer"]
+[node name="Border" type="NinePatchRect" parent="ShakeContainer" unique_id=1852397368]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,7 +120,7 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="HeatBar" type="TextureProgressBar" parent="ShakeContainer"]
+[node name="HeatBar" type="TextureProgressBar" parent="ShakeContainer" unique_id=1236774587]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.045
@@ -106,7 +133,7 @@ grow_vertical = 2
 nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture2D_srwtt")
 
-[node name="ZoneIndicator" type="ColorRect" parent="ShakeContainer"]
+[node name="ZoneIndicator" type="ColorRect" parent="ShakeContainer" unique_id=1046708349]
 layout_mode = 1
 offset_left = 1.0
 offset_top = 8.0
@@ -114,15 +141,34 @@ offset_right = 11.0
 offset_bottom = 32.0
 color = Color(0, 0.7200002, 0.20285092, 0.5)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1735457862]
 layout_mode = 0
-offset_left = 313.0
+offset_left = 315.0
 offset_top = 65.0
-offset_right = 360.0
+offset_right = 362.0
 offset_bottom = 82.0
 text = "Cooking"
 
-[node name="Progress" type="TextureProgressBar" parent="."]
+[node name="Border" type="NinePatchRect" parent="." unique_id=2028366412]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42000002
+anchor_top = 0.25800002
+anchor_right = 0.63500005
+anchor_bottom = 0.31500003
+offset_left = -10.800018
+offset_top = -7.880005
+offset_right = 3.5999756
+offset_bottom = 7.599991
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ybcig")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Progress" type="TextureProgressBar" parent="." unique_id=292167855]
 layout_mode = 0
 offset_left = 269.0
 offset_top = 93.0
@@ -131,3 +177,5 @@ offset_bottom = 157.0
 scale = Vector2(2.1505017, 0.3145809)
 texture_under = SubResource("GradientTexture2D_8xoxp")
 texture_progress = SubResource("GradientTexture2D_rxutk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=172051364]

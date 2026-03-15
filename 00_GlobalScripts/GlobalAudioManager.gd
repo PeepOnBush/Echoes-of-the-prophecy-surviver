@@ -10,7 +10,8 @@ var sfxBus : String = "SFX"
 
 # Track tweens so we can kill them 
 var player_tweens : Dictionary = {} 
-
+# --- NEW: Track long/looping SFX ---
+var looping_sfx_players : Dictionary = {}
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for i  in music_audio_player_count:
@@ -86,6 +87,42 @@ func fadeOutAndStop(audioPlayer : AudioStreamPlayer) -> void:
 	
 	await tween.finished
 	audioPlayer.stop()
+
+# --- NEW FUNCTIONS FOR PROLONGED SOUNDS ---
+
+# We require a "key" (a string name) so we can look it up later to stop it.
+func play_looping_sfx(_audio: AudioStream, key: String, _pitch_scale: float = 1.0) -> void:
+	if _audio == null:
+		return
+		
+	# 1. If a sound with this key is already playing, stop it first to prevent duplicates
+	if looping_sfx_players.has(key):
+		stop_looping_sfx(key)
+		
+	# 2. Create the player
+	var new_player = AudioStreamPlayer.new()
+	add_child(new_player)
+	
+	new_player.stream = _audio
+	new_player.bus = sfxBus
+	new_player.pitch_scale = _pitch_scale
+	new_player.play()
+	
+	# 3. Store the player in the dictionary using the key
+	looping_sfx_players[key] = new_player
+
+func stop_looping_sfx(key: String) -> void:
+	# 1. Check if we have a sound playing under this key
+	if looping_sfx_players.has(key):
+		var player = looping_sfx_players[key]
+		
+		# 2. Safely stop and delete it
+		if is_instance_valid(player):
+			player.stop()
+			player.queue_free()
+			
+		# 3. Remove it from the dictionary
+		looping_sfx_players.erase(key)
 
 func getCurrentTrack() -> AudioStream:
 	return musicPlayer[currentMusicPlayer].stream

@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://chyjeob0f1kkg"]
+[gd_scene format=3 uid="uid://chyjeob0f1kkg"]
 
 [ext_resource type="Script" uid="uid://drolnkdsxrxvg" path="res://GUI/cooking/recipe_menu.gd" id="1_sc0ap"]
 [ext_resource type="PackedScene" uid="uid://w1c6xsc1x52w" path="res://GUI/cooking/shop_recipe_button.tscn" id="2_8k021"]
 [ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="5_isq1x"]
 
-[node name="RecipeMenu" type="CanvasLayer"]
+[node name="RecipeMenu" type="CanvasLayer" unique_id=1680486388]
 layer = 3
 script = ExtResource("1_sc0ap")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1025243305]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.141176, 0.141176, 0.141176, 0.596078)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1568344719]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" unique_id=1935216052]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 58.0
@@ -32,43 +32,44 @@ offset_right = 624.0
 offset_bottom = 289.0
 follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer" unique_id=1534475898]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = -9
 
-[node name="ShopItemsContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer"]
+[node name="ShopItemsContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer" unique_id=1814418654]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="RecipeButton" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=2125700265 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton2" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton2" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=966910130 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton3" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton3" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=524246285 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton4" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton4" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=208759187 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton5" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton5" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=1826032194 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton6" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton6" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=543579811 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton7" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton7" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=567721645 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="RecipeButton8" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_8k021")]
+[node name="RecipeButton8" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" unique_id=150128358 instance=ExtResource("2_8k021")]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="Control"]
+[node name="CloseButton" type="Button" parent="Control" unique_id=1509486925]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 549.0
@@ -77,7 +78,7 @@ offset_right = 618.0
 offset_bottom = 335.0
 text = "Close"
 
-[node name="Cookbook" type="Label" parent="."]
+[node name="Cookbook" type="Label" parent="." unique_id=1356721279]
 modulate = Color(1, 1, 1, 0.409)
 offset_left = 38.0
 offset_top = 21.0
@@ -87,4 +88,4 @@ theme_override_fonts/font = ExtResource("5_isq1x")
 theme_override_font_sizes/font_size = 25
 text = "Cookbook"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1588526864]

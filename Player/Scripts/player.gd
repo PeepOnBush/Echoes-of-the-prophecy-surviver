@@ -151,7 +151,6 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
-
 func _take_damage(_hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
@@ -213,7 +212,7 @@ func updateDamageValue() -> void:
 		
 	# Charge Spin (Secondary)
 	%ChargeSpinHurtBox.damage = base_dmg * 2
-
+	pass
 func onEquipmentChanged() -> void:
 	updateDamageValue()
 	defense_bonus = PlayerManager.INVENTORY_DATA.getDefendBonus()

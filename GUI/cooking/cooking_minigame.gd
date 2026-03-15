@@ -11,11 +11,18 @@ signal cooking_finished(success: bool)
 # Defined as 0.0 to 100.0
 @export var zone_min : float = 40.0 
 @export var zone_max : float = 60.0
+@export var sizzle : AudioStream # reeling sound
+@export var ding : AudioStream # reeling sound
+@export var undercook : AudioStream
+@export var overcook : AudioStream 
+@export var cooking : AudioStream
+#-- on ready --
 @onready var shaker_container: Control = $ShakeContainer
 @onready var cauldron_visuals: Control = $Cauldron
 @onready var color_rect: ColorRect = $ColorRect
 @onready var progress_label: Label = $Label
 @onready var progress_bar: TextureProgressBar = $Progress
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var border: NinePatchRect = $ShakeContainer/Border
 @onready var heat_bar: TextureProgressBar = $ShakeContainer/HeatBar
@@ -67,12 +74,12 @@ func start_cooking(recipe : RecipeData) -> void:
 	current_cook_progress = 0.0
 	heat_bar.value = 0
 	progress_bar.value = 0
-	
+	AudioManager.play_looping_sfx(cooking, "cauldron_boil")
 	# Juice: Pop in
 	scale = Vector2.ZERO
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK)
-
+	pass
 func _process(delta: float) -> void:
 	if not is_active: return
 	
@@ -83,6 +90,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("interact"):
 		current_heat -= stir_cooling
 		shake_cauldron() # Juice!
+		AudioManager.play_sfx(sizzle)
 		# Play "Splash/Stir" Sound
 	
 	# Clamp heat
@@ -102,6 +110,11 @@ func _process(delta: float) -> void:
 	# 4. OVERHEAT FAIL CONDITION
 	if current_heat >= 100.0:
 		end_game(false)
+		AudioManager.play_sfx(overcook)
+		return
+	if current_heat == 0.0:
+		end_game(false)
+		AudioManager.play_sfx(undercook)
 		return
 		
 	# 5. UI UPDATE
@@ -121,11 +134,13 @@ func end_game(win : bool) -> void:
 		if active_recipe.result_item:
 			PlayerManager.INVENTORY_DATA.add_item(active_recipe.result_item)
 		# -------------------
+		AudioManager.play_sfx(ding)
 		# Play Victory Sound
 	else:
 		print("Burnt!!")
 		# Play Explosion Sound
-		
+	
+	AudioManager.stop_looping_sfx("cauldron_boil")
 	await get_tree().create_timer(1.0).timeout
 	visible = false
 	get_tree().paused = false

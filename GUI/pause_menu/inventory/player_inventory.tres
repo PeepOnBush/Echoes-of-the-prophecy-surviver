@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://c1nmyo13084qi" path="res://Items/PurPetalouda.tres" id="4_0w5vp"]
 [ext_resource type="Resource" uid="uid://ch72nshll0vxq" path="res://Items/w_iron_sword.tres" id="4_uvmr1"]
 [ext_resource type="Resource" uid="uid://dpb2kcjpegsdg" path="res://Items/gem.tres" id="5_18tpa"]
-[ext_resource type="Resource" uid="uid://08fyr62oj82t" path="res://Items/stone.tres" id="6_oga8p"]
+[ext_resource type="Resource" uid="uid://df8csqkm6k53u" path="res://Items/Fishes/Item_Bream.tres" id="6_oga8p"]
 
 [sub_resource type="Resource" id="Resource_0w5vp"]
 script = ExtResource("2_a3xo6")

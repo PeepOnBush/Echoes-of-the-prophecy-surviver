@@ -1,21 +1,33 @@
 [gd_scene format=3 uid="uid://w1c6xsc1x52w"]
 
 [ext_resource type="Script" uid="uid://cs1ksp4v2h5qg" path="res://GUI/cooking/shop_recipe_button.gd" id="1_vkpnb"]
+[ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="2_l3pjk"]
 [ext_resource type="FontFile" uid="uid://bgmcsqabv8qwi" path="res://FutureAssests/DungeonFont.ttf" id="2_qc6oh"]
 [ext_resource type="Texture2D" uid="uid://bwueaqlbglncu" path="res://Items/Sprites/PurPetalouda.png" id="3_va3kj"]
 
 [node name="RecipeButton" type="Button" unique_id=2080558745]
 custom_minimum_size = Vector2(255, 36)
-offset_right = 376.0
-offset_bottom = 36.0
+offset_right = 378.0
+offset_bottom = 43.0
 script = ExtResource("1_vkpnb")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=766853812]
+layout_mode = 0
+offset_right = 378.0
+offset_bottom = 40.0
+texture = ExtResource("2_l3pjk")
+region_rect = Rect2(48, 96, 32, 32)
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
 
 [node name="Label" type="Label" parent="." unique_id=815095658]
 texture_filter = 1
 layout_mode = 0
 offset_left = 40.0
 offset_top = 10.0
-offset_right = 163.0
+offset_right = 214.0
 offset_bottom = 27.0
 theme_override_fonts/font = ExtResource("2_qc6oh")
 text = "Label for the item so we can see what is it"
@@ -41,8 +53,8 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_right = -35.0
+offset_left = -13.0
+offset_right = -13.0
 grow_horizontal = 0
 grow_vertical = 2
 alignment = 1

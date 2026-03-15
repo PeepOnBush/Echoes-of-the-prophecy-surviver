@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjsiwkhffp8h1"]
+[gd_scene format=3 uid="uid://bjsiwkhffp8h1"]
 
 [ext_resource type="Texture2D" uid="uid://b26nsi8jg55ln" path="res://Interactables/Bomb/assets/bomb.png" id="1_4b8ht"]
 [ext_resource type="Script" uid="uid://de4gh2qlmw8ep" path="res://Props/ExplosiveBarrel/explosive_barrel.gd" id="1_lhmhj"]
@@ -182,32 +182,30 @@ radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4n1ud"]
 
-[node name="ExplosiveBarrel" type="StaticBody2D"]
+[node name="ExplosiveBarrel" type="StaticBody2D" unique_id=580694995]
 script = ExtResource("1_lhmhj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=534205960]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_7jwi5")
 
-[node name="BarrelSprite" type="Sprite2D" parent="."]
+[node name="BarrelSprite" type="Sprite2D" parent="." unique_id=258520335]
 position = Vector2(4, -7)
 texture = SubResource("AtlasTexture_ffuaa")
 
-[node name="ExplosionSprite" type="Sprite2D" parent="."]
+[node name="ExplosionSprite" type="Sprite2D" parent="." unique_id=545674517]
 visible = false
 texture = ExtResource("1_4b8ht")
 hframes = 3
 vframes = 3
 frame = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_q2ikk")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=651528428]
+libraries/ = SubResource("AnimationLibrary_q2ikk")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=968466210]
 
-[node name="BlastArea" type="Area2D" parent="."]
+[node name="BlastArea" type="Area2D" parent="." unique_id=1574117741]
 collision_mask = 258
 monitoring = false
 monitorable = false
@@ -215,13 +213,13 @@ script = ExtResource("3_6kikp")
 damage = 2
 metadata/_custom_type_script = "uid://cnpste1dhl3gp"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlastArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlastArea" unique_id=225487555]
 shape = SubResource("CircleShape2D_5wb2x")
 debug_color = Color(0.7, 0, 0.052, 0.014)
 
-[node name="Hitbox" parent="." instance=ExtResource("6_p3dk2")]
+[node name="Hitbox" parent="." unique_id=49683586 instance=ExtResource("6_p3dk2")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=954490933]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_4n1ud")
 debug_color = Color(0.70196074, 0.5727327, 0, 0.41960785)
