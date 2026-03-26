@@ -67,6 +67,7 @@ func on_death_complete() -> void:
 		corpse.global_position = global_position
 		
 		LevelManager.increment_difficulty()
+		print("going to " + return_to_camp_scene)
 	
 	queue_free()
 	pass

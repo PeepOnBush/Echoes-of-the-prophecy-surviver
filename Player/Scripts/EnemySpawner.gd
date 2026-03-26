@@ -2,14 +2,14 @@ class_name EnemySpawner extends Area2D
 
 # --- 1. CONFIGURATION ---
 @export var spawn_radius: float = 400.0
-
-# Drag your specific enemy scenes here in the Inspector
 @export var isEnabled : bool = false
 
-@export_category("Spawn") 
-@export var slime_scene: PackedScene
-@export var goblin_scene: PackedScene
-#@export var boss_scene: PackedScene
+# --- NEW: THE ENEMY ROSTER ---
+# In the inspector, you will add items to this Dictionary.
+# Key (String) = The name you use in the waves array (e.g., "slime")
+# Value (PackedScene) = The actual scene file (e.g., Slime.tscn)
+@export var enemy_roster: Dictionary 
+
 @export var boss_list: Array[PackedScene] 
 
 # --- 2. THE DIRECTOR BRAIN ---
@@ -20,10 +20,6 @@ var active_enemy_pool: Array[PackedScene] = []
 @onready var spawn_timer: Timer = $Timer
 
 # --- 3. WAVE DEFINITIONS ---
-# time: When does this wave start? (in seconds)
-# rate: How often do they spawn? (0.5 = 2 per second)
-# types: What enemies spawn?
-#waves Dictionary
 var waves : Array = [
 	# 0 to 10 seconds: Just Slimes, slow spawn
 	{ "time": 0, "rate": 2.0, "types": ["slime"] },
@@ -34,19 +30,14 @@ var waves : Array = [
 	# 30 to 60 seconds: Goblin Horde
 	{ "time": 10, "rate": 0.5, "types": ["goblin"] },
 	
-	# THE BOSS WAVE (e.g., at 60 seconds)
+	# THE BOSS WAVE
 	{ 
 		"time": 15, 
-		"rate": 0.5, # Stop spawning other enemies (or keep them slow)
+		"rate": 0.5, 
 		"types": ["boss"], # Special tag
 		"is_boss_wave": true
-	},
-	
-	# 60+ seconds: CHAOS (Everything, super fast)
-	#{ "time": 60, "rate": 0.2, "types": ["slime", "goblin"] }
-	
+	}
 ]
-
 func _ready() -> void:
 	# 1. AUTO-START: Always enable spawning when the level loads fresh
 	#isEnabled = true
@@ -88,23 +79,29 @@ func check_wave_update() -> void:
 
 func start_wave(wave_data: Dictionary) -> void:
 	if isEnabled:
-	# 1. Set the Spawn Rate
+		# 1. Set the Spawn Rate
 		spawn_timer.wait_time = wave_data["rate"]
-		spawn_timer.start() # Restart timer to apply new speed immediately
+		spawn_timer.start()
 		
-		# 2. Build the Enemy Pool
+		# 2. Build the Enemy Pool dynamically from the Roster
 		active_enemy_pool.clear()
-		for type_name in wave_data["types"]:
-			match type_name:
-				"slime": active_enemy_pool.append(slime_scene)
-				"goblin": active_enemy_pool.append(goblin_scene)
 		
+		for type_name in wave_data["types"]:
+			if type_name == "boss":
+				continue # Bosses are handled below
+				
+			# Look up the string in our exported dictionary
+			if enemy_roster.has(type_name):
+				var scene_to_spawn = enemy_roster[type_name]
+				if scene_to_spawn: # Ensure a scene was actually dropped in the inspector
+					active_enemy_pool.append(scene_to_spawn)
+			else:
+				printerr("Spawner Warning: '", type_name, "' is not in the Enemy Roster!")
+		
+		# 3. Check for Boss
 		if wave_data.has("is_boss_wave"):
 			spawn_boss()
-	else: 
-		return
-	pass
-		
+
 func spawn_boss() -> void:
 	# Calculate which boss to spawn based on Run Count
 	# Run 1 = Index 0. Run 2 = Index 1.

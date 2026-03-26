@@ -501,7 +501,7 @@ probability = 87.0
 max_amount = 3
 metadata/_custom_type_script = "uid://32bs8anx8e4n"
 
-[node name="goblin_boss" type="CharacterBody2D" unique_id=1403205250]
+[node name="Vera" type="CharacterBody2D" unique_id=1403205250]
 position = Vector2(0, 10)
 scale = Vector2(2.5, 2.5)
 collision_layer = 256
@@ -510,7 +510,7 @@ script = ExtResource("1_1qm41")
 boss_name = "Vera"
 portal_scene = ExtResource("2_mbivr")
 corpse_scene = ExtResource("3_ukw1y")
-return_to_camp_scene = "uid://dwrr28hbrgy8g"
+return_to_camp_scene = "uid://ct7wlo5sa27hi"
 hp = 25
 
 [node name="HitBox" parent="." unique_id=401115435 instance=ExtResource("3_nviws")]

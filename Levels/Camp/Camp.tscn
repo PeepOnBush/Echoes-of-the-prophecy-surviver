@@ -424,7 +424,7 @@ metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 [node name="Do_CHANGE_SCENE" type="Node" parent="Carrier/DialogChoice/DialogBranch" unique_id=592436922]
 script = ExtResource("62_1g3yh")
 action_type = 9
-target_scene = "uid://pm8hmceeo3q5"
+target_scene = "uid://bh6y1sfg2kjr2"
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 
 [node name="DialogBranch2" type="Node" parent="Carrier/DialogChoice" unique_id=433352886]

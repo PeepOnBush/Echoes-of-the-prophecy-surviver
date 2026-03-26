@@ -33,8 +33,10 @@ position = Vector2(2, 9)
 [node name="EnemySpawner" parent="." unique_id=348495709 instance=ExtResource("5_pwydo")]
 position = Vector2(4, 1)
 isEnabled = true
-slime_scene = ExtResource("6_th3kk")
-goblin_scene = ExtResource("7_b60gt")
+enemy_roster = {
+"goblin": ExtResource("7_b60gt"),
+"slime": ExtResource("6_th3kk")
+}
 boss_list = Array[PackedScene]([ExtResource("8_f2d14"), ExtResource("13_qqqph"), ExtResource("14_ay7cg")])
 
 [node name="soldier" parent="." unique_id=1721881075 instance=ExtResource("13_uv5ft")]
