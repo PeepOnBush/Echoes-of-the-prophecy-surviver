@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://3j1go2ri4mun"]
 
 [ext_resource type="Texture2D" uid="uid://dutko2kjtdbwh" path="res://Props/Sprites/camp_assets.png" id="1_c282f"]
+[ext_resource type="Shader" uid="uid://c5vax0btb3ra8" path="res://Shaders and Materials/tree_waving.gdshader" id="1_xb408"]
+[ext_resource type="Script" uid="uid://kpxhhyqwb8oo" path="res://Props/Plants/Trees/tree.gd" id="3_6tcgu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tcgu"]
+shader = ExtResource("1_xb408")
+shader_parameter/speed = 1.5
+shader_parameter/strength = 4.0
+shader_parameter/offset = 0.0
+shader_parameter/sway_height = 0.2000000095
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkfnr"]
 atlas = ExtResource("1_c282f")
@@ -16,8 +25,10 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=61210418]
+material = SubResource("ShaderMaterial_6tcgu")
 position = Vector2(14, -106)
 texture = SubResource("AtlasTexture_fkfnr")
+script = ExtResource("3_6tcgu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447846591]
 position = Vector2(1.666667, -49)

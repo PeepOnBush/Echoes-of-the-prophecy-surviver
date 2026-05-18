@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://b3tprasevnjy"]
+[gd_resource type="Resource" script_class="NPCResource" format=3 uid="uid://b3tprasevnjy"]
 
-[ext_resource type="Texture2D" uid="uid://bfipsrvlwsdpx" path="res://Npc/Sprites/portraits/hero_portrait.png" id="1_pihmd"]
+[ext_resource type="Texture2D" uid="uid://b8ib70gv1seoe" path="res://Npc/Sprites/portraits/zephyr_potrait.png" id="1_mvhc6"]
 [ext_resource type="Script" uid="uid://dsbhkj4kducq8" path="res://Npc/Scripts/npc_resource.gd" id="1_xudpl"]
 
 [resource]
 script = ExtResource("1_xudpl")
 npc_name = "Zephyr"
-portrait = ExtResource("1_pihmd")
+portrait = ExtResource("1_mvhc6")

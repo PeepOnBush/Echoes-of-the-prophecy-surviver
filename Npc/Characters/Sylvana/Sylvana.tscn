@@ -328,7 +328,7 @@ text = "Yes"
 npc_info = ExtResource("3_3kuyy")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="Do_ OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch" unique_id=1311899626]
+[node name="Do_OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch" unique_id=1311899626]
 script = ExtResource("11_eq80f")
 action_type = 6
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"
