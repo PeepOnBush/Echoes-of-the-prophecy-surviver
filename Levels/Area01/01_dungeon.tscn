@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bjsiwkhffp8h1" path="res://Props/ExplosiveBarrel/explosive_barrel.tscn" id="3_5rdct"]
 [ext_resource type="PackedScene" uid="uid://crk2sdpxwjdj6" path="res://Tile Maps/Dungeon-01-layer.tscn" id="5_8oi5n"]
 [ext_resource type="PackedScene" uid="uid://cup64ee7e4rrq" path="res://Player/spawner.tscn" id="6_fe18d"]
+[ext_resource type="PackedScene" uid="uid://d03ocog1h40dv" path="res://Enemies/goblin/goblin.tscn" id="7_fe18d"]
+[ext_resource type="PackedScene" uid="uid://ckl8plhl1alqu" path="res://Enemies/Slime/Slime.tscn" id="8_snneu"]
 [ext_resource type="PackedScene" uid="uid://cjla4g1grk7uo" path="res://Enemies/Vera/Vera.tscn" id="9_snneu"]
 
 [node name="01Dungeon" type="Node2D" unique_id=1814195151]
@@ -24,4 +26,8 @@ position = Vector2(2, 9)
 
 [node name="EnemySpawner" parent="." unique_id=1206900382 instance=ExtResource("6_fe18d")]
 isEnabled = true
+enemy_roster = {
+"goblin": ExtResource("7_fe18d"),
+"slime": ExtResource("8_snneu")
+}
 boss_list = Array[PackedScene]([ExtResource("9_snneu")])

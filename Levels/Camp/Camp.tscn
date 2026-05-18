@@ -62,7 +62,10 @@
 [ext_resource type="Script" uid="uid://hflhtv60v71f" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="60_8viyp"]
 [ext_resource type="Script" uid="uid://b81no7fe2rkd6" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="61_y74nq"]
 [ext_resource type="Script" uid="uid://bxrgtrafvhmem" path="res://Interactables/Dialog/Scripts/dialog_result_common.gd" id="62_1g3yh"]
+[ext_resource type="PackedScene" uid="uid://kwoyh5nnvi78" path="res://Items/item_pickup/ItemPickup.tscn" id="64_8viyp"]
 [ext_resource type="Script" uid="uid://b4gdj0uavsrrr" path="res://Levels/Scripts/player_spawn.gd" id="64_glfj8"]
+[ext_resource type="Resource" uid="uid://b7raqtdv4bc5g" path="res://Items/Ingredients_item/GreenOnion.tres" id="65_y74nq"]
+[ext_resource type="Resource" uid="uid://dnl3y8j7alopv" path="res://Items/Ingredients_item/Rosemary.tres" id="66_y74nq"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -431,3 +434,11 @@ metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 script = ExtResource("61_y74nq")
 text = "Not not yet"
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="ItemPickup" parent="." unique_id=1406877250 instance=ExtResource("64_8viyp")]
+position = Vector2(60, 159)
+item_data = ExtResource("65_y74nq")
+
+[node name="ItemPickup2" parent="." unique_id=500421578 instance=ExtResource("64_8viyp")]
+position = Vector2(-18, 159)
+item_data = ExtResource("66_y74nq")

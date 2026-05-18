@@ -56,9 +56,9 @@ cooking = ExtResource("6_js6xf")
 
 [node name="Panel" type="NinePatchRect" parent="." unique_id=749265880]
 layout_mode = 0
-offset_left = 296.0
+offset_left = 300.0
 offset_top = 56.0
-offset_right = 356.0
+offset_right = 360.0
 offset_bottom = 88.0
 texture = ExtResource("2_bq7eh")
 region_rect = Rect2(0, 96, 48, 32)
@@ -143,9 +143,9 @@ color = Color(0, 0.7200002, 0.20285092, 0.5)
 
 [node name="Label" type="Label" parent="." unique_id=1735457862]
 layout_mode = 0
-offset_left = 315.0
+offset_left = 321.0
 offset_top = 65.0
-offset_right = 362.0
+offset_right = 368.0
 offset_bottom = 82.0
 text = "Cooking"
 

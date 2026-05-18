@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dunnrhicq2wes" path="res://Interactables/Shopkeeper/special_npc.gd" id="1_3satr"]
 [ext_resource type="Script" uid="uid://px3onqgseddq" path="res://Npc/Scripts/npc.gd" id="2_jhob3"]
 [ext_resource type="Resource" uid="uid://b1glp512ms4sk" path="res://Npc/00_Npcs/Zax.tres" id="3_4ls50"]
-[ext_resource type="Texture2D" uid="uid://bcl0yopw2a4bh" path="res://Npc/Characters/Sprite/png/Zax-export.png" id="4_qp2kl"]
+[ext_resource type="Texture2D" uid="uid://ck0i181wyc5fw" path="res://Npc/Characters/Zax/zax_animation.png" id="4_qp2kl"]
 [ext_resource type="Script" uid="uid://brx4clinsa661" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="4_torif"]
 [ext_resource type="Texture2D" uid="uid://b2ekv8kofnkbr" path="res://Interactables/Dialog/Sprites/dialog_interactable.png" id="5_7h7mc"]
 [ext_resource type="Texture2D" uid="uid://f8baqqf7hk8y" path="res://Player/Sprites/Shadow.png" id="5_87e4b"]
@@ -29,6 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_m6207"]
 resource_name = "idle_down"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,14 +37,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
 }
 
 [sub_resource type="Animation" id="Animation_1no6u"]
 resource_name = "idle_side"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,14 +53,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [11, 18]
 }
 
 [sub_resource type="Animation" id="Animation_2u3p7"]
 resource_name = "idle_up"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,10 +69,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [19, 26]
 }
 
 [sub_resource type="Animation" id="Animation_m3dq5"]
@@ -272,6 +275,8 @@ npc_resource = ExtResource("3_4ls50")
 [node name="Sprite2D" type="Sprite2D" parent="Npc" unique_id=169890870]
 position = Vector2(0, -20)
 texture = ExtResource("4_qp2kl")
+hframes = 11
+vframes = 3
 
 [node name="ShadowSprite" type="Sprite2D" parent="Npc/Sprite2D" unique_id=1118921976]
 modulate = Color(0.0745098, 0.0745098, 0.0745098, 0.996078)
@@ -327,7 +332,7 @@ text = "Yes"
 npc_info = ExtResource("3_4ls50")
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
 
-[node name="Do_ OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch" unique_id=547923675]
+[node name="Do_OPEN_SHOP" type="Node" parent="Npc/DialogInteraction/DialogChoice/DialogBranch" unique_id=547923675]
 script = ExtResource("11_qp2kl")
 action_type = 6
 metadata/_custom_type_script = "uid://bxrgtrafvhmem"

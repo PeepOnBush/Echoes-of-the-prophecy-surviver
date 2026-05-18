@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cs4teu2v2nb0w" path="res://Npc/Sprites/portraits/soran_portait.png" id="1_pxvet"]
 [ext_resource type="Script" uid="uid://dsbhkj4kducq8" path="res://Npc/Scripts/npc_resource.gd" id="2_r8q56"]
-[ext_resource type="Texture2D" uid="uid://crmwvltvrccs" path="res://Npc/Characters/Sprite/png/Soran.png" id="3_pxvet"]
+[ext_resource type="Texture2D" uid="uid://dc8xh4yoslrwy" path="res://Npc/Characters/Soran/soran_animation.png" id="3_pxvet"]
 
 [resource]
 script = ExtResource("2_r8q56")
