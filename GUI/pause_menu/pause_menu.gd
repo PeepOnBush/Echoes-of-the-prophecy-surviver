@@ -6,8 +6,8 @@ signal preview_stats_change( item : ItemData )
 
 @onready var audio_stream_player : AudioStreamPlayer = $Control/AudioStreamPlayer
 @onready var tab_container: TabContainer = $Control/TabContainer
-@export var button_select_audio : AudioStream = preload("res://Menu/menu_select.wav")
-@export var button_focus_audio : AudioStream = preload("res://Menu/menu_focus.wav")
+@export var button_select_audio : AudioStream = preload("res://GUI/pause_menu/button_pressing.mp3")
+@export var button_focus_audio : AudioStream = preload("res://GUI/pause_menu/button_pressing.mp3")
 @onready var btn_save : Button =  $Control/TabContainer/System/VBoxContainer/btn_save
 @onready var btn_load : Button = $Control/TabContainer/System/VBoxContainer/btn_load
 @onready var btn_quit: Button = $Control/TabContainer/System/VBoxContainer/btn_quit
@@ -55,10 +55,12 @@ func _unhandled_input(event : InputEvent) -> void:
 		if event.is_action_pressed("right_bumper"):
 			playAudio(button_focus_audio)
 			changeTab(1)
+			pass
 		elif event.is_action_pressed("left_bumper"):
 			playAudio(button_focus_audio)
 			changeTab(-1)
-		
+			pass
+	pass
 
 func showPauseMenu() -> void:
 	PlayerHud.hide()
@@ -94,7 +96,7 @@ func onLoadPressed() -> void:
 
 func onQuitPressed() -> void:
 	get_tree().quit()
-
+	pass
 func onMenuPressed() -> void:
 	playAudio(button_select_audio)
 	hidePauseMenu()
@@ -118,7 +120,7 @@ func focusedItemChanged(slot: SlotData) -> void:
 func playerAudio( _audio : AudioStream) -> void:
 	audio_stream_player.stream = _audio 
 	audio_stream_player.play()
-
+	pass
 func changeTab(_i : int = 1) -> void:
 	tab_container.current_tab = wrapi(
 		tab_container.current_tab + _i,
@@ -135,7 +137,7 @@ func previewStats(item : ItemData ) -> void:
 func playAudio(_a : AudioStream) -> void:
 	audio.stream = _a
 	audio.play()
-
+	pass
 func updateAbilityItems( items : Array[String] ) -> void :
 	var  item_buttons : Array[Node] = %AbilityGridContainer.get_children()
 	for i in item_buttons.size():
@@ -168,7 +170,7 @@ func setup_audio_ui() -> void:
 	
 	is_setting_up_ui = false # ALLOW SAVING AGAIN
 # --- SIGNAL CALLBACKS ---
-
+	pass
 func on_master_changed(value : float) -> void:
 	set_bus_volume("Master", value)
 	GlobalManager.save_settings()
@@ -218,7 +220,7 @@ func setup_video_ui() -> void:
 	vsync_btn.button_pressed = (current_vsync == DisplayServer.VSYNC_ENABLED)
 	
 	vsync_btn.toggled.connect(on_vsync_toggled)
-
+	pass
 # --- VIDEO CALLBACKS ---
 
 func on_window_mode_selected(index: int) -> void:

@@ -34,6 +34,7 @@ QuestManager="*res://Quests/Scripts/global_quest_manager.gd"
 EffectManager="*res://00_GlobalScripts/global_effect_manager.gd"
 ShopMenu="*res://GUI/shop_menu/Shop-menu.tscn"
 RecipeMenu="*res://GUI/cooking/recipe_menu.tscn"
+ChestMenu="*uid://6t7e1bf1pkdo"
 
 [display]
 

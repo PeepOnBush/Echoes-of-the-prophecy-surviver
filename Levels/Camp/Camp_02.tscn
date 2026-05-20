@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://tv482j8ono3b" path="res://Props/Tent/tent_zephyr_left.tscn" id="30_08o28"]
 [ext_resource type="PackedScene" uid="uid://h3jgfy06igs1" path="res://Props/Tent/tent_zax_left.tscn" id="31_f31qw"]
 [ext_resource type="PackedScene" uid="uid://bpa153288yir4" path="res://Props/Tent/tent_soran_right.tscn" id="37_7flq8"]
+[ext_resource type="PackedScene" uid="uid://do355fxws35sb" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="42_upu76"]
 [ext_resource type="PackedScene" uid="uid://ceqx31tbb8qlq" path="res://Props/Pot/cauldron.tscn" id="54_134hj"]
 [ext_resource type="PackedScene" uid="uid://c7nifsv3lduwo" path="res://Props/Carrier/carrier.tscn" id="55_krwvg"]
 [ext_resource type="PackedScene" uid="uid://cg42ihnxv2ats" path="res://Levels/level_transition.tscn" id="57_tf2yl"]
@@ -145,3 +146,6 @@ metadata/_custom_type_script = "uid://bxrgtrafvhmem"
 script = ExtResource("62_swhfv")
 text = "Not not yet"
 metadata/_custom_type_script = "uid://b81no7fe2rkd6"
+
+[node name="TreasureChest" parent="." unique_id=1987096421 instance=ExtResource("42_upu76")]
+position = Vector2(325, 141)

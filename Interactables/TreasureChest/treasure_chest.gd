@@ -1,75 +1,43 @@
 @tool
 class_name treasure_chest extends Node2D
 
-@export var item_data : ItemData : set = setItemData
-@export var quantity : int = 1 : set = setQuantity
-
 var isOpen : bool = false
 
-
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var sprite : Sprite2D = $ItemSprite
-@onready var label : Label = $ItemSprite/Label
 @onready var interactArea : Area2D = $Area2D
-@onready var persistent_data_is_open : PersistentDataHandler = $PersistentDataIsOpen
-
 
 func _ready() -> void:
-	updateLabel()
-	updateTexture()
 	if Engine.is_editor_hint():
 		return
+		
+	# Ensure it always starts closed when loading into the level
+	animation_player.play("closed")
+		
 	interactArea.area_entered.connect(onAreaEnter)
 	interactArea.area_exited.connect(onAreaExit)
-	persistent_data_is_open.dataLoaded.connect(setChestState)
-	setChestState()
-	pass
 
-func setChestState() -> void:
-	isOpen = persistent_data_is_open.value
-	if isOpen:
-		animation_player.play("opened")
-	else:
-		animation_player.play("closed")
 func playerInteract() -> void:
+	# Prevent double-clicking while it's already open
 	if isOpen == true:
 		return
+		
 	isOpen = true
-	persistent_data_is_open.setValue()
 	animation_player.play("open_chest")
-	if item_data and quantity > 0:
-		PlayerManager.INVENTORY_DATA.add_item(item_data, quantity)
-	else:
-		printerr("No items in chest !!")
-		push_error("No items in chest! chest name", name)
-	pass
+	
+	# Connect to the UI's close signal so we know when to shut the lid.
+	# CONNECT_ONE_SHOT ensures it only listens for this specific opening event.
+	ChestMenu.menu_closed.connect(_on_menu_closed, CONNECT_ONE_SHOT)
+	
+	# Open the UI using the RESIDENT EVIL GLOBAL CHEST!
+	ChestMenu.open_chest(PlayerManager.GLOBAL_CHEST_DATA)
+
+func _on_menu_closed() -> void:
+	isOpen = false
+	animation_player.play("close_chest")
+	# Optional: Play a nice heavy wooden "thud" sound effect here!
 
 func onAreaEnter(_a : Area2D) -> void:
 	PlayerManager.interact_pressed.connect(playerInteract)
-	pass
 
 func onAreaExit( _a : Area2D) -> void:
 	PlayerManager.interact_pressed.disconnect(playerInteract)
-	pass
-
-func setItemData( value : ItemData) -> void:
-	item_data = value
-	updateTexture()
-	pass
-
-func setQuantity( value : int ) -> void:
-	quantity = value
-	updateLabel()
-	pass
-
-func updateTexture() -> void:
-	if item_data and sprite : 
-		sprite.texture = item_data.texture
-	pass
-
-func updateLabel() -> void:
-	if label:
-		if quantity <= 1 :
-			label.text = ""
-		else:
-			label.text = "x" + str(quantity)

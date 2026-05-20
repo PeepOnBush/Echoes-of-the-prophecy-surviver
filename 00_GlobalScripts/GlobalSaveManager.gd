@@ -31,7 +31,7 @@ var currentSave : Dictionary = {
 	persistence = [],
 	quests = [],
 	abilities = ["", "", "", ""],
-	
+	global_chest = [],
 	# NEW: Store file paths of unlocked skills (Since we can't save Resource Objects directly)
 	unlocked_upgrades = [] 
 }
@@ -96,10 +96,17 @@ func loadGame() -> void:
 	PlayerManager.INVENTORY_DATA.parseSaveData(currentSave.items)
 	QuestManager.curret_quests = currentSave.quests
 	
+	if currentSave.has("global_chest"):
+		PlayerManager.GLOBAL_CHEST_DATA.parseSaveData(currentSave.global_chest)
+		# Ensure it stays at 36 slots just in case
+		if PlayerManager.GLOBAL_CHEST_DATA.slots.size() != 36:
+			PlayerManager.GLOBAL_CHEST_DATA.slots.resize(36)
+			pass
+		pass
 	# Update HUD/Inventory to match
 	await LevelManager.level_loaded
 	game_loaded.emit()
-
+	pass
 func updatePlayerData() -> void:
 	var p : Player = PlayerManager.player
 	currentSave.player.hp = p.hp
@@ -115,7 +122,7 @@ func updatePlayerData() -> void:
 	currentSave.player.ricochet_amount = p.arrow_ricochet_amount
 	
 	currentSave.abilities = p.player_abilities.abilities
-
+	pass
 func updateMetaProgression() -> void:
 	# Save Global variables that live in PlayerManager/LevelManager
 	#currentSave.currency = PlayerManager.currency
@@ -125,28 +132,29 @@ func updateMetaProgression() -> void:
 	currentSave.unlocked_upgrades = []
 	for upgrade in PlayerManager.unlocked_upgrades:
 		currentSave.unlocked_upgrades.append(upgrade.resource_path)
-
+	pass
 func updateScenePath() -> void:
 	var p : String = ""
 	for c in get_tree().root.get_children():
 		if c is Level:
 			p = c.scene_file_path
 	currentSave.scene_path = p
-
+	pass
 func updateItemData() -> void:
 	currentSave.items = PlayerManager.INVENTORY_DATA.getSaveData()
-
+	currentSave.global_chest = PlayerManager.GLOBAL_CHEST_DATA.getSaveData()
+	pass
 func updateQuestData() -> void:
 	currentSave.quests = QuestManager.curret_quests 
-
+	pass
 func addPersistentValue(value : String) -> void:
 	if checkPersistentValue(value) == false:
 		currentSave.persistence.append(value)
-
+	pass
 func checkPersistentValue(value : String) -> bool:
 	var p = currentSave.persistence as Array
 	return p.has(value)
-
 func removePersistentValue(value : String ) -> void:
 	var p = currentSave.persistence as Array
 	p.erase(value)
+	pass

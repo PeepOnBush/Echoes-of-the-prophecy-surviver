@@ -11,6 +11,7 @@ signal enemy_defeated
 var player : Player
 var playerSpawned : bool = false
 var interact_handled : bool = true
+var GLOBAL_CHEST_DATA : InventoryData = InventoryData.new()
 # The default pool (Basic stats everyone starts with)
 @export var default_upgrades: Array[UpgradeData] = [] 
 # The pool of special skills you bought from Sylvana/Soran
@@ -24,11 +25,12 @@ var current_run_buffs : Dictionary = {
 }
 
 func _ready() -> void:
+	GLOBAL_CHEST_DATA.slots.resize(36) 
 	getDefaultBuff()
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	playerSpawned = true
-
+	pass
 func add_player_instance() -> void:
 	player = PLAYER.instantiate()
 	add_child(player)
@@ -61,7 +63,7 @@ func checkForLevelAdvance() -> void:
 func set_player_position( _new_pos : Vector2 ) -> void:
 	player.global_position = _new_pos
 	pass
-	
+
 func set_as_parent( _p : Node2D) -> void:
 	# 1. Safety Check: Is the player dead/freed?
 	if not is_instance_valid(player):
@@ -72,28 +74,31 @@ func set_as_parent( _p : Node2D) -> void:
 	if player.get_parent():
 		player.get_parent().remove_child(player)
 	_p.add_child( player )
-
+	pass
 func unparent_player(_p : Node2D) -> void:
 	_p.remove_child(player)
-
+	pass
 func play_audio( _audio : AudioStream) -> void:
 	player.audio.stream = _audio
 	player.audio.play()
 	pass
 
 func Interact() -> void:
+	if LevelManager.is_transitioning:
+		return
 	interact_handled = false
 	interact_pressed.emit()
-
+	pass
 func shakeCamera(trauma : float = 1) -> void:
 	@warning_ignore("narrowing_conversion")
 	camera_shook.emit(clampi(trauma,0 ,2))
+	pass
 
 func apply_hitstop(duration: float = 5.0) -> void:
 	get_tree().paused = true
 	await get_tree().create_timer(duration).timeout
 	get_tree().paused = false
-
+	pass
 func resetCameraOnPlayer(tween_duration : float = 0.5) -> void:
 	var camera : Camera2D = get_viewport().get_camera_2d()
 	if camera:
@@ -112,7 +117,7 @@ func unlock_new_upgrade(upgrade: UpgradeData) -> void:
 	if not unlocked_upgrades.has(upgrade):
 		unlocked_upgrades.append(upgrade)
 		# Save game here usually
-
+	pass
 # Helper to check if we already bought it (so we don't buy it twice)
 func has_unlocked(upgrade: UpgradeData) -> bool:
 	return unlocked_upgrades.has(upgrade)
@@ -149,7 +154,7 @@ func add_run_buff(stat_name: String, amount: float) -> void:
 		current_run_buffs[stat_name] += amount
 		print("Meal Eaten! Run Buff added: ", stat_name, " +", amount)
 		# Optional: Play "Burp" sound?
-
+	pass
 # 2. Called when Spawning the Player in the Arena
 # (Add this call inside your add_player_instance or _ready)
 func apply_buffs_to_player_instance() -> void:
@@ -169,9 +174,10 @@ func apply_buffs_to_player_instance() -> void:
 	# Apply Defense
 	if current_run_buffs["DEFENSE"] > 0:
 		player.defense += int(current_run_buffs["DEFENSE"])
-
+	pass
 # 3. Cleanup (Call this when returning to Camp or Dying)
 func reset_run_buffs() -> void:
 	current_run_buffs["MAX_HP"] = 0
 	current_run_buffs["ATTACK"] = 0
 	current_run_buffs["DEFENSE"] = 0
+	pass

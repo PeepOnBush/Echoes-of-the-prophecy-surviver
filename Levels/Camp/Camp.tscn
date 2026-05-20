@@ -66,6 +66,7 @@
 [ext_resource type="Script" uid="uid://b4gdj0uavsrrr" path="res://Levels/Scripts/player_spawn.gd" id="64_glfj8"]
 [ext_resource type="Resource" uid="uid://b7raqtdv4bc5g" path="res://Items/Ingredients_item/GreenOnion.tres" id="65_y74nq"]
 [ext_resource type="Resource" uid="uid://dnl3y8j7alopv" path="res://Items/Ingredients_item/Rosemary.tres" id="66_y74nq"]
+[ext_resource type="PackedScene" uid="uid://do355fxws35sb" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="67_1g3yh"]
 
 [sub_resource type="Gradient" id="Gradient_dedri"]
 offsets = PackedFloat32Array(0, 0.2610063, 0.9968553)
@@ -442,3 +443,6 @@ item_data = ExtResource("65_y74nq")
 [node name="ItemPickup2" parent="." unique_id=500421578 instance=ExtResource("64_8viyp")]
 position = Vector2(-18, 159)
 item_data = ExtResource("66_y74nq")
+
+[node name="TreasureChest" parent="." unique_id=688226965 instance=ExtResource("67_1g3yh")]
+position = Vector2(388, 177)

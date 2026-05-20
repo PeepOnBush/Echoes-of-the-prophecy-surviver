@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://6t7e1bf1pkdo"]
+
+[ext_resource type="Script" uid="uid://x0f1jm8b1l1p" path="res://GUI/pause_menu/chest_inventory/chest_menu.gd" id="1_wjf8a"]
+[ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="2_whd1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvir7"]
+atlas = ExtResource("2_whd1d")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txyoa"]
+texture = SubResource("AtlasTexture_bvir7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whd1d"]
+atlas = ExtResource("2_whd1d")
+region = Rect2(144, 80, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bvir7"]
+texture = SubResource("AtlasTexture_whd1d")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okx6f"]
+atlas = ExtResource("2_whd1d")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxktr"]
+texture = SubResource("AtlasTexture_okx6f")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_okx6f"]
+texture = SubResource("AtlasTexture_whd1d")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="ChestMenu" type="CanvasLayer" unique_id=1239603063]
+script = ExtResource("1_wjf8a")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1238040946]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.596078)
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=501478572]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_top = 7.5
+offset_right = -79.0
+offset_bottom = -18.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=93126644]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_txyoa")
+
+[node name="ChestSide" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=702714915]
+layout_mode = 2
+alignment = 1
+
+[node name="Chest" type="Label" parent="HBoxContainer/PanelContainer/ChestSide" unique_id=1683907549]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_bvir7")
+text = "Chest"
+horizontal_alignment = 1
+
+[node name="ChestGrid" type="GridContainer" parent="HBoxContainer/PanelContainer/ChestSide" unique_id=2053724064]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+columns = 12
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=654749652]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xxktr")
+
+[node name="PlayerSide" type="VBoxContainer" parent="HBoxContainer/PanelContainer2" unique_id=1806590222]
+layout_mode = 2
+alignment = 1
+
+[node name="Backpack" type="Label" parent="HBoxContainer/PanelContainer2/PlayerSide" unique_id=678121497]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_okx6f")
+text = "Backpack"
+horizontal_alignment = 1
+
+[node name="PlayerGrid" type="GridContainer" parent="HBoxContainer/PanelContainer2/PlayerSide" unique_id=843437194]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+columns = 12

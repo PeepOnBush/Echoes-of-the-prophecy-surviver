@@ -10,6 +10,7 @@ var Current_TileMaps_Bounds : Array[Vector2]
 var target_transition : String
 var position_offset : Vector2
 var current_run_difficulty: int = 1
+var is_transitioning: bool = false 
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -25,6 +26,10 @@ func load_new_level(
 	_target_transition : String,
 	_position_offset : Vector2
 ) -> void:
+	if is_transitioning: 
+		return 
+	is_transitioning = true 
+	
 	get_tree().paused = true
 	
 	target_transition = _target_transition

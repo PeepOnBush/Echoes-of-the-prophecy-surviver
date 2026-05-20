@@ -30,7 +30,7 @@ var attack : int = 1 :
 var arrow_count : int = 5 : set = _setArrowCount
 var bomb_count : int = 10 : set = _setBombCount
 var stamina : float = 100.0
-var stamina_regen : float = 5.0 # How much per second
+var stamina_regen : float = 15.0 # How much per second
 var explosive_arrows_unlocked : bool = false
 var crit_chance : float = 0.0 # 0.0 to 1.0 (e.g. 0.1 = 10%)
 var crit_multiplier : float = 2.0 # Default 2x damage
