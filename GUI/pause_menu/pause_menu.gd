@@ -12,7 +12,7 @@ signal preview_stats_change( item : ItemData )
 @onready var btn_load : Button = $Control/TabContainer/System/VBoxContainer/btn_load
 @onready var btn_quit: Button = $Control/TabContainer/System/VBoxContainer/btn_quit
 @onready var btn_menu: Button = $Control/TabContainer/System/VBoxContainer/btn_menu
-@onready var item_description : Label = $Control/TabContainer/Inventory/ItemDescription
+@onready var item_description_panel : ItemDescriptionPanel = $Control/TabContainer/Inventory/ItemDescriptionPanel
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var master_slider: HSlider = %MasterSlider
 @onready var music_slider: HSlider = %MusicSlider
@@ -101,16 +101,17 @@ func onMenuPressed() -> void:
 	LevelManager.load_new_level("res://Menu/Menu2/echoes_of_the_prophecy.gd.tscn","",Vector2(22.0,45.0))
 	pass
 
-func updateItemDescription( newText : String ) -> void:
-	item_description.text = newText
+#func updateItemDescription( newText : String ) -> void:
+	#item_description.text = newText
 
-func focusedItemChanged( slot : SlotData) -> void:
-	if slot:
-		if slot.item_data:
-			updateItemDescription(slot.item_data.description)
-			previewStats(slot.item_data)
-	else :
-		updateItemDescription("")
+func focusedItemChanged(slot: SlotData) -> void:
+	if slot and slot.item_data:
+		# Send the whole ItemData object to our new panel
+		item_description_panel.update_info(slot.item_data)
+		previewStats(slot.item_data)
+	else:
+		# Clear it if hovering an empty slot
+		item_description_panel.clear_info()
 		previewStats(null)
 	pass
 

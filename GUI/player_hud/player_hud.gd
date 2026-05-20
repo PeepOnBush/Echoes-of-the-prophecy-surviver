@@ -5,6 +5,8 @@ extends CanvasLayer
 
 var hearts : Array[HeartGui] = []
 var bars_original_pos: Vector2
+var stamina_tween : Tween
+
 @onready var fishing_minigame: FishingMinigame = $Control/FishingMinigame
 @onready var victory_screen: Control = $Control/VictoryScreen
 @onready var game_over: Control = $Control/GameOver
@@ -345,3 +347,25 @@ func start_fishing_minigame() -> void:
 func start_cooking(recipe : RecipeData) -> void:
 	cooking_minigame.start_cooking(recipe)
 	pass
+func fail_dash_ui() -> void:
+	# 1. KILL THE OLD ANIMATION IF WE ARE SPAMMING
+	if stamina_tween and stamina_tween.is_valid():
+		stamina_tween.kill()
+	
+	# 2. Reset the layout so it pops instantly
+	stamina_bar.pivot_offset = stamina_bar.size / 2.0
+	stamina_bar.modulate = Color(3.0, 0.2, 0.2) # Bright Red
+	stamina_bar.scale = Vector2(1.2, 1.2)
+	
+	# 3. Create the NEW animation and save it to our variable
+	stamina_tween = create_tween()
+	stamina_tween.set_parallel(true)
+	stamina_tween.set_trans(Tween.TRANS_SPRING)
+	stamina_tween.set_ease(Tween.EASE_OUT)
+	
+	stamina_tween.tween_property(stamina_bar, "modulate", Color.WHITE, 0.4)
+	stamina_tween.tween_property(stamina_bar, "scale", Vector2.ONE, 0.4)
+	
+	# (Optional Audio)
+	# audio.stream = preload("res://GUI/shop_menu/Audio/error.wav")
+	# audio.play()

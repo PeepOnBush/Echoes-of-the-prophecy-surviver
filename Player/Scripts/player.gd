@@ -21,6 +21,7 @@ var knockback_multiplier : float = 1.0
 var recoil_velocity: Vector2 = Vector2.ZERO
 var berserker_mode : bool = false
 var invincibility_duration : float = 1.5
+
 var attack : int = 1 :
 	set(v) :
 		attack = v
@@ -29,7 +30,7 @@ var attack : int = 1 :
 var arrow_count : int = 5 : set = _setArrowCount
 var bomb_count : int = 10 : set = _setBombCount
 var stamina : float = 100.0
-var stamina_regen : float = 20.0 # How much per second
+var stamina_regen : float = 5.0 # How much per second
 var explosive_arrows_unlocked : bool = false
 var crit_chance : float = 0.0 # 0.0 to 1.0 (e.g. 0.1 = 10%)
 var crit_multiplier : float = 2.0 # Default 2x damage
@@ -82,22 +83,8 @@ func _process( _delta ):
 
 
 func _physics_process(_delta):
-	## 1. Standard WASD Movement logic
-	## (Your existing direction/velocity code...)
-	#var target_velocity = direction * 100.0 # Or moveSpeed
-	#
-	## 2. Apply Recoil (Add it on top)
-	#if recoil_velocity.length() > 5.0:
-		## Linearly decay the recoil to zero
-		#recoil_velocity = recoil_velocity.lerp(Vector2.ZERO, recoil_friction * _delta)
-		#
-		## Add recoil to your movement
-		## Using target_velocity + recoil allows you to "fight" the recoil with WASD
-		#velocity = target_velocity + recoil_velocity
-	#else:
-		#velocity = target_velocity # Standard movement when recoil is done
 	move_and_slide()
-
+	pass
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("test"):
 		PlayerManager.shakeCamera()

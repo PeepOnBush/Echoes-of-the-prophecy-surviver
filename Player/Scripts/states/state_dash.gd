@@ -12,6 +12,8 @@ var effect_timer : float = 0
 func Enter() -> void:
 	# 1. Check Stamina
 	if player.stamina < 25:
+		# Trigger the UI feedback!
+		PlayerHud.fail_dash_ui()
 		# Go back to idle immediately. 
 		# This triggers Exit(), so we need to handle that gracefully.
 		state_machine.changeState(idle)

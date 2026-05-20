@@ -1,8 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://coc2sqskt4ru6"]
+[gd_scene format=3 uid="uid://coc2sqskt4ru6"]
 
 [ext_resource type="Script" uid="uid://buboql1n8k02i" path="res://GUI/pause_menu/remap_button.gd" id="1_64465"]
+[ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="2_lx28g"]
 
-[node name="RemapButton" type="HBoxContainer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa8it"]
+atlas = ExtResource("2_lx28g")
+region = Rect2(144, 80, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vetmx"]
+texture = SubResource("AtlasTexture_aa8it")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xbfh"]
+atlas = ExtResource("2_lx28g")
+region = Rect2(144, 96, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7xu6"]
+texture = SubResource("AtlasTexture_5xbfh")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mol58"]
+atlas = ExtResource("2_lx28g")
+region = Rect2(144, 112, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q5btt"]
+texture = SubResource("AtlasTexture_mol58")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="RemapButton" type="HBoxContainer" unique_id=885095066]
 anchors_preset = -1
 offset_right = 330.0
 offset_bottom = 40.0
@@ -10,13 +44,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_64465")
 
-[node name="ActionName" type="Label" parent="."]
+[node name="ActionName" type="Label" parent="." unique_id=1323029322]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Action name"
 
-[node name="KeyButton" type="Button" parent="."]
+[node name="KeyButton" type="Button" parent="." unique_id=262271048]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_vetmx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w7xu6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q5btt")
 toggle_mode = true
 text = "key"

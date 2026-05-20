@@ -5,11 +5,62 @@
 [ext_resource type="AudioStream" uid="uid://dx3vr6dacxmh6" path="res://Menu/menu_focus.wav" id="3_1duhk"]
 [ext_resource type="AudioStream" uid="uid://dq2ggomr5nphp" path="res://Menu/menu_select.wav" id="4_fldkk"]
 [ext_resource type="Texture2D" uid="uid://qee1bcdcnskw" path="res://Menu/Menu2/MenuLogo2.png" id="5_pn5ea"]
+[ext_resource type="Texture2D" uid="uid://ibdqtytmwd5h" path="res://GUI/pause_menu/GUI.png" id="6_j0wh5"]
 [ext_resource type="Texture2D" uid="uid://53sej8x2vk3t" path="res://Menu/Menu2/Gaymapreworkin-Sheet.png" id="7_suru8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aldl8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfo08"]
+atlas = ExtResource("6_j0wh5")
+region = Rect2(0, 304, 16, 16)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa0g1"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1duhk"]
+texture = SubResource("AtlasTexture_yfo08")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fldkk"]
+atlas = ExtResource("6_j0wh5")
+region = Rect2(16, 304, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6oald"]
+texture = SubResource("AtlasTexture_fldkk")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vr6k"]
+atlas = ExtResource("6_j0wh5")
+region = Rect2(32, 304, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_suru8"]
+texture = SubResource("AtlasTexture_1vr6k")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0wh5"]
+texture = SubResource("AtlasTexture_yfo08")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfo08"]
+texture = SubResource("AtlasTexture_fldkk")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fldkk"]
+texture = SubResource("AtlasTexture_1vr6k")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="Animation" id="Animation_xw8xv"]
 resource_name = "Menu"
@@ -91,7 +142,9 @@ scale = Vector2(1.67653, 1.50818)
 theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_aldl8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1duhk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6oald")
+theme_override_styles/hover = SubResource("StyleBoxTexture_suru8")
 text = "New Game
 "
 
@@ -103,17 +156,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = 19.0
-offset_right = 7.0
-offset_bottom = 44.0
+offset_left = -61.0
+offset_top = 17.0
+offset_right = 11.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.67653, 1.50818)
 theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wa0g1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_j0wh5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yfo08")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fldkk")
 text = "Continue
 "
 
